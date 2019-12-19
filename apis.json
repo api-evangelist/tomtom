@@ -1,0 +1,73 @@
+{
+    "name": "TomTom",
+    "description": "Global leader in navigation, traffic and map products, GPS Sport Watches and fleet management solutions.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/663-tomtom.jpg",
+    "tags": [
+        "automobiles",
+        "fleet management",
+        "have api"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/tomtom\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "TomTom",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/663-tomtom.jpg",
+            "humanURL": "http:\/\/business.tomtom.com\/en_us\/solutions\/integration\/resources\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/tomtom-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/tomtom-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Blog",
+            "url": "http:\/\/business.tomtom.com\/en_us\/fleet-management\/integration\/blog\/"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/business.tomtom.com\/en_us\/press\/news\/rss"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/tomtom-international"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/tomtom-international"
+        },
+        {
+            "type": "Email",
+            "url": "illegalproduct@tomtom.com"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/tomtom"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/tomtom-international"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/TomTom"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/business.tomtom.com\/en_us\/solutions\/integration\/resources\/"
+        }
+    ]
+}
