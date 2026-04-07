@@ -5,9 +5,9 @@ apis:
   - aid: tomtom:tomtom
     name: TomTom Traffic Incidents API
     tags:
+      - Maps
       - Traffic
       - Transportation
-      - Maps
     humanURL: https://developer.tomtom.com/traffic-api/documentation/traffic-incidents/traffic-incidents-service
     properties:
       - url: https://developer.tomtom.com/traffic-api/documentation/traffic-incidents/traffic-incidents-service
@@ -54,9 +54,9 @@ apis:
         url: https://developer.tomtom.com/parking-availability-api/documentation/tomtom-maps/product-information/introduction
 name: TomTom
 tags:
+  - Maps
   - Traffic
   - Transportation
-  - Maps
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
