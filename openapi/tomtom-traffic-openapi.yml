@@ -1,0 +1,497 @@
+openapi: 3.0.0
+info:
+  title: TomTom Traffic API
+  description: >-
+    The TomTom Traffic API provides real-time traffic data for developer applications.
+    The Traffic Incidents service delivers accurate information about traffic jams,
+    accidents, road closures, and hazards. The Traffic Flow service provides observed
+    speeds and travel times for key roads, updated every minute. Supports raster
+    and vector tile formats for map display.
+  version: 5.0.0
+  contact:
+    name: TomTom Developer Support
+    url: https://developer.tomtom.com/
+servers:
+  - url: https://api.tomtom.com
+    description: TomTom API Production
+security:
+  - api_key: []
+tags:
+  - name: Traffic Incidents
+    description: Real-time traffic incident data
+  - name: Traffic Flow
+    description: Real-time traffic speed and flow data
+  - name: Traffic Tiles
+    description: Raster and vector tiles for map display
+paths:
+  /traffic/services/{versionNumber}/incidentDetails:
+    get:
+      operationId: getIncidentDetails
+      summary: Get Incident Details
+      description: >-
+        Returns detailed information about traffic incidents within a bounding box
+        or around specific coordinates. Includes incident type, delay, description,
+        and affected road segments.
+      tags:
+        - Traffic Incidents
+      parameters:
+        - name: versionNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+            enum: [5]
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+          description: TomTom API key
+        - name: bbox
+          in: query
+          schema:
+            type: string
+          description: Bounding box (minLon,minLat,maxLon,maxLat)
+          example: '-8.671875,36.173357,3.076171,57.040730'
+        - name: fields
+          in: query
+          schema:
+            type: string
+          description: Fields to include in response (JSON path filter)
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: Language for incident descriptions (IETF BCP 47)
+          example: en-GB
+        - name: categoryFilter
+          in: query
+          schema:
+            type: integer
+          description: >-
+            Bitmask for incident categories: 0=Unknown, 1=Accident, 2=Fog,
+            4=Dangerous conditions, 8=Rain, 16=Ice, 32=Jam, 64=Lane closed,
+            128=Road closed, 256=Road works, 512=Wind, 1024=Flooding, 2048=Broken down vehicle
+        - name: timeValidityFilter
+          in: query
+          schema:
+            type: string
+            enum: [present, future]
+          description: Filter by incident time validity
+        - name: t
+          in: query
+          schema:
+            type: string
+          description: Traffic model ID from traffic model endpoint
+      responses:
+        '200':
+          description: Traffic incident details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentDetailsResponse'
+  /traffic/services/{versionNumber}/incidentViewport/{boundingBox}/{overview}/{copyright}/{zoom}/{format}:
+    get:
+      operationId: getIncidentViewport
+      summary: Get Incident Viewport
+      description: Returns a viewport of traffic incidents for a given map area.
+      tags:
+        - Traffic Incidents
+      parameters:
+        - name: versionNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+            enum: [4]
+        - name: boundingBox
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Bounding box coordinates
+        - name: overview
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: copyright
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: zoom
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: format
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [json, jsonp, xml]
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Incident viewport data
+          content:
+            application/json:
+              schema:
+                type: object
+  /traffic/services/{versionNumber}/incidentTile/{style}/{zoom}/{x}/{y}.{format}:
+    get:
+      operationId: getRasterIncidentTile
+      summary: Get Raster Incident Tile
+      description: Returns a raster map tile showing traffic incidents.
+      tags:
+        - Traffic Tiles
+      parameters:
+        - name: versionNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+            enum: [4]
+        - name: style
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [s1, s2, s3, night]
+        - name: zoom
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 22
+        - name: x
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: y
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: format
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [png]
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: t
+          in: query
+          schema:
+            type: string
+          description: Traffic model ID
+      responses:
+        '200':
+          description: PNG raster tile image
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+  /traffic/services/{versionNumber}/flowSegmentData/{style}/{zoom}/json:
+    get:
+      operationId: getFlowSegmentData
+      summary: Get Flow Segment Data
+      description: >-
+        Returns real-time traffic flow information for the road segment closest
+        to the specified coordinates. Includes current speed, freeflow speed,
+        and travel time confidence.
+      tags:
+        - Traffic Flow
+      parameters:
+        - name: versionNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+            enum: [4]
+        - name: style
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [absolute, relative, relative-delay, reduced-sensitivity]
+          description: Traffic flow visualization style
+        - name: zoom
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 22
+        - name: point
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Coordinates to query (lat,lon)
+          example: '52.41072,4.84239'
+        - name: unit
+          in: query
+          schema:
+            type: string
+            enum: [KMPH, MPH]
+          description: Speed unit
+        - name: thickness
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 20
+          description: Segment thickness for display
+        - name: openLr
+          in: query
+          schema:
+            type: boolean
+          description: Include OpenLR encoded location reference
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Traffic flow segment data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlowSegmentResponse'
+  /traffic/map/{versionNumber}/tile/flow/{style}/{zoom}/{x}/{y}.{format}:
+    get:
+      operationId: getRasterFlowTile
+      summary: Get Raster Flow Tile
+      description: Returns a raster map tile visualizing traffic flow conditions.
+      tags:
+        - Traffic Tiles
+      parameters:
+        - name: versionNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+            enum: [4]
+        - name: style
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [absolute, relative, relative-delay, reduced-sensitivity]
+        - name: zoom
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 22
+        - name: x
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: y
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: format
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [png]
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: t
+          in: query
+          schema:
+            type: string
+          description: Traffic model ID
+      responses:
+        '200':
+          description: PNG raster tile
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+  /traffic/map/{versionNumber}/tile/flow/{zoom}/{x}/{y}.pbf:
+    get:
+      operationId: getVectorFlowTile
+      summary: Get Vector Flow Tile
+      description: Returns a vector Protocol Buffer tile with traffic flow data.
+      tags:
+        - Traffic Tiles
+      parameters:
+        - name: versionNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+            enum: [4]
+        - name: zoom
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 22
+        - name: x
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: y
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Protocol Buffer vector tile
+          content:
+            application/vnd.mapbox-vector-tile:
+              schema:
+                type: string
+                format: binary
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: query
+      name: key
+  schemas:
+    IncidentDetailsResponse:
+      type: object
+      properties:
+        incidents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Incident'
+    Incident:
+      type: object
+      properties:
+        type:
+          type: string
+        geometry:
+          type: object
+          properties:
+            type:
+              type: string
+            coordinates:
+              type: array
+        properties:
+          $ref: '#/components/schemas/IncidentProperties'
+    IncidentProperties:
+      type: object
+      properties:
+        id:
+          type: string
+        iconCategory:
+          type: integer
+        magnitudeOfDelay:
+          type: integer
+          description: 0=Unknown, 1=Minor, 2=Moderate, 3=Major, 4=Undefined
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        from:
+          type: string
+        to:
+          type: string
+        length:
+          type: number
+        delay:
+          type: integer
+          description: Delay in seconds
+        roadNumbers:
+          type: array
+          items:
+            type: string
+        timeValidity:
+          type: string
+          enum: [present, future]
+        probabilityOfOccurrence:
+          type: string
+        numberOfReports:
+          type: integer
+        lastReportTime:
+          type: string
+          format: date-time
+        events:
+          type: array
+          items:
+            type: object
+            properties:
+              description:
+                type: string
+              code:
+                type: integer
+              iconCategory:
+                type: integer
+    FlowSegmentResponse:
+      type: object
+      properties:
+        flowSegmentData:
+          type: object
+          properties:
+            frc:
+              type: string
+              description: Functional road class
+            currentSpeed:
+              type: integer
+              description: Current speed in requested unit
+            freeFlowSpeed:
+              type: integer
+              description: Free flow speed in requested unit
+            currentTravelTime:
+              type: integer
+              description: Current travel time in seconds
+            freeFlowTravelTime:
+              type: integer
+              description: Free flow travel time in seconds
+            confidence:
+              type: number
+              description: Confidence in data accuracy (0-1)
+            roadClosure:
+              type: boolean
+            coordinates:
+              type: object
+              properties:
+                coordinate:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      latitude:
+                        type: number
+                      longitude:
+                        type: number
+            openLr:
+              type: string

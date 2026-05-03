@@ -1,0 +1,55 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.tomtom.com/traffic/services/5/incidentDetails",
+    "queryParameters": {
+      "key": "{api_key}",
+      "bbox": "-87.65,41.85,-87.60,41.90",
+      "language": "en-US",
+      "categoryFilter": 255
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "incidents": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "LineString",
+            "coordinates": [
+              [-87.632, 41.876],
+              [-87.631, 41.877]
+            ]
+          },
+          "properties": {
+            "id": "incident-12345",
+            "iconCategory": 6,
+            "magnitudeOfDelay": 3,
+            "startTime": "2026-05-03T08:30:00Z",
+            "endTime": null,
+            "from": "Michigan Ave",
+            "to": "State St",
+            "length": 250,
+            "delay": 480,
+            "roadNumbers": ["US-41"],
+            "timeValidity": "present",
+            "probabilityOfOccurrence": "certain",
+            "numberOfReports": 12,
+            "lastReportTime": "2026-05-03T09:45:00Z",
+            "events": [
+              {
+                "description": "Road works",
+                "code": 501,
+                "iconCategory": 9
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

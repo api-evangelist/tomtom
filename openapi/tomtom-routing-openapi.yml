@@ -1,0 +1,450 @@
+openapi: 3.0.0
+info:
+  title: TomTom Routing API
+  description: >-
+    The TomTom Routing API calculates routes between an origin and destination,
+    supporting up to 150 waypoints, real-time and historical traffic, multiple
+    route types, electric and combustion vehicle optimization, reachable range
+    calculation, and batch routing for multiple route requests.
+  version: 1.0.0
+  contact:
+    name: TomTom Developer Support
+    url: https://developer.tomtom.com/
+servers:
+  - url: https://api.tomtom.com
+    description: TomTom API Production
+security:
+  - api_key: []
+tags:
+  - name: Routing
+    description: Route calculation between locations
+  - name: Reachable Range
+    description: Calculate areas reachable within given constraints
+  - name: Batch Routing
+    description: Multiple route requests in a single call
+paths:
+  /routing/{versionNumber}/calculateRoute/{locations}/{contentType}:
+    get:
+      operationId: calculateRoute
+      summary: Calculate Route
+      description: >-
+        Calculates a route between two or more locations. Supports optimization
+        for fastest, shortest, or eco routes with traffic consideration.
+      tags:
+        - Routing
+      parameters:
+        - name: versionNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+            enum: [1]
+          description: Service version number
+        - name: locations
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Colon-separated list of coordinates (lat,lon:lat,lon)
+          example: '52.50931,13.42936:52.50274,13.43872'
+        - name: contentType
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [json, jsonp, xml]
+        - name: routeType
+          in: query
+          schema:
+            type: string
+            enum: [fastest, shortest, eco, thrilling]
+          description: Optimization type for route calculation
+        - name: traffic
+          in: query
+          schema:
+            type: boolean
+          description: Use real-time traffic data
+        - name: avoid
+          in: query
+          schema:
+            type: string
+          description: Comma-separated list of things to avoid (tollRoads, motorways, ferries, etc.)
+        - name: travelMode
+          in: query
+          schema:
+            type: string
+            enum: [car, truck, taxi, bus, van, motorcycle, bicycle, pedestrian]
+        - name: departAt
+          in: query
+          schema:
+            type: string
+            format: date-time
+          description: Departure time for historical traffic
+        - name: arriveAt
+          in: query
+          schema:
+            type: string
+            format: date-time
+          description: Desired arrival time
+        - name: maxAlternatives
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 5
+          description: Number of alternative routes to return
+        - name: instructionsType
+          in: query
+          schema:
+            type: string
+            enum: [coded, text, tagged]
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: Language tag for instructions (e.g., en-US)
+        - name: vehicleMaxSpeed
+          in: query
+          schema:
+            type: integer
+          description: Maximum speed of the vehicle (km/h)
+        - name: vehicleWeight
+          in: query
+          schema:
+            type: integer
+          description: Vehicle weight (kg)
+        - name: vehicleAxleWeight
+          in: query
+          schema:
+            type: integer
+          description: Weight per axle (kg)
+        - name: vehicleLength
+          in: query
+          schema:
+            type: number
+          description: Vehicle length (meters)
+        - name: vehicleWidth
+          in: query
+          schema:
+            type: number
+          description: Vehicle width (meters)
+        - name: vehicleHeight
+          in: query
+          schema:
+            type: number
+          description: Vehicle height (meters)
+        - name: vehicleCommercial
+          in: query
+          schema:
+            type: boolean
+          description: Whether vehicle is used for commercial purposes
+        - name: vehicleLoadType
+          in: query
+          schema:
+            type: string
+          description: Types of cargo carried
+        - name: computeTravelTimeFor
+          in: query
+          schema:
+            type: string
+            enum: [none, all]
+        - name: sectionType
+          in: query
+          schema:
+            type: string
+        - name: report
+          in: query
+          schema:
+            type: string
+            enum: [effectiveSettings]
+        - name: callback
+          in: query
+          schema:
+            type: string
+          description: Callback function name for JSONP
+      responses:
+        '200':
+          description: Route calculation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteResponse'
+    post:
+      operationId: calculateRoutePost
+      summary: Calculate Route (POST)
+      description: Calculates a route using POST for complex requests with additional body parameters.
+      tags:
+        - Routing
+      parameters:
+        - name: versionNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+            enum: [1]
+        - name: locations
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: contentType
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [json]
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                supportingPoints:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/LatLon'
+                avoidVignette:
+                  type: array
+                  items:
+                    type: string
+                allowVignette:
+                  type: array
+                  items:
+                    type: string
+                avoidAreas:
+                  type: object
+      responses:
+        '200':
+          description: Route calculation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteResponse'
+  /routing/{versionNumber}/calculateReachableRange/{origin}/{contentType}:
+    get:
+      operationId: calculateReachableRange
+      summary: Calculate Reachable Range
+      description: >-
+        Calculates the area reachable from a given origin point within specified
+        time, distance, or fuel/energy constraints.
+      tags:
+        - Reachable Range
+      parameters:
+        - name: versionNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+            enum: [1]
+        - name: origin
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Origin coordinates (lat,lon)
+          example: '52.50931,13.42936'
+        - name: contentType
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [json, jsonp, xml]
+        - name: timeBudgetInSec
+          in: query
+          schema:
+            type: number
+          description: Maximum travel time in seconds
+        - name: distanceBudgetInMeters
+          in: query
+          schema:
+            type: number
+          description: Maximum travel distance in meters
+        - name: fuelBudgetInLiters
+          in: query
+          schema:
+            type: number
+          description: Available fuel in liters
+        - name: energyBudgetInkWh
+          in: query
+          schema:
+            type: number
+          description: Available energy in kWh for EV routing
+        - name: routeType
+          in: query
+          schema:
+            type: string
+            enum: [fastest, shortest, eco]
+        - name: traffic
+          in: query
+          schema:
+            type: boolean
+        - name: travelMode
+          in: query
+          schema:
+            type: string
+            enum: [car, truck, taxi, bus, van, motorcycle, bicycle, pedestrian]
+        - name: departAt
+          in: query
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: Reachable range polygon
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReachableRangeResponse'
+  /routing/{versionNumber}/batch/{contentType}:
+    post:
+      operationId: submitBatchRouting
+      summary: Submit Batch Routing
+      description: Submits multiple route calculation requests as a single batch job.
+      tags:
+        - Batch Routing
+      parameters:
+        - name: versionNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+            enum: [1]
+        - name: contentType
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [json]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - batchItems
+              properties:
+                batchItems:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      query:
+                        type: string
+      responses:
+        '200':
+          description: Synchronous batch result (for small batches)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchResponse'
+        '202':
+          description: Batch job accepted for asynchronous processing
+          headers:
+            Location:
+              schema:
+                type: string
+              description: URL to poll for batch results
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: query
+      name: key
+  schemas:
+    LatLon:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+    RouteResponse:
+      type: object
+      properties:
+        formatVersion:
+          type: string
+        routes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Route'
+    Route:
+      type: object
+      properties:
+        summary:
+          $ref: '#/components/schemas/RouteSummary'
+        legs:
+          type: array
+          items:
+            $ref: '#/components/schemas/RouteLeg'
+        sections:
+          type: array
+          items:
+            type: object
+        guidance:
+          type: object
+    RouteSummary:
+      type: object
+      properties:
+        lengthInMeters:
+          type: integer
+        travelTimeInSeconds:
+          type: integer
+        trafficDelayInSeconds:
+          type: integer
+        trafficLengthInMeters:
+          type: integer
+        departureTime:
+          type: string
+          format: date-time
+        arrivalTime:
+          type: string
+          format: date-time
+        noTrafficTravelTimeInSeconds:
+          type: integer
+        historicTrafficTravelTimeInSeconds:
+          type: integer
+        liveTrafficIncidentsTravelTimeInSeconds:
+          type: integer
+    RouteLeg:
+      type: object
+      properties:
+        summary:
+          $ref: '#/components/schemas/RouteSummary'
+        points:
+          type: array
+          items:
+            $ref: '#/components/schemas/LatLon'
+    ReachableRangeResponse:
+      type: object
+      properties:
+        formatVersion:
+          type: string
+        reachableRange:
+          type: object
+          properties:
+            center:
+              $ref: '#/components/schemas/LatLon'
+            boundary:
+              type: array
+              items:
+                $ref: '#/components/schemas/LatLon'
+    BatchResponse:
+      type: object
+      properties:
+        formatVersion:
+          type: string
+        batchSummary:
+          type: object
+          properties:
+            successfulRequests:
+              type: integer
+            totalRequests:
+              type: integer
+        batchItems:
+          type: array
+          items:
+            type: object

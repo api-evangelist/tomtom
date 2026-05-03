@@ -1,0 +1,132 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "TomTom Traffic API"
+  description: "TomTom Traffic API providing real-time traffic incidents, flow data, and map tiles for route-aware applications."
+  tags:
+    - TomTom
+    - Traffic
+    - Real-Time
+    - Transportation
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+binds:
+  - namespace: env
+    keys:
+      TOMTOM_API_KEY: TOMTOM_API_KEY
+
+capability:
+  consumes:
+    - type: http
+      namespace: tomtom-traffic
+      baseUri: https://api.tomtom.com
+      description: "TomTom Traffic API"
+      authentication:
+        type: apikey
+        key: key
+        value: "{{TOMTOM_API_KEY}}"
+        placement: query
+      resources:
+        - name: incidents
+          path: /traffic/services/5
+          description: "Traffic incident data"
+          operations:
+            - name: get-incident-details
+              method: GET
+              description: "Get real-time traffic incidents within an area"
+              inputParameters:
+                - name: bbox
+                  in: query
+                  type: string
+                  required: false
+                  description: "Bounding box (minLon,minLat,maxLon,maxLat)"
+                - name: language
+                  in: query
+                  type: string
+                  required: false
+                  description: "Language for incident descriptions"
+                - name: categoryFilter
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Bitmask for incident categories"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: flow
+          path: /traffic/services/4
+          description: "Traffic flow data"
+          operations:
+            - name: get-flow-segment-data
+              method: GET
+              description: "Get real-time traffic flow for a road segment"
+              inputParameters:
+                - name: style
+                  in: path
+                  type: string
+                  required: true
+                  description: "Flow visualization style"
+                - name: zoom
+                  in: path
+                  type: integer
+                  required: true
+                  description: "Zoom level"
+                - name: point
+                  in: query
+                  type: string
+                  required: true
+                  description: "Coordinates to query (lat,lon)"
+                - name: unit
+                  in: query
+                  type: string
+                  required: false
+                  description: "Speed unit (KMPH or MPH)"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8103
+      namespace: tomtom-traffic-rest
+      resources:
+        - path: /v1/incidents
+          name: incidents
+          description: "Traffic incidents"
+          operations:
+            - method: GET
+              name: get-incident-details
+              description: "Get traffic incidents"
+              call: "tomtom-traffic.get-incident-details"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9103
+      namespace: tomtom-traffic-mcp
+      transport: http
+      tools:
+        - name: get-traffic-incidents
+          description: "Get real-time traffic incidents for a geographic area"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "tomtom-traffic.get-incident-details"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-flow-segment
+          description: "Get real-time traffic flow speed data for a road segment"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "tomtom-traffic.get-flow-segment-data"
+          outputParameters:
+            - type: object
+              mapping: "$."

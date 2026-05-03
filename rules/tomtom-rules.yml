@@ -1,0 +1,85 @@
+extends: spectral:oas
+rules:
+  # TomTom uses API key authentication
+  tomtom-api-key-required:
+    description: All TomTom API operations must use API key authentication
+    message: API key query parameter 'key' must be defined
+    severity: error
+    given: "$.components.securitySchemes"
+    then:
+      function: defined
+
+  # Version number must be in path
+  tomtom-version-in-path:
+    description: TomTom API paths must include a version number
+    message: Path should include version number (e.g., /routing/{versionNumber}/)
+    severity: warn
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: ".*\\{versionNumber\\}.*"
+
+  # All operations must have operationId
+  tomtom-operation-id-required:
+    description: All operations must have an operationId
+    message: Operation is missing an operationId
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: operationId
+      function: defined
+
+  # OperationIds must use camelCase
+  tomtom-operation-id-camelcase:
+    description: OperationIds must use camelCase
+    message: "{{property}} operationId should use camelCase"
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  # All operations must have tags
+  tomtom-tags-required:
+    description: All operations must be tagged
+    message: Operation is missing tags
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: tags
+      function: defined
+
+  # Summaries must use Title Case
+  tomtom-summary-title-case:
+    description: Operation summaries must use Title Case
+    message: "{{value}} summary should use Title Case"
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][A-Za-z0-9 ()-]*$"
+
+  # Content type path parameters must specify format
+  tomtom-content-type-param:
+    description: Response format path parameters must restrict to valid formats
+    message: Content type path parameter should use enum values
+    severity: info
+    given: "$.paths[*][get,post].parameters[?(@.name == 'contentType' || @.name == 'format' || @.name == 'ext')]"
+    then:
+      field: schema.enum
+      function: defined
+
+  # Response success codes defined
+  tomtom-success-response:
+    description: Operations must define a 200 success response
+    message: Operation should define a 200 success response
+    severity: warn
+    given: "$.paths[*][get,post].responses"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          required: ["200"]

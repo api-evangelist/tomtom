@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/tomtom/json-schema/tomtom-route-schema.json",
+  "title": "TomTom Route",
+  "description": "A calculated route from the TomTom Routing API containing legs, summary, and waypoints.",
+  "type": "object",
+  "properties": {
+    "summary": {
+      "type": "object",
+      "description": "Route summary statistics",
+      "properties": {
+        "lengthInMeters": {
+          "type": "integer",
+          "description": "Total route distance in meters"
+        },
+        "travelTimeInSeconds": {
+          "type": "integer",
+          "description": "Estimated travel time with traffic in seconds"
+        },
+        "trafficDelayInSeconds": {
+          "type": "integer",
+          "description": "Delay due to traffic in seconds"
+        },
+        "trafficLengthInMeters": {
+          "type": "integer",
+          "description": "Length of route affected by traffic in meters"
+        },
+        "departureTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "arrivalTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "noTrafficTravelTimeInSeconds": {
+          "type": "integer"
+        },
+        "historicTrafficTravelTimeInSeconds": {
+          "type": "integer"
+        }
+      }
+    },
+    "legs": {
+      "type": "array",
+      "description": "Route legs between waypoints",
+      "items": {
+        "type": "object",
+        "properties": {
+          "summary": {
+            "$ref": "#/properties/summary"
+          },
+          "points": {
+            "type": "array",
+            "description": "Coordinate points forming the leg geometry",
+            "items": {
+              "type": "object",
+              "required": ["latitude", "longitude"],
+              "properties": {
+                "latitude": { "type": "number" },
+                "longitude": { "type": "number" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

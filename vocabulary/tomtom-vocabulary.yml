@@ -1,0 +1,118 @@
+name: TomTom Vocabulary
+description: Domain vocabulary for TomTom location APIs covering maps, routing, traffic, geocoding, and navigation concepts.
+version: '1.0'
+created: '2026-05-03'
+modified: '2026-05-03'
+tags:
+  - TomTom
+  - Maps
+  - Routing
+  - Traffic
+  - Navigation
+  - Geospatial
+
+terms:
+  - term: Route
+    definition: A calculated path between two or more geographic points, optimized by type (fastest, shortest, eco) with traffic consideration.
+    category: Core Concept
+
+  - term: Waypoint
+    definition: An intermediate geographic coordinate that a route must pass through. TomTom Routing API supports up to 150 waypoints.
+    category: Routing
+
+  - term: Route Type
+    definition: The optimization goal for route calculation. Fastest minimizes travel time, shortest minimizes distance, eco minimizes fuel consumption, thrilling maximizes scenic variety.
+    values:
+      - fastest
+      - shortest
+      - eco
+      - thrilling
+    category: Routing
+
+  - term: Reachable Range
+    definition: The geographic area accessible from an origin within given time, distance, or energy constraints. Returned as a polygon boundary.
+    category: Routing
+
+  - term: Traffic Incident
+    definition: A real-world event affecting traffic flow including accidents, road closures, construction, weather hazards, and jams.
+    category: Traffic
+
+  - term: Traffic Flow
+    definition: Real-time data about vehicle speeds and travel times on road segments, updated every minute.
+    category: Traffic
+
+  - term: Free Flow Speed
+    definition: The typical vehicle speed on a road segment under ideal, uncongested conditions.
+    category: Traffic
+
+  - term: Magnitude of Delay
+    definition: A 0-4 rating of traffic incident severity. 0=Unknown, 1=Minor, 2=Moderate, 3=Major, 4=Undefined.
+    values:
+      - 0: Unknown
+      - 1: Minor
+      - 2: Moderate
+      - 3: Major
+      - 4: Undefined
+    category: Traffic
+
+  - term: Geocoding
+    definition: The process of converting a structured address or place name into geographic coordinates (latitude/longitude).
+    category: Search
+
+  - term: Reverse Geocoding
+    definition: The process of converting geographic coordinates into a human-readable address.
+    category: Search
+
+  - term: Fuzzy Search
+    definition: A search technique that finds results matching approximate or partial queries, handling typos and ambiguous input.
+    category: Search
+
+  - term: Point of Interest
+    definition: A specific named location of interest such as a restaurant, gas station, hospital, or landmark.
+    aliases: [POI]
+    category: Search
+
+  - term: Geofence
+    definition: A virtual geographic boundary defined as a polygon or circle. Triggers events when assets enter or exit the boundary.
+    category: Tracking
+
+  - term: Map Tile
+    definition: A pre-rendered image or vector data segment representing a specific geographic area at a specific zoom level.
+    category: Maps
+
+  - term: Vector Tile
+    definition: A tile format using Protocol Buffers to encode geographic features as vector data rather than rendered images.
+    category: Maps
+
+  - term: Zoom Level
+    definition: An integer (0-22) representing the map scale. Level 0 shows the entire world; level 22 shows individual buildings.
+    category: Maps
+
+  - term: API Key
+    definition: The authentication credential for TomTom APIs, passed as the 'key' query parameter on each request.
+    category: API Concept
+
+  - term: Travel Mode
+    definition: The type of vehicle or transportation mode used for route calculation, affecting road access and speed profiles.
+    values:
+      - car
+      - truck
+      - taxi
+      - bus
+      - van
+      - motorcycle
+      - bicycle
+      - pedestrian
+    category: Routing
+
+  - term: FRC
+    definition: Functional Road Class - a classification of road segments by their role in the road network (0=motorway to 7=local road).
+    category: Traffic
+
+  - term: OpenLR
+    definition: An open standard for encoding and decoding geographic locations for traffic messages, used by TomTom flow segment data.
+    category: Standard
+
+  - term: EV Routing
+    definition: Electric vehicle route calculation that accounts for battery state, charging station locations, and energy consumption models.
+    category: Routing

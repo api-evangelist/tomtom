@@ -1,0 +1,36 @@
+{
+  "name": "Route",
+  "description": "TomTom route calculation result structure",
+  "properties": [
+    {
+      "name": "summary",
+      "type": "object",
+      "description": "Aggregate route statistics",
+      "properties": [
+        { "name": "lengthInMeters", "type": "integer", "description": "Total distance in meters" },
+        { "name": "travelTimeInSeconds", "type": "integer", "description": "Estimated travel time" },
+        { "name": "trafficDelayInSeconds", "type": "integer", "description": "Traffic delay" },
+        { "name": "departureTime", "type": "string", "description": "ISO 8601 departure" },
+        { "name": "arrivalTime", "type": "string", "description": "ISO 8601 arrival" },
+        { "name": "noTrafficTravelTimeInSeconds", "type": "integer" }
+      ]
+    },
+    {
+      "name": "legs",
+      "type": "array<RouteLeg>",
+      "description": "Route segments between waypoints",
+      "properties": [
+        { "name": "summary", "type": "object", "description": "Leg-level statistics" },
+        {
+          "name": "points",
+          "type": "array<Coordinate>",
+          "description": "Geometry coordinates",
+          "properties": [
+            { "name": "latitude", "type": "number" },
+            { "name": "longitude", "type": "number" }
+          ]
+        }
+      ]
+    }
+  ]
+}

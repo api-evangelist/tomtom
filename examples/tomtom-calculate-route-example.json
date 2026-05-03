@@ -1,0 +1,51 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.tomtom.com/routing/1/calculateRoute/52.50931,13.42936:52.50274,13.43872/json",
+    "queryParameters": {
+      "key": "{api_key}",
+      "routeType": "fastest",
+      "traffic": "true",
+      "travelMode": "car"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "formatVersion": "0.0.12",
+      "routes": [
+        {
+          "summary": {
+            "lengthInMeters": 1641,
+            "travelTimeInSeconds": 355,
+            "trafficDelayInSeconds": 0,
+            "trafficLengthInMeters": 0,
+            "departureTime": "2026-05-03T10:00:00+02:00",
+            "arrivalTime": "2026-05-03T10:05:55+02:00",
+            "noTrafficTravelTimeInSeconds": 278,
+            "historicTrafficTravelTimeInSeconds": 278,
+            "liveTrafficIncidentsTravelTimeInSeconds": 278
+          },
+          "legs": [
+            {
+              "summary": {
+                "lengthInMeters": 1641,
+                "travelTimeInSeconds": 355,
+                "departureTime": "2026-05-03T10:00:00+02:00",
+                "arrivalTime": "2026-05-03T10:05:55+02:00"
+              },
+              "points": [
+                { "latitude": 52.50931, "longitude": 13.42936 },
+                { "latitude": 52.50897, "longitude": 13.42965 },
+                { "latitude": 52.50274, "longitude": 13.43872 }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
