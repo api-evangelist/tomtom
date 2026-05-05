@@ -1,0 +1,94 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: TomTom
+providerId: tomtom
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Maps
+  - Routing
+  - Search
+description: 'TomTom Maps API: Freemium with 50K tile + 2.5K non-tile requests/day. Pay-as-you-grow above.'
+sources:
+  - https://developer.tomtom.com/pricing
+plans:
+  - id: tomtom-freemium
+    name: Freemium
+    type: freemium
+    description: 50K tile + 2.5K non-tile requests/day across all products.
+    entries:
+      - label: Tile requests/day
+        name: tiles
+        type: quota
+        metric: request
+        limit: 50000
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Non-tile requests/day
+        name: nontile
+        type: quota
+        metric: request
+        limit: 2500
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: All Maps APIs
+      - name: Free across all products
+      - name: Email support
+  - id: tomtom-payg
+    name: Pay As You Go
+    type: usage-based
+    description: Same free allowance + $0.08 per 1,000 tile requests above.
+    entries:
+      - label: Tile requests/day free
+        name: tiles_free
+        type: quota
+        metric: request
+        limit: 50000
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Tile requests beyond free
+        name: tiles_extra
+        type: metered
+        metric: request
+        limit: -1
+        timeFrame: day
+        geo: global
+        unit: 1000
+        price: '0.08'
+        userMultiplied: false
+    elements:
+      - name: Same free quota
+      - name: Pay above the free tier
+      - name: Volume discounts
+  - id: tomtom-enterprise
+    name: Enterprise
+    type: enterprise
+    description: Custom annual contract.
+    entries:
+      - label: Annual (custom)
+        name: annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Volume commitment
+      - name: Dedicated support
+      - name: SLA enhancements
+      - name: Custom data products (Genesis Maps, automotive)
