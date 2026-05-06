@@ -1,267 +1,505 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
-  label: "TomTom Location Intelligence"
-  description: >-
-    Unified location intelligence capability combining TomTom's Search, Routing, and
-    Traffic APIs. Enables applications and AI agents to search for places, calculate
-    optimized routes, monitor real-time traffic conditions, and build location-aware
+  label: TomTom Location Intelligence
+  description: Unified location intelligence capability combining TomTom's Search, Routing, and Traffic APIs. Enables applications
+    and AI agents to search for places, calculate optimized routes, monitor real-time traffic conditions, and build location-aware
     features for navigation, logistics, and smart city applications.
   tags:
-    - TomTom
-    - Maps
-    - Routing
-    - Traffic
-    - Search
-    - Navigation
-    - Location Intelligence
-  created: "2026-05-03"
-  modified: "2026-05-03"
-
+  - TomTom
+  - Maps
+  - Routing
+  - Traffic
+  - Search
+  - Navigation
+  - Location Intelligence
+  created: '2026-05-03'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      TOMTOM_API_KEY: TOMTOM_API_KEY
-
+- namespace: env
+  keys:
+    TOMTOM_API_KEY: TOMTOM_API_KEY
 capability:
   consumes:
-    - import: tomtom-routing
-      location: ./shared/tomtom-routing.yaml
-    - import: tomtom-search
-      location: ./shared/tomtom-search.yaml
-    - import: tomtom-traffic
-      location: ./shared/tomtom-traffic.yaml
-
+  - type: http
+    namespace: tomtom-routing
+    baseUri: https://api.tomtom.com
+    description: TomTom Routing API
+    authentication:
+      type: apikey
+      key: key
+      value: '{{TOMTOM_API_KEY}}'
+      placement: query
+    resources:
+    - name: routes
+      path: /routing/1
+      description: Route calculation
+      operations:
+      - name: calculate-route
+        method: GET
+        description: Calculate route between locations
+        inputParameters:
+        - name: locations
+          in: path
+          type: string
+          required: true
+          description: Colon-separated coordinates (lat,lon:lat,lon)
+        - name: routeType
+          in: query
+          type: string
+          required: false
+          description: Route optimization type
+        - name: traffic
+          in: query
+          type: boolean
+          required: false
+          description: Use real-time traffic
+        - name: travelMode
+          in: query
+          type: string
+          required: false
+          description: Mode of travel (car, truck, bicycle, etc.)
+        - name: maxAlternatives
+          in: query
+          type: integer
+          required: false
+          description: Number of alternative routes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: calculate-reachable-range
+        method: GET
+        description: Calculate area reachable within time or distance constraints
+        inputParameters:
+        - name: origin
+          in: path
+          type: string
+          required: true
+          description: Origin coordinates (lat,lon)
+        - name: timeBudgetInSec
+          in: query
+          type: number
+          required: false
+          description: Maximum travel time in seconds
+        - name: distanceBudgetInMeters
+          in: query
+          type: number
+          required: false
+          description: Maximum distance in meters
+        - name: energyBudgetInkWh
+          in: query
+          type: number
+          required: false
+          description: Energy budget for EV routing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  - type: http
+    namespace: tomtom-search
+    baseUri: https://api.tomtom.com
+    description: TomTom Search API
+    authentication:
+      type: apikey
+      key: key
+      value: '{{TOMTOM_API_KEY}}'
+      placement: query
+    resources:
+    - name: search
+      path: /search/2
+      description: Location search operations
+      operations:
+      - name: fuzzy-search
+        method: GET
+        description: Fuzzy search for addresses and points of interest
+        inputParameters:
+        - name: query
+          in: path
+          type: string
+          required: true
+          description: Search query string
+        - name: lat
+          in: query
+          type: number
+          required: false
+          description: Latitude for proximity bias
+        - name: lon
+          in: query
+          type: number
+          required: false
+          description: Longitude for proximity bias
+        - name: limit
+          in: query
+          type: integer
+          required: false
+          description: Maximum number of results
+        - name: countrySet
+          in: query
+          type: string
+          required: false
+          description: Comma-separated ISO country codes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: geocode
+        method: GET
+        description: Convert address to geographic coordinates
+        inputParameters:
+        - name: query
+          in: path
+          type: string
+          required: true
+          description: Address to geocode
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: reverse-geocode
+        method: GET
+        description: Convert coordinates to address
+        inputParameters:
+        - name: position
+          in: path
+          type: string
+          required: true
+          description: Coordinates to reverse geocode (lat,lon)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: poi-search
+        method: GET
+        description: Search for points of interest by name or category
+        inputParameters:
+        - name: query
+          in: path
+          type: string
+          required: true
+          description: POI name or category
+        - name: lat
+          in: query
+          type: number
+          required: false
+        - name: lon
+          in: query
+          type: number
+          required: false
+        - name: radius
+          in: query
+          type: integer
+          required: false
+          description: Search radius in meters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  - type: http
+    namespace: tomtom-traffic
+    baseUri: https://api.tomtom.com
+    description: TomTom Traffic API
+    authentication:
+      type: apikey
+      key: key
+      value: '{{TOMTOM_API_KEY}}'
+      placement: query
+    resources:
+    - name: incidents
+      path: /traffic/services/5
+      description: Traffic incident data
+      operations:
+      - name: get-incident-details
+        method: GET
+        description: Get real-time traffic incidents within an area
+        inputParameters:
+        - name: bbox
+          in: query
+          type: string
+          required: false
+          description: Bounding box (minLon,minLat,maxLon,maxLat)
+        - name: language
+          in: query
+          type: string
+          required: false
+          description: Language for incident descriptions
+        - name: categoryFilter
+          in: query
+          type: integer
+          required: false
+          description: Bitmask for incident categories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: flow
+      path: /traffic/services/4
+      description: Traffic flow data
+      operations:
+      - name: get-flow-segment-data
+        method: GET
+        description: Get real-time traffic flow for a road segment
+        inputParameters:
+        - name: style
+          in: path
+          type: string
+          required: true
+          description: Flow visualization style
+        - name: zoom
+          in: path
+          type: integer
+          required: true
+          description: Zoom level
+        - name: point
+          in: query
+          type: string
+          required: true
+          description: Coordinates to query (lat,lon)
+        - name: unit
+          in: query
+          type: string
+          required: false
+          description: Speed unit (KMPH or MPH)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
   exposes:
-    - type: rest
-      port: 8080
-      namespace: tomtom-location-intelligence-api
-      description: "Unified REST API for TomTom location intelligence combining search, routing, and traffic."
-      resources:
-        - path: /v1/search
-          name: search
-          description: "Location and POI search"
-          operations:
-            - method: GET
-              name: fuzzy-search
-              description: "Fuzzy search for addresses and points of interest"
-              call: "tomtom-search.fuzzy-search"
-              with:
-                query: "rest.query"
-                lat: "rest.lat"
-                lon: "rest.lon"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/geocode
-          name: geocode
-          description: "Address geocoding"
-          operations:
-            - method: GET
-              name: geocode
-              description: "Convert address to coordinates"
-              call: "tomtom-search.geocode"
-              with:
-                query: "rest.query"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/reverse-geocode
-          name: reverse-geocode
-          description: "Reverse geocoding"
-          operations:
-            - method: GET
-              name: reverse-geocode
-              description: "Convert coordinates to address"
-              call: "tomtom-search.reverse-geocode"
-              with:
-                position: "rest.position"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/points-of-interest
-          name: points-of-interest
-          description: "POI discovery"
-          operations:
-            - method: GET
-              name: poi-search
-              description: "Search for nearby points of interest"
-              call: "tomtom-search.poi-search"
-              with:
-                query: "rest.query"
-                lat: "rest.lat"
-                lon: "rest.lon"
-                radius: "rest.radius"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/routes
-          name: routes
-          description: "Route calculation"
-          operations:
-            - method: GET
-              name: calculate-route
-              description: "Calculate route between locations"
-              call: "tomtom-routing.calculate-route"
-              with:
-                locations: "rest.locations"
-                routeType: "rest.routeType"
-                traffic: "rest.traffic"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/reachable-range
-          name: reachable-range
-          description: "Reachable area calculation"
-          operations:
-            - method: GET
-              name: calculate-reachable-range
-              description: "Calculate area reachable within constraints"
-              call: "tomtom-routing.calculate-reachable-range"
-              with:
-                origin: "rest.origin"
-                timeBudgetInSec: "rest.timeBudgetInSec"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/traffic-incidents
-          name: traffic-incidents
-          description: "Real-time traffic incidents"
-          operations:
-            - method: GET
-              name: get-traffic-incidents
-              description: "Get real-time traffic incidents"
-              call: "tomtom-traffic.get-incident-details"
-              with:
-                bbox: "rest.bbox"
-                language: "rest.language"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/traffic-flow
-          name: traffic-flow
-          description: "Real-time traffic flow"
-          operations:
-            - method: GET
-              name: get-traffic-flow
-              description: "Get real-time traffic flow for a road segment"
-              call: "tomtom-traffic.get-flow-segment-data"
-              with:
-                point: "rest.point"
-                unit: "rest.unit"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-    - type: mcp
-      port: 9080
-      namespace: tomtom-location-mcp
-      transport: http
-      description: "MCP server for AI-assisted location intelligence with TomTom APIs."
-      tools:
-        - name: search-places
-          description: "Search for addresses and points of interest by name or keyword"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "tomtom-search.fuzzy-search"
-          with:
-            query: "tools.query"
-            lat: "tools.lat"
-            lon: "tools.lon"
-            limit: "tools.limit"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: geocode-address
-          description: "Convert a street address to geographic coordinates (latitude/longitude)"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "tomtom-search.geocode"
-          with:
-            query: "tools.query"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: reverse-geocode-coordinates
-          description: "Convert geographic coordinates to a human-readable street address"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "tomtom-search.reverse-geocode"
-          with:
-            position: "tools.position"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: find-nearby-pois
-          description: "Find points of interest (restaurants, gas stations, parking, etc.) near a location"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "tomtom-search.poi-search"
-          with:
-            query: "tools.query"
-            lat: "tools.lat"
-            lon: "tools.lon"
-            radius: "tools.radius"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: calculate-route
-          description: "Calculate the optimal route between two or more locations with optional traffic and vehicle parameters"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "tomtom-routing.calculate-route"
-          with:
-            locations: "tools.locations"
-            routeType: "tools.routeType"
-            traffic: "tools.traffic"
-            travelMode: "tools.travelMode"
-            maxAlternatives: "tools.maxAlternatives"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: calculate-reachable-range
-          description: "Calculate the geographic area reachable from a point within time or distance limits"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "tomtom-routing.calculate-reachable-range"
-          with:
-            origin: "tools.origin"
-            timeBudgetInSec: "tools.timeBudgetInSec"
-            distanceBudgetInMeters: "tools.distanceBudgetInMeters"
-            energyBudgetInkWh: "tools.energyBudgetInkWh"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: get-traffic-incidents
-          description: "Get real-time traffic incidents, accidents, and road closures for a geographic area"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "tomtom-traffic.get-incident-details"
-          with:
-            bbox: "tools.bbox"
-            language: "tools.language"
-            categoryFilter: "tools.categoryFilter"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: get-traffic-flow
-          description: "Get real-time traffic flow speed and travel time for a road segment near a location"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "tomtom-traffic.get-flow-segment-data"
-          with:
-            point: "tools.point"
-            style: "tools.style"
-            zoom: "tools.zoom"
-            unit: "tools.unit"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8080
+    namespace: tomtom-location-intelligence-api
+    description: Unified REST API for TomTom location intelligence combining search, routing, and traffic.
+    resources:
+    - path: /v1/search
+      name: search
+      description: Location and POI search
+      operations:
+      - method: GET
+        name: fuzzy-search
+        description: Fuzzy search for addresses and points of interest
+        call: tomtom-search.fuzzy-search
+        with:
+          query: rest.query
+          lat: rest.lat
+          lon: rest.lon
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/geocode
+      name: geocode
+      description: Address geocoding
+      operations:
+      - method: GET
+        name: geocode
+        description: Convert address to coordinates
+        call: tomtom-search.geocode
+        with:
+          query: rest.query
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/reverse-geocode
+      name: reverse-geocode
+      description: Reverse geocoding
+      operations:
+      - method: GET
+        name: reverse-geocode
+        description: Convert coordinates to address
+        call: tomtom-search.reverse-geocode
+        with:
+          position: rest.position
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/points-of-interest
+      name: points-of-interest
+      description: POI discovery
+      operations:
+      - method: GET
+        name: poi-search
+        description: Search for nearby points of interest
+        call: tomtom-search.poi-search
+        with:
+          query: rest.query
+          lat: rest.lat
+          lon: rest.lon
+          radius: rest.radius
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routes
+      name: routes
+      description: Route calculation
+      operations:
+      - method: GET
+        name: calculate-route
+        description: Calculate route between locations
+        call: tomtom-routing.calculate-route
+        with:
+          locations: rest.locations
+          routeType: rest.routeType
+          traffic: rest.traffic
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/reachable-range
+      name: reachable-range
+      description: Reachable area calculation
+      operations:
+      - method: GET
+        name: calculate-reachable-range
+        description: Calculate area reachable within constraints
+        call: tomtom-routing.calculate-reachable-range
+        with:
+          origin: rest.origin
+          timeBudgetInSec: rest.timeBudgetInSec
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/traffic-incidents
+      name: traffic-incidents
+      description: Real-time traffic incidents
+      operations:
+      - method: GET
+        name: get-traffic-incidents
+        description: Get real-time traffic incidents
+        call: tomtom-traffic.get-incident-details
+        with:
+          bbox: rest.bbox
+          language: rest.language
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/traffic-flow
+      name: traffic-flow
+      description: Real-time traffic flow
+      operations:
+      - method: GET
+        name: get-traffic-flow
+        description: Get real-time traffic flow for a road segment
+        call: tomtom-traffic.get-flow-segment-data
+        with:
+          point: rest.point
+          unit: rest.unit
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9080
+    namespace: tomtom-location-mcp
+    transport: http
+    description: MCP server for AI-assisted location intelligence with TomTom APIs.
+    tools:
+    - name: search-places
+      description: Search for addresses and points of interest by name or keyword
+      hints:
+        readOnly: true
+        openWorld: true
+      call: tomtom-search.fuzzy-search
+      with:
+        query: tools.query
+        lat: tools.lat
+        lon: tools.lon
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: geocode-address
+      description: Convert a street address to geographic coordinates (latitude/longitude)
+      hints:
+        readOnly: true
+        openWorld: true
+      call: tomtom-search.geocode
+      with:
+        query: tools.query
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: reverse-geocode-coordinates
+      description: Convert geographic coordinates to a human-readable street address
+      hints:
+        readOnly: true
+        openWorld: true
+      call: tomtom-search.reverse-geocode
+      with:
+        position: tools.position
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: find-nearby-pois
+      description: Find points of interest (restaurants, gas stations, parking, etc.) near a location
+      hints:
+        readOnly: true
+        openWorld: true
+      call: tomtom-search.poi-search
+      with:
+        query: tools.query
+        lat: tools.lat
+        lon: tools.lon
+        radius: tools.radius
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: calculate-route
+      description: Calculate the optimal route between two or more locations with optional traffic and vehicle parameters
+      hints:
+        readOnly: true
+        openWorld: true
+      call: tomtom-routing.calculate-route
+      with:
+        locations: tools.locations
+        routeType: tools.routeType
+        traffic: tools.traffic
+        travelMode: tools.travelMode
+        maxAlternatives: tools.maxAlternatives
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: calculate-reachable-range
+      description: Calculate the geographic area reachable from a point within time or distance limits
+      hints:
+        readOnly: true
+        openWorld: true
+      call: tomtom-routing.calculate-reachable-range
+      with:
+        origin: tools.origin
+        timeBudgetInSec: tools.timeBudgetInSec
+        distanceBudgetInMeters: tools.distanceBudgetInMeters
+        energyBudgetInkWh: tools.energyBudgetInkWh
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-traffic-incidents
+      description: Get real-time traffic incidents, accidents, and road closures for a geographic area
+      hints:
+        readOnly: true
+        openWorld: true
+      call: tomtom-traffic.get-incident-details
+      with:
+        bbox: tools.bbox
+        language: tools.language
+        categoryFilter: tools.categoryFilter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-traffic-flow
+      description: Get real-time traffic flow speed and travel time for a road segment near a location
+      hints:
+        readOnly: true
+        openWorld: true
+      call: tomtom-traffic.get-flow-segment-data
+      with:
+        point: tools.point
+        style: tools.style
+        zoom: tools.zoom
+        unit: tools.unit
+      outputParameters:
+      - type: object
+        mapping: $.
