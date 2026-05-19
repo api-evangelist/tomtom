@@ -1,0 +1,269 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TomTom Routing API — Routing
+  description: 'TomTom Routing API — Routing. 2 operations. Lead operation: Calculate Route. Self-contained Naftiko capability
+    covering one Tomtom business surface.'
+  tags:
+  - Tomtom
+  - Routing
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TOMTOM_API_KEY: TOMTOM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: routing-routing
+    baseUri: https://api.tomtom.com
+    description: TomTom Routing API — Routing business capability. Self-contained, no shared references.
+    resources:
+    - name: routing-versionNumber-calculateRoute-locations-contentType
+      path: /routing/{versionNumber}/calculateRoute/{locations}/{contentType}
+      operations:
+      - name: calculateroute
+        method: GET
+        description: Calculate Route
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: versionNumber
+          in: path
+          type: integer
+          description: Service version number
+          required: true
+        - name: locations
+          in: path
+          type: string
+          description: Colon-separated list of coordinates (lat,lon:lat,lon)
+          required: true
+        - name: contentType
+          in: path
+          type: string
+          required: true
+        - name: routeType
+          in: query
+          type: string
+          description: Optimization type for route calculation
+        - name: traffic
+          in: query
+          type: boolean
+          description: Use real-time traffic data
+        - name: avoid
+          in: query
+          type: string
+          description: Comma-separated list of things to avoid (tollRoads, motorways, ferries, etc.)
+        - name: travelMode
+          in: query
+          type: string
+        - name: departAt
+          in: query
+          type: string
+          description: Departure time for historical traffic
+        - name: arriveAt
+          in: query
+          type: string
+          description: Desired arrival time
+        - name: maxAlternatives
+          in: query
+          type: integer
+          description: Number of alternative routes to return
+        - name: instructionsType
+          in: query
+          type: string
+        - name: language
+          in: query
+          type: string
+          description: Language tag for instructions (e.g., en-US)
+        - name: vehicleMaxSpeed
+          in: query
+          type: integer
+          description: Maximum speed of the vehicle (km/h)
+        - name: vehicleWeight
+          in: query
+          type: integer
+          description: Vehicle weight (kg)
+        - name: vehicleAxleWeight
+          in: query
+          type: integer
+          description: Weight per axle (kg)
+        - name: vehicleLength
+          in: query
+          type: number
+          description: Vehicle length (meters)
+        - name: vehicleWidth
+          in: query
+          type: number
+          description: Vehicle width (meters)
+        - name: vehicleHeight
+          in: query
+          type: number
+          description: Vehicle height (meters)
+        - name: vehicleCommercial
+          in: query
+          type: boolean
+          description: Whether vehicle is used for commercial purposes
+        - name: vehicleLoadType
+          in: query
+          type: string
+          description: Types of cargo carried
+        - name: computeTravelTimeFor
+          in: query
+          type: string
+        - name: sectionType
+          in: query
+          type: string
+        - name: report
+          in: query
+          type: string
+        - name: callback
+          in: query
+          type: string
+          description: Callback function name for JSONP
+      - name: calculateroutepost
+        method: POST
+        description: Calculate Route (POST)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: versionNumber
+          in: path
+          type: integer
+          required: true
+        - name: locations
+          in: path
+          type: string
+          required: true
+        - name: contentType
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.TOMTOM_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: routing-routing-rest
+    port: 8080
+    description: REST adapter for TomTom Routing API — Routing. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/routing/{versionnumber}/calculateroute/{locations}/{contenttype}
+      name: routing-versionnumber-calculateroute-locations-contenttype
+      description: REST surface for routing-versionNumber-calculateRoute-locations-contentType.
+      operations:
+      - method: GET
+        name: calculateroute
+        description: Calculate Route
+        call: routing-routing.calculateroute
+        with:
+          versionNumber: rest.versionNumber
+          locations: rest.locations
+          contentType: rest.contentType
+          routeType: rest.routeType
+          traffic: rest.traffic
+          avoid: rest.avoid
+          travelMode: rest.travelMode
+          departAt: rest.departAt
+          arriveAt: rest.arriveAt
+          maxAlternatives: rest.maxAlternatives
+          instructionsType: rest.instructionsType
+          language: rest.language
+          vehicleMaxSpeed: rest.vehicleMaxSpeed
+          vehicleWeight: rest.vehicleWeight
+          vehicleAxleWeight: rest.vehicleAxleWeight
+          vehicleLength: rest.vehicleLength
+          vehicleWidth: rest.vehicleWidth
+          vehicleHeight: rest.vehicleHeight
+          vehicleCommercial: rest.vehicleCommercial
+          vehicleLoadType: rest.vehicleLoadType
+          computeTravelTimeFor: rest.computeTravelTimeFor
+          sectionType: rest.sectionType
+          report: rest.report
+          callback: rest.callback
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: calculateroutepost
+        description: Calculate Route (POST)
+        call: routing-routing.calculateroutepost
+        with:
+          versionNumber: rest.versionNumber
+          locations: rest.locations
+          contentType: rest.contentType
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: routing-routing-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TomTom Routing API — Routing. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: calculate-route
+      description: Calculate Route
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: routing-routing.calculateroute
+      with:
+        versionNumber: tools.versionNumber
+        locations: tools.locations
+        contentType: tools.contentType
+        routeType: tools.routeType
+        traffic: tools.traffic
+        avoid: tools.avoid
+        travelMode: tools.travelMode
+        departAt: tools.departAt
+        arriveAt: tools.arriveAt
+        maxAlternatives: tools.maxAlternatives
+        instructionsType: tools.instructionsType
+        language: tools.language
+        vehicleMaxSpeed: tools.vehicleMaxSpeed
+        vehicleWeight: tools.vehicleWeight
+        vehicleAxleWeight: tools.vehicleAxleWeight
+        vehicleLength: tools.vehicleLength
+        vehicleWidth: tools.vehicleWidth
+        vehicleHeight: tools.vehicleHeight
+        vehicleCommercial: tools.vehicleCommercial
+        vehicleLoadType: tools.vehicleLoadType
+        computeTravelTimeFor: tools.computeTravelTimeFor
+        sectionType: tools.sectionType
+        report: tools.report
+        callback: tools.callback
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: calculate-route-post
+      description: Calculate Route (POST)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: routing-routing.calculateroutepost
+      with:
+        versionNumber: tools.versionNumber
+        locations: tools.locations
+        contentType: tools.contentType
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

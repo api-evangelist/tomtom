@@ -1,0 +1,94 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TomTom Routing API — Batch Routing
+  description: 'TomTom Routing API — Batch Routing. 1 operations. Lead operation: Submit Batch Routing. Self-contained Naftiko
+    capability covering one Tomtom business surface.'
+  tags:
+  - Tomtom
+  - Batch Routing
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TOMTOM_API_KEY: TOMTOM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: routing-batch-routing
+    baseUri: https://api.tomtom.com
+    description: TomTom Routing API — Batch Routing business capability. Self-contained, no shared references.
+    resources:
+    - name: routing-versionNumber-batch-contentType
+      path: /routing/{versionNumber}/batch/{contentType}
+      operations:
+      - name: submitbatchrouting
+        method: POST
+        description: Submit Batch Routing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: versionNumber
+          in: path
+          type: integer
+          required: true
+        - name: contentType
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.TOMTOM_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: routing-batch-routing-rest
+    port: 8080
+    description: REST adapter for TomTom Routing API — Batch Routing. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/routing/{versionnumber}/batch/{contenttype}
+      name: routing-versionnumber-batch-contenttype
+      description: REST surface for routing-versionNumber-batch-contentType.
+      operations:
+      - method: POST
+        name: submitbatchrouting
+        description: Submit Batch Routing
+        call: routing-batch-routing.submitbatchrouting
+        with:
+          versionNumber: rest.versionNumber
+          contentType: rest.contentType
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: routing-batch-routing-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TomTom Routing API — Batch Routing. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: submit-batch-routing
+      description: Submit Batch Routing
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: routing-batch-routing.submitbatchrouting
+      with:
+        versionNumber: tools.versionNumber
+        contentType: tools.contentType
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

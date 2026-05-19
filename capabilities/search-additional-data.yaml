@@ -1,0 +1,95 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Search — Additional Data
+  description: 'Search — Additional Data. 1 operations. Lead operation: Additional Data. Self-contained Naftiko capability
+    covering one Tomtom business surface.'
+  tags:
+  - Tomtom
+  - Additional Data
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TOMTOM_API_KEY: TOMTOM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: search-additional-data
+    baseUri: https://api.tomtom.com
+    description: Search — Additional Data business capability. Self-contained, no shared references.
+    resources:
+    - name: search-versionNumber-additionalData.{ext}
+      path: /search/{versionNumber}/additionalData.{ext}
+      operations:
+      - name: get
+        method: GET
+        description: Additional Data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ext
+          in: path
+          type: string
+          description: Expected response format.
+          required: true
+        - name: geometries
+          in: query
+          type: string
+          description: Comma separated list of geometry UUIDs, previously retrieved from an Search API request.
+          required: true
+        - name: geometriesZoom
+          in: query
+          type: integer
+          description: Defines the precision of the geometries.
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.TOMTOM_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: search-additional-data-rest
+    port: 8080
+    description: REST adapter for Search — Additional Data. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/search/{versionnumber}/additionaldata-ext
+      name: search-versionnumber-additionaldata-ext
+      description: REST surface for search-versionNumber-additionalData.{ext}.
+      operations:
+      - method: GET
+        name: get
+        description: Additional Data
+        call: search-additional-data.get
+        with:
+          ext: rest.ext
+          geometries: rest.geometries
+          geometriesZoom: rest.geometriesZoom
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: search-additional-data-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Search — Additional Data. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: additional-data
+      description: Additional Data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-additional-data.get
+      with:
+        ext: tools.ext
+        geometries: tools.geometries
+        geometriesZoom: tools.geometriesZoom
+      outputParameters:
+      - type: object
+        mapping: $.

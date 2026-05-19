@@ -1,0 +1,114 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Search — Geocoding
+  description: 'Search — Geocoding. 2 operations. Lead operation: Geocode. Self-contained Naftiko capability covering one
+    Tomtom business surface.'
+  tags:
+  - Tomtom
+  - Geocoding
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TOMTOM_API_KEY: TOMTOM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: search-geocoding
+    baseUri: https://api.tomtom.com
+    description: Search — Geocoding business capability. Self-contained, no shared references.
+    resources:
+    - name: search-versionNumber-geocode-query}.{ext
+      path: /search/{versionNumber}/geocode/{query}.{ext}
+      operations:
+      - name: get
+        method: GET
+        description: Geocode
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: path
+          type: string
+          description: Query string. Must be properly URL encoded.
+          required: true
+    - name: search-versionNumber-structuredGeocode.{ext}
+      path: /search/{versionNumber}/structuredGeocode.{ext}
+      operations:
+      - name: get
+        method: GET
+        description: Structured Geocode
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.TOMTOM_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: search-geocoding-rest
+    port: 8080
+    description: REST adapter for Search — Geocoding. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/search/{versionnumber}/geocode/{query-ext}
+      name: search-versionnumber-geocode-query-ext
+      description: REST surface for search-versionNumber-geocode-query}.{ext.
+      operations:
+      - method: GET
+        name: get
+        description: Geocode
+        call: search-geocoding.get
+        with:
+          query: rest.query
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/{versionnumber}/structuredgeocode-ext
+      name: search-versionnumber-structuredgeocode-ext
+      description: REST surface for search-versionNumber-structuredGeocode.{ext}.
+      operations:
+      - method: GET
+        name: get
+        description: Structured Geocode
+        call: search-geocoding.get
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: search-geocoding-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Search — Geocoding. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: geocode
+      description: Geocode
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-geocoding.get
+      with:
+        query: tools.query
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: structured-geocode
+      description: Structured Geocode
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-geocoding.get
+      outputParameters:
+      - type: object
+        mapping: $.

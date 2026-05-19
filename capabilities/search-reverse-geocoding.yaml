@@ -1,0 +1,188 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Search — Reverse Geocoding
+  description: 'Search — Reverse Geocoding. 2 operations. Lead operation: Cross Street Lookup. Self-contained Naftiko capability
+    covering one Tomtom business surface.'
+  tags:
+  - Tomtom
+  - Reverse Geocoding
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TOMTOM_API_KEY: TOMTOM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: search-reverse-geocoding
+    baseUri: https://api.tomtom.com
+    description: Search — Reverse Geocoding business capability. Self-contained, no shared references.
+    resources:
+    - name: search-versionNumber-reverseGeocode-crossStreet-position}.{ext
+      path: /search/{versionNumber}/reverseGeocode/crossStreet/{position}.{ext}
+      operations:
+      - name: get
+        method: GET
+        description: Cross Street Lookup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of cross-streets to return.
+        - name: spatialKeys
+          in: query
+          type: boolean
+          description: If the "spatialKeys" flag is set, the response will also contain a proprietary geospatial keys for
+            a specified location.
+        - name: heading
+          in: query
+          type: number
+          description: The directional heading in degrees, usually similar to the course along a road segment. Entered in
+            degrees, measured clockwise from north (so north is 0, east i
+        - name: radius
+          in: query
+          type: integer
+          description: The maximum distance in meters from the specified position for the reverse geocoder to consider.
+    - name: search-versionNumber-reverseGeocode-position}.{ext
+      path: /search/{versionNumber}/reverseGeocode/{position}.{ext}
+      operations:
+      - name: get
+        method: GET
+        description: Reverse Geocode
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: spatialKeys
+          in: query
+          type: boolean
+          description: If the "spatialKeys" flag is set, the response will also contain a proprietary geospatial keys for
+            a specified location.
+        - name: returnSpeedLimit
+          in: query
+          type: boolean
+          description: To enable return of the posted speed limit (where available).
+        - name: heading
+          in: query
+          type: number
+          description: The directional heading in degrees, usually similar to the course along a road segment. Entered in
+            degrees, measured clockwise from north (so north is 0, east i
+        - name: radius
+          in: query
+          type: integer
+          description: The maximum distance in meters from the specified position for the reverse geocoder to consider.
+        - name: number
+          in: query
+          type: string
+          description: If a number is sent in along with the request, the response may include the side of the street (Left/Right)
+            and an offset position for that number.
+        - name: returnRoadUse
+          in: query
+          type: boolean
+          description: Enables return of the road use array for reverse geocodes at street level.
+        - name: roadUse
+          in: query
+          type: string
+          description: 'Restricts reverse geocodes to a certain type of road use. The road use array for reverse geocodes
+            can be one or more of: ["LimitedAccess", "Arterial", "Terminal'
+        - name: callback
+          in: query
+          type: string
+          description: Specifies the jsonp callback method.
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.TOMTOM_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: search-reverse-geocoding-rest
+    port: 8080
+    description: REST adapter for Search — Reverse Geocoding. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/search/{versionnumber}/reversegeocode/crossstreet/{position-ext}
+      name: search-versionnumber-reversegeocode-crossstreet-position-ext
+      description: REST surface for search-versionNumber-reverseGeocode-crossStreet-position}.{ext.
+      operations:
+      - method: GET
+        name: get
+        description: Cross Street Lookup
+        call: search-reverse-geocoding.get
+        with:
+          limit: rest.limit
+          spatialKeys: rest.spatialKeys
+          heading: rest.heading
+          radius: rest.radius
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/{versionnumber}/reversegeocode/{position-ext}
+      name: search-versionnumber-reversegeocode-position-ext
+      description: REST surface for search-versionNumber-reverseGeocode-position}.{ext.
+      operations:
+      - method: GET
+        name: get
+        description: Reverse Geocode
+        call: search-reverse-geocoding.get
+        with:
+          spatialKeys: rest.spatialKeys
+          returnSpeedLimit: rest.returnSpeedLimit
+          heading: rest.heading
+          radius: rest.radius
+          number: rest.number
+          returnRoadUse: rest.returnRoadUse
+          roadUse: rest.roadUse
+          callback: rest.callback
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: search-reverse-geocoding-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Search — Reverse Geocoding. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: cross-street-lookup
+      description: Cross Street Lookup
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-reverse-geocoding.get
+      with:
+        limit: tools.limit
+        spatialKeys: tools.spatialKeys
+        heading: tools.heading
+        radius: tools.radius
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: reverse-geocode
+      description: Reverse Geocode
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-reverse-geocoding.get
+      with:
+        spatialKeys: tools.spatialKeys
+        returnSpeedLimit: tools.returnSpeedLimit
+        heading: tools.heading
+        radius: tools.radius
+        number: tools.number
+        returnRoadUse: tools.returnRoadUse
+        roadUse: tools.roadUse
+        callback: tools.callback
+      outputParameters:
+      - type: object
+        mapping: $.

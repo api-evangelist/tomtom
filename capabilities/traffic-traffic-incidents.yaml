@@ -1,0 +1,203 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TomTom Traffic API — Traffic Incidents
+  description: 'TomTom Traffic API — Traffic Incidents. 2 operations. Lead operation: Get Incident Details. Self-contained
+    Naftiko capability covering one Tomtom business surface.'
+  tags:
+  - Tomtom
+  - Traffic Incidents
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TOMTOM_API_KEY: TOMTOM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: traffic-traffic-incidents
+    baseUri: https://api.tomtom.com
+    description: TomTom Traffic API — Traffic Incidents business capability. Self-contained, no shared references.
+    resources:
+    - name: traffic-services-versionNumber-incidentDetails
+      path: /traffic/services/{versionNumber}/incidentDetails
+      operations:
+      - name: getincidentdetails
+        method: GET
+        description: Get Incident Details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: versionNumber
+          in: path
+          type: integer
+          required: true
+        - name: key
+          in: query
+          type: string
+          description: TomTom API key
+          required: true
+        - name: bbox
+          in: query
+          type: string
+          description: Bounding box (minLon,minLat,maxLon,maxLat)
+        - name: fields
+          in: query
+          type: string
+          description: Fields to include in response (JSON path filter)
+        - name: language
+          in: query
+          type: string
+          description: Language for incident descriptions (IETF BCP 47)
+        - name: categoryFilter
+          in: query
+          type: integer
+          description: 'Bitmask for incident categories: 0=Unknown, 1=Accident, 2=Fog, 4=Dangerous conditions, 8=Rain, 16=Ice,
+            32=Jam, 64=Lane closed, 128=Road closed, 256=Road works, '
+        - name: timeValidityFilter
+          in: query
+          type: string
+          description: Filter by incident time validity
+        - name: t
+          in: query
+          type: string
+          description: Traffic model ID from traffic model endpoint
+    - name: traffic-services-versionNumber-incidentViewport-boundingBox-overview-copyright-z
+      path: /traffic/services/{versionNumber}/incidentViewport/{boundingBox}/{overview}/{copyright}/{zoom}/{format}
+      operations:
+      - name: getincidentviewport
+        method: GET
+        description: Get Incident Viewport
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: versionNumber
+          in: path
+          type: integer
+          required: true
+        - name: boundingBox
+          in: path
+          type: string
+          description: Bounding box coordinates
+          required: true
+        - name: overview
+          in: path
+          type: string
+          required: true
+        - name: copyright
+          in: path
+          type: string
+          required: true
+        - name: zoom
+          in: path
+          type: integer
+          required: true
+        - name: format
+          in: path
+          type: string
+          required: true
+        - name: key
+          in: query
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.TOMTOM_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: traffic-traffic-incidents-rest
+    port: 8080
+    description: REST adapter for TomTom Traffic API — Traffic Incidents. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/traffic/services/{versionnumber}/incidentdetails
+      name: traffic-services-versionnumber-incidentdetails
+      description: REST surface for traffic-services-versionNumber-incidentDetails.
+      operations:
+      - method: GET
+        name: getincidentdetails
+        description: Get Incident Details
+        call: traffic-traffic-incidents.getincidentdetails
+        with:
+          versionNumber: rest.versionNumber
+          key: rest.key
+          bbox: rest.bbox
+          fields: rest.fields
+          language: rest.language
+          categoryFilter: rest.categoryFilter
+          timeValidityFilter: rest.timeValidityFilter
+          t: rest.t
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/traffic/services/{versionnumber}/incidentviewport/{boundingbox}/{overview}/{copyright}/{zoom}/{format}
+      name: traffic-services-versionnumber-incidentviewport-boundingbox-overview-copyright-z
+      description: REST surface for traffic-services-versionNumber-incidentViewport-boundingBox-overview-copyright-z.
+      operations:
+      - method: GET
+        name: getincidentviewport
+        description: Get Incident Viewport
+        call: traffic-traffic-incidents.getincidentviewport
+        with:
+          versionNumber: rest.versionNumber
+          boundingBox: rest.boundingBox
+          overview: rest.overview
+          copyright: rest.copyright
+          zoom: rest.zoom
+          format: rest.format
+          key: rest.key
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: traffic-traffic-incidents-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TomTom Traffic API — Traffic Incidents. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-incident-details
+      description: Get Incident Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: traffic-traffic-incidents.getincidentdetails
+      with:
+        versionNumber: tools.versionNumber
+        key: tools.key
+        bbox: tools.bbox
+        fields: tools.fields
+        language: tools.language
+        categoryFilter: tools.categoryFilter
+        timeValidityFilter: tools.timeValidityFilter
+        t: tools.t
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-incident-viewport
+      description: Get Incident Viewport
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: traffic-traffic-incidents.getincidentviewport
+      with:
+        versionNumber: tools.versionNumber
+        boundingBox: tools.boundingBox
+        overview: tools.overview
+        copyright: tools.copyright
+        zoom: tools.zoom
+        format: tools.format
+        key: tools.key
+      outputParameters:
+      - type: object
+        mapping: $.

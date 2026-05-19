@@ -1,0 +1,523 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Search — Search
+  description: 'Search — Search. 10 operations. Lead operation: Low Bandwith Category Search. Self-contained Naftiko capability
+    covering one Tomtom business surface.'
+  tags:
+  - Tomtom
+  - Search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TOMTOM_API_KEY: TOMTOM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: search-search
+    baseUri: https://api.tomtom.com
+    description: Search — Search business capability. Self-contained, no shared references.
+    resources:
+    - name: search-versionNumber-cS-category}.{ext
+      path: /search/{versionNumber}/cS/{category}.{ext}
+      operations:
+      - name: get
+        method: GET
+        description: Low Bandwith Category Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: category
+          in: path
+          type: string
+          description: Query string. Must be properly URL encoded.
+          required: true
+    - name: search-versionNumber-categorySearch-query}.{ext
+      path: /search/{versionNumber}/categorySearch/{query}.{ext}
+      operations:
+      - name: get
+        method: GET
+        description: Category Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: path
+          type: string
+          description: Query string. Must be properly URL encoded.
+          required: true
+    - name: search-versionNumber-geometrySearch-query}.{ext
+      path: /search/{versionNumber}/geometrySearch/{query}.{ext}
+      operations:
+      - name: get
+        method: GET
+        description: Geometry Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: path
+          type: string
+          description: Query string. Must be properly URL encoded.
+          required: true
+        - name: geometryList
+          in: query
+          type: string
+          description: List of geometries to filter by. Available types are CIRCLE (with the radius expressed in meters) and
+            POLYGON.
+      - name: post
+        method: POST
+        description: Geometry Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: path
+          type: string
+          description: Query string. Must be properly URL encoded.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: search-versionNumber-nearbySearch-.{ext}
+      path: /search/{versionNumber}/nearbySearch/.{ext}
+      operations:
+      - name: get
+        method: GET
+        description: Nearby Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: lat
+          in: query
+          type: number
+          description: 'Latitude where results should be biased.  '
+          required: true
+        - name: lon
+          in: query
+          type: number
+          description: Longitude where results should be biased
+          required: true
+        - name: radius
+          in: query
+          type: integer
+          description: If radius and position are set, the results will be constrained to the defined area. The radius parameter
+            is specified in meters.
+        - name: topLeft
+          in: query
+          type: string
+          description: Top left position of the bounding box. This is specified as a comma separated string composed of lat.,
+            lon.
+        - name: btmRight
+          in: query
+          type: string
+          description: Bottom right position of the bounding box. This is specified as a comma separated string composed of
+            lat., lon.
+    - name: search-versionNumber-poiSearch-query}.{ext
+      path: /search/{versionNumber}/poiSearch/{query}.{ext}
+      operations:
+      - name: get
+        method: GET
+        description: Points of Interest Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: path
+          type: string
+          description: Query string. Must be properly URL encoded.
+          required: true
+    - name: search-versionNumber-routedSearch-query-position-heading}.{ext
+      path: /search/{versionNumber}/routedSearch/{query}/{position}/{heading}.{ext}
+      operations:
+      - name: get
+        method: GET
+        description: Routed Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: path
+          type: string
+          description: Query string. Must be properly URL encoded.
+          required: true
+        - name: heading
+          in: path
+          type: number
+          description: The directional heading in degrees, usually similar to the course along a road segment. Entered in
+            degrees, measured clockwise from north (so north is 0, east i
+          required: true
+        - name: multiplier
+          in: query
+          type: integer
+          description: Multiplies the limit by N to gather more candidate POIs, which will then be sorted by drive distance,
+            returning only the top candidates according to the limit.
+    - name: search-versionNumber-s-query}.{ext
+      path: /search/{versionNumber}/s/{query}.{ext}
+      operations:
+      - name: get
+        method: GET
+        description: Low Bandwith Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: path
+          type: string
+          description: Query string. Must be properly URL encoded.
+          required: true
+    - name: search-versionNumber-search-query}.{ext
+      path: /search/{versionNumber}/search/{query}.{ext}
+      operations:
+      - name: get
+        method: GET
+        description: Fuzzy Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: path
+          type: string
+          description: Query string. Must be properly URL encoded.
+          required: true
+    - name: search-versionNumber-searchAlongRoute-query}.{ext
+      path: /search/{versionNumber}/searchAlongRoute/{query}.{ext}
+      operations:
+      - name: post
+        method: POST
+        description: Along Route Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: path
+          type: string
+          description: Query string. Must be properly URL encoded.
+          required: true
+        - name: maxDetourTime
+          in: query
+          type: integer
+          description: Maximum detour time
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.TOMTOM_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: search-search-rest
+    port: 8080
+    description: REST adapter for Search — Search. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/search/{versionnumber}/cs/{category-ext}
+      name: search-versionnumber-cs-category-ext
+      description: REST surface for search-versionNumber-cS-category}.{ext.
+      operations:
+      - method: GET
+        name: get
+        description: Low Bandwith Category Search
+        call: search-search.get
+        with:
+          category: rest.category
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/{versionnumber}/categorysearch/{query-ext}
+      name: search-versionnumber-categorysearch-query-ext
+      description: REST surface for search-versionNumber-categorySearch-query}.{ext.
+      operations:
+      - method: GET
+        name: get
+        description: Category Search
+        call: search-search.get
+        with:
+          query: rest.query
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/{versionnumber}/geometrysearch/{query-ext}
+      name: search-versionnumber-geometrysearch-query-ext
+      description: REST surface for search-versionNumber-geometrySearch-query}.{ext.
+      operations:
+      - method: GET
+        name: get
+        description: Geometry Search
+        call: search-search.get
+        with:
+          query: rest.query
+          geometryList: rest.geometryList
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Geometry Search
+        call: search-search.post
+        with:
+          query: rest.query
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/{versionnumber}/nearbysearch/ext
+      name: search-versionnumber-nearbysearch-ext
+      description: REST surface for search-versionNumber-nearbySearch-.{ext}.
+      operations:
+      - method: GET
+        name: get
+        description: Nearby Search
+        call: search-search.get
+        with:
+          lat: rest.lat
+          lon: rest.lon
+          radius: rest.radius
+          topLeft: rest.topLeft
+          btmRight: rest.btmRight
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/{versionnumber}/poisearch/{query-ext}
+      name: search-versionnumber-poisearch-query-ext
+      description: REST surface for search-versionNumber-poiSearch-query}.{ext.
+      operations:
+      - method: GET
+        name: get
+        description: Points of Interest Search
+        call: search-search.get
+        with:
+          query: rest.query
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/{versionnumber}/routedsearch/{query}/{position}/{heading-ext}
+      name: search-versionnumber-routedsearch-query-position-heading-ext
+      description: REST surface for search-versionNumber-routedSearch-query-position-heading}.{ext.
+      operations:
+      - method: GET
+        name: get
+        description: Routed Search
+        call: search-search.get
+        with:
+          query: rest.query
+          heading: rest.heading
+          multiplier: rest.multiplier
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/{versionnumber}/s/{query-ext}
+      name: search-versionnumber-s-query-ext
+      description: REST surface for search-versionNumber-s-query}.{ext.
+      operations:
+      - method: GET
+        name: get
+        description: Low Bandwith Search
+        call: search-search.get
+        with:
+          query: rest.query
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/{versionnumber}/search/{query-ext}
+      name: search-versionnumber-search-query-ext
+      description: REST surface for search-versionNumber-search-query}.{ext.
+      operations:
+      - method: GET
+        name: get
+        description: Fuzzy Search
+        call: search-search.get
+        with:
+          query: rest.query
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/{versionnumber}/searchalongroute/{query-ext}
+      name: search-versionnumber-searchalongroute-query-ext
+      description: REST surface for search-versionNumber-searchAlongRoute-query}.{ext.
+      operations:
+      - method: POST
+        name: post
+        description: Along Route Search
+        call: search-search.post
+        with:
+          query: rest.query
+          maxDetourTime: rest.maxDetourTime
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: search-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Search — Search. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: low-bandwith-category-search
+      description: Low Bandwith Category Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-search.get
+      with:
+        category: tools.category
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: category-search
+      description: Category Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-search.get
+      with:
+        query: tools.query
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: geometry-search
+      description: Geometry Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-search.get
+      with:
+        query: tools.query
+        geometryList: tools.geometryList
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: geometry-search-2
+      description: Geometry Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: search-search.post
+      with:
+        query: tools.query
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: nearby-search
+      description: Nearby Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-search.get
+      with:
+        lat: tools.lat
+        lon: tools.lon
+        radius: tools.radius
+        topLeft: tools.topLeft
+        btmRight: tools.btmRight
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: points-interest-search
+      description: Points of Interest Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-search.get
+      with:
+        query: tools.query
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: routed-search
+      description: Routed Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-search.get
+      with:
+        query: tools.query
+        heading: tools.heading
+        multiplier: tools.multiplier
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: low-bandwith-search
+      description: Low Bandwith Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-search.get
+      with:
+        query: tools.query
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fuzzy-search
+      description: Fuzzy Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-search.get
+      with:
+        query: tools.query
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: along-route-search
+      description: Along Route Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: search-search.post
+      with:
+        query: tools.query
+        maxDetourTime: tools.maxDetourTime
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
