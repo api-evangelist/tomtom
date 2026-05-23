@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ReachableRangeResponse",
+  "title": "ReachableRangeResponse",
+  "type": "object",
+  "properties": {
+    "formatVersion": {
+      "type": "string"
+    },
+    "reachableRange": {
+      "type": "object",
+      "properties": {
+        "center": {
+          "$ref": "#/components/schemas/LatLon"
+        },
+        "boundary": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/LatLon"
+          }
+        }
+      }
+    }
+  }
+}

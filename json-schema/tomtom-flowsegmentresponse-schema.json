@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FlowSegmentResponse",
+  "title": "FlowSegmentResponse",
+  "type": "object",
+  "properties": {
+    "flowSegmentData": {
+      "type": "object",
+      "properties": {
+        "frc": {
+          "type": "string",
+          "description": "Functional road class"
+        },
+        "currentSpeed": {
+          "type": "integer",
+          "description": "Current speed in requested unit"
+        },
+        "freeFlowSpeed": {
+          "type": "integer",
+          "description": "Free flow speed in requested unit"
+        },
+        "currentTravelTime": {
+          "type": "integer",
+          "description": "Current travel time in seconds"
+        },
+        "freeFlowTravelTime": {
+          "type": "integer",
+          "description": "Free flow travel time in seconds"
+        },
+        "confidence": {
+          "type": "number",
+          "description": "Confidence in data accuracy (0-1)"
+        },
+        "roadClosure": {
+          "type": "boolean"
+        },
+        "coordinates": {
+          "type": "object",
+          "properties": {
+            "coordinate": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "latitude": {
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "openLr": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

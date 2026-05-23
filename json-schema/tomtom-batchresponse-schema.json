@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BatchResponse",
+  "title": "BatchResponse",
+  "type": "object",
+  "properties": {
+    "formatVersion": {
+      "type": "string"
+    },
+    "batchSummary": {
+      "type": "object",
+      "properties": {
+        "successfulRequests": {
+          "type": "integer"
+        },
+        "totalRequests": {
+          "type": "integer"
+        }
+      }
+    },
+    "batchItems": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

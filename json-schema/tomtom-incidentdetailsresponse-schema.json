@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/IncidentDetailsResponse",
+  "title": "IncidentDetailsResponse",
+  "type": "object",
+  "properties": {
+    "incidents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Incident"
+      }
+    }
+  }
+}

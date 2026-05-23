@@ -1,0 +1,182 @@
+{
+  "provider": "TomTom",
+  "providerId": "tomtom",
+  "kind": "json-structure",
+  "description": "Structural overview of the TomTom API surface; extracted from openapi/.",
+  "schemaCount": 0,
+  "operationCount": 19,
+  "schemas": [],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/search/{versionNumber}/additionalData.{ext}",
+      "operationId": null,
+      "summary": "Additional Data",
+      "tags": [
+        "Additional Data"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/search/{versionNumber}/cS/{category}.{ext}",
+      "operationId": null,
+      "summary": "Low Bandwith Category Search",
+      "tags": [
+        "Search"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/search/{versionNumber}/categorySearch/{query}.{ext}",
+      "operationId": null,
+      "summary": "Category Search",
+      "tags": [
+        "Search"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/search/{versionNumber}/geocode/{query}.{ext}",
+      "operationId": null,
+      "summary": "Geocode",
+      "tags": [
+        "Geocoding"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/search/{versionNumber}/geometryFilter.{ext}",
+      "operationId": null,
+      "summary": "Geometry Filter",
+      "tags": [
+        "Filters"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/search/{versionNumber}/geometryFilter.{ext}",
+      "operationId": null,
+      "summary": "Geometry Filter",
+      "tags": [
+        "Filters"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/search/{versionNumber}/geometrySearch/{query}.{ext}",
+      "operationId": null,
+      "summary": "Geometry Search",
+      "tags": [
+        "Search"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/search/{versionNumber}/geometrySearch/{query}.{ext}",
+      "operationId": null,
+      "summary": "Geometry Search",
+      "tags": [
+        "Search"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/search/{versionNumber}/nearbySearch/.{ext}",
+      "operationId": null,
+      "summary": "Nearby Search",
+      "tags": [
+        "Search"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/search/{versionNumber}/poiSearch/{query}.{ext}",
+      "operationId": null,
+      "summary": "Points of Interest Search",
+      "tags": [
+        "Search"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/search/{versionNumber}/reverseGeocode/crossStreet/{position}.{ext}",
+      "operationId": null,
+      "summary": "Cross Street Lookup",
+      "tags": [
+        "Reverse Geocoding"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/search/{versionNumber}/reverseGeocode/{position}.{ext}",
+      "operationId": null,
+      "summary": "Reverse Geocode",
+      "tags": [
+        "Reverse Geocoding"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/search/{versionNumber}/routedFilter/{position}/{heading}.{ext}",
+      "operationId": null,
+      "summary": "Routed Filter",
+      "tags": [
+        "Filters"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/search/{versionNumber}/routedFilter/{position}/{heading}.{ext}",
+      "operationId": null,
+      "summary": "Routed Filter",
+      "tags": [
+        "Filters"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/search/{versionNumber}/routedSearch/{query}/{position}/{heading}.{ext}",
+      "operationId": null,
+      "summary": "Routed Search",
+      "tags": [
+        "Search"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/search/{versionNumber}/s/{query}.{ext}",
+      "operationId": null,
+      "summary": "Low Bandwith Search",
+      "tags": [
+        "Search"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/search/{versionNumber}/search/{query}.{ext}",
+      "operationId": null,
+      "summary": "Fuzzy Search",
+      "tags": [
+        "Search"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/search/{versionNumber}/searchAlongRoute/{query}.{ext}",
+      "operationId": null,
+      "summary": "Along Route Search",
+      "tags": [
+        "Search"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/search/{versionNumber}/structuredGeocode.{ext}",
+      "operationId": null,
+      "summary": "Structured Geocode",
+      "tags": [
+        "Geocoding"
+      ]
+    }
+  ]
+}

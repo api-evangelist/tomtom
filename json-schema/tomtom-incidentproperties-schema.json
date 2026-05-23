@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/IncidentProperties",
+  "title": "IncidentProperties",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "iconCategory": {
+      "type": "integer"
+    },
+    "magnitudeOfDelay": {
+      "type": "integer",
+      "description": "0=Unknown, 1=Minor, 2=Moderate, 3=Major, 4=Undefined"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "endTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "from": {
+      "type": "string"
+    },
+    "to": {
+      "type": "string"
+    },
+    "length": {
+      "type": "number"
+    },
+    "delay": {
+      "type": "integer",
+      "description": "Delay in seconds"
+    },
+    "roadNumbers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "timeValidity": {
+      "type": "string",
+      "enum": [
+        "present",
+        "future"
+      ]
+    },
+    "probabilityOfOccurrence": {
+      "type": "string"
+    },
+    "numberOfReports": {
+      "type": "integer"
+    },
+    "lastReportTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "code": {
+            "type": "integer"
+          },
+          "iconCategory": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}
