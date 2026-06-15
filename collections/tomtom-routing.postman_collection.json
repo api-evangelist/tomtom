@@ -1,0 +1,954 @@
+{
+  "item": [
+    {
+      "id": "ff5f7552-c4b2-4ca6-ae91-8ce881811326",
+      "name": "Routing",
+      "description": {
+        "content": "Route calculation between locations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5a462922-6cfa-4ab6-9d03-f932d3f03f3d",
+          "name": "Calculate Route",
+          "request": {
+            "name": "Calculate Route",
+            "description": {
+              "content": "Calculates a route between two or more locations. Supports optimization for fastest, shortest, or eco routes with traffic consideration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routing",
+                ":versionNumber",
+                "calculateRoute",
+                ":locations",
+                ":contentType"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "routeType",
+                  "value": "<string>",
+                  "description": "Optimization type for route calculation"
+                },
+                {
+                  "disabled": false,
+                  "key": "traffic",
+                  "value": "<boolean>",
+                  "description": "Use real-time traffic data"
+                },
+                {
+                  "disabled": false,
+                  "key": "avoid",
+                  "value": "<string>",
+                  "description": "Comma-separated list of things to avoid (tollRoads, motorways, ferries, etc.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "travelMode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "departAt",
+                  "value": "<dateTime>",
+                  "description": "Departure time for historical traffic"
+                },
+                {
+                  "disabled": false,
+                  "key": "arriveAt",
+                  "value": "<dateTime>",
+                  "description": "Desired arrival time"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxAlternatives",
+                  "value": "<integer>",
+                  "description": "Number of alternative routes to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "instructionsType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Language tag for instructions (e.g., en-US)"
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleMaxSpeed",
+                  "value": "<integer>",
+                  "description": "Maximum speed of the vehicle (km/h)"
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleWeight",
+                  "value": "<integer>",
+                  "description": "Vehicle weight (kg)"
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleAxleWeight",
+                  "value": "<integer>",
+                  "description": "Weight per axle (kg)"
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleLength",
+                  "value": "<number>",
+                  "description": "Vehicle length (meters)"
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleWidth",
+                  "value": "<number>",
+                  "description": "Vehicle width (meters)"
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleHeight",
+                  "value": "<number>",
+                  "description": "Vehicle height (meters)"
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleCommercial",
+                  "value": "<boolean>",
+                  "description": "Whether vehicle is used for commercial purposes"
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleLoadType",
+                  "value": "<string>",
+                  "description": "Types of cargo carried"
+                },
+                {
+                  "disabled": false,
+                  "key": "computeTravelTimeFor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sectionType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "report",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "callback",
+                  "value": "<string>",
+                  "description": "Callback function name for JSONP"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) Service version number"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locations",
+                  "description": "(Required) Colon-separated list of coordinates (lat,lon:lat,lon)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contentType",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a053e59-b5ed-4b52-8cfa-c1a6f24d02ed",
+              "name": "Route calculation result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    ":versionNumber",
+                    "calculateRoute",
+                    ":locations",
+                    ":contentType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "routeType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "traffic",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "avoid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelMode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "departAt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "arriveAt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "maxAlternatives",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "instructionsType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "vehicleMaxSpeed",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vehicleWeight",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vehicleAxleWeight",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vehicleLength",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "vehicleWidth",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "vehicleHeight",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "vehicleCommercial",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "vehicleLoadType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "computeTravelTimeFor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sectionType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "report",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locations",
+                      "description": "(Required) Colon-separated list of coordinates (lat,lon:lat,lon)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contentType",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"formatVersion\": \"string\",\n  \"routes\": [\n    {\n      \"summary\": {\n        \"lengthInMeters\": 6294,\n        \"travelTimeInSeconds\": 6043,\n        \"trafficDelayInSeconds\": 7592,\n        \"trafficLengthInMeters\": 8486,\n        \"departureTime\": \"1997-02-05T01:55:38.602Z\",\n        \"arrivalTime\": \"1970-11-19T01:34:20.276Z\",\n        \"noTrafficTravelTimeInSeconds\": 404,\n        \"historicTrafficTravelTimeInSeconds\": 5962,\n        \"liveTrafficIncidentsTravelTimeInSeconds\": 160\n      },\n      \"legs\": [\n        {\n          \"summary\": {\n            \"lengthInMeters\": 5503,\n            \"travelTimeInSeconds\": 3292,\n            \"trafficDelayInSeconds\": 2825,\n            \"trafficLengthInMeters\": 8049,\n            \"departureTime\": \"2017-06-19T16:41:02.139Z\",\n            \"arrivalTime\": \"1988-08-25T16:49:19.355Z\",\n            \"noTrafficTravelTimeInSeconds\": 4717,\n            \"historicTrafficTravelTimeInSeconds\": 5100,\n            \"liveTrafficIncidentsTravelTimeInSeconds\": 3598\n          },\n          \"points\": [\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"summary\": {\n            \"lengthInMeters\": 6137,\n            \"travelTimeInSeconds\": 1817,\n            \"trafficDelayInSeconds\": 2466,\n            \"trafficLengthInMeters\": 2978,\n            \"departureTime\": \"1965-01-12T16:53:29.203Z\",\n            \"arrivalTime\": \"2012-06-12T08:35:25.803Z\",\n            \"noTrafficTravelTimeInSeconds\": 1566,\n            \"historicTrafficTravelTimeInSeconds\": 1633,\n            \"liveTrafficIncidentsTravelTimeInSeconds\": 8631\n          },\n          \"points\": [\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"guidance\": {}\n    },\n    {\n      \"summary\": {\n        \"lengthInMeters\": 3968,\n        \"travelTimeInSeconds\": 6468,\n        \"trafficDelayInSeconds\": 1000,\n        \"trafficLengthInMeters\": 7867,\n        \"departureTime\": \"2019-08-25T10:55:35.926Z\",\n        \"arrivalTime\": \"1953-11-04T18:52:38.375Z\",\n        \"noTrafficTravelTimeInSeconds\": 7132,\n        \"historicTrafficTravelTimeInSeconds\": 1739,\n        \"liveTrafficIncidentsTravelTimeInSeconds\": 2490\n      },\n      \"legs\": [\n        {\n          \"summary\": {\n            \"lengthInMeters\": 2019,\n            \"travelTimeInSeconds\": 6295,\n            \"trafficDelayInSeconds\": 1434,\n            \"trafficLengthInMeters\": 6064,\n            \"departureTime\": \"2021-12-18T20:50:32.724Z\",\n            \"arrivalTime\": \"1996-12-07T07:31:11.386Z\",\n            \"noTrafficTravelTimeInSeconds\": 4479,\n            \"historicTrafficTravelTimeInSeconds\": 6486,\n            \"liveTrafficIncidentsTravelTimeInSeconds\": 5118\n          },\n          \"points\": [\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"summary\": {\n            \"lengthInMeters\": 8224,\n            \"travelTimeInSeconds\": 7998,\n            \"trafficDelayInSeconds\": 7642,\n            \"trafficLengthInMeters\": 8791,\n            \"departureTime\": \"1974-02-08T18:21:08.594Z\",\n            \"arrivalTime\": \"2007-05-07T16:18:17.027Z\",\n            \"noTrafficTravelTimeInSeconds\": 6955,\n            \"historicTrafficTravelTimeInSeconds\": 4195,\n            \"liveTrafficIncidentsTravelTimeInSeconds\": 3548\n          },\n          \"points\": [\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"guidance\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98c373ad-7af9-44db-8420-fb3ec67bef56",
+          "name": "Calculate Route (POST)",
+          "request": {
+            "name": "Calculate Route (POST)",
+            "description": {
+              "content": "Calculates a route using POST for complex requests with additional body parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routing",
+                ":versionNumber",
+                "calculateRoute",
+                ":locations",
+                ":contentType"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locations",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contentType",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"supportingPoints\": [\n    {\n      \"latitude\": \"<double>\",\n      \"longitude\": \"<double>\"\n    },\n    {\n      \"latitude\": \"<double>\",\n      \"longitude\": \"<double>\"\n    }\n  ],\n  \"avoidVignette\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"allowVignette\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"avoidAreas\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "de698b6a-55f5-4cc1-9009-23439938a284",
+              "name": "Route calculation result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    ":versionNumber",
+                    "calculateRoute",
+                    ":locations",
+                    ":contentType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locations",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contentType",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"supportingPoints\": [\n    {\n      \"latitude\": \"<double>\",\n      \"longitude\": \"<double>\"\n    },\n    {\n      \"latitude\": \"<double>\",\n      \"longitude\": \"<double>\"\n    }\n  ],\n  \"avoidVignette\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"allowVignette\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"avoidAreas\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"formatVersion\": \"string\",\n  \"routes\": [\n    {\n      \"summary\": {\n        \"lengthInMeters\": 6135,\n        \"travelTimeInSeconds\": 4390,\n        \"trafficDelayInSeconds\": 7377,\n        \"trafficLengthInMeters\": 1939,\n        \"departureTime\": \"1974-08-08T15:45:25.973Z\",\n        \"arrivalTime\": \"1951-06-26T19:25:53.643Z\",\n        \"noTrafficTravelTimeInSeconds\": 6881,\n        \"historicTrafficTravelTimeInSeconds\": 3708,\n        \"liveTrafficIncidentsTravelTimeInSeconds\": 3387\n      },\n      \"legs\": [\n        {\n          \"summary\": {\n            \"lengthInMeters\": 1178,\n            \"travelTimeInSeconds\": 5250,\n            \"trafficDelayInSeconds\": 2104,\n            \"trafficLengthInMeters\": 188,\n            \"departureTime\": \"1959-03-28T15:28:21.765Z\",\n            \"arrivalTime\": \"1969-06-03T05:37:01.229Z\",\n            \"noTrafficTravelTimeInSeconds\": 5083,\n            \"historicTrafficTravelTimeInSeconds\": 5138,\n            \"liveTrafficIncidentsTravelTimeInSeconds\": 6353\n          },\n          \"points\": [\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"summary\": {\n            \"lengthInMeters\": 2392,\n            \"travelTimeInSeconds\": 1036,\n            \"trafficDelayInSeconds\": 5810,\n            \"trafficLengthInMeters\": 2231,\n            \"departureTime\": \"1988-11-29T13:27:33.826Z\",\n            \"arrivalTime\": \"1997-06-03T03:18:22.037Z\",\n            \"noTrafficTravelTimeInSeconds\": 4702,\n            \"historicTrafficTravelTimeInSeconds\": 6841,\n            \"liveTrafficIncidentsTravelTimeInSeconds\": 8330\n          },\n          \"points\": [\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"guidance\": {}\n    },\n    {\n      \"summary\": {\n        \"lengthInMeters\": 2399,\n        \"travelTimeInSeconds\": 3725,\n        \"trafficDelayInSeconds\": 2132,\n        \"trafficLengthInMeters\": 6023,\n        \"departureTime\": \"1977-01-01T19:31:26.886Z\",\n        \"arrivalTime\": \"1952-04-05T22:29:57.845Z\",\n        \"noTrafficTravelTimeInSeconds\": 6875,\n        \"historicTrafficTravelTimeInSeconds\": 3562,\n        \"liveTrafficIncidentsTravelTimeInSeconds\": 5960\n      },\n      \"legs\": [\n        {\n          \"summary\": {\n            \"lengthInMeters\": 250,\n            \"travelTimeInSeconds\": 6994,\n            \"trafficDelayInSeconds\": 8115,\n            \"trafficLengthInMeters\": 8485,\n            \"departureTime\": \"2004-04-09T09:01:14.136Z\",\n            \"arrivalTime\": \"1969-03-07T06:40:08.151Z\",\n            \"noTrafficTravelTimeInSeconds\": 4763,\n            \"historicTrafficTravelTimeInSeconds\": 9941,\n            \"liveTrafficIncidentsTravelTimeInSeconds\": 9063\n          },\n          \"points\": [\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"summary\": {\n            \"lengthInMeters\": 9275,\n            \"travelTimeInSeconds\": 2519,\n            \"trafficDelayInSeconds\": 7044,\n            \"trafficLengthInMeters\": 3378,\n            \"departureTime\": \"2003-06-27T13:49:22.781Z\",\n            \"arrivalTime\": \"2022-01-07T21:32:47.435Z\",\n            \"noTrafficTravelTimeInSeconds\": 6497,\n            \"historicTrafficTravelTimeInSeconds\": 3569,\n            \"liveTrafficIncidentsTravelTimeInSeconds\": 3942\n          },\n          \"points\": [\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"latitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"longitude\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"guidance\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c57d2a91-57c2-48e0-95e2-0d6088a69a28",
+      "name": "Reachable Range",
+      "description": {
+        "content": "Calculate areas reachable within given constraints",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "488bb15c-d47b-4297-bd90-34f6d1a6c3aa",
+          "name": "Calculate Reachable Range",
+          "request": {
+            "name": "Calculate Reachable Range",
+            "description": {
+              "content": "Calculates the area reachable from a given origin point within specified time, distance, or fuel/energy constraints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routing",
+                ":versionNumber",
+                "calculateReachableRange",
+                ":origin",
+                ":contentType"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timeBudgetInSec",
+                  "value": "<number>",
+                  "description": "Maximum travel time in seconds"
+                },
+                {
+                  "disabled": false,
+                  "key": "distanceBudgetInMeters",
+                  "value": "<number>",
+                  "description": "Maximum travel distance in meters"
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelBudgetInLiters",
+                  "value": "<number>",
+                  "description": "Available fuel in liters"
+                },
+                {
+                  "disabled": false,
+                  "key": "energyBudgetInkWh",
+                  "value": "<number>",
+                  "description": "Available energy in kWh for EV routing"
+                },
+                {
+                  "disabled": false,
+                  "key": "routeType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "traffic",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "travelMode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "departAt",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "origin",
+                  "description": "(Required) Origin coordinates (lat,lon)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contentType",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a7a2a285-660f-4925-bb53-5ac98e3db412",
+              "name": "Reachable range polygon",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    ":versionNumber",
+                    "calculateReachableRange",
+                    ":origin",
+                    ":contentType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timeBudgetInSec",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "distanceBudgetInMeters",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "fuelBudgetInLiters",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "energyBudgetInkWh",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "routeType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "traffic",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "travelMode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "departAt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "origin",
+                      "description": "(Required) Origin coordinates (lat,lon)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contentType",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"formatVersion\": \"string\",\n  \"reachableRange\": {\n    \"center\": {\n      \"latitude\": 2220.9195056337185,\n      \"longitude\": 6926.442879700705\n    },\n    \"boundary\": [\n      {\n        \"latitude\": 6987.5725203978245,\n        \"longitude\": 1951.5024981450147\n      },\n      {\n        \"latitude\": 7383.978362376504,\n        \"longitude\": 1396.8304144603417\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fe7ca315-a82e-4914-af94-6bf47323de5e",
+      "name": "Batch Routing",
+      "description": {
+        "content": "Multiple route requests in a single call",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "553e5462-686d-451c-8ffb-2492ef81e9ca",
+          "name": "Submit Batch Routing",
+          "request": {
+            "name": "Submit Batch Routing",
+            "description": {
+              "content": "Submits multiple route calculation requests as a single batch job.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routing",
+                ":versionNumber",
+                "batch",
+                ":contentType"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contentType",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"batchItems\": [\n    {\n      \"query\": \"<string>\"\n    },\n    {\n      \"query\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "44054320-302c-4e68-b32a-17915f579646",
+              "name": "Synchronous batch result (for small batches)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    ":versionNumber",
+                    "batch",
+                    ":contentType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contentType",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"batchItems\": [\n    {\n      \"query\": \"<string>\"\n    },\n    {\n      \"query\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"formatVersion\": \"string\",\n  \"batchSummary\": {\n    \"successfulRequests\": 6978,\n    \"totalRequests\": 1621\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec4aa5a7-c2ea-480e-b3e4-7687c2d17dc2",
+              "name": "Batch job accepted for asynchronous processing",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    ":versionNumber",
+                    "batch",
+                    ":contentType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contentType",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"batchItems\": [\n    {\n      \"query\": \"<string>\"\n    },\n    {\n      \"query\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URL to poll for batch results",
+                  "key": "Location",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.tomtom.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "24d5ae95-c459-45ab-8571-aa37ede5033f",
+    "name": "TomTom Routing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The TomTom Routing API calculates routes between an origin and destination, supporting up to 150 waypoints, real-time and historical traffic, multiple route types, electric and combustion vehicle optimization, reachable range calculation, and batch routing for multiple route requests.\n\nContact Support:\n Name: TomTom Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

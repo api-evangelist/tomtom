@@ -1,0 +1,1111 @@
+{
+  "item": [
+    {
+      "id": "858daccd-7d19-4e89-afb1-bce03f1691de",
+      "name": "Traffic Incidents",
+      "description": {
+        "content": "Real-time traffic incident data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c318b850-52ce-4186-b9ca-1fead35dec0c",
+          "name": "Get Incident Details",
+          "request": {
+            "name": "Get Incident Details",
+            "description": {
+              "content": "Returns detailed information about traffic incidents within a bounding box or around specific coordinates. Includes incident type, delay, description, and affected road segments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "traffic",
+                "services",
+                ":versionNumber",
+                "incidentDetails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) TomTom API key"
+                },
+                {
+                  "disabled": false,
+                  "key": "bbox",
+                  "value": "<string>",
+                  "description": "Bounding box (minLon,minLat,maxLon,maxLat)"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Fields to include in response (JSON path filter)"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Language for incident descriptions (IETF BCP 47)"
+                },
+                {
+                  "disabled": false,
+                  "key": "categoryFilter",
+                  "value": "<integer>",
+                  "description": "Bitmask for incident categories: 0=Unknown, 1=Accident, 2=Fog, 4=Dangerous conditions, 8=Rain, 16=Ice, 32=Jam, 64=Lane closed, 128=Road closed, 256=Road works, 512=Wind, 1024=Flooding, 2048=Broken down vehicle"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeValidityFilter",
+                  "value": "<string>",
+                  "description": "Filter by incident time validity"
+                },
+                {
+                  "disabled": false,
+                  "key": "t",
+                  "value": "<string>",
+                  "description": "Traffic model ID from traffic model endpoint"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40386b8f-9cad-4edc-a25d-aa16bbeec426",
+              "name": "Traffic incident details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "traffic",
+                    "services",
+                    ":versionNumber",
+                    "incidentDetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bbox",
+                      "value": "-8.671875,36.173357,3.076171,57.040730"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "en-GB"
+                    },
+                    {
+                      "key": "categoryFilter",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "timeValidityFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "t",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"incidents\": [\n    {\n      \"type\": \"string\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"id\": \"string\",\n        \"iconCategory\": 5240,\n        \"magnitudeOfDelay\": 2871,\n        \"startTime\": \"1950-01-15T08:12:49.397Z\",\n        \"endTime\": \"1976-05-13T12:30:53.997Z\",\n        \"from\": \"string\",\n        \"to\": \"string\",\n        \"length\": 8930.54521950753,\n        \"delay\": 8848,\n        \"roadNumbers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"timeValidity\": \"present\",\n        \"probabilityOfOccurrence\": \"string\",\n        \"numberOfReports\": 6126,\n        \"lastReportTime\": \"1991-12-12T08:09:51.510Z\",\n        \"events\": [\n          {\n            \"description\": \"string\",\n            \"code\": 1199,\n            \"iconCategory\": 9679\n          },\n          {\n            \"description\": \"string\",\n            \"code\": 7116,\n            \"iconCategory\": 2272\n          }\n        ]\n      }\n    },\n    {\n      \"type\": \"string\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"id\": \"string\",\n        \"iconCategory\": 6579,\n        \"magnitudeOfDelay\": 7859,\n        \"startTime\": \"1992-01-22T13:36:15.902Z\",\n        \"endTime\": \"2011-08-27T10:59:33.952Z\",\n        \"from\": \"string\",\n        \"to\": \"string\",\n        \"length\": 5535.7097612041325,\n        \"delay\": 4063,\n        \"roadNumbers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"timeValidity\": \"present\",\n        \"probabilityOfOccurrence\": \"string\",\n        \"numberOfReports\": 1740,\n        \"lastReportTime\": \"1954-08-03T08:01:31.909Z\",\n        \"events\": [\n          {\n            \"description\": \"string\",\n            \"code\": 6244,\n            \"iconCategory\": 1955\n          },\n          {\n            \"description\": \"string\",\n            \"code\": 5428,\n            \"iconCategory\": 1798\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15afd2b3-a2ca-4ec2-a896-0a20d93dc5fe",
+          "name": "Get Incident Viewport",
+          "request": {
+            "name": "Get Incident Viewport",
+            "description": {
+              "content": "Returns a viewport of traffic incidents for a given map area.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "traffic",
+                "services",
+                ":versionNumber",
+                "incidentViewport",
+                ":boundingBox",
+                ":overview",
+                ":copyright",
+                ":zoom",
+                ":format"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "boundingBox",
+                  "description": "(Required) Bounding box coordinates"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "overview",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "copyright",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "zoom",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "format",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1ccd9c2-ddb5-480a-a415-01f6328588fb",
+              "name": "Incident viewport data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "traffic",
+                    "services",
+                    ":versionNumber",
+                    "incidentViewport",
+                    ":boundingBox",
+                    ":overview",
+                    ":copyright",
+                    ":zoom",
+                    ":format"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "boundingBox",
+                      "description": "(Required) Bounding box coordinates"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "overview",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "copyright",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "format",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c5e94b96-417c-4f09-a43d-e39335d276e7",
+      "name": "Traffic Flow",
+      "description": {
+        "content": "Real-time traffic speed and flow data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4f59095e-2668-449d-a4dd-4a7ddebdf1fd",
+          "name": "Get Flow Segment Data",
+          "request": {
+            "name": "Get Flow Segment Data",
+            "description": {
+              "content": "Returns real-time traffic flow information for the road segment closest to the specified coordinates. Includes current speed, freeflow speed, and travel time confidence.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "traffic",
+                "services",
+                ":versionNumber",
+                "flowSegmentData",
+                ":style",
+                ":zoom",
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "point",
+                  "value": "<string>",
+                  "description": "(Required) Coordinates to query (lat,lon)"
+                },
+                {
+                  "disabled": false,
+                  "key": "unit",
+                  "value": "<string>",
+                  "description": "Speed unit"
+                },
+                {
+                  "disabled": false,
+                  "key": "thickness",
+                  "value": "<integer>",
+                  "description": "Segment thickness for display"
+                },
+                {
+                  "disabled": false,
+                  "key": "openLr",
+                  "value": "<boolean>",
+                  "description": "Include OpenLR encoded location reference"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "style",
+                  "description": "(Required) Traffic flow visualization style"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "zoom",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bd7a7867-8951-4e52-8bf1-80a277fca6a6",
+              "name": "Traffic flow segment data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "traffic",
+                    "services",
+                    ":versionNumber",
+                    "flowSegmentData",
+                    ":style",
+                    ":zoom",
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "point",
+                      "value": "52.41072,4.84239"
+                    },
+                    {
+                      "key": "unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "thickness",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "openLr",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "style",
+                      "description": "(Required) Traffic flow visualization style"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"flowSegmentData\": {\n    \"frc\": \"string\",\n    \"currentSpeed\": 5428,\n    \"freeFlowSpeed\": 1703,\n    \"currentTravelTime\": 8880,\n    \"freeFlowTravelTime\": 2088,\n    \"confidence\": 6989.147636225307,\n    \"roadClosure\": true,\n    \"coordinates\": {\n      \"coordinate\": [\n        {\n          \"latitude\": 2600.1211588151086,\n          \"longitude\": 344.6788567003634\n        },\n        {\n          \"latitude\": 7551.4065968489795,\n          \"longitude\": 2534.4319322086694\n        }\n      ]\n    },\n    \"openLr\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b0040fbd-4983-4132-b269-bfea0fe1134e",
+      "name": "Traffic Tiles",
+      "description": {
+        "content": "Raster and vector tiles for map display",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0d1b54fd-fa70-4f62-b0b8-78f6c45f0d69",
+          "name": "Get Raster Incident Tile",
+          "request": {
+            "name": "Get Raster Incident Tile",
+            "description": {
+              "content": "Returns a raster map tile showing traffic incidents.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "traffic",
+                "services",
+                ":versionNumber",
+                "incidentTile",
+                ":style",
+                ":zoom",
+                ":x",
+                "{{y}}.{{format}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "t",
+                  "value": "<string>",
+                  "description": "Traffic model ID"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "style",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "zoom",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "x",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a5bd557-2323-421f-831a-c5f526d6072b",
+              "name": "PNG raster tile image",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "traffic",
+                    "services",
+                    ":versionNumber",
+                    "incidentTile",
+                    ":style",
+                    ":zoom",
+                    ":x",
+                    "{{y}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "t",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "style",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "x",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "image/png"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "image/png"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c444ff7-8289-4ceb-a7e3-7251d6db6b2b",
+          "name": "Get Raster Flow Tile",
+          "request": {
+            "name": "Get Raster Flow Tile",
+            "description": {
+              "content": "Returns a raster map tile visualizing traffic flow conditions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "traffic",
+                "map",
+                ":versionNumber",
+                "tile",
+                "flow",
+                ":style",
+                ":zoom",
+                ":x",
+                "{{y}}.{{format}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "t",
+                  "value": "<string>",
+                  "description": "Traffic model ID"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "style",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "zoom",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "x",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab8a6579-4d8f-454f-851c-ae272b9bc4ac",
+              "name": "PNG raster tile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "traffic",
+                    "map",
+                    ":versionNumber",
+                    "tile",
+                    "flow",
+                    ":style",
+                    ":zoom",
+                    ":x",
+                    "{{y}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "t",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "style",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "x",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "image/png"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "image/png"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0f535c7-f042-48c4-bd31-f19e987dc290",
+          "name": "Get Vector Flow Tile",
+          "request": {
+            "name": "Get Vector Flow Tile",
+            "description": {
+              "content": "Returns a vector Protocol Buffer tile with traffic flow data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "traffic",
+                "map",
+                ":versionNumber",
+                "tile",
+                "flow",
+                ":zoom",
+                ":x",
+                "{{y}}.pbf"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "zoom",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "x",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.mapbox-vector-tile"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "651f478f-9437-4dbc-8e19-b0ec38ca6360",
+              "name": "Protocol Buffer vector tile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "traffic",
+                    "map",
+                    ":versionNumber",
+                    "tile",
+                    "flow",
+                    ":zoom",
+                    ":x",
+                    "{{y}}.pbf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "x",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.mapbox-vector-tile"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.mapbox-vector-tile"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.tomtom.com",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<integer>",
+      "key": "y"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "format"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "71873c3d-98c8-4472-a7a4-a5c0773e12dc",
+    "name": "TomTom Traffic API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The TomTom Traffic API provides real-time traffic data for developer applications. The Traffic Incidents service delivers accurate information about traffic jams, accidents, road closures, and hazards. The Traffic Flow service provides observed speeds and travel times for key roads, updated every minute. Supports raster and vector tile formats for map display.\n\nContact Support:\n Name: TomTom Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

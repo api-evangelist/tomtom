@@ -1,0 +1,325 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TomTom Routing API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Routing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Calculate Route",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/routing/:versionNumber/calculateRoute/:locations/:contentType",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number"
+              },
+              {
+                "name": "locations",
+                "value": "52.50931,13.42936:52.50274,13.43872",
+                "type": "path",
+                "description": "Colon-separated list of coordinates (lat,lon:lat,lon)"
+              },
+              {
+                "name": "contentType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "routeType",
+                "value": "",
+                "type": "query",
+                "description": "Optimization type for route calculation"
+              },
+              {
+                "name": "traffic",
+                "value": "",
+                "type": "query",
+                "description": "Use real-time traffic data"
+              },
+              {
+                "name": "avoid",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of things to avoid (tollRoads, motorways, ferries, etc.)"
+              },
+              {
+                "name": "travelMode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "departAt",
+                "value": "",
+                "type": "query",
+                "description": "Departure time for historical traffic"
+              },
+              {
+                "name": "arriveAt",
+                "value": "",
+                "type": "query",
+                "description": "Desired arrival time"
+              },
+              {
+                "name": "maxAlternatives",
+                "value": "",
+                "type": "query",
+                "description": "Number of alternative routes to return"
+              },
+              {
+                "name": "instructionsType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language tag for instructions (e.g., en-US)"
+              },
+              {
+                "name": "vehicleMaxSpeed",
+                "value": "",
+                "type": "query",
+                "description": "Maximum speed of the vehicle (km/h)"
+              },
+              {
+                "name": "vehicleWeight",
+                "value": "",
+                "type": "query",
+                "description": "Vehicle weight (kg)"
+              },
+              {
+                "name": "vehicleAxleWeight",
+                "value": "",
+                "type": "query",
+                "description": "Weight per axle (kg)"
+              },
+              {
+                "name": "vehicleLength",
+                "value": "",
+                "type": "query",
+                "description": "Vehicle length (meters)"
+              },
+              {
+                "name": "vehicleWidth",
+                "value": "",
+                "type": "query",
+                "description": "Vehicle width (meters)"
+              },
+              {
+                "name": "vehicleHeight",
+                "value": "",
+                "type": "query",
+                "description": "Vehicle height (meters)"
+              },
+              {
+                "name": "vehicleCommercial",
+                "value": "",
+                "type": "query",
+                "description": "Whether vehicle is used for commercial purposes"
+              },
+              {
+                "name": "vehicleLoadType",
+                "value": "",
+                "type": "query",
+                "description": "Types of cargo carried"
+              },
+              {
+                "name": "computeTravelTimeFor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sectionType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "report",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "Callback function name for JSONP"
+              }
+            ]
+          },
+          "docs": "Calculates a route between two or more locations. Supports optimization for fastest, shortest, or eco routes with traffic consideration."
+        },
+        {
+          "info": {
+            "name": "Calculate Route (POST)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tomtom.com/routing/:versionNumber/calculateRoute/:locations/:contentType",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locations",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contentType",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Calculates a route using POST for complex requests with additional body parameters."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reachable Range",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Calculate Reachable Range",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/routing/:versionNumber/calculateReachableRange/:origin/:contentType",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "origin",
+                "value": "52.50931,13.42936",
+                "type": "path",
+                "description": "Origin coordinates (lat,lon)"
+              },
+              {
+                "name": "contentType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "timeBudgetInSec",
+                "value": "",
+                "type": "query",
+                "description": "Maximum travel time in seconds"
+              },
+              {
+                "name": "distanceBudgetInMeters",
+                "value": "",
+                "type": "query",
+                "description": "Maximum travel distance in meters"
+              },
+              {
+                "name": "fuelBudgetInLiters",
+                "value": "",
+                "type": "query",
+                "description": "Available fuel in liters"
+              },
+              {
+                "name": "energyBudgetInkWh",
+                "value": "",
+                "type": "query",
+                "description": "Available energy in kWh for EV routing"
+              },
+              {
+                "name": "routeType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "traffic",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "travelMode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "departAt",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Calculates the area reachable from a given origin point within specified time, distance, or fuel/energy constraints."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Batch Routing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit Batch Routing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tomtom.com/routing/:versionNumber/batch/:contentType",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contentType",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submits multiple route calculation requests as a single batch job."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

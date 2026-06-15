@@ -1,0 +1,1509 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Search",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Additional Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Additional Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/additionalData.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "ext",
+                "value": "",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "geometries",
+                "value": "00004631-3400-3c00-0000-0000673c4d2e,00004631-3400-3c00-0000-0000673c42fe",
+                "type": "query",
+                "description": "Comma separated list of geometry UUIDs, previously retrieved from an Search API request."
+              },
+              {
+                "name": "geometriesZoom",
+                "value": "",
+                "type": "query",
+                "description": "Defines the precision of the geometries."
+              }
+            ]
+          },
+          "docs": "Additional Data"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Low Bandwith Category Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/cS/:category.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "category",
+                "value": "pizza",
+                "type": "path",
+                "description": "Query string. Must be properly URL encoded."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "typeahead",
+                "value": "",
+                "type": "query",
+                "description": "If the \"typeahead\" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of search results that will be returned."
+              },
+              {
+                "name": "ofs",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset of the returned results within the full result set."
+              },
+              {
+                "name": "countrySet",
+                "value": "FR",
+                "type": "query",
+                "description": "Comma separated string of country codes. This will limit the search to the specified countries."
+              },
+              {
+                "name": "lat",
+                "value": "37.337",
+                "type": "query",
+                "description": "Latitude where results should be biased.  \nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+              },
+              {
+                "name": "lon",
+                "value": "-121.89",
+                "type": "query",
+                "description": "Longitude where results should be biased\nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters."
+              },
+              {
+                "name": "topLeft",
+                "value": "37.553,-122.453",
+                "type": "query",
+                "description": "Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "btmRight",
+                "value": "37.4,-122.55",
+                "type": "query",
+                "description": "Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive."
+              },
+              {
+                "name": "idxSet",
+                "value": "POI",
+                "type": "query",
+                "description": "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Geopolitical View."
+              }
+            ]
+          },
+          "docs": "Low Bandwith Category Search"
+        },
+        {
+          "info": {
+            "name": "Category Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/categorySearch/:query.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "query",
+                "value": "pizza",
+                "type": "path",
+                "description": "Query string. Must be properly URL encoded."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "typeahead",
+                "value": "",
+                "type": "query",
+                "description": "If the \"typeahead\" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of search results that will be returned."
+              },
+              {
+                "name": "ofs",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset of the returned results within the full result set."
+              },
+              {
+                "name": "countrySet",
+                "value": "FR",
+                "type": "query",
+                "description": "Comma separated string of country codes. This will limit the search to the specified countries."
+              },
+              {
+                "name": "lat",
+                "value": "37.337",
+                "type": "query",
+                "description": "Latitude where results should be biased.  \nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+              },
+              {
+                "name": "lon",
+                "value": "-121.89",
+                "type": "query",
+                "description": "Longitude where results should be biased\nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters."
+              },
+              {
+                "name": "topLeft",
+                "value": "37.553,-122.453",
+                "type": "query",
+                "description": "Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "btmRight",
+                "value": "37.4,-122.55",
+                "type": "query",
+                "description": "Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive."
+              },
+              {
+                "name": "extendedPostalCodesFor",
+                "value": "",
+                "type": "query",
+                "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Geopolitical View."
+              }
+            ]
+          },
+          "docs": "Category Search"
+        },
+        {
+          "info": {
+            "name": "Geometry Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/geometrySearch/:query.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "query",
+                "value": "pizza",
+                "type": "path",
+                "description": "Query string. Must be properly URL encoded."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "geometryList",
+                "value": "[{\"type\":\"POLYGON\", \"vertices\":[\"37.7524152343544, -122.43576049804686\", \"37.70660472542312, -122.43301391601562\", \"37.712059855877314, -122.36434936523438\", \"37.75350561243041, -122.37396240234374\"]}, {\"type\":\"CIRCLE\", \"position\":\"37.71205, -121.36434\", \"radius\":6000}, {\"type\":\"CIRCLE\", \"position\":\"37.31205, -121.36434\", \"radius\":1000}]",
+                "type": "query",
+                "description": "List of geometries to filter by. Available types are CIRCLE (with the radius expressed in meters) and POLYGON."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of search results that will be returned."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive."
+              },
+              {
+                "name": "extendedPostalCodesFor",
+                "value": "",
+                "type": "query",
+                "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)"
+              },
+              {
+                "name": "idxSet",
+                "value": "POI",
+                "type": "query",
+                "description": "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)"
+              }
+            ]
+          },
+          "docs": "Geometry Search"
+        },
+        {
+          "info": {
+            "name": "Geometry Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tomtom.com/search/:versionNumber/geometrySearch/:query.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "query",
+                "value": "pizza",
+                "type": "path",
+                "description": "Query string. Must be properly URL encoded."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of search results that will be returned."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive."
+              },
+              {
+                "name": "extendedPostalCodesFor",
+                "value": "",
+                "type": "query",
+                "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)"
+              },
+              {
+                "name": "idxSet",
+                "value": "POI",
+                "type": "query",
+                "description": "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Geometry Search"
+        },
+        {
+          "info": {
+            "name": "Nearby Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/nearbySearch/.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "lat",
+                "value": "37.337",
+                "type": "query",
+                "description": "Latitude where results should be biased.  \nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+              },
+              {
+                "name": "lon",
+                "value": "-121.89",
+                "type": "query",
+                "description": "Longitude where results should be biased\nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of search results that will be returned."
+              },
+              {
+                "name": "ofs",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset of the returned results within the full result set."
+              },
+              {
+                "name": "countrySet",
+                "value": "FR",
+                "type": "query",
+                "description": "Comma separated string of country codes. This will limit the search to the specified countries."
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "If radius and position are set, the results will be constrained to the defined area. The radius parameter is specified in meters."
+              },
+              {
+                "name": "topLeft",
+                "value": "37.553,-122.453",
+                "type": "query",
+                "description": "Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "btmRight",
+                "value": "37.4,-122.55",
+                "type": "query",
+                "description": "Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive."
+              },
+              {
+                "name": "extendedPostalCodesFor",
+                "value": "",
+                "type": "query",
+                "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)"
+              },
+              {
+                "name": "minFuzzyLevel",
+                "value": "",
+                "type": "query",
+                "description": "Minimum fuzziness level to be used."
+              },
+              {
+                "name": "maxFuzzyLevel",
+                "value": "",
+                "type": "query",
+                "description": "Maximum fuzziness level to be used."
+              },
+              {
+                "name": "idxSet",
+                "value": "POI",
+                "type": "query",
+                "description": "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Geopolitical View."
+              }
+            ]
+          },
+          "docs": "Nearby Search"
+        },
+        {
+          "info": {
+            "name": "Points of Interest Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/poiSearch/:query.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "query",
+                "value": "pizza",
+                "type": "path",
+                "description": "Query string. Must be properly URL encoded."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "typeahead",
+                "value": "",
+                "type": "query",
+                "description": "If the \"typeahead\" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of search results that will be returned."
+              },
+              {
+                "name": "ofs",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset of the returned results within the full result set."
+              },
+              {
+                "name": "countrySet",
+                "value": "FR",
+                "type": "query",
+                "description": "Comma separated string of country codes. This will limit the search to the specified countries."
+              },
+              {
+                "name": "lat",
+                "value": "37.337",
+                "type": "query",
+                "description": "Latitude where results should be biased.  \nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+              },
+              {
+                "name": "lon",
+                "value": "-121.89",
+                "type": "query",
+                "description": "Longitude where results should be biased\nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters."
+              },
+              {
+                "name": "topLeft",
+                "value": "37.553,-122.453",
+                "type": "query",
+                "description": "Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "btmRight",
+                "value": "37.4,-122.55",
+                "type": "query",
+                "description": "Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive."
+              },
+              {
+                "name": "extendedPostalCodesFor",
+                "value": "",
+                "type": "query",
+                "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Geopolitical View."
+              }
+            ]
+          },
+          "docs": "Points of Interest Search"
+        },
+        {
+          "info": {
+            "name": "Routed Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/routedSearch/:query/:position/:heading.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "query",
+                "value": "gas",
+                "type": "path",
+                "description": "Query string. Must be properly URL encoded."
+              },
+              {
+                "name": "position",
+                "value": "37.8328,-122.27669",
+                "type": "path",
+                "description": "This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "heading",
+                "value": "90",
+                "type": "path",
+                "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)"
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "typeahead",
+                "value": "",
+                "type": "query",
+                "description": "If the \"typeahead\" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of search results that will be returned."
+              },
+              {
+                "name": "multiplier",
+                "value": "",
+                "type": "query",
+                "description": "Multiplies the limit by N to gather more candidate POIs, which will then be sorted by drive distance, returning only the top candidates according to the limit."
+              },
+              {
+                "name": "routingTimeout",
+                "value": "",
+                "type": "query",
+                "description": "Only return results that arrive from routing engine within this time limit."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive."
+              },
+              {
+                "name": "extendedPostalCodesFor",
+                "value": "",
+                "type": "query",
+                "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)"
+              },
+              {
+                "name": "idxSet",
+                "value": "POI",
+                "type": "query",
+                "description": "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)"
+              }
+            ]
+          },
+          "docs": "Routed Search"
+        },
+        {
+          "info": {
+            "name": "Low Bandwith Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/s/:query.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "query",
+                "value": "pizza",
+                "type": "path",
+                "description": "Query string. Must be properly URL encoded."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "typeahead",
+                "value": "",
+                "type": "query",
+                "description": "If the \"typeahead\" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of search results that will be returned."
+              },
+              {
+                "name": "ofs",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset of the returned results within the full result set."
+              },
+              {
+                "name": "countrySet",
+                "value": "FR",
+                "type": "query",
+                "description": "Comma separated string of country codes. This will limit the search to the specified countries."
+              },
+              {
+                "name": "lat",
+                "value": "37.337",
+                "type": "query",
+                "description": "Latitude where results should be biased.  \nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+              },
+              {
+                "name": "lon",
+                "value": "-121.89",
+                "type": "query",
+                "description": "Longitude where results should be biased\nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters."
+              },
+              {
+                "name": "topLeft",
+                "value": "37.553,-122.453",
+                "type": "query",
+                "description": "Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "btmRight",
+                "value": "37.4,-122.55",
+                "type": "query",
+                "description": "Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive."
+              },
+              {
+                "name": "idxSet",
+                "value": "POI",
+                "type": "query",
+                "description": "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Geopolitical View."
+              }
+            ]
+          },
+          "docs": "Low Bandwith Search"
+        },
+        {
+          "info": {
+            "name": "Fuzzy Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/search/:query.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "query",
+                "value": "pizza",
+                "type": "path",
+                "description": "Query string. Must be properly URL encoded.\n\nTo perform a reverse geocode, the user can provide latitude and longitude coordinates directly in the query. More information can be found <a href=\"/search-api/search-api-documentation-search/fuzzy-search#AdditionalInfo\">here</a>."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "typeahead",
+                "value": "",
+                "type": "query",
+                "description": "If the \"typeahead\" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of search results that will be returned."
+              },
+              {
+                "name": "ofs",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset of the returned results within the full result set."
+              },
+              {
+                "name": "countrySet",
+                "value": "FR",
+                "type": "query",
+                "description": "Comma separated string of country codes. This will limit the search to the specified countries."
+              },
+              {
+                "name": "lat",
+                "value": "37.337",
+                "type": "query",
+                "description": "Latitude where results should be biased.  \nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+              },
+              {
+                "name": "lon",
+                "value": "-121.89",
+                "type": "query",
+                "description": "Longitude where results should be biased\nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters."
+              },
+              {
+                "name": "topLeft",
+                "value": "37.553,-122.453",
+                "type": "query",
+                "description": "Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "btmRight",
+                "value": "37.4,-122.55",
+                "type": "query",
+                "description": "Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive."
+              },
+              {
+                "name": "extendedPostalCodesFor",
+                "value": "",
+                "type": "query",
+                "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)"
+              },
+              {
+                "name": "minFuzzyLevel",
+                "value": "",
+                "type": "query",
+                "description": "Minimum fuzziness level to be used."
+              },
+              {
+                "name": "maxFuzzyLevel",
+                "value": "",
+                "type": "query",
+                "description": "Maximum fuzziness level to be used."
+              },
+              {
+                "name": "idxSet",
+                "value": "POI",
+                "type": "query",
+                "description": "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Geopolitical View."
+              }
+            ]
+          },
+          "docs": "Fuzzy Search"
+        },
+        {
+          "info": {
+            "name": "Along Route Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tomtom.com/search/:versionNumber/searchAlongRoute/:query.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "query",
+                "value": "pizza",
+                "type": "path",
+                "description": "Query string. Must be properly URL encoded."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "maxDetourTime",
+                "value": "1200",
+                "type": "query",
+                "description": "Maximum detour time"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of search results that will be returned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Along Route Search"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Geocoding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Geocode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/geocode/:query.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "query",
+                "value": "4 north 2nd street san jose",
+                "type": "path",
+                "description": "Query string. Must be properly URL encoded."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "storeResult",
+                "value": "",
+                "type": "query",
+                "description": "If the \"storeResult\" flag is set, the query will be interpreted as a stored geocode and will be billed according to the terms of use."
+              },
+              {
+                "name": "typeahead",
+                "value": "",
+                "type": "query",
+                "description": "If the \"typeahead\" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of search results that will be returned."
+              },
+              {
+                "name": "ofs",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset of the returned results within the full result set."
+              },
+              {
+                "name": "countrySet",
+                "value": "FR",
+                "type": "query",
+                "description": "Comma separated string of country codes. This will limit the search to the specified countries."
+              },
+              {
+                "name": "lat",
+                "value": "37.337",
+                "type": "query",
+                "description": "Latitude where results should be biased.  \nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+              },
+              {
+                "name": "lon",
+                "value": "-121.89",
+                "type": "query",
+                "description": "Longitude where results should be biased\nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters."
+              },
+              {
+                "name": "topLeft",
+                "value": "37.553,-122.453",
+                "type": "query",
+                "description": "Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "btmRight",
+                "value": "37.4,-122.55",
+                "type": "query",
+                "description": "Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive."
+              },
+              {
+                "name": "extendedPostalCodesFor",
+                "value": "",
+                "type": "query",
+                "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Geopolitical View."
+              }
+            ]
+          },
+          "docs": "Geocode"
+        },
+        {
+          "info": {
+            "name": "Structured Geocode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/structuredGeocode.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "countryCode",
+                "value": "NL",
+                "type": "query",
+                "description": "2 or 3 letter country code (e.g.: FR, ES)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of search results that will be returned."
+              },
+              {
+                "name": "ofs",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset of the returned results within the full result set."
+              },
+              {
+                "name": "streetNumber",
+                "value": "",
+                "type": "query",
+                "description": "The street number for the structured address."
+              },
+              {
+                "name": "streetName",
+                "value": "",
+                "type": "query",
+                "description": "The street name for the structured address."
+              },
+              {
+                "name": "crossStreet",
+                "value": "",
+                "type": "query",
+                "description": "The cross street name for the structured address."
+              },
+              {
+                "name": "municipality",
+                "value": "Amsterdam",
+                "type": "query",
+                "description": "The municipality (city/town) for the structured address."
+              },
+              {
+                "name": "municipalitySubdivision",
+                "value": "",
+                "type": "query",
+                "description": "The municipality subdivision (sub/super city) for the structured address."
+              },
+              {
+                "name": "countryTertiarySubdivision",
+                "value": "",
+                "type": "query",
+                "description": "The named area for the structured address."
+              },
+              {
+                "name": "countrySecondarySubdivision",
+                "value": "",
+                "type": "query",
+                "description": "The county for the structured address."
+              },
+              {
+                "name": "countrySubdivision",
+                "value": "",
+                "type": "query",
+                "description": "The state or province for the structured address."
+              },
+              {
+                "name": "postalCode",
+                "value": "",
+                "type": "query",
+                "description": "The zip code or postal code for the structured address."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive."
+              },
+              {
+                "name": "extendedPostalCodesFor",
+                "value": "",
+                "type": "query",
+                "description": "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)"
+              }
+            ]
+          },
+          "docs": "Structured Geocode"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Filters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Geometry Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/geometryFilter.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "geometryList",
+                "value": "[{\"type\":\"CIRCLE\", \"position\":\"40.80558, -73.96548\", \"radius\":100}, {\"type\":\"POLYGON\", \"vertices\":[\"37.7524152343544, -122.43576049804686\", \"37.70660472542312, -122.43301391601562\", \"37.712059855877314, -122.36434936523438\", \"37.75350561243041, -122.37396240234374\"]}]",
+                "type": "query",
+                "description": "List of geometries to filter by. Available types are CIRCLE (with the radius expressed in meters) and POLYGON."
+              },
+              {
+                "name": "poiList",
+                "value": "[{\"poi\":{\"name\":\"S Restaurant Toms\"},\"address\":{\"freeformAddress\":\"2880 Broadway, New York, NY 10025\"},\"position\":{\"lat\":40.80558,\"lon\":-73.96548}},{\"poi\":{\"name\":\"Yasha Raman Corporation\"},\"address\":{\"freeformAddress\":\"940 Amsterdam Ave, New York, NY 10025\"},\"position\":{\"lat\":40.80076,\"lon\":-73.96556}}]",
+                "type": "query",
+                "description": "List of POIs to filter. The only required attribute of a POI is position, everything else is optional and will be echoed back when passed in."
+              }
+            ]
+          },
+          "docs": "Geometry Filter"
+        },
+        {
+          "info": {
+            "name": "Geometry Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tomtom.com/search/:versionNumber/geometryFilter.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Geometry Filter"
+        },
+        {
+          "info": {
+            "name": "Routed Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/routedFilter/:position/:heading.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "position",
+                "value": "37.8328,-122.27669",
+                "type": "path",
+                "description": "This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "heading",
+                "value": "-15.6",
+                "type": "path",
+                "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)"
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "poiList",
+                "value": "[{\"poi\":{\"name\":\"Cleaire Advanced Emission Controls\"},\"address\":{\"freeformAddress\":\"7220 Trade St, San Diego, CA 92121\"},\"position\":{\"lat\":\"37.83274\",\"lon\":\"-122.27631\"}}]",
+                "type": "query",
+                "description": "List of POIs to filter. The only required attribute of a POI is position, everything else is optional and will be echoed back when passed in."
+              },
+              {
+                "name": "routingTimeout",
+                "value": "",
+                "type": "query",
+                "description": "Only return results that arrive from routing engine within this time limit."
+              }
+            ]
+          },
+          "docs": "Routed Filter"
+        },
+        {
+          "info": {
+            "name": "Routed Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tomtom.com/search/:versionNumber/routedFilter/:position/:heading.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "position",
+                "value": "37.8328,-122.27669",
+                "type": "path",
+                "description": "This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "heading",
+                "value": "90",
+                "type": "path",
+                "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)"
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "routingTimeout",
+                "value": "",
+                "type": "query",
+                "description": "Only return results that arrive from routing engine within this time limit."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Routed Filter"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reverse Geocoding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cross Street Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/reverseGeocode/crossStreet/:position.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "position",
+                "value": "37.8328,-122.27669",
+                "type": "path",
+                "description": "This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of cross-streets to return."
+              },
+              {
+                "name": "spatialKeys",
+                "value": "",
+                "type": "query",
+                "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location."
+              },
+              {
+                "name": "heading",
+                "value": "",
+                "type": "query",
+                "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive."
+              }
+            ]
+          },
+          "docs": "Cross Street Lookup"
+        },
+        {
+          "info": {
+            "name": "Reverse Geocode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/reverseGeocode/:position.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "position",
+                "value": "37.8328,-122.27669",
+                "type": "path",
+                "description": "This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "spatialKeys",
+                "value": "",
+                "type": "query",
+                "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location."
+              },
+              {
+                "name": "returnSpeedLimit",
+                "value": "",
+                "type": "query",
+                "description": "To enable return of the posted speed limit (where available)."
+              },
+              {
+                "name": "heading",
+                "value": "",
+                "type": "query",
+                "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "query",
+                "description": "If a number is sent in along with the request, the response may include the side of the street (Left/Right) and an offset position for that number."
+              },
+              {
+                "name": "returnRoadUse",
+                "value": "",
+                "type": "query",
+                "description": "Enables return of the road use array for reverse geocodes at street level."
+              },
+              {
+                "name": "roadUse",
+                "value": "",
+                "type": "query",
+                "description": "Restricts reverse geocodes to a certain type of road use. The road use array for reverse geocodes can be one or more of: [\"LimitedAccess\", \"Arterial\", \"Terminal\", \"Ramp\", \"Rotary\", \"LocalStreet\"]."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the jsonp callback method."
+              }
+            ]
+          },
+          "docs": "Reverse Geocode"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,355 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TomTom Traffic API",
+    "version": "5.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Traffic Incidents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Incident Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/traffic/services/:versionNumber/incidentDetails",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "TomTom API key"
+              },
+              {
+                "name": "bbox",
+                "value": "-8.671875,36.173357,3.076171,57.040730",
+                "type": "query",
+                "description": "Bounding box (minLon,minLat,maxLon,maxLat)"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields to include in response (JSON path filter)"
+              },
+              {
+                "name": "language",
+                "value": "en-GB",
+                "type": "query",
+                "description": "Language for incident descriptions (IETF BCP 47)"
+              },
+              {
+                "name": "categoryFilter",
+                "value": "",
+                "type": "query",
+                "description": "Bitmask for incident categories: 0=Unknown, 1=Accident, 2=Fog, 4=Dangerous conditions, 8=Rain, 16=Ice, 32=Jam, 64=Lane closed, 128=Road closed, 256=Road works, 512=Wind, 1024=Flooding, 2048=Broken down vehicle"
+              },
+              {
+                "name": "timeValidityFilter",
+                "value": "",
+                "type": "query",
+                "description": "Filter by incident time validity"
+              },
+              {
+                "name": "t",
+                "value": "",
+                "type": "query",
+                "description": "Traffic model ID from traffic model endpoint"
+              }
+            ]
+          },
+          "docs": "Returns detailed information about traffic incidents within a bounding box or around specific coordinates. Includes incident type, delay, description, and affected road segments."
+        },
+        {
+          "info": {
+            "name": "Get Incident Viewport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/traffic/services/:versionNumber/incidentViewport/:boundingBox/:overview/:copyright/:zoom/:format",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "boundingBox",
+                "value": "",
+                "type": "path",
+                "description": "Bounding box coordinates"
+              },
+              {
+                "name": "overview",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "copyright",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "zoom",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a viewport of traffic incidents for a given map area."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Traffic Tiles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Raster Incident Tile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/traffic/services/:versionNumber/incidentTile/:style/:zoom/:x/:y.:format",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "style",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "zoom",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "x",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "y",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "t",
+                "value": "",
+                "type": "query",
+                "description": "Traffic model ID"
+              }
+            ]
+          },
+          "docs": "Returns a raster map tile showing traffic incidents."
+        },
+        {
+          "info": {
+            "name": "Get Raster Flow Tile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/traffic/map/:versionNumber/tile/flow/:style/:zoom/:x/:y.:format",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "style",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "zoom",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "x",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "y",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "t",
+                "value": "",
+                "type": "query",
+                "description": "Traffic model ID"
+              }
+            ]
+          },
+          "docs": "Returns a raster map tile visualizing traffic flow conditions."
+        },
+        {
+          "info": {
+            "name": "Get Vector Flow Tile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/traffic/map/:versionNumber/tile/flow/:zoom/:x/:y.pbf",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "zoom",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "x",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "y",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a vector Protocol Buffer tile with traffic flow data."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Traffic Flow",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Flow Segment Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/traffic/services/:versionNumber/flowSegmentData/:style/:zoom/json",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "style",
+                "value": "",
+                "type": "path",
+                "description": "Traffic flow visualization style"
+              },
+              {
+                "name": "zoom",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "point",
+                "value": "52.41072,4.84239",
+                "type": "query",
+                "description": "Coordinates to query (lat,lon)"
+              },
+              {
+                "name": "unit",
+                "value": "",
+                "type": "query",
+                "description": "Speed unit"
+              },
+              {
+                "name": "thickness",
+                "value": "",
+                "type": "query",
+                "description": "Segment thickness for display"
+              },
+              {
+                "name": "openLr",
+                "value": "",
+                "type": "query",
+                "description": "Include OpenLR encoded location reference"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns real-time traffic flow information for the road segment closest to the specified coordinates. Includes current speed, freeflow speed, and travel time confidence."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
