@@ -218,11 +218,11 @@ common:
     url: https://www.linkedin.com/company/tomtom
   - type: Website
     url: https://www.tomtom.com/
-  - type: Developer Portal
+  - type: DeveloperPortal
     url: https://developer.tomtom.com/
   - type: Documentation
     url: https://developer.tomtom.com/
-  - type: SignUp
+  - type: Signup
     url: https://developer.tomtom.com/
   - type: API Explorer
     url: https://developer.tomtom.com/api-explorer-index/documentation/product-information/introduction
