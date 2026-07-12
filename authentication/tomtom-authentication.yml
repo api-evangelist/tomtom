@@ -1,0 +1,19 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/tomtom-maps-openapi.yml, openapi/tomtom-routing-openapi.yml, openapi/tomtom-search-openapi.yml,
+  openapi/tomtom-traffic-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: api_key
+  type: apiKey
+  in: query
+  parameter: key
+  sources:
+  - openapi/tomtom-maps-openapi.yml
+  - openapi/tomtom-routing-openapi.yml
+  - openapi/tomtom-search-openapi.yml
+  - openapi/tomtom-traffic-openapi.yml
