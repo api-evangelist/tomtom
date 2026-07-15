@@ -214,6 +214,8 @@ integrations:
   - iOS SDK
   - ADAS SDK
 common:
+  - type: AgenticAccess
+    url: agentic-access/tomtom-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/tomtom-vulnerability-disclosure.yml
   - type: DomainSecurity
