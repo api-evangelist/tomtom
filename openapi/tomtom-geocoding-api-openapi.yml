@@ -1,0 +1,310 @@
+openapi: 3.0.0
+info:
+  contact:
+    x-twitter: TomTom
+  description: "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema."
+  title: Maps Additional Data Geocoding API
+  version: 1.0.0
+  x-apisguru-categories:
+  - location
+  x-logo:
+    url: https://twitter.com/TomTom/profile_image?size=original
+  x-origin:
+  - converter:
+      url: https://github.com/lucybot/api-spec-converter
+      version: 2.7.31
+    format: openapi
+    url: https://developer.tomtom.com/system/files/swagger_models/maps_api_0.yaml
+    version: '3.0'
+  x-providerName: tomtom.com
+  x-serviceName: maps
+servers:
+- url: https://api.tomtom.com
+security:
+- api_key: []
+tags:
+- name: Geocoding
+paths:
+  /search/{versionNumber}/geocode/{query}.{ext}:
+    get:
+      parameters:
+      - $ref: '#/components/parameters/versionNumber'
+      - description: Query string. Must be properly URL encoded.
+        example: 4 north 2nd street san jose
+        in: path
+        name: query
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/ext'
+      - $ref: '#/components/parameters/storeResult'
+      - $ref: '#/components/parameters/typeahead'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/ofs'
+      - $ref: '#/components/parameters/countrySet'
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lon'
+      - $ref: '#/components/parameters/radius'
+      - $ref: '#/components/parameters/topLeft'
+      - $ref: '#/components/parameters/btmRight'
+      - $ref: '#/components/parameters/language'
+      - $ref: '#/components/parameters/extendedPostalCodesFor'
+      - $ref: '#/components/parameters/view'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '403':
+          $ref: '#/components/responses/403'
+        '405':
+          $ref: '#/components/responses/405'
+        404/596:
+          $ref: '#/components/responses/404596'
+        5XX:
+          $ref: '#/components/responses/5xx'
+      summary: Geocode
+      tags:
+      - Geocoding
+  /search/{versionNumber}/structuredGeocode.{ext}:
+    get:
+      parameters:
+      - $ref: '#/components/parameters/versionNumber'
+      - $ref: '#/components/parameters/ext'
+      - $ref: '#/components/parameters/countryCode'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/ofs'
+      - $ref: '#/components/parameters/streetNumber'
+      - $ref: '#/components/parameters/streetName'
+      - $ref: '#/components/parameters/crossStreet'
+      - $ref: '#/components/parameters/municipality'
+      - $ref: '#/components/parameters/municipalitySubdivision'
+      - $ref: '#/components/parameters/countryTertiarySubdivision'
+      - $ref: '#/components/parameters/countrySecondarySubdivision'
+      - $ref: '#/components/parameters/countrySubdivision'
+      - $ref: '#/components/parameters/postalCode'
+      - $ref: '#/components/parameters/language'
+      - $ref: '#/components/parameters/extendedPostalCodesFor'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '403':
+          $ref: '#/components/responses/403'
+        '405':
+          $ref: '#/components/responses/405'
+        404/596:
+          $ref: '#/components/responses/404596'
+        5XX:
+          $ref: '#/components/responses/5xx'
+      summary: Structured Geocode
+      tags:
+      - Geocoding
+components:
+  parameters:
+    ofs:
+      description: Starting offset of the returned results within the full result set.
+      in: query
+      name: ofs
+      schema:
+        default: 0
+        maximum: 1900
+        type: integer
+    language:
+      description: Language in which search results should be returned. Should be one of <a href="/search-api/search-api-documentation/supported-languages">supported IETF language tags</a>, case insensitive.
+      in: query
+      name: language
+      schema:
+        type: string
+    extendedPostalCodesFor:
+      description: "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)"
+      in: query
+      name: extendedPostalCodesFor
+      schema:
+        type: string
+    topLeft:
+      description: Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon.
+      example: 37.553,-122.453
+      in: query
+      name: topLeft
+      schema:
+        type: string
+    lat:
+      description: "Latitude where results should be biased.  \nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+      example: 37.337
+      in: query
+      name: lat
+      schema:
+        format: float
+        type: number
+    municipality:
+      description: The municipality (city/town) for the structured address.
+      example: Amsterdam
+      in: query
+      name: municipality
+      schema:
+        type: string
+    ext:
+      description: Expected response format.
+      example: xml
+      in: path
+      name: ext
+      required: true
+      schema:
+        enum:
+        - json
+        - jsonp
+        - js
+        - xml
+        type: string
+    streetNumber:
+      description: The street number for the structured address.
+      in: query
+      name: streetNumber
+      schema:
+        type: string
+    lon:
+      description: 'Longitude where results should be biased
+
+        NOTE: supplying a lat/lon without a radius will return search results biased to that point.'
+      example: -121.89
+      in: query
+      name: lon
+      schema:
+        format: float
+        type: number
+    limit:
+      description: Maximum number of search results that will be returned.
+      in: query
+      name: limit
+      schema:
+        default: 10
+        maximum: 100
+        type: integer
+    btmRight:
+      description: Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon.
+      example: 37.4,-122.55
+      in: query
+      name: btmRight
+      schema:
+        type: string
+    countrySubdivision:
+      description: The state or province for the structured address.
+      in: query
+      name: countrySubdivision
+      schema:
+        type: string
+    countrySet:
+      description: Comma separated string of country codes. This will limit the search to the specified countries.
+      example: FR
+      in: query
+      name: countrySet
+      schema:
+        type: string
+    radius:
+      description: If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters.
+      in: query
+      name: radius
+      schema:
+        type: integer
+    countrySecondarySubdivision:
+      description: The county for the structured address.
+      in: query
+      name: countrySecondarySubdivision
+      schema:
+        type: string
+    streetName:
+      description: The street name for the structured address.
+      in: query
+      name: streetName
+      schema:
+        type: string
+    storeResult:
+      deprecated: true
+      description: If the "storeResult" flag is set, the query will be interpreted as a stored geocode and will be billed according to the terms of use.
+      in: query
+      name: storeResult
+      schema:
+        default: false
+        type: boolean
+    municipalitySubdivision:
+      description: The municipality subdivision (sub/super city) for the structured address.
+      in: query
+      name: municipalitySubdivision
+      schema:
+        type: string
+    countryCode:
+      description: '2 or 3 letter country code (e.g.: FR, ES).'
+      example: NL
+      in: query
+      name: countryCode
+      required: true
+      schema:
+        type: string
+    versionNumber:
+      description: Service version number. The current value is 2.
+      in: path
+      name: versionNumber
+      required: true
+      schema:
+        enum:
+        - 2
+        type: integer
+    countryTertiarySubdivision:
+      description: The named area for the structured address.
+      in: query
+      name: countryTertiarySubdivision
+      schema:
+        type: string
+    view:
+      description: Geopolitical View.
+      in: query
+      name: view
+      required: false
+      schema:
+        default: Unified
+        enum:
+        - Unified
+        - IN
+        - PK
+        - IL
+        - MA
+        type: string
+    postalCode:
+      description: The zip code or postal code for the structured address.
+      in: query
+      name: postalCode
+      schema:
+        type: string
+    crossStreet:
+      description: The cross street name for the structured address.
+      in: query
+      name: crossStreet
+      schema:
+        type: string
+    typeahead:
+      description: If the "typeahead" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode.
+      in: query
+      name: typeahead
+      schema:
+        default: false
+        type: boolean
+  responses:
+    '404596':
+      description: 'Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.'
+    '403':
+      description: "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+    '405':
+      description: 'Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.'
+    5xx:
+      description: An error occurred while processing the request. Please try again later.
+    '200':
+      description: 'OK: the search successfully returned zero or more results.'
+    '400':
+      description: 'Bad Request: one or more parameters were incorrectly specified.'
+  securitySchemes:
+    api_key:
+      in: query
+      name: key
+      type: apiKey

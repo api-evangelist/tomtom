@@ -1,0 +1,146 @@
+openapi: 3.0.0
+info:
+  contact:
+    x-twitter: TomTom
+  description: "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema."
+  title: Maps Additional Data Reachable Range API
+  version: 1.0.0
+  x-apisguru-categories:
+  - location
+  x-logo:
+    url: https://twitter.com/TomTom/profile_image?size=original
+  x-origin:
+  - converter:
+      url: https://github.com/lucybot/api-spec-converter
+      version: 2.7.31
+    format: openapi
+    url: https://developer.tomtom.com/system/files/swagger_models/maps_api_0.yaml
+    version: '3.0'
+  x-providerName: tomtom.com
+  x-serviceName: maps
+servers:
+- url: https://api.tomtom.com
+security:
+- api_key: []
+tags:
+- name: Reachable Range
+  description: Calculate areas reachable within given constraints
+paths:
+  /routing/{versionNumber}/calculateReachableRange/{origin}/{contentType}:
+    get:
+      operationId: calculateReachableRange
+      summary: Calculate Reachable Range
+      description: Calculates the area reachable from a given origin point within specified time, distance, or fuel/energy constraints.
+      tags:
+      - Reachable Range
+      parameters:
+      - name: versionNumber
+        in: path
+        required: true
+        schema:
+          type: integer
+          enum:
+          - 1
+      - name: origin
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Origin coordinates (lat,lon)
+        example: 52.50931,13.42936
+      - name: contentType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - json
+          - jsonp
+          - xml
+      - name: timeBudgetInSec
+        in: query
+        schema:
+          type: number
+        description: Maximum travel time in seconds
+      - name: distanceBudgetInMeters
+        in: query
+        schema:
+          type: number
+        description: Maximum travel distance in meters
+      - name: fuelBudgetInLiters
+        in: query
+        schema:
+          type: number
+        description: Available fuel in liters
+      - name: energyBudgetInkWh
+        in: query
+        schema:
+          type: number
+        description: Available energy in kWh for EV routing
+      - name: routeType
+        in: query
+        schema:
+          type: string
+          enum:
+          - fastest
+          - shortest
+          - eco
+      - name: traffic
+        in: query
+        schema:
+          type: boolean
+      - name: travelMode
+        in: query
+        schema:
+          type: string
+          enum:
+          - car
+          - truck
+          - taxi
+          - bus
+          - van
+          - motorcycle
+          - bicycle
+          - pedestrian
+      - name: departAt
+        in: query
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Reachable range polygon
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReachableRangeResponse'
+components:
+  schemas:
+    LatLon:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+    ReachableRangeResponse:
+      type: object
+      properties:
+        formatVersion:
+          type: string
+        reachableRange:
+          type: object
+          properties:
+            center:
+              $ref: '#/components/schemas/LatLon'
+            boundary:
+              type: array
+              items:
+                $ref: '#/components/schemas/LatLon'
+  securitySchemes:
+    api_key:
+      in: query
+      name: key
+      type: apiKey

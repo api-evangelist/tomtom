@@ -1,0 +1,213 @@
+openapi: 3.0.0
+info:
+  contact:
+    x-twitter: TomTom
+  description: "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema."
+  title: Maps Additional Data Traffic Tiles API
+  version: 1.0.0
+  x-apisguru-categories:
+  - location
+  x-logo:
+    url: https://twitter.com/TomTom/profile_image?size=original
+  x-origin:
+  - converter:
+      url: https://github.com/lucybot/api-spec-converter
+      version: 2.7.31
+    format: openapi
+    url: https://developer.tomtom.com/system/files/swagger_models/maps_api_0.yaml
+    version: '3.0'
+  x-providerName: tomtom.com
+  x-serviceName: maps
+servers:
+- url: https://api.tomtom.com
+security:
+- api_key: []
+tags:
+- name: Traffic Tiles
+  description: Raster and vector tiles for map display
+paths:
+  /traffic/services/{versionNumber}/incidentTile/{style}/{zoom}/{x}/{y}.{format}:
+    get:
+      operationId: getRasterIncidentTile
+      summary: Get Raster Incident Tile
+      description: Returns a raster map tile showing traffic incidents.
+      tags:
+      - Traffic Tiles
+      parameters:
+      - name: versionNumber
+        in: path
+        required: true
+        schema:
+          type: integer
+          enum:
+          - 4
+      - name: style
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - s1
+          - s2
+          - s3
+          - night
+      - name: zoom
+        in: path
+        required: true
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 22
+      - name: x
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: y
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: format
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - png
+      - name: key
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: t
+        in: query
+        schema:
+          type: string
+        description: Traffic model ID
+      responses:
+        '200':
+          description: PNG raster tile image
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+  /traffic/map/{versionNumber}/tile/flow/{style}/{zoom}/{x}/{y}.{format}:
+    get:
+      operationId: getRasterFlowTile
+      summary: Get Raster Flow Tile
+      description: Returns a raster map tile visualizing traffic flow conditions.
+      tags:
+      - Traffic Tiles
+      parameters:
+      - name: versionNumber
+        in: path
+        required: true
+        schema:
+          type: integer
+          enum:
+          - 4
+      - name: style
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - absolute
+          - relative
+          - relative-delay
+          - reduced-sensitivity
+      - name: zoom
+        in: path
+        required: true
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 22
+      - name: x
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: y
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: format
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - png
+      - name: key
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: t
+        in: query
+        schema:
+          type: string
+        description: Traffic model ID
+      responses:
+        '200':
+          description: PNG raster tile
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+  /traffic/map/{versionNumber}/tile/flow/{zoom}/{x}/{y}.pbf:
+    get:
+      operationId: getVectorFlowTile
+      summary: Get Vector Flow Tile
+      description: Returns a vector Protocol Buffer tile with traffic flow data.
+      tags:
+      - Traffic Tiles
+      parameters:
+      - name: versionNumber
+        in: path
+        required: true
+        schema:
+          type: integer
+          enum:
+          - 4
+      - name: zoom
+        in: path
+        required: true
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 22
+      - name: x
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: y
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: key
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Protocol Buffer vector tile
+          content:
+            application/vnd.mapbox-vector-tile:
+              schema:
+                type: string
+                format: binary
+components:
+  securitySchemes:
+    api_key:
+      in: query
+      name: key
+      type: apiKey

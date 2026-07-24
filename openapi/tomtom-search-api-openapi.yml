@@ -1,0 +1,702 @@
+openapi: 3.0.0
+info:
+  contact:
+    x-twitter: TomTom
+  description: "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema."
+  title: Maps Additional Data Search API
+  version: 1.0.0
+  x-apisguru-categories:
+  - location
+  x-logo:
+    url: https://twitter.com/TomTom/profile_image?size=original
+  x-origin:
+  - converter:
+      url: https://github.com/lucybot/api-spec-converter
+      version: 2.7.31
+    format: openapi
+    url: https://developer.tomtom.com/system/files/swagger_models/maps_api_0.yaml
+    version: '3.0'
+  x-providerName: tomtom.com
+  x-serviceName: maps
+servers:
+- url: https://api.tomtom.com
+security:
+- api_key: []
+tags:
+- name: Search
+paths:
+  /search/{versionNumber}/cS/{category}.{ext}:
+    get:
+      deprecated: true
+      parameters:
+      - $ref: '#/components/parameters/versionNumber'
+      - description: Query string. Must be properly URL encoded.
+        example: pizza
+        in: path
+        name: category
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/ext'
+      - $ref: '#/components/parameters/typeahead'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/ofs'
+      - $ref: '#/components/parameters/countrySet'
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lon'
+      - $ref: '#/components/parameters/radius'
+      - $ref: '#/components/parameters/topLeft'
+      - $ref: '#/components/parameters/btmRight'
+      - $ref: '#/components/parameters/language'
+      - $ref: '#/components/parameters/idxSet'
+      - $ref: '#/components/parameters/view'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '403':
+          $ref: '#/components/responses/403'
+        '405':
+          $ref: '#/components/responses/405'
+        404/596:
+          $ref: '#/components/responses/404596'
+        5XX:
+          $ref: '#/components/responses/5xx'
+      summary: Low Bandwith Category Search
+      tags:
+      - Search
+  /search/{versionNumber}/categorySearch/{query}.{ext}:
+    get:
+      parameters:
+      - $ref: '#/components/parameters/versionNumber'
+      - description: Query string. Must be properly URL encoded.
+        example: pizza
+        in: path
+        name: query
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/ext'
+      - $ref: '#/components/parameters/typeahead'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/ofs'
+      - $ref: '#/components/parameters/countrySet'
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lon'
+      - $ref: '#/components/parameters/radius'
+      - $ref: '#/components/parameters/topLeft'
+      - $ref: '#/components/parameters/btmRight'
+      - $ref: '#/components/parameters/language'
+      - $ref: '#/components/parameters/extendedPostalCodesFor'
+      - $ref: '#/components/parameters/view'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '403':
+          $ref: '#/components/responses/403'
+        '405':
+          $ref: '#/components/responses/405'
+        404/596:
+          $ref: '#/components/responses/404596'
+        5XX:
+          $ref: '#/components/responses/5xx'
+      summary: Category Search
+      tags:
+      - Search
+  /search/{versionNumber}/geometrySearch/{query}.{ext}:
+    get:
+      parameters:
+      - $ref: '#/components/parameters/versionNumber'
+      - description: Query string. Must be properly URL encoded.
+        example: pizza
+        in: path
+        name: query
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/ext'
+      - description: List of geometries to filter by. Available types are CIRCLE (with the radius expressed in meters) and POLYGON.
+        example: '[{"type":"POLYGON", "vertices":["37.7524152343544, -122.43576049804686", "37.70660472542312, -122.43301391601562", "37.712059855877314, -122.36434936523438", "37.75350561243041, -122.37396240234374"]}, {"type":"CIRCLE", "position":"37.71205, -121.36434", "radius":6000}, {"type":"CIRCLE", "position":"37.31205, -121.36434", "radius":1000}]'
+        in: query
+        name: geometryList
+        schema:
+          type: string
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/language'
+      - $ref: '#/components/parameters/extendedPostalCodesFor'
+      - $ref: '#/components/parameters/idxSet'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '403':
+          $ref: '#/components/responses/403'
+        '405':
+          $ref: '#/components/responses/405'
+        404/596:
+          $ref: '#/components/responses/404596'
+        5XX:
+          $ref: '#/components/responses/5xx'
+      summary: Geometry Search
+      tags:
+      - Search
+    post:
+      parameters:
+      - $ref: '#/components/parameters/versionNumber'
+      - description: Query string. Must be properly URL encoded.
+        example: pizza
+        in: path
+        name: query
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/ext'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/language'
+      - $ref: '#/components/parameters/extendedPostalCodesFor'
+      - $ref: '#/components/parameters/idxSet'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                geometryList:
+                - type: POLYGON
+                  vertices:
+                  - 37.7524152343544,-122.43576049804686
+                  - 37.70660472542312,-122.43301391601562
+                  - 37.712059855877314,-122.36434936523438
+                  - 37.75350561243041,-122.37396240234374
+                - position: 37.71205,-121.36434
+                  radius: 6000
+                  type: CIRCLE
+                - position: 37.31205,-121.36434
+                  radius: 1000
+                  type: CIRCLE
+              properties:
+                geometryList:
+                  items:
+                    properties:
+                      position:
+                        type: string
+                      radius:
+                        type: integer
+                      type:
+                        type: string
+                      vertices:
+                        items:
+                          type: string
+                        type: array
+                    type: object
+                  type: array
+              type: object
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '403':
+          $ref: '#/components/responses/403'
+        '405':
+          $ref: '#/components/responses/405'
+        404/596:
+          $ref: '#/components/responses/404596'
+        5XX:
+          $ref: '#/components/responses/5xx'
+      summary: Geometry Search
+      tags:
+      - Search
+  /search/{versionNumber}/nearbySearch/.{ext}:
+    get:
+      parameters:
+      - $ref: '#/components/parameters/versionNumber'
+      - $ref: '#/components/parameters/ext'
+      - description: "Latitude where results should be biased.  \nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+        example: 37.337
+        in: query
+        name: lat
+        required: true
+        schema:
+          format: float
+          type: number
+      - description: 'Longitude where results should be biased
+
+          NOTE: supplying a lat/lon without a radius will return search results biased to that point.'
+        example: -121.89
+        in: query
+        name: lon
+        required: true
+        schema:
+          format: float
+          type: number
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/ofs'
+      - $ref: '#/components/parameters/countrySet'
+      - description: If radius and position are set, the results will be constrained to the defined area. The radius parameter is specified in meters.
+        in: query
+        name: radius
+        schema:
+          default: 10000
+          maximum: 50000
+          type: integer
+      - deprecated: true
+        description: Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon.
+        example: 37.553,-122.453
+        in: query
+        name: topLeft
+        schema:
+          type: string
+      - deprecated: true
+        description: Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon.
+        example: 37.4,-122.55
+        in: query
+        name: btmRight
+        schema:
+          type: string
+      - $ref: '#/components/parameters/language'
+      - $ref: '#/components/parameters/extendedPostalCodesFor'
+      - $ref: '#/components/parameters/minFuzzyLevel'
+      - $ref: '#/components/parameters/maxFuzzyLevel'
+      - $ref: '#/components/parameters/idxSet'
+      - $ref: '#/components/parameters/view'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '403':
+          $ref: '#/components/responses/403'
+        '405':
+          $ref: '#/components/responses/405'
+        404/596:
+          $ref: '#/components/responses/404596'
+        5XX:
+          $ref: '#/components/responses/5xx'
+      summary: Nearby Search
+      tags:
+      - Search
+  /search/{versionNumber}/poiSearch/{query}.{ext}:
+    get:
+      parameters:
+      - $ref: '#/components/parameters/versionNumber'
+      - description: Query string. Must be properly URL encoded.
+        example: pizza
+        in: path
+        name: query
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/ext'
+      - $ref: '#/components/parameters/typeahead'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/ofs'
+      - $ref: '#/components/parameters/countrySet'
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lon'
+      - $ref: '#/components/parameters/radius'
+      - $ref: '#/components/parameters/topLeft'
+      - $ref: '#/components/parameters/btmRight'
+      - $ref: '#/components/parameters/language'
+      - $ref: '#/components/parameters/extendedPostalCodesFor'
+      - $ref: '#/components/parameters/view'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '403':
+          $ref: '#/components/responses/403'
+        '405':
+          $ref: '#/components/responses/405'
+        404/596:
+          $ref: '#/components/responses/404596'
+        5XX:
+          $ref: '#/components/responses/5xx'
+      summary: Points of Interest Search
+      tags:
+      - Search
+  /search/{versionNumber}/routedSearch/{query}/{position}/{heading}.{ext}:
+    get:
+      deprecated: true
+      parameters:
+      - $ref: '#/components/parameters/versionNumber'
+      - description: Query string. Must be properly URL encoded.
+        example: gas
+        in: path
+        name: query
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/position'
+      - description: The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)
+        example: 90
+        in: path
+        name: heading
+        required: true
+        schema:
+          format: float
+          type: number
+      - $ref: '#/components/parameters/ext'
+      - $ref: '#/components/parameters/typeahead'
+      - $ref: '#/components/parameters/limit'
+      - description: Multiplies the limit by N to gather more candidate POIs, which will then be sorted by drive distance, returning only the top candidates according to the limit.
+        in: query
+        name: multiplier
+        schema:
+          default: 2
+          type: integer
+      - $ref: '#/components/parameters/routingTimeout'
+      - $ref: '#/components/parameters/language'
+      - $ref: '#/components/parameters/extendedPostalCodesFor'
+      - $ref: '#/components/parameters/idxSet'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '403':
+          $ref: '#/components/responses/403'
+        '405':
+          $ref: '#/components/responses/405'
+        404/596:
+          $ref: '#/components/responses/404596'
+        5XX:
+          $ref: '#/components/responses/5xx'
+      summary: Routed Search
+      tags:
+      - Search
+  /search/{versionNumber}/s/{query}.{ext}:
+    get:
+      deprecated: true
+      parameters:
+      - $ref: '#/components/parameters/versionNumber'
+      - description: Query string. Must be properly URL encoded.
+        example: pizza
+        in: path
+        name: query
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/ext'
+      - $ref: '#/components/parameters/typeahead'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/ofs'
+      - $ref: '#/components/parameters/countrySet'
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lon'
+      - $ref: '#/components/parameters/radius'
+      - $ref: '#/components/parameters/topLeft'
+      - $ref: '#/components/parameters/btmRight'
+      - $ref: '#/components/parameters/language'
+      - $ref: '#/components/parameters/idxSet'
+      - $ref: '#/components/parameters/view'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '403':
+          $ref: '#/components/responses/403'
+        '405':
+          $ref: '#/components/responses/405'
+        404/596:
+          $ref: '#/components/responses/404596'
+        5XX:
+          $ref: '#/components/responses/5xx'
+      summary: Low Bandwith Search
+      tags:
+      - Search
+  /search/{versionNumber}/search/{query}.{ext}:
+    get:
+      parameters:
+      - $ref: '#/components/parameters/versionNumber'
+      - description: 'Query string. Must be properly URL encoded.
+
+
+          To perform a reverse geocode, the user can provide latitude and longitude coordinates directly in the query. More information can be found <a href="/search-api/search-api-documentation-search/fuzzy-search#AdditionalInfo">here</a>.'
+        example: pizza
+        in: path
+        name: query
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/ext'
+      - $ref: '#/components/parameters/typeahead'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/ofs'
+      - $ref: '#/components/parameters/countrySet'
+      - $ref: '#/components/parameters/lat'
+      - $ref: '#/components/parameters/lon'
+      - $ref: '#/components/parameters/radius'
+      - $ref: '#/components/parameters/topLeft'
+      - $ref: '#/components/parameters/btmRight'
+      - $ref: '#/components/parameters/language'
+      - $ref: '#/components/parameters/extendedPostalCodesFor'
+      - $ref: '#/components/parameters/minFuzzyLevel'
+      - $ref: '#/components/parameters/maxFuzzyLevel'
+      - $ref: '#/components/parameters/idxSet'
+      - $ref: '#/components/parameters/view'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '403':
+          $ref: '#/components/responses/403'
+        '405':
+          $ref: '#/components/responses/405'
+        404/596:
+          $ref: '#/components/responses/404596'
+        5XX:
+          $ref: '#/components/responses/5xx'
+      summary: Fuzzy Search
+      tags:
+      - Search
+  /search/{versionNumber}/searchAlongRoute/{query}.{ext}:
+    post:
+      parameters:
+      - $ref: '#/components/parameters/versionNumber'
+      - description: Query string. Must be properly URL encoded.
+        example: pizza
+        in: path
+        name: query
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/ext'
+      - description: Maximum detour time
+        example: 1200
+        in: query
+        name: maxDetourTime
+        required: true
+        schema:
+          maximum: 3600
+          type: integer
+      - $ref: '#/components/parameters/limit'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                route:
+                  points:
+                  - lat: 37.7524152343544
+                    lon: -122.43576049804686
+                  - lat: 37.70660472542312
+                    lon: -122.43301391601562
+                  - lat: 37.712059855877314
+                    lon: -122.36434936523438
+                  - lat: 37.75350561243041
+                    lon: -122.37396240234374
+              properties:
+                route:
+                  properties:
+                    points:
+                      items:
+                        properties:
+                          lat:
+                            format: float
+                            type: number
+                          lon:
+                            format: float
+                            type: number
+                        type: object
+                      type: array
+                  type: object
+              type: object
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '403':
+          $ref: '#/components/responses/403'
+        '405':
+          $ref: '#/components/responses/405'
+        404/596:
+          $ref: '#/components/responses/404596'
+        5XX:
+          $ref: '#/components/responses/5xx'
+      summary: Along Route Search
+      tags:
+      - Search
+components:
+  parameters:
+    ofs:
+      description: Starting offset of the returned results within the full result set.
+      in: query
+      name: ofs
+      schema:
+        default: 0
+        maximum: 1900
+        type: integer
+    language:
+      description: Language in which search results should be returned. Should be one of <a href="/search-api/search-api-documentation/supported-languages">supported IETF language tags</a>, case insensitive.
+      in: query
+      name: language
+      schema:
+        type: string
+    extendedPostalCodesFor:
+      description: "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)"
+      in: query
+      name: extendedPostalCodesFor
+      schema:
+        type: string
+    topLeft:
+      description: Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon.
+      example: 37.553,-122.453
+      in: query
+      name: topLeft
+      schema:
+        type: string
+    routingTimeout:
+      description: Only return results that arrive from routing engine within this time limit.
+      in: query
+      name: routingTimeout
+      schema:
+        default: 4000
+        type: integer
+    position:
+      description: This is specified as a comma separated string composed of lat., lon.
+      example: 37.8328,-122.27669
+      in: path
+      name: position
+      required: true
+      schema:
+        type: string
+    lat:
+      description: "Latitude where results should be biased.  \nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
+      example: 37.337
+      in: query
+      name: lat
+      schema:
+        format: float
+        type: number
+    ext:
+      description: Expected response format.
+      example: xml
+      in: path
+      name: ext
+      required: true
+      schema:
+        enum:
+        - json
+        - jsonp
+        - js
+        - xml
+        type: string
+    lon:
+      description: 'Longitude where results should be biased
+
+        NOTE: supplying a lat/lon without a radius will return search results biased to that point.'
+      example: -121.89
+      in: query
+      name: lon
+      schema:
+        format: float
+        type: number
+    limit:
+      description: Maximum number of search results that will be returned.
+      in: query
+      name: limit
+      schema:
+        default: 10
+        maximum: 100
+        type: integer
+    btmRight:
+      description: Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon.
+      example: 37.4,-122.55
+      in: query
+      name: btmRight
+      schema:
+        type: string
+    minFuzzyLevel:
+      description: Minimum fuzziness level to be used.
+      in: query
+      name: minFuzzyLevel
+      schema:
+        default: 1
+        maximum: 4
+        minimum: 1
+        type: integer
+    radius:
+      description: If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters.
+      in: query
+      name: radius
+      schema:
+        type: integer
+    countrySet:
+      description: Comma separated string of country codes. This will limit the search to the specified countries.
+      example: FR
+      in: query
+      name: countrySet
+      schema:
+        type: string
+    versionNumber:
+      description: Service version number. The current value is 2.
+      in: path
+      name: versionNumber
+      required: true
+      schema:
+        enum:
+        - 2
+        type: integer
+    maxFuzzyLevel:
+      description: Maximum fuzziness level to be used.
+      in: query
+      name: maxFuzzyLevel
+      schema:
+        default: 2
+        maximum: 4
+        minimum: 1
+        type: integer
+    view:
+      description: Geopolitical View.
+      in: query
+      name: view
+      required: false
+      schema:
+        default: Unified
+        enum:
+        - Unified
+        - IN
+        - PK
+        - IL
+        - MA
+        type: string
+    typeahead:
+      description: If the "typeahead" flag is set, the query will be interpreted as a partial input and the search will enter <b>predictive</b> mode.
+      in: query
+      name: typeahead
+      schema:
+        default: false
+        type: boolean
+    idxSet:
+      description: "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)"
+      example: POI
+      in: query
+      name: idxSet
+      schema:
+        type: string
+  responses:
+    '404596':
+      description: 'Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.'
+    '403':
+      description: "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+    '405':
+      description: 'Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.'
+    5xx:
+      description: An error occurred while processing the request. Please try again later.
+    '200':
+      description: 'OK: the search successfully returned zero or more results.'
+    '400':
+      description: 'Bad Request: one or more parameters were incorrectly specified.'
+  securitySchemes:
+    api_key:
+      in: query
+      name: key
+      type: apiKey

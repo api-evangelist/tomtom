@@ -1,0 +1,202 @@
+openapi: 3.0.0
+info:
+  contact:
+    x-twitter: TomTom
+  description: "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema."
+  title: Maps Additional Data Reverse Geocoding API
+  version: 1.0.0
+  x-apisguru-categories:
+  - location
+  x-logo:
+    url: https://twitter.com/TomTom/profile_image?size=original
+  x-origin:
+  - converter:
+      url: https://github.com/lucybot/api-spec-converter
+      version: 2.7.31
+    format: openapi
+    url: https://developer.tomtom.com/system/files/swagger_models/maps_api_0.yaml
+    version: '3.0'
+  x-providerName: tomtom.com
+  x-serviceName: maps
+servers:
+- url: https://api.tomtom.com
+security:
+- api_key: []
+tags:
+- name: Reverse Geocoding
+paths:
+  /search/{versionNumber}/reverseGeocode/crossStreet/{position}.{ext}:
+    get:
+      parameters:
+      - $ref: '#/components/parameters/versionNumber'
+      - $ref: '#/components/parameters/position'
+      - $ref: '#/components/parameters/ext'
+      - description: Maximum number of cross-streets to return.
+        in: query
+        name: limit
+        schema:
+          default: 1
+          maximum: 100
+          minimum: 0
+          type: integer
+      - deprecated: true
+        description: If the "spatialKeys" flag is set, the response will also contain a proprietary geospatial keys for a specified location.
+        in: query
+        name: spatialKeys
+        schema:
+          default: false
+          type: boolean
+      - description: The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)
+        in: query
+        name: heading
+        schema:
+          format: float
+          type: number
+      - description: The maximum distance in meters from the specified position for the reverse geocoder to consider.
+        in: query
+        name: radius
+        schema:
+          default: 10000
+          type: integer
+      - $ref: '#/components/parameters/language'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '403':
+          $ref: '#/components/responses/403'
+        '405':
+          $ref: '#/components/responses/405'
+        404/596:
+          $ref: '#/components/responses/404596'
+        5XX:
+          $ref: '#/components/responses/5xx'
+      summary: Cross Street Lookup
+      tags:
+      - Reverse Geocoding
+  /search/{versionNumber}/reverseGeocode/{position}.{ext}:
+    get:
+      parameters:
+      - $ref: '#/components/parameters/versionNumber'
+      - $ref: '#/components/parameters/position'
+      - $ref: '#/components/parameters/ext'
+      - deprecated: true
+        description: If the "spatialKeys" flag is set, the response will also contain a proprietary geospatial keys for a specified location.
+        in: query
+        name: spatialKeys
+        schema:
+          default: false
+          type: boolean
+      - description: To enable return of the posted speed limit (where available).
+        in: query
+        name: returnSpeedLimit
+        schema:
+          default: false
+          type: boolean
+      - description: The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)
+        in: query
+        name: heading
+        schema:
+          format: float
+          type: number
+      - description: The maximum distance in meters from the specified position for the reverse geocoder to consider.
+        in: query
+        name: radius
+        schema:
+          default: 10000
+          type: integer
+      - description: If a number is sent in along with the request, the response may include the side of the street (Left/Right) and an offset position for that number.
+        in: query
+        name: number
+        schema:
+          type: string
+      - description: Enables return of the road use array for reverse geocodes at street level.
+        in: query
+        name: returnRoadUse
+        schema:
+          default: false
+          type: boolean
+      - description: 'Restricts reverse geocodes to a certain type of road use. The road use array for reverse geocodes can be one or more of: ["LimitedAccess", "Arterial", "Terminal", "Ramp", "Rotary", "LocalStreet"].'
+        in: query
+        name: roadUse
+        schema:
+          type: string
+      - description: Specifies the jsonp callback method.
+        in: query
+        name: callback
+        schema:
+          default: cb
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '403':
+          $ref: '#/components/responses/403'
+        '405':
+          $ref: '#/components/responses/405'
+        404/596:
+          $ref: '#/components/responses/404596'
+        5XX:
+          $ref: '#/components/responses/5xx'
+      summary: Reverse Geocode
+      tags:
+      - Reverse Geocoding
+components:
+  responses:
+    '403':
+      description: "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+    '405':
+      description: 'Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.'
+    5xx:
+      description: An error occurred while processing the request. Please try again later.
+    '200':
+      description: 'OK: the search successfully returned zero or more results.'
+    '400':
+      description: 'Bad Request: one or more parameters were incorrectly specified.'
+    '404596':
+      description: 'Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.'
+  parameters:
+    language:
+      description: Language in which search results should be returned. Should be one of <a href="/search-api/search-api-documentation/supported-languages">supported IETF language tags</a>, case insensitive.
+      in: query
+      name: language
+      schema:
+        type: string
+    versionNumber:
+      description: Service version number. The current value is 2.
+      in: path
+      name: versionNumber
+      required: true
+      schema:
+        enum:
+        - 2
+        type: integer
+    ext:
+      description: Expected response format.
+      example: xml
+      in: path
+      name: ext
+      required: true
+      schema:
+        enum:
+        - json
+        - jsonp
+        - js
+        - xml
+        type: string
+    position:
+      description: This is specified as a comma separated string composed of lat., lon.
+      example: 37.8328,-122.27669
+      in: path
+      name: position
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    api_key:
+      in: query
+      name: key
+      type: apiKey

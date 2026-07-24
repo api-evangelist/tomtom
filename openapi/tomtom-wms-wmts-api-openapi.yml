@@ -1,0 +1,257 @@
+openapi: 3.0.0
+info:
+  contact:
+    x-twitter: TomTom
+  description: "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema."
+  title: Maps Additional Data WMS / WMTS API
+  version: 1.0.0
+  x-apisguru-categories:
+  - location
+  x-logo:
+    url: https://twitter.com/TomTom/profile_image?size=original
+  x-origin:
+  - converter:
+      url: https://github.com/lucybot/api-spec-converter
+      version: 2.7.31
+    format: openapi
+    url: https://developer.tomtom.com/system/files/swagger_models/maps_api_0.yaml
+    version: '3.0'
+  x-providerName: tomtom.com
+  x-serviceName: maps
+servers:
+- url: https://api.tomtom.com
+security:
+- api_key: []
+tags:
+- name: WMS / WMTS
+paths:
+  /map/{versionNumber}/wms/:
+    get:
+      description: 'The GetMap call implements the Web Map Service 1.1.1 standard
+
+        to access TomTom raster map tiles. This service is described
+
+        in the response to the GetCapabilities API call.'
+      operationId: GetMap
+      parameters:
+      - description: Version of the service to call. The current version is 1
+        in: path
+        name: versionNumber
+        required: true
+        schema:
+          enum:
+          - 1
+          type: integer
+      - description: Request type
+        in: query
+        name: request
+        required: true
+        schema:
+          enum:
+          - GetMap
+          type: string
+      - description: 'Projection used in describing the <b>bbox</b> EPSG:3857 is
+
+          recommended, particularly at higher zoom levels. (Note that
+
+          EPSG:3857 is functionally equivalent to EPSG:900913/EPSG:3785)'
+        example: EPSG:4326
+        in: query
+        name: srs
+        required: true
+        schema:
+          enum:
+          - EPSG:3857
+          - EPSG:4326
+          type: string
+      - description: 'Bounding box in the projection stated in <b>srs</b>
+
+          (minLon,minLat,maxLon,maxLat)'
+        example: -0.489,51.28,0.236,51.686
+        in: query
+        name: bbox
+        required: true
+        schema:
+          pattern: ^(-*\d+\.*\d*, *){3}(-*\d+\.*\d*)$
+          type: string
+      - description: Width of the resulting image, in pixels Maximum value is 2048
+        example: 512
+        in: query
+        name: width
+        required: true
+        schema:
+          type: integer
+      - description: Height of the resulting image, in pixels Maximum value is 2048
+        example: 512
+        in: query
+        name: height
+        required: true
+        schema:
+          type: integer
+      - description: Image format to be returned
+        example: image/png
+        in: query
+        name: format
+        required: true
+        schema:
+          enum:
+          - image/jpeg
+          - image/png
+          type: string
+      - description: Map layers requested Currently only the basic layer is available
+        in: query
+        name: layers
+        required: true
+        schema:
+          enum:
+          - basic
+          type: string
+      - allowEmptyValue: true
+        description: 'Map styles to be returned. Currently, no styles are available. This
+
+          parameter is present for forward compatibility; it must be used and
+
+          left blank.'
+        in: query
+        name: styles
+        required: false
+        schema:
+          enum:
+          - ''
+          type: string
+      - description: Service type
+        in: query
+        name: service
+        required: false
+        schema:
+          enum:
+          - WMS
+          type: string
+      - description: WMS service version
+        in: query
+        name: version
+        required: true
+        schema:
+          enum:
+          - 1.1.1
+          type: string
+      responses:
+        '200':
+          description: <b>OK</b>
+        '202':
+          description: "<b>Accepted</b>: Received by the interface, but there is a WMS exception in\nprocessing it. Possible causes include:\n  - one or more required parameters is missing\n  - unsupported or unrecognized parameter value\n  - malformed bounding box requested\n  - invalid map dimensions requested\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \nThis code is returned if the parameters of the request were malformed.\nThe response includes a detailed explanation in the Service Exception Report."
+        '401':
+          description: '<b>Unauthorized</b>: Supplied API key is not valid for the request'
+        '500':
+          description: '<b>Internal Server Error</b>: There is a problem with the TomTom WMS
+
+            service'
+      summary: GetMap
+      tags:
+      - WMS / WMTS
+  /map/{versionNumber}/wms//:
+    get:
+      description: 'The GetCapabilities call is part of TomTom''s implementation of version 1.1.1
+
+        the Web Map Service (WMS). It provides descriptions of the other calls
+
+        that are available in the implementation.'
+      operationId: GetCapabilities
+      parameters:
+      - in: path
+        name: versionNumber
+        required: true
+        schema:
+          enum:
+          - 1
+          type: integer
+      - in: query
+        name: service
+        required: true
+        schema:
+          enum:
+          - WMS
+          type: string
+      - in: query
+        name: request
+        required: true
+        schema:
+          enum:
+          - GetCapabilities
+          type: string
+      - description: WMS service version
+        in: query
+        name: version
+        required: false
+        schema:
+          enum:
+          - 1.1.1
+          type: string
+      responses:
+        '200':
+          description: <b>OK</b>
+        '202':
+          description: "<b>Accepted</b>: Received by the interface, but there is a WMS exception in\nprocessing it. Possible causes include:\n  - one or more required parameters is missing\n  - unsupported or unrecognized parameter value\n  - malformed bounding box requested\n  - invalid map dimensions requested\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \nThis code is returned if the parameters of the request were malformed.\nThe response includes a detailed explanation in the Service Exception Report."
+        '401':
+          description: '<b>Unauthorized</b>: Supplied API key is not valid for the request'
+        '500':
+          description: '<b>Internal Server Error</b>: There is a problem with the TomTom WMS
+
+            service'
+      summary: GetCapabilities
+      tags:
+      - WMS / WMTS
+  /map/{versionNumber}/wmts/{key}/{wmtsVersion}/WMTSCapabilities.xml:
+    get:
+      description: 'The WMTS GetCapabilities call implements version 1.0.0 of
+
+        the <a href="http://www.opengeospatial.org/standards/wmts">Web Map Tile Service</a>
+
+        (WMTS) standard. It returns metadata that allows compatible calling systems to construct
+
+        calls to TomTom''s raster map tile service. See the
+
+        <a href="/maps-api/maps-api-documentation-raster/wmts">documentation</a>
+
+        for more information on WMTS.'
+      parameters:
+      - description: Version of the service to call. The current version is 1
+        in: path
+        name: versionNumber
+        required: true
+        schema:
+          enum:
+          - 1
+          type: integer
+      - description: Your API key for calling this service.
+        in: path
+        name: key
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: wmtsVersion
+        required: true
+        schema:
+          enum:
+          - 1.0.0
+          type: string
+      responses:
+        '200':
+          description: <b>OK</b>
+        '400':
+          description: '<b>Bad request</b>: Probably malformed syntax'
+        '401':
+          description: '<b>Unauthorized</b>: Supplied API key is not valid for this request'
+        '500':
+          description: '<b>Internal Server Error</b>: There is a problem with the TomTom WMTS service'
+      security: []
+      summary: WMTS
+      tags:
+      - WMS / WMTS
+components:
+  securitySchemes:
+    api_key:
+      in: query
+      name: key
+      type: apiKey
