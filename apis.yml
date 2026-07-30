@@ -7,9 +7,22 @@ description: >-
   geocoding, points of interest search, geofencing, parking availability, fuel prices, and electric vehicle routing.
   TomTom also provides an MCP Server for AI integration with location intelligence.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/tomtom.png
 tags:
   - Maps
   - Traffic
@@ -24,163 +37,585 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: tomtom:tomtom-maps-api
-    name: TomTom Maps API
-    description: >-
-      The TomTom Maps API provides raster and vector map tiles for display in web and mobile applications. Includes
-      copyright information endpoints and supports 19+ zoom levels. Returns PNG/JPG tiles for raster and Protocol Buffer
-      format for vector tiles.
-    humanURL: https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
-    baseURL: https://api.tomtom.com
-    tags:
-      - Maps
-      - Tiles
-      - Raster
-      - Vector
-    properties:
-      - type: Documentation
-        url: https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/openapi/tomtom-maps-openapi.yml
-  - aid: tomtom:tomtom-search-api
-    name: TomTom Search API
-    description: >-
-      The TomTom Search API provides fuzzy search for addresses, points of interest, and geographic features. Returns
-      latitude/longitude coordinates, place details, and geometry data. Includes additional data retrieval, structured
-      geocoding, and batch search capabilities.
-    humanURL: https://developer.tomtom.com/search-api/documentation/product-information/introduction
-    baseURL: https://api.tomtom.com
-    tags:
-      - Search
-      - Geocoding
-      - Points of Interest
-      - Location
-    properties:
-      - type: Documentation
-        url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/openapi/tomtom-search-openapi.yml
-      - type: API Explorer
-        url: https://developer.tomtom.com/search-api/api-explorer
-  - aid: tomtom:tomtom-routing-api
-    name: TomTom Routing API
-    description: >-
-      The TomTom Routing API calculates routes between origins and destinations with support for up to 150 waypoints,
-      real-time and historical traffic, vehicle type optimization, EV consumption models, reachable range calculation,
-      and batch routing for multiple route requests.
-    humanURL: https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
-    baseURL: https://api.tomtom.com
-    tags:
-      - Routing
-      - Navigation
-      - Transportation
-      - Electric Vehicle
-    properties:
-      - type: Documentation
-        url: https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/openapi/tomtom-routing-openapi.yml
-      - type: API Explorer
-        url: https://developer.tomtom.com/routing-api/api-explorer
-  - aid: tomtom:tomtom-traffic-api
-    name: TomTom Traffic API
-    description: >-
-      The TomTom Traffic API provides real-time traffic incidents and flow data. The Traffic Incidents service delivers
-      accurate information about jams, accidents, and delays. The Traffic Flow service provides observed speeds and
-      travel times updated every minute for key roads. Includes raster and vector tile formats.
-    humanURL: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
-    baseURL: https://api.tomtom.com
-    tags:
-      - Traffic
-      - Incidents
-      - Real-Time
-      - Transportation
-    properties:
-      - type: Documentation
-        url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
-      - type: API Explorer
-        url: https://developer.tomtom.com/traffic-api/api-explorer
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/openapi/tomtom-traffic-openapi.yml
-      - type: SpectralRules
-        url: https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
-      - type: Vocabulary
-        url: https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
-  - aid: tomtom:tomtom-geocoding-api
-    name: TomTom Geocoding API
-    description: >-
-      The TomTom Geocoding API converts structured addresses into geographic coordinates and supports reverse geocoding
-      to translate coordinates into human-readable addresses. The Premium Geocoding API adds parking and building
-      entrance location data.
-    humanURL: https://developer.tomtom.com/geocoding-api/documentation/product-information/introduction
-    baseURL: https://api.tomtom.com
-    tags:
-      - Geocoding
-      - Location
-      - Address
-    properties:
-      - type: Documentation
-        url: https://developer.tomtom.com/geocoding-api/documentation/product-information/introduction
-      - type: API Explorer
-        url: https://developer.tomtom.com/geocoding-api/api-explorer
-  - aid: tomtom:tomtom-fuel-prices-api
-    name: TomTom Fuel Prices API
-    description: >-
-      The TomTom Fuel Prices API provides current fuel price information at specific fueling stations, including price
-      by fuel type.
-    humanURL: https://developer.tomtom.com/fuel-prices-api/documentation/tomtom-maps/product-information/introduction
-    baseURL: https://api.tomtom.com
-    tags:
-      - Fuel
-      - Prices
-      - Automotive
-    properties:
-      - type: Documentation
-        url: https://developer.tomtom.com/fuel-prices-api/documentation/tomtom-maps/product-information/introduction
-  - aid: tomtom:tomtom-parking-availability-api
-    name: TomTom Parking Availability API
-    description: >-
-      The TomTom Parking Availability API provides real-time availability status of parking sites and on-street parking,
-      including pricing information.
-    humanURL: https://developer.tomtom.com/parking-availability-api/documentation/tomtom-maps/product-information/introduction
-    baseURL: https://api.tomtom.com
-    tags:
-      - Parking
-      - Transportation
-      - Real-Time
-    properties:
-      - type: Documentation
-        url: >-
-          https://developer.tomtom.com/parking-availability-api/documentation/tomtom-maps/product-information/introduction
-  - aid: tomtom:tomtom-geofencing-api
-    name: TomTom Geofencing API
-    description: >-
-      The TomTom Geofencing API enables creation and management of geofence boundaries, location history tracking, and
-      notification delivery when assets enter or exit defined perimeters.
-    humanURL: https://developer.tomtom.com/geofencing-api/documentation/product-information/introduction
-    baseURL: https://api.tomtom.com
-    tags:
-      - Geofencing
-      - Location
-      - Tracking
-      - Notifications
-    properties:
-      - type: Documentation
-        url: https://developer.tomtom.com/geofencing-api/documentation/product-information/introduction
-  - aid: tomtom:tomtom-autostream-api
-    name: TomTom AutoStream API
-    description: >-
-      TomTom AutoStream is a map data delivery platform optimized for on-demand and over-the-air cloud-to-device and
-      cloud-to-cloud data streaming for automotive applications.
-    humanURL: https://developer.tomtom.com/autostream-sdk/documentation/product-information/introduction
-    baseURL: https://api.tomtom.com
-    tags:
-      - Maps
-      - Streaming
-      - Automotive
-    properties:
-      - type: Documentation
-        url: https://developer.tomtom.com/autostream-sdk/documentation/product-information/introduction
+- aid: tomtom:tomtom-geocoding-api
+  name: TomTom Geocoding API
+  description: >-
+    The TomTom Geocoding API converts structured addresses into geographic coordinates and supports reverse
+    geocoding to translate coordinates into human-readable addresses. The Premium Geocoding API adds parking
+    and building entrance location data.
+  humanURL: >-
+    https://developer.tomtom.com/geocoding-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Geocoding
+  - Location
+  - Address
+  properties:
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/geocoding-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/geocoding-api/api-explorer
+- aid: tomtom:tomtom-fuel-prices-api
+  name: TomTom Fuel Prices API
+  description: >-
+    The TomTom Fuel Prices API provides current fuel price information at specific fueling stations, including
+    price by fuel type.
+  humanURL: >-
+    https://developer.tomtom.com/fuel-prices-api/documentation/tomtom-maps/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Fuel
+  - Prices
+  - Automotive
+  properties:
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/fuel-prices-api/documentation/tomtom-maps/product-information/introduction
+- aid: tomtom:tomtom-parking-availability-api
+  name: TomTom Parking Availability API
+  description: >-
+    The TomTom Parking Availability API provides real-time availability status of parking sites and on-street
+    parking, including pricing information.
+  humanURL: >-
+    https://developer.tomtom.com/parking-availability-api/documentation/tomtom-maps/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Parking
+  - Transportation
+  - Real-Time
+  properties:
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/parking-availability-api/documentation/tomtom-maps/product-information/introduction
+- aid: tomtom:tomtom-geofencing-api
+  name: TomTom Geofencing API
+  description: >-
+    The TomTom Geofencing API enables creation and management of geofence boundaries, location history
+    tracking, and notification delivery when assets enter or exit defined perimeters.
+  humanURL: >-
+    https://developer.tomtom.com/geofencing-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Geofencing
+  - Location
+  - Tracking
+  - Notifications
+  properties:
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/geofencing-api/documentation/product-information/introduction
+- aid: tomtom:tomtom-autostream-api
+  name: TomTom AutoStream API
+  description: >-
+    TomTom AutoStream is a map data delivery platform optimized for on-demand and over-the-air cloud-to-device
+    and cloud-to-cloud data streaming for automotive applications.
+  humanURL: >-
+    https://developer.tomtom.com/autostream-sdk/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Maps
+  - Streaming
+  - Automotive
+  properties:
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/autostream-sdk/documentation/product-information/introduction
+- aid: tomtom:tomtom-additional-data-api
+  name: TomTom Additional Data API
+  description: The Additional Data API from TomTom — 1 operation(s) for additional data.
+  humanURL: >-
+    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Additional Data
+  properties:
+  - type: OpenAPI
+    url: openapi/tomtom-additional-data-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  - type: Documentation
+    url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/search-api/api-explorer
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/routing-api/api-explorer
+  - type: Documentation
+    url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/traffic-api/api-explorer
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
+- aid: tomtom:tomtom-batch-routing-api
+  name: TomTom Batch Routing API
+  description: Multiple route requests in a single call
+  humanURL: >-
+    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Batch Routing
+  properties:
+  - type: OpenAPI
+    url: openapi/tomtom-batch-routing-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  - type: Documentation
+    url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/search-api/api-explorer
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/routing-api/api-explorer
+  - type: Documentation
+    url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/traffic-api/api-explorer
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
+- aid: tomtom:tomtom-copyrights-api
+  name: TomTom Copyrights API
+  description: The Copyrights API from TomTom — 4 operation(s) for copyrights.
+  humanURL: >-
+    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Copyrights
+  properties:
+  - type: OpenAPI
+    url: openapi/tomtom-copyrights-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  - type: Documentation
+    url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/search-api/api-explorer
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/routing-api/api-explorer
+  - type: Documentation
+    url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/traffic-api/api-explorer
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
+- aid: tomtom:tomtom-filters-api
+  name: TomTom Filters API
+  description: The Filters API from TomTom — 2 operation(s) for filters.
+  humanURL: >-
+    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Filters
+  properties:
+  - type: OpenAPI
+    url: openapi/tomtom-filters-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  - type: Documentation
+    url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/search-api/api-explorer
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/routing-api/api-explorer
+  - type: Documentation
+    url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/traffic-api/api-explorer
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
+- aid: tomtom:tomtom-geocoding-api
+  name: TomTom Geocoding API
+  description: The Geocoding API from TomTom — 2 operation(s) for geocoding.
+  humanURL: >-
+    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Geocoding
+  properties:
+  - type: OpenAPI
+    url: openapi/tomtom-geocoding-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  - type: Documentation
+    url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/search-api/api-explorer
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/routing-api/api-explorer
+  - type: Documentation
+    url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/traffic-api/api-explorer
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
+- aid: tomtom:tomtom-raster-api
+  name: TomTom Raster API
+  description: The Raster API from TomTom — 2 operation(s) for raster.
+  humanURL: >-
+    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Raster
+  properties:
+  - type: OpenAPI
+    url: openapi/tomtom-raster-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  - type: Documentation
+    url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/search-api/api-explorer
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/routing-api/api-explorer
+  - type: Documentation
+    url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/traffic-api/api-explorer
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
+- aid: tomtom:tomtom-reachable-range-api
+  name: TomTom Reachable Range API
+  description: Calculate areas reachable within given constraints
+  humanURL: >-
+    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Reachable Range
+  properties:
+  - type: OpenAPI
+    url: openapi/tomtom-reachable-range-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  - type: Documentation
+    url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/search-api/api-explorer
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/routing-api/api-explorer
+  - type: Documentation
+    url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/traffic-api/api-explorer
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
+- aid: tomtom:tomtom-reverse-geocoding-api
+  name: TomTom Reverse Geocoding API
+  description: The Reverse Geocoding API from TomTom — 2 operation(s) for reverse geocoding.
+  humanURL: >-
+    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Reverse Geocoding
+  properties:
+  - type: OpenAPI
+    url: openapi/tomtom-reverse-geocoding-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  - type: Documentation
+    url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/search-api/api-explorer
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/routing-api/api-explorer
+  - type: Documentation
+    url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/traffic-api/api-explorer
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
+- aid: tomtom:tomtom-routing-api
+  name: TomTom Routing API
+  description: Route calculation between locations
+  humanURL: >-
+    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Routing
+  properties:
+  - type: OpenAPI
+    url: openapi/tomtom-routing-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  - type: Documentation
+    url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/search-api/api-explorer
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/routing-api/api-explorer
+  - type: Documentation
+    url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/traffic-api/api-explorer
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
+- aid: tomtom:tomtom-search-api
+  name: TomTom Search API
+  description: The Search API from TomTom — 9 operation(s) for search.
+  humanURL: >-
+    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/tomtom-search-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  - type: Documentation
+    url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/search-api/api-explorer
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/routing-api/api-explorer
+  - type: Documentation
+    url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/traffic-api/api-explorer
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
+- aid: tomtom:tomtom-traffic-flow-api
+  name: TomTom Traffic Flow API
+  description: Real-time traffic speed and flow data
+  humanURL: >-
+    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Traffic Flow
+  properties:
+  - type: OpenAPI
+    url: openapi/tomtom-traffic-flow-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  - type: Documentation
+    url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/search-api/api-explorer
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/routing-api/api-explorer
+  - type: Documentation
+    url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/traffic-api/api-explorer
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
+- aid: tomtom:tomtom-traffic-incidents-api
+  name: TomTom Traffic Incidents API
+  description: Real-time traffic incident data
+  humanURL: >-
+    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Traffic Incidents
+  properties:
+  - type: OpenAPI
+    url: openapi/tomtom-traffic-incidents-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  - type: Documentation
+    url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/search-api/api-explorer
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/routing-api/api-explorer
+  - type: Documentation
+    url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/traffic-api/api-explorer
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
+- aid: tomtom:tomtom-traffic-tiles-api
+  name: TomTom Traffic Tiles API
+  description: Raster and vector tiles for map display
+  humanURL: >-
+    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Traffic Tiles
+  properties:
+  - type: OpenAPI
+    url: openapi/tomtom-traffic-tiles-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  - type: Documentation
+    url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/search-api/api-explorer
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/routing-api/api-explorer
+  - type: Documentation
+    url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/traffic-api/api-explorer
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
+- aid: tomtom:tomtom-vector-api
+  name: TomTom Vector API
+  description: The Vector API from TomTom — 1 operation(s) for vector.
+  humanURL: >-
+    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - Vector
+  properties:
+  - type: OpenAPI
+    url: openapi/tomtom-vector-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  - type: Documentation
+    url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/search-api/api-explorer
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/routing-api/api-explorer
+  - type: Documentation
+    url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/traffic-api/api-explorer
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
+- aid: tomtom:tomtom-wms-wmts-api
+  name: TomTom WMS / WMTS API
+  description: The WMS / WMTS API from TomTom — 3 operation(s) for wms / wmts.
+  humanURL: >-
+    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  baseURL: https://api.tomtom.com
+  tags:
+  - WMS / WMTS
+  properties:
+  - type: OpenAPI
+    url: openapi/tomtom-wms-wmts-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  - type: Documentation
+    url: https://developer.tomtom.com/search-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/search-api/api-explorer
+  - type: Documentation
+    url: >-
+      https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/routing-api/api-explorer
+  - type: Documentation
+    url: https://developer.tomtom.com/traffic-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/traffic-api/api-explorer
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
 features:
   - Real-time traffic flow and incidents
   - Route calculation with traffic optimization
