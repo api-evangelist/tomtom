@@ -1,0 +1,42 @@
+{
+  "provider": "tomtom",
+  "sources": [
+    "tomtom-additional-data-api-openapi.yml",
+    "tomtom-batch-routing-api-openapi.yml",
+    "tomtom-copyrights-api-openapi.yml",
+    "tomtom-filters-api-openapi.yml",
+    "tomtom-geocoding-api-openapi.yml",
+    "tomtom-raster-api-openapi.yml",
+    "tomtom-reachable-range-api-openapi.yml",
+    "tomtom-reverse-geocoding-api-openapi.yml",
+    "tomtom-routing-api-openapi.yml",
+    "tomtom-search-api-openapi.yml",
+    "tomtom-traffic-flow-api-openapi.yml",
+    "tomtom-traffic-incidents-api-openapi.yml",
+    "tomtom-traffic-tiles-api-openapi.yml",
+    "tomtom-vector-api-openapi.yml",
+    "tomtom-wms-wmts-api-openapi.yml"
+  ],
+  "outputs": [
+    "tomtom-additional-data-api-openapi.yml",
+    "tomtom-batch-routing-api-openapi.yml",
+    "tomtom-copyrights-api-openapi.yml",
+    "tomtom-filters-api-openapi.yml",
+    "tomtom-geocoding-api-openapi.yml",
+    "tomtom-raster-api-openapi.yml",
+    "tomtom-reachable-range-api-openapi.yml",
+    "tomtom-reverse-geocoding-api-openapi.yml",
+    "tomtom-routing-api-openapi.yml",
+    "tomtom-search-api-openapi.yml",
+    "tomtom-traffic-flow-api-openapi.yml",
+    "tomtom-traffic-incidents-api-openapi.yml",
+    "tomtom-traffic-tiles-api-openapi.yml",
+    "tomtom-vector-api-openapi.yml",
+    "tomtom-wms-wmts-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
