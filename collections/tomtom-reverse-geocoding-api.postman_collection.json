@@ -1,0 +1,1082 @@
+{
+  "item": [
+    {
+      "id": "2c6a9d58-9e13-46d2-b33a-477d06799cce",
+      "name": "Reverse Geocoding",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "71a9a651-f4d2-4190-91e8-92defc03956c",
+          "name": "Cross Street Lookup",
+          "request": {
+            "name": "Cross Street Lookup",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                ":versionNumber",
+                "reverseGeocode",
+                "crossStreet",
+                "{{position}}.{{ext}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1",
+                  "description": "Maximum number of cross-streets to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "spatialKeys",
+                  "value": "false",
+                  "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location."
+                },
+                {
+                  "disabled": false,
+                  "key": "heading",
+                  "value": "<float>",
+                  "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "radius",
+                  "value": "10000",
+                  "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider."
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) Service version number. The current value is 2."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f14ef5cd-5af2-44f1-9619-1ab2e5b01cf0",
+              "name": "OK: the search successfully returned zero or more results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "reverseGeocode",
+                    "crossStreet",
+                    "{{position}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "spatialKeys",
+                      "value": "false"
+                    },
+                    {
+                      "key": "heading",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "10000"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5d45c96f-7753-427a-adc7-bcbf9463fe2a",
+              "name": "Bad Request: one or more parameters were incorrectly specified.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "reverseGeocode",
+                    "crossStreet",
+                    "{{position}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "spatialKeys",
+                      "value": "false"
+                    },
+                    {
+                      "key": "heading",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "10000"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "41d99cd8-2cb2-438c-8f35-aaa83ff60bc0",
+              "name": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "reverseGeocode",
+                    "crossStreet",
+                    "{{position}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "spatialKeys",
+                      "value": "false"
+                    },
+                    {
+                      "key": "heading",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "10000"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "39a08e61-18cc-4452-becb-1ad9eeec1484",
+              "name": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "reverseGeocode",
+                    "crossStreet",
+                    "{{position}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "spatialKeys",
+                      "value": "false"
+                    },
+                    {
+                      "key": "heading",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "10000"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d2f53134-edbe-424f-b5fe-96ae2bc523e0",
+              "name": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "reverseGeocode",
+                    "crossStreet",
+                    "{{position}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "spatialKeys",
+                      "value": "false"
+                    },
+                    {
+                      "key": "heading",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "10000"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4af23f67-a98f-4dbd-ab91-74d499a0c76f",
+              "name": "An error occurred while processing the request. Please try again later.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "reverseGeocode",
+                    "crossStreet",
+                    "{{position}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "spatialKeys",
+                      "value": "false"
+                    },
+                    {
+                      "key": "heading",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "10000"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98e0d67f-27fd-4c8a-aa39-3b415060691b",
+          "name": "Reverse Geocode",
+          "request": {
+            "name": "Reverse Geocode",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                ":versionNumber",
+                "reverseGeocode",
+                "{{position}}.{{ext}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "spatialKeys",
+                  "value": "false",
+                  "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnSpeedLimit",
+                  "value": "false",
+                  "description": "To enable return of the posted speed limit (where available)."
+                },
+                {
+                  "disabled": false,
+                  "key": "heading",
+                  "value": "<float>",
+                  "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "radius",
+                  "value": "10000",
+                  "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider."
+                },
+                {
+                  "disabled": false,
+                  "key": "number",
+                  "value": "<string>",
+                  "description": "If a number is sent in along with the request, the response may include the side of the street (Left/Right) and an offset position for that number."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnRoadUse",
+                  "value": "false",
+                  "description": "Enables return of the road use array for reverse geocodes at street level."
+                },
+                {
+                  "disabled": false,
+                  "key": "roadUse",
+                  "value": "<string>",
+                  "description": "Restricts reverse geocodes to a certain type of road use. The road use array for reverse geocodes can be one or more of: [\"LimitedAccess\", \"Arterial\", \"Terminal\", \"Ramp\", \"Rotary\", \"LocalStreet\"]."
+                },
+                {
+                  "disabled": false,
+                  "key": "callback",
+                  "value": "cb",
+                  "description": "Specifies the jsonp callback method."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) Service version number. The current value is 2."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ffd45064-e824-43f9-8c58-a42e88693273",
+              "name": "OK: the search successfully returned zero or more results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "reverseGeocode",
+                    "{{position}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "spatialKeys",
+                      "value": "false"
+                    },
+                    {
+                      "key": "returnSpeedLimit",
+                      "value": "false"
+                    },
+                    {
+                      "key": "heading",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "10000"
+                    },
+                    {
+                      "key": "number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnRoadUse",
+                      "value": "false"
+                    },
+                    {
+                      "key": "roadUse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "callback",
+                      "value": "cb"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3781587b-1be2-4d88-83a6-1667ff0c615c",
+              "name": "Bad Request: one or more parameters were incorrectly specified.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "reverseGeocode",
+                    "{{position}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "spatialKeys",
+                      "value": "false"
+                    },
+                    {
+                      "key": "returnSpeedLimit",
+                      "value": "false"
+                    },
+                    {
+                      "key": "heading",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "10000"
+                    },
+                    {
+                      "key": "number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnRoadUse",
+                      "value": "false"
+                    },
+                    {
+                      "key": "roadUse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "callback",
+                      "value": "cb"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9262b42-5fa0-4c24-bde8-85184c1567b7",
+              "name": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "reverseGeocode",
+                    "{{position}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "spatialKeys",
+                      "value": "false"
+                    },
+                    {
+                      "key": "returnSpeedLimit",
+                      "value": "false"
+                    },
+                    {
+                      "key": "heading",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "10000"
+                    },
+                    {
+                      "key": "number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnRoadUse",
+                      "value": "false"
+                    },
+                    {
+                      "key": "roadUse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "callback",
+                      "value": "cb"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6dc48759-2ab0-4de2-8ba8-d100c6ecb9f0",
+              "name": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "reverseGeocode",
+                    "{{position}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "spatialKeys",
+                      "value": "false"
+                    },
+                    {
+                      "key": "returnSpeedLimit",
+                      "value": "false"
+                    },
+                    {
+                      "key": "heading",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "10000"
+                    },
+                    {
+                      "key": "number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnRoadUse",
+                      "value": "false"
+                    },
+                    {
+                      "key": "roadUse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "callback",
+                      "value": "cb"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9aa61055-b1c3-4618-ad50-1ac2f8edde01",
+              "name": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "reverseGeocode",
+                    "{{position}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "spatialKeys",
+                      "value": "false"
+                    },
+                    {
+                      "key": "returnSpeedLimit",
+                      "value": "false"
+                    },
+                    {
+                      "key": "heading",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "10000"
+                    },
+                    {
+                      "key": "number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnRoadUse",
+                      "value": "false"
+                    },
+                    {
+                      "key": "roadUse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "callback",
+                      "value": "cb"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "319d86d8-ce7c-4539-81a9-e4ca3041aed6",
+              "name": "An error occurred while processing the request. Please try again later.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "reverseGeocode",
+                    "{{position}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "spatialKeys",
+                      "value": "false"
+                    },
+                    {
+                      "key": "returnSpeedLimit",
+                      "value": "false"
+                    },
+                    {
+                      "key": "heading",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "10000"
+                    },
+                    {
+                      "key": "number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnRoadUse",
+                      "value": "false"
+                    },
+                    {
+                      "key": "roadUse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "callback",
+                      "value": "cb"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.tomtom.com",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) This is specified as a comma separated string composed of lat., lon.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "position"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Expected response format.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "ext"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9db6eb67-1e60-454d-aca3-45a31a1ad830",
+    "name": "Maps Additional Data Reverse Geocoding API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maps Additional Data Reachable Range API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reachable Range",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Calculate Reachable Range",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/routing/:versionNumber/calculateReachableRange/:origin/:contentType",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "origin",
+                "value": "52.50931,13.42936",
+                "type": "path",
+                "description": "Origin coordinates (lat,lon)"
+              },
+              {
+                "name": "contentType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "timeBudgetInSec",
+                "value": "",
+                "type": "query",
+                "description": "Maximum travel time in seconds"
+              },
+              {
+                "name": "distanceBudgetInMeters",
+                "value": "",
+                "type": "query",
+                "description": "Maximum travel distance in meters"
+              },
+              {
+                "name": "fuelBudgetInLiters",
+                "value": "",
+                "type": "query",
+                "description": "Available fuel in liters"
+              },
+              {
+                "name": "energyBudgetInkWh",
+                "value": "",
+                "type": "query",
+                "description": "Available energy in kWh for EV routing"
+              },
+              {
+                "name": "routeType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "traffic",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "travelMode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "departAt",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Calculates the area reachable from a given origin point within specified time, distance, or fuel/energy constraints."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,169 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maps Additional Data WMS / WMTS API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WMS / WMTS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetMap",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/map/:versionNumber/wms/",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Version of the service to call. The current version is 1"
+              },
+              {
+                "name": "request",
+                "value": "",
+                "type": "query",
+                "description": "Request type"
+              },
+              {
+                "name": "srs",
+                "value": "EPSG:4326",
+                "type": "query",
+                "description": "Projection used in describing the <b>bbox</b> EPSG:3857 is\nrecommended, particularly at higher zoom levels. (Note that\nEPSG:3857 is functionally equivalent to EPSG:900913/EPSG:3785)"
+              },
+              {
+                "name": "bbox",
+                "value": "-0.489,51.28,0.236,51.686",
+                "type": "query",
+                "description": "Bounding box in the projection stated in <b>srs</b>\n(minLon,minLat,maxLon,maxLat)"
+              },
+              {
+                "name": "width",
+                "value": "512",
+                "type": "query",
+                "description": "Width of the resulting image, in pixels Maximum value is 2048"
+              },
+              {
+                "name": "height",
+                "value": "512",
+                "type": "query",
+                "description": "Height of the resulting image, in pixels Maximum value is 2048"
+              },
+              {
+                "name": "format",
+                "value": "image/png",
+                "type": "query",
+                "description": "Image format to be returned"
+              },
+              {
+                "name": "layers",
+                "value": "",
+                "type": "query",
+                "description": "Map layers requested Currently only the basic layer is available"
+              },
+              {
+                "name": "styles",
+                "value": "",
+                "type": "query",
+                "description": "Map styles to be returned. Currently, no styles are available. This\nparameter is present for forward compatibility; it must be used and\nleft blank."
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "query",
+                "description": "Service type"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "WMS service version"
+              }
+            ]
+          },
+          "docs": "The GetMap call implements the Web Map Service 1.1.1 standard\nto access TomTom raster map tiles. This service is described\nin the response to the GetCapabilities API call."
+        },
+        {
+          "info": {
+            "name": "GetCapabilities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/map/:versionNumber/wms//",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "WMS service version"
+              }
+            ]
+          },
+          "docs": "The GetCapabilities call is part of TomTom's implementation of version 1.1.1\nthe Web Map Service (WMS). It provides descriptions of the other calls\nthat are available in the implementation."
+        },
+        {
+          "info": {
+            "name": "WMTS",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/map/:versionNumber/wmts/:key/:wmtsVersion/WMTSCapabilities.xml",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Version of the service to call. The current version is 1"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Your API key for calling this service."
+              },
+              {
+                "name": "wmtsVersion",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "The WMTS GetCapabilities call implements version 1.0.0 of\nthe <a href=\"http://www.opengeospatial.org/standards/wmts\">Web Map Tile Service</a>\n(WMTS) standard. It returns metadata that allows compatible calling systems to construct\ncalls to TomTom's raster map tile service. See the\n<a href=\"/maps-api/maps-api-documentation-raster/wmts\">documentation</a>\nfor more information on WMTS."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

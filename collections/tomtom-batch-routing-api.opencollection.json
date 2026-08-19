@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maps Additional Data Batch Routing API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Batch Routing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit Batch Routing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tomtom.com/routing/:versionNumber/batch/:contentType",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contentType",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submits multiple route calculation requests as a single batch job."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

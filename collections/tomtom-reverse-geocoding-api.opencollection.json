@@ -1,0 +1,166 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maps Additional Data Reverse Geocoding API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reverse Geocoding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cross Street Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/reverseGeocode/crossStreet/:position.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "position",
+                "value": "37.8328,-122.27669",
+                "type": "path",
+                "description": "This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of cross-streets to return."
+              },
+              {
+                "name": "spatialKeys",
+                "value": "",
+                "type": "query",
+                "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location."
+              },
+              {
+                "name": "heading",
+                "value": "",
+                "type": "query",
+                "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive."
+              }
+            ]
+          },
+          "docs": "Cross Street Lookup"
+        },
+        {
+          "info": {
+            "name": "Reverse Geocode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/reverseGeocode/:position.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "position",
+                "value": "37.8328,-122.27669",
+                "type": "path",
+                "description": "This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "spatialKeys",
+                "value": "",
+                "type": "query",
+                "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location."
+              },
+              {
+                "name": "returnSpeedLimit",
+                "value": "",
+                "type": "query",
+                "description": "To enable return of the posted speed limit (where available)."
+              },
+              {
+                "name": "heading",
+                "value": "",
+                "type": "query",
+                "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "query",
+                "description": "If a number is sent in along with the request, the response may include the side of the street (Left/Right) and an offset position for that number."
+              },
+              {
+                "name": "returnRoadUse",
+                "value": "",
+                "type": "query",
+                "description": "Enables return of the road use array for reverse geocodes at street level."
+              },
+              {
+                "name": "roadUse",
+                "value": "",
+                "type": "query",
+                "description": "Restricts reverse geocodes to a certain type of road use. The road use array for reverse geocodes can be one or more of: [\"LimitedAccess\", \"Arterial\", \"Terminal\", \"Ramp\", \"Rotary\", \"LocalStreet\"]."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the jsonp callback method."
+              }
+            ]
+          },
+          "docs": "Reverse Geocode"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

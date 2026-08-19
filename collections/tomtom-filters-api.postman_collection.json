@@ -1,0 +1,1674 @@
+{
+  "item": [
+    {
+      "id": "9defaaad-966e-4ed5-bf5c-4494742f2c1f",
+      "name": "Filters",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d1cb89a9-bf78-4040-9617-5b2bd537d099",
+          "name": "Geometry Filter",
+          "request": {
+            "name": "Geometry Filter",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                ":versionNumber",
+                "geometryFilter.{{ext}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "geometryList",
+                  "value": "<string>",
+                  "description": "(Required) List of geometries to filter by. Available types are CIRCLE (with the radius expressed in meters) and POLYGON."
+                },
+                {
+                  "disabled": false,
+                  "key": "poiList",
+                  "value": "<string>",
+                  "description": "(Required) List of POIs to filter. The only required attribute of a POI is position, everything else is optional and will be echoed back when passed in."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) Service version number. The current value is 2."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d7b173d-5a12-4a68-9913-95b4b66d74f3",
+              "name": "OK: the search successfully returned zero or more results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "geometryFilter.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "geometryList",
+                      "value": "[{\"type\":\"CIRCLE\", \"position\":\"40.80558, -73.96548\", \"radius\":100}, {\"type\":\"POLYGON\", \"vertices\":[\"37.7524152343544, -122.43576049804686\", \"37.70660472542312, -122.43301391601562\", \"37.712059855877314, -122.36434936523438\", \"37.75350561243041, -122.37396240234374\"]}]"
+                    },
+                    {
+                      "key": "poiList",
+                      "value": "[{\"poi\":{\"name\":\"S Restaurant Toms\"},\"address\":{\"freeformAddress\":\"2880 Broadway, New York, NY 10025\"},\"position\":{\"lat\":40.80558,\"lon\":-73.96548}},{\"poi\":{\"name\":\"Yasha Raman Corporation\"},\"address\":{\"freeformAddress\":\"940 Amsterdam Ave, New York, NY 10025\"},\"position\":{\"lat\":40.80076,\"lon\":-73.96556}}]"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d69c7d37-3933-4a60-a093-885db01e0f3d",
+              "name": "Bad Request: one or more parameters were incorrectly specified.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "geometryFilter.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "geometryList",
+                      "value": "[{\"type\":\"CIRCLE\", \"position\":\"40.80558, -73.96548\", \"radius\":100}, {\"type\":\"POLYGON\", \"vertices\":[\"37.7524152343544, -122.43576049804686\", \"37.70660472542312, -122.43301391601562\", \"37.712059855877314, -122.36434936523438\", \"37.75350561243041, -122.37396240234374\"]}]"
+                    },
+                    {
+                      "key": "poiList",
+                      "value": "[{\"poi\":{\"name\":\"S Restaurant Toms\"},\"address\":{\"freeformAddress\":\"2880 Broadway, New York, NY 10025\"},\"position\":{\"lat\":40.80558,\"lon\":-73.96548}},{\"poi\":{\"name\":\"Yasha Raman Corporation\"},\"address\":{\"freeformAddress\":\"940 Amsterdam Ave, New York, NY 10025\"},\"position\":{\"lat\":40.80076,\"lon\":-73.96556}}]"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8039d02c-3da7-42f1-891d-949f26ee0791",
+              "name": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "geometryFilter.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "geometryList",
+                      "value": "[{\"type\":\"CIRCLE\", \"position\":\"40.80558, -73.96548\", \"radius\":100}, {\"type\":\"POLYGON\", \"vertices\":[\"37.7524152343544, -122.43576049804686\", \"37.70660472542312, -122.43301391601562\", \"37.712059855877314, -122.36434936523438\", \"37.75350561243041, -122.37396240234374\"]}]"
+                    },
+                    {
+                      "key": "poiList",
+                      "value": "[{\"poi\":{\"name\":\"S Restaurant Toms\"},\"address\":{\"freeformAddress\":\"2880 Broadway, New York, NY 10025\"},\"position\":{\"lat\":40.80558,\"lon\":-73.96548}},{\"poi\":{\"name\":\"Yasha Raman Corporation\"},\"address\":{\"freeformAddress\":\"940 Amsterdam Ave, New York, NY 10025\"},\"position\":{\"lat\":40.80076,\"lon\":-73.96556}}]"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6898838c-513f-4a39-bad1-cd3d5aa52922",
+              "name": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "geometryFilter.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "geometryList",
+                      "value": "[{\"type\":\"CIRCLE\", \"position\":\"40.80558, -73.96548\", \"radius\":100}, {\"type\":\"POLYGON\", \"vertices\":[\"37.7524152343544, -122.43576049804686\", \"37.70660472542312, -122.43301391601562\", \"37.712059855877314, -122.36434936523438\", \"37.75350561243041, -122.37396240234374\"]}]"
+                    },
+                    {
+                      "key": "poiList",
+                      "value": "[{\"poi\":{\"name\":\"S Restaurant Toms\"},\"address\":{\"freeformAddress\":\"2880 Broadway, New York, NY 10025\"},\"position\":{\"lat\":40.80558,\"lon\":-73.96548}},{\"poi\":{\"name\":\"Yasha Raman Corporation\"},\"address\":{\"freeformAddress\":\"940 Amsterdam Ave, New York, NY 10025\"},\"position\":{\"lat\":40.80076,\"lon\":-73.96556}}]"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "779e76f8-4e9b-4067-9834-1f42104428fc",
+              "name": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "geometryFilter.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "geometryList",
+                      "value": "[{\"type\":\"CIRCLE\", \"position\":\"40.80558, -73.96548\", \"radius\":100}, {\"type\":\"POLYGON\", \"vertices\":[\"37.7524152343544, -122.43576049804686\", \"37.70660472542312, -122.43301391601562\", \"37.712059855877314, -122.36434936523438\", \"37.75350561243041, -122.37396240234374\"]}]"
+                    },
+                    {
+                      "key": "poiList",
+                      "value": "[{\"poi\":{\"name\":\"S Restaurant Toms\"},\"address\":{\"freeformAddress\":\"2880 Broadway, New York, NY 10025\"},\"position\":{\"lat\":40.80558,\"lon\":-73.96548}},{\"poi\":{\"name\":\"Yasha Raman Corporation\"},\"address\":{\"freeformAddress\":\"940 Amsterdam Ave, New York, NY 10025\"},\"position\":{\"lat\":40.80076,\"lon\":-73.96556}}]"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5874122c-16c1-4303-a4bf-8acdb598811a",
+              "name": "An error occurred while processing the request. Please try again later.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "geometryFilter.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "geometryList",
+                      "value": "[{\"type\":\"CIRCLE\", \"position\":\"40.80558, -73.96548\", \"radius\":100}, {\"type\":\"POLYGON\", \"vertices\":[\"37.7524152343544, -122.43576049804686\", \"37.70660472542312, -122.43301391601562\", \"37.712059855877314, -122.36434936523438\", \"37.75350561243041, -122.37396240234374\"]}]"
+                    },
+                    {
+                      "key": "poiList",
+                      "value": "[{\"poi\":{\"name\":\"S Restaurant Toms\"},\"address\":{\"freeformAddress\":\"2880 Broadway, New York, NY 10025\"},\"position\":{\"lat\":40.80558,\"lon\":-73.96548}},{\"poi\":{\"name\":\"Yasha Raman Corporation\"},\"address\":{\"freeformAddress\":\"940 Amsterdam Ave, New York, NY 10025\"},\"position\":{\"lat\":40.80076,\"lon\":-73.96556}}]"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3563f4d-119f-44ad-a627-0f2b043cb99b",
+          "name": "Geometry Filter",
+          "request": {
+            "name": "Geometry Filter",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                ":versionNumber",
+                "geometryFilter.{{ext}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) Service version number. The current value is 2."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"geometryList\": [\n    {\n      \"position\": \"<string>\",\n      \"radius\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"vertices\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"position\": \"<string>\",\n      \"radius\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"vertices\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"poiList\": [\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    },\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c4cbf8d4-dc9d-4e1c-86ac-c33e0a0de6a1",
+              "name": "OK: the search successfully returned zero or more results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "geometryFilter.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"geometryList\": [\n    {\n      \"position\": \"<string>\",\n      \"radius\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"vertices\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"position\": \"<string>\",\n      \"radius\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"vertices\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"poiList\": [\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    },\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ddb558fd-b3f6-4639-93ce-2e02464400cb",
+              "name": "Bad Request: one or more parameters were incorrectly specified.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "geometryFilter.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"geometryList\": [\n    {\n      \"position\": \"<string>\",\n      \"radius\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"vertices\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"position\": \"<string>\",\n      \"radius\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"vertices\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"poiList\": [\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    },\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f5170a1b-1089-4695-b6e5-610a7143ec2a",
+              "name": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "geometryFilter.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"geometryList\": [\n    {\n      \"position\": \"<string>\",\n      \"radius\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"vertices\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"position\": \"<string>\",\n      \"radius\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"vertices\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"poiList\": [\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    },\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "560617c6-f324-4fcb-b756-684cab91cdbc",
+              "name": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "geometryFilter.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"geometryList\": [\n    {\n      \"position\": \"<string>\",\n      \"radius\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"vertices\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"position\": \"<string>\",\n      \"radius\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"vertices\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"poiList\": [\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    },\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fc41b7b4-bfab-47ff-b2d1-52771001d9b7",
+              "name": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "geometryFilter.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"geometryList\": [\n    {\n      \"position\": \"<string>\",\n      \"radius\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"vertices\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"position\": \"<string>\",\n      \"radius\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"vertices\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"poiList\": [\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    },\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6311d347-dd79-44b3-bb86-dc1879a7b2f7",
+              "name": "An error occurred while processing the request. Please try again later.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "geometryFilter.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"geometryList\": [\n    {\n      \"position\": \"<string>\",\n      \"radius\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"vertices\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"position\": \"<string>\",\n      \"radius\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"vertices\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"poiList\": [\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    },\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8817d91-f3ff-4270-a222-981aab16b0b4",
+          "name": "Routed Filter",
+          "request": {
+            "name": "Routed Filter",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                ":versionNumber",
+                "routedFilter",
+                ":position",
+                "{{heading}}.{{ext}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "poiList",
+                  "value": "<string>",
+                  "description": "(Required) List of POIs to filter. The only required attribute of a POI is position, everything else is optional and will be echoed back when passed in."
+                },
+                {
+                  "disabled": false,
+                  "key": "routingTimeout",
+                  "value": "4000",
+                  "description": "Only return results that arrive from routing engine within this time limit."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) Service version number. The current value is 2."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "position",
+                  "description": "(Required) This is specified as a comma separated string composed of lat., lon."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d77791c7-97c3-4d3f-a12b-cfefa2fd2879",
+              "name": "OK: the search successfully returned zero or more results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "routedFilter",
+                    ":position",
+                    "{{heading}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "poiList",
+                      "value": "[{\"poi\":{\"name\":\"Cleaire Advanced Emission Controls\"},\"address\":{\"freeformAddress\":\"7220 Trade St, San Diego, CA 92121\"},\"position\":{\"lat\":\"37.83274\",\"lon\":\"-122.27631\"}}]"
+                    },
+                    {
+                      "key": "routingTimeout",
+                      "value": "4000"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "position",
+                      "description": "(Required) This is specified as a comma separated string composed of lat., lon."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92251037-9923-40b0-9754-e27201d32bdd",
+              "name": "Bad Request: one or more parameters were incorrectly specified.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "routedFilter",
+                    ":position",
+                    "{{heading}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "poiList",
+                      "value": "[{\"poi\":{\"name\":\"Cleaire Advanced Emission Controls\"},\"address\":{\"freeformAddress\":\"7220 Trade St, San Diego, CA 92121\"},\"position\":{\"lat\":\"37.83274\",\"lon\":\"-122.27631\"}}]"
+                    },
+                    {
+                      "key": "routingTimeout",
+                      "value": "4000"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "position",
+                      "description": "(Required) This is specified as a comma separated string composed of lat., lon."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8988932b-ae25-435f-b9f4-8f2fa020be3f",
+              "name": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "routedFilter",
+                    ":position",
+                    "{{heading}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "poiList",
+                      "value": "[{\"poi\":{\"name\":\"Cleaire Advanced Emission Controls\"},\"address\":{\"freeformAddress\":\"7220 Trade St, San Diego, CA 92121\"},\"position\":{\"lat\":\"37.83274\",\"lon\":\"-122.27631\"}}]"
+                    },
+                    {
+                      "key": "routingTimeout",
+                      "value": "4000"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "position",
+                      "description": "(Required) This is specified as a comma separated string composed of lat., lon."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b500cf12-86cc-432e-a1b1-bb92c1d12f80",
+              "name": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "routedFilter",
+                    ":position",
+                    "{{heading}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "poiList",
+                      "value": "[{\"poi\":{\"name\":\"Cleaire Advanced Emission Controls\"},\"address\":{\"freeformAddress\":\"7220 Trade St, San Diego, CA 92121\"},\"position\":{\"lat\":\"37.83274\",\"lon\":\"-122.27631\"}}]"
+                    },
+                    {
+                      "key": "routingTimeout",
+                      "value": "4000"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "position",
+                      "description": "(Required) This is specified as a comma separated string composed of lat., lon."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92ea63b8-71ae-42df-b421-c2660e31c630",
+              "name": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "routedFilter",
+                    ":position",
+                    "{{heading}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "poiList",
+                      "value": "[{\"poi\":{\"name\":\"Cleaire Advanced Emission Controls\"},\"address\":{\"freeformAddress\":\"7220 Trade St, San Diego, CA 92121\"},\"position\":{\"lat\":\"37.83274\",\"lon\":\"-122.27631\"}}]"
+                    },
+                    {
+                      "key": "routingTimeout",
+                      "value": "4000"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "position",
+                      "description": "(Required) This is specified as a comma separated string composed of lat., lon."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6f997e03-1c3d-4859-9efc-161a8bf28503",
+              "name": "An error occurred while processing the request. Please try again later.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "routedFilter",
+                    ":position",
+                    "{{heading}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "poiList",
+                      "value": "[{\"poi\":{\"name\":\"Cleaire Advanced Emission Controls\"},\"address\":{\"freeformAddress\":\"7220 Trade St, San Diego, CA 92121\"},\"position\":{\"lat\":\"37.83274\",\"lon\":\"-122.27631\"}}]"
+                    },
+                    {
+                      "key": "routingTimeout",
+                      "value": "4000"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "position",
+                      "description": "(Required) This is specified as a comma separated string composed of lat., lon."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35c43d32-9c7c-45e3-9212-ca87ae5b813b",
+          "name": "Routed Filter",
+          "request": {
+            "name": "Routed Filter",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                ":versionNumber",
+                "routedFilter",
+                ":position",
+                "{{heading}}.{{ext}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "routingTimeout",
+                  "value": "4000",
+                  "description": "Only return results that arrive from routing engine within this time limit."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) Service version number. The current value is 2."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "position",
+                  "description": "(Required) This is specified as a comma separated string composed of lat., lon."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"poiList\": [\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    },\n    {\n      \"address\": {\n        \"freeformAddress\": \"<string>\"\n      },\n      \"poi\": {\n        \"name\": \"<string>\"\n      },\n      \"position\": {\n        \"lat\": \"<float>\",\n        \"lon\": \"<float>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "92035ff9-5d07-4f05-a6be-8f8a9c4bc6a0",
+              "name": "OK: the search successfully returned zero or more results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "routedFilter",
+                    ":position",
+                    "{{heading}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "routingTimeout",
+                      "value": "4000"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "position",
+                      "description": "(Required) This is specified as a comma separated string composed of lat., lon."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"poiList\": [\n    {\n      \"address\": {\n        \"freeformAddress\": \"9500 Gilman Dr, San Diego, CA 92037\"\n      },\n      \"poi\": {\n        \"name\": \"University of California San Diego\"\n      },\n      \"position\": {\n        \"lat\": 32.87349,\n        \"lon\": -117.2378\n      }\n    },\n    {\n      \"address\": {\n        \"freeformAddress\": \"7220 Trade St, San Diego, CA 92121\"\n      },\n      \"poi\": {\n        \"name\": \"Cleaire Advanced Emission Controls\"\n      },\n      \"position\": {\n        \"lat\": 37.83274,\n        \"lon\": -122.27631\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d653c0e6-0c5e-4941-a508-bddf6d2a5b7a",
+              "name": "Bad Request: one or more parameters were incorrectly specified.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "routedFilter",
+                    ":position",
+                    "{{heading}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "routingTimeout",
+                      "value": "4000"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "position",
+                      "description": "(Required) This is specified as a comma separated string composed of lat., lon."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"poiList\": [\n    {\n      \"address\": {\n        \"freeformAddress\": \"9500 Gilman Dr, San Diego, CA 92037\"\n      },\n      \"poi\": {\n        \"name\": \"University of California San Diego\"\n      },\n      \"position\": {\n        \"lat\": 32.87349,\n        \"lon\": -117.2378\n      }\n    },\n    {\n      \"address\": {\n        \"freeformAddress\": \"7220 Trade St, San Diego, CA 92121\"\n      },\n      \"poi\": {\n        \"name\": \"Cleaire Advanced Emission Controls\"\n      },\n      \"position\": {\n        \"lat\": 37.83274,\n        \"lon\": -122.27631\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "514a0db6-ca33-44df-82c8-b77d7b6be784",
+              "name": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "routedFilter",
+                    ":position",
+                    "{{heading}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "routingTimeout",
+                      "value": "4000"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "position",
+                      "description": "(Required) This is specified as a comma separated string composed of lat., lon."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"poiList\": [\n    {\n      \"address\": {\n        \"freeformAddress\": \"9500 Gilman Dr, San Diego, CA 92037\"\n      },\n      \"poi\": {\n        \"name\": \"University of California San Diego\"\n      },\n      \"position\": {\n        \"lat\": 32.87349,\n        \"lon\": -117.2378\n      }\n    },\n    {\n      \"address\": {\n        \"freeformAddress\": \"7220 Trade St, San Diego, CA 92121\"\n      },\n      \"poi\": {\n        \"name\": \"Cleaire Advanced Emission Controls\"\n      },\n      \"position\": {\n        \"lat\": 37.83274,\n        \"lon\": -122.27631\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6a804dc3-d9b9-4328-b1a3-e65b4db92d29",
+              "name": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "routedFilter",
+                    ":position",
+                    "{{heading}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "routingTimeout",
+                      "value": "4000"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "position",
+                      "description": "(Required) This is specified as a comma separated string composed of lat., lon."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"poiList\": [\n    {\n      \"address\": {\n        \"freeformAddress\": \"9500 Gilman Dr, San Diego, CA 92037\"\n      },\n      \"poi\": {\n        \"name\": \"University of California San Diego\"\n      },\n      \"position\": {\n        \"lat\": 32.87349,\n        \"lon\": -117.2378\n      }\n    },\n    {\n      \"address\": {\n        \"freeformAddress\": \"7220 Trade St, San Diego, CA 92121\"\n      },\n      \"poi\": {\n        \"name\": \"Cleaire Advanced Emission Controls\"\n      },\n      \"position\": {\n        \"lat\": 37.83274,\n        \"lon\": -122.27631\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c55edb33-78cc-4502-9c0c-786eb07bacae",
+              "name": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "routedFilter",
+                    ":position",
+                    "{{heading}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "routingTimeout",
+                      "value": "4000"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "position",
+                      "description": "(Required) This is specified as a comma separated string composed of lat., lon."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"poiList\": [\n    {\n      \"address\": {\n        \"freeformAddress\": \"9500 Gilman Dr, San Diego, CA 92037\"\n      },\n      \"poi\": {\n        \"name\": \"University of California San Diego\"\n      },\n      \"position\": {\n        \"lat\": 32.87349,\n        \"lon\": -117.2378\n      }\n    },\n    {\n      \"address\": {\n        \"freeformAddress\": \"7220 Trade St, San Diego, CA 92121\"\n      },\n      \"poi\": {\n        \"name\": \"Cleaire Advanced Emission Controls\"\n      },\n      \"position\": {\n        \"lat\": 37.83274,\n        \"lon\": -122.27631\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "63b59984-cd20-4b56-a5c7-2bcdd405a651",
+              "name": "An error occurred while processing the request. Please try again later.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":versionNumber",
+                    "routedFilter",
+                    ":position",
+                    "{{heading}}.{{ext}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "routingTimeout",
+                      "value": "4000"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Service version number. The current value is 2."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "position",
+                      "description": "(Required) This is specified as a comma separated string composed of lat., lon."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"poiList\": [\n    {\n      \"address\": {\n        \"freeformAddress\": \"9500 Gilman Dr, San Diego, CA 92037\"\n      },\n      \"poi\": {\n        \"name\": \"University of California San Diego\"\n      },\n      \"position\": {\n        \"lat\": 32.87349,\n        \"lon\": -117.2378\n      }\n    },\n    {\n      \"address\": {\n        \"freeformAddress\": \"7220 Trade St, San Diego, CA 92121\"\n      },\n      \"poi\": {\n        \"name\": \"Cleaire Advanced Emission Controls\"\n      },\n      \"position\": {\n        \"lat\": 37.83274,\n        \"lon\": -122.27631\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.tomtom.com",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Expected response format.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "ext"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<float>",
+      "key": "heading"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "335cbd35-ace4-4a60-ac2a-e58f3aca0044",
+    "name": "Maps Additional Data Filters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.",
+      "type": "text/plain"
+    }
+  }
+}

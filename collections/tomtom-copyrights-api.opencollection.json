@@ -1,0 +1,192 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maps Additional Data Copyrights API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Copyrights",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Copyrights Whole World",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/map/:versionNumber/copyrights.:format",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Version of the service to call. The current version is 1"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Format of the response"
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the jsonp callback method. Only used when format is jsonp"
+              }
+            ]
+          },
+          "docs": "The Copyrights API returns copyright information for\nthe Maps API Raster Tile Service in JSON, JSONP, or XML format.\nThis call returns copyright information for the whole world."
+        },
+        {
+          "info": {
+            "name": "Captions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/map/:versionNumber/copyrights/caption.:format",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Version of the service to call. The current version is 1."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Format of the response"
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the jsonp callback method. Only used when format is jsonp"
+              }
+            ]
+          },
+          "docs": "This API returns copyright captions for the map service."
+        },
+        {
+          "info": {
+            "name": "Copyrights Bounding Box",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/map/:versionNumber/copyrights/:minLon/:minLat/:maxLon/:maxLat.:format",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Version of the service to call. The current version is 1"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Format of the response"
+              },
+              {
+                "name": "minLon",
+                "value": "-179.1506",
+                "type": "path",
+                "description": "Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
+              },
+              {
+                "name": "minLat",
+                "value": "18.9117",
+                "type": "path",
+                "description": "Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
+              },
+              {
+                "name": "maxLon",
+                "value": "-66.9406",
+                "type": "path",
+                "description": "Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
+              },
+              {
+                "name": "maxLat",
+                "value": "71.441",
+                "type": "path",
+                "description": "Maximum latitude coordinate of bounding box defined in terms of latitude/longitude."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the jsonp callback method. Only used when format is jsonp."
+              }
+            ]
+          },
+          "docs": "The Copyrights API returns copyright information for\nthe Maps API Raster Tile Service in JSON, JSONP, or XML format.\nThis call returns copyright information for a specific bounding box."
+        },
+        {
+          "info": {
+            "name": "Copyrights Tile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/map/:versionNumber/copyrights/:zoom/:X/:Y.:format",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Version of the service to call. The current version is 1"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Format of the response"
+              },
+              {
+                "name": "zoom",
+                "value": "0",
+                "type": "path",
+                "description": "Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
+              },
+              {
+                "name": "X",
+                "value": "0",
+                "type": "path",
+                "description": "X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
+              },
+              {
+                "name": "Y",
+                "value": "0",
+                "type": "path",
+                "description": "Y coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the jsonp callback method. Only used when format is jsonp."
+              }
+            ]
+          },
+          "docs": "The Copyrights API returns copyright information for\nthe Maps API Raster Tile Service in JSON, JSONP, or XML format.\nThis call returns copyright information for the a specific map tile."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

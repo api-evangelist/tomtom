@@ -1,0 +1,231 @@
+{
+  "item": [
+    {
+      "id": "d024755c-01c8-4523-9043-efea5684e929",
+      "name": "Traffic Flow",
+      "description": {
+        "content": "Real-time traffic speed and flow data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f4991117-b065-470e-89e4-1ac613f294f1",
+          "name": "Get Flow Segment Data",
+          "request": {
+            "name": "Get Flow Segment Data",
+            "description": {
+              "content": "Returns real-time traffic flow information for the road segment closest to the specified coordinates. Includes current speed, freeflow speed, and travel time confidence.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "traffic",
+                "services",
+                ":versionNumber",
+                "flowSegmentData",
+                ":style",
+                ":zoom",
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "point",
+                  "value": "<string>",
+                  "description": "(Required) Coordinates to query (lat,lon)"
+                },
+                {
+                  "disabled": false,
+                  "key": "unit",
+                  "value": "<string>",
+                  "description": "Speed unit"
+                },
+                {
+                  "disabled": false,
+                  "key": "thickness",
+                  "value": "<integer>",
+                  "description": "Segment thickness for display"
+                },
+                {
+                  "disabled": false,
+                  "key": "openLr",
+                  "value": "<boolean>",
+                  "description": "Include OpenLR encoded location reference"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "style",
+                  "description": "(Required) Traffic flow visualization style"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "zoom",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a61c448a-8acd-4ae4-85a6-272e535f6450",
+              "name": "Traffic flow segment data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "traffic",
+                    "services",
+                    ":versionNumber",
+                    "flowSegmentData",
+                    ":style",
+                    ":zoom",
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "point",
+                      "value": "52.41072,4.84239"
+                    },
+                    {
+                      "key": "unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "thickness",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "openLr",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "style",
+                      "description": "(Required) Traffic flow visualization style"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"flowSegmentData\": {\n    \"frc\": \"string\",\n    \"currentSpeed\": 8377,\n    \"freeFlowSpeed\": 8771,\n    \"currentTravelTime\": 2759,\n    \"freeFlowTravelTime\": 6985,\n    \"confidence\": 1128.1850654512104,\n    \"roadClosure\": false,\n    \"coordinates\": {\n      \"coordinate\": [\n        {\n          \"latitude\": 1052.05690599245,\n          \"longitude\": 3740.918548784925\n        },\n        {\n          \"latitude\": 1362.788219004014,\n          \"longitude\": 516.0292621366802\n        }\n      ]\n    },\n    \"openLr\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.tomtom.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "264ce7c7-c102-4590-b04a-77b4a15e5105",
+    "name": "Maps Additional Data Traffic Flow API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.",
+      "type": "text/plain"
+    }
+  }
+}

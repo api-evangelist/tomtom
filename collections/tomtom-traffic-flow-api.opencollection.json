@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maps Additional Data Traffic Flow API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Traffic Flow",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Flow Segment Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/traffic/services/:versionNumber/flowSegmentData/:style/:zoom/json",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "style",
+                "value": "",
+                "type": "path",
+                "description": "Traffic flow visualization style"
+              },
+              {
+                "name": "zoom",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "point",
+                "value": "52.41072,4.84239",
+                "type": "query",
+                "description": "Coordinates to query (lat,lon)"
+              },
+              {
+                "name": "unit",
+                "value": "",
+                "type": "query",
+                "description": "Speed unit"
+              },
+              {
+                "name": "thickness",
+                "value": "",
+                "type": "query",
+                "description": "Segment thickness for display"
+              },
+              {
+                "name": "openLr",
+                "value": "",
+                "type": "query",
+                "description": "Include OpenLR encoded location reference"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns real-time traffic flow information for the road segment closest to the specified coordinates. Includes current speed, freeflow speed, and travel time confidence."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

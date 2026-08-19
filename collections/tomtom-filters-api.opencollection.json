@@ -1,0 +1,188 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maps Additional Data Filters API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Filters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Geometry Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/geometryFilter.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "geometryList",
+                "value": "[{\"type\":\"CIRCLE\", \"position\":\"40.80558, -73.96548\", \"radius\":100}, {\"type\":\"POLYGON\", \"vertices\":[\"37.7524152343544, -122.43576049804686\", \"37.70660472542312, -122.43301391601562\", \"37.712059855877314, -122.36434936523438\", \"37.75350561243041, -122.37396240234374\"]}]",
+                "type": "query",
+                "description": "List of geometries to filter by. Available types are CIRCLE (with the radius expressed in meters) and POLYGON."
+              },
+              {
+                "name": "poiList",
+                "value": "[{\"poi\":{\"name\":\"S Restaurant Toms\"},\"address\":{\"freeformAddress\":\"2880 Broadway, New York, NY 10025\"},\"position\":{\"lat\":40.80558,\"lon\":-73.96548}},{\"poi\":{\"name\":\"Yasha Raman Corporation\"},\"address\":{\"freeformAddress\":\"940 Amsterdam Ave, New York, NY 10025\"},\"position\":{\"lat\":40.80076,\"lon\":-73.96556}}]",
+                "type": "query",
+                "description": "List of POIs to filter. The only required attribute of a POI is position, everything else is optional and will be echoed back when passed in."
+              }
+            ]
+          },
+          "docs": "Geometry Filter"
+        },
+        {
+          "info": {
+            "name": "Geometry Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tomtom.com/search/:versionNumber/geometryFilter.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Geometry Filter"
+        },
+        {
+          "info": {
+            "name": "Routed Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/routedFilter/:position/:heading.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "position",
+                "value": "37.8328,-122.27669",
+                "type": "path",
+                "description": "This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "heading",
+                "value": "-15.6",
+                "type": "path",
+                "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)"
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "poiList",
+                "value": "[{\"poi\":{\"name\":\"Cleaire Advanced Emission Controls\"},\"address\":{\"freeformAddress\":\"7220 Trade St, San Diego, CA 92121\"},\"position\":{\"lat\":\"37.83274\",\"lon\":\"-122.27631\"}}]",
+                "type": "query",
+                "description": "List of POIs to filter. The only required attribute of a POI is position, everything else is optional and will be echoed back when passed in."
+              },
+              {
+                "name": "routingTimeout",
+                "value": "",
+                "type": "query",
+                "description": "Only return results that arrive from routing engine within this time limit."
+              }
+            ]
+          },
+          "docs": "Routed Filter"
+        },
+        {
+          "info": {
+            "name": "Routed Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.tomtom.com/search/:versionNumber/routedFilter/:position/:heading.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "position",
+                "value": "37.8328,-122.27669",
+                "type": "path",
+                "description": "This is specified as a comma separated string composed of lat., lon."
+              },
+              {
+                "name": "heading",
+                "value": "90",
+                "type": "path",
+                "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)"
+              },
+              {
+                "name": "ext",
+                "value": "xml",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "routingTimeout",
+                "value": "",
+                "type": "query",
+                "description": "Only return results that arrive from routing engine within this time limit."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Routed Filter"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

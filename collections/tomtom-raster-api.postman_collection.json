@@ -1,0 +1,1158 @@
+{
+  "item": [
+    {
+      "id": "e77b4b35-60d3-4232-8522-68f1637a8523",
+      "name": "Raster",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c2a440be-c74c-40fb-ae0d-7f92845b6214",
+          "name": "Static Image",
+          "request": {
+            "name": "Static Image",
+            "description": {
+              "content": "The Static Image service renders a rectangular raster image\nin the style, size, and zoom level specified. The image can be requested\nusing either a center point plus width and height or a bounding box.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "map",
+                ":versionNumber",
+                "staticimage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "layer",
+                  "value": "basic",
+                  "description": "Layer of image to be rendered. <em>Hybrid</em> and <em>labels</em>\nare intended for layering with other data and are only available in <em>png</em> format."
+                },
+                {
+                  "disabled": false,
+                  "key": "style",
+                  "value": "main",
+                  "description": "Map style to be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "png",
+                  "description": "Image format to be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "zoom",
+                  "value": "12",
+                  "description": "Zoom level of map image to be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "center",
+                  "value": "<string>",
+                  "description": "Coordinates for the center point of the image.\nMust be used with the <strong>width</strong> and\n<strong>height</strong> parameters; cannot be used with <strong>bbox</strong>.\nUses EPSG:3857 projection (functionally equivalent to EPSG:900910)."
+                },
+                {
+                  "disabled": false,
+                  "key": "width",
+                  "value": "512",
+                  "description": "Width of the resulting image in pixels. Width must be a positive integer between 1 and 8192."
+                },
+                {
+                  "disabled": false,
+                  "key": "height",
+                  "value": "512",
+                  "description": "Height of the resulting image in pixels. Height must be a positive integer between 1 and 8192."
+                },
+                {
+                  "disabled": false,
+                  "key": "bbox",
+                  "value": "<string>",
+                  "description": "Bounding box for the image, using EPSG:3857 projection (functionally equivalent to EPSG:900910).\nValues <strong>must</strong> be in the order of minLon, minLat, maxLon, maxLat.\nMaxLat must be greater than minLat. Longitude values can be on both sides of the 180th meridian.\nCannot be used with <strong>center</strong>, <strong>width</strong>, or <strong>height</strong> parameters."
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "<string>",
+                  "description": "Geopolitical view. Determines rendering of disputed areas. See the <a href=\"/maps-api/maps-api-documentation-raster/raster-tile\">documentation</a> for an explanation of how this works in live services."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) Version of the service to call. The current version is 1."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af482031-5b3b-4673-90f9-ca1aa1ec03ee",
+              "name": "<b>OK</b>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "staticimage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "layer",
+                      "value": "basic"
+                    },
+                    {
+                      "key": "style",
+                      "value": "main"
+                    },
+                    {
+                      "key": "format",
+                      "value": "png"
+                    },
+                    {
+                      "key": "zoom",
+                      "value": "12"
+                    },
+                    {
+                      "key": "center",
+                      "value": "4.899886, 52.379031"
+                    },
+                    {
+                      "key": "width",
+                      "value": "512"
+                    },
+                    {
+                      "key": "height",
+                      "value": "512"
+                    },
+                    {
+                      "key": "bbox",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "Unified"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "da404bf8-8595-4d2a-b22f-e5bb22b1009e",
+              "name": "<b>Bad Request</b>: Received by the interface, but there is an error\nin the request, such as:\n  - one or more of the required parameters is missing\n  - unsupported or unrecognized parameter value\n  - two or more mutually exclusive parameters are used in the same query (e.g. mixing center/width/height and bbox.)\n  - minimum latitude is greater than maximum latitude in a bbox call\n  - layer containing alpha channel is requested in format not supporting the alpha channel\nThis code is returned if the required parameters of the request were\nmalformed. A detailed exception explanation is returned in a\nresponse in form of Service Exception Report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "staticimage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "layer",
+                      "value": "basic"
+                    },
+                    {
+                      "key": "style",
+                      "value": "main"
+                    },
+                    {
+                      "key": "format",
+                      "value": "png"
+                    },
+                    {
+                      "key": "zoom",
+                      "value": "12"
+                    },
+                    {
+                      "key": "center",
+                      "value": "4.899886, 52.379031"
+                    },
+                    {
+                      "key": "width",
+                      "value": "512"
+                    },
+                    {
+                      "key": "height",
+                      "value": "512"
+                    },
+                    {
+                      "key": "bbox",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "Unified"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ead26b12-9811-478e-96a9-61a1077f2a25",
+              "name": "<b>Forbidden</b>:\n  - supplied API key is not valid for the request\n  - the requested view is not available in the country where the request was sent from",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "staticimage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "layer",
+                      "value": "basic"
+                    },
+                    {
+                      "key": "style",
+                      "value": "main"
+                    },
+                    {
+                      "key": "format",
+                      "value": "png"
+                    },
+                    {
+                      "key": "zoom",
+                      "value": "12"
+                    },
+                    {
+                      "key": "center",
+                      "value": "4.899886, 52.379031"
+                    },
+                    {
+                      "key": "width",
+                      "value": "512"
+                    },
+                    {
+                      "key": "height",
+                      "value": "512"
+                    },
+                    {
+                      "key": "bbox",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "Unified"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5d25fb3-d31c-4a10-8b5f-63ac70b2bd06",
+              "name": "<b>Internal Server Error</b>: There is a problem with the Static Map\nService.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "staticimage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "layer",
+                      "value": "basic"
+                    },
+                    {
+                      "key": "style",
+                      "value": "main"
+                    },
+                    {
+                      "key": "format",
+                      "value": "png"
+                    },
+                    {
+                      "key": "zoom",
+                      "value": "12"
+                    },
+                    {
+                      "key": "center",
+                      "value": "4.899886, 52.379031"
+                    },
+                    {
+                      "key": "width",
+                      "value": "512"
+                    },
+                    {
+                      "key": "height",
+                      "value": "512"
+                    },
+                    {
+                      "key": "bbox",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "Unified"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "133dcba7-1917-41c4-a45d-fe3a11826fa3",
+              "name": "<b>Service currently unavailable.</b>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "staticimage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "layer",
+                      "value": "basic"
+                    },
+                    {
+                      "key": "style",
+                      "value": "main"
+                    },
+                    {
+                      "key": "format",
+                      "value": "png"
+                    },
+                    {
+                      "key": "zoom",
+                      "value": "12"
+                    },
+                    {
+                      "key": "center",
+                      "value": "4.899886, 52.379031"
+                    },
+                    {
+                      "key": "width",
+                      "value": "512"
+                    },
+                    {
+                      "key": "height",
+                      "value": "512"
+                    },
+                    {
+                      "key": "bbox",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "Unified"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8efe5ea-ff8e-4a13-a113-ab13c80f2b83",
+          "name": "Tile",
+          "request": {
+            "name": "Tile",
+            "description": {
+              "content": "The Maps API Raster Service delivers raster tiles, which are representations of square sections of map data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "map",
+                ":versionNumber",
+                "tile",
+                ":layer",
+                ":style",
+                ":zoom",
+                ":X",
+                "{{Y}}.{{format}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tileSize",
+                  "value": "256",
+                  "description": "Tile dimensions in pixels. <em>512</em> is only available for the <em>main</em> style and <em>basic</em> or <em>labels</em> layers."
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "<string>",
+                  "description": "Geopolitical view. Determines rendering of disputed areas. See the <a href=\"/maps-sdk-web/functional-examples#geopolitical-views\">documentation</a> for an explanation of how this works in live services."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) Version of the service to call. The current version is 1."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layer",
+                  "description": "(Required) Layer of tile to be rendered. <em>Hybrid</em> and <em>labels</em> are intended for layering with other data and are only available in <em>png</em> format."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "style",
+                  "description": "(Required) Style of tile to be rendered"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "zoom",
+                  "description": "(Required) Zoom level of tile to be rendered"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "X",
+                  "description": "(Required) x coordinate of tile on zoom grid"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a61c8f1d-0cd7-4095-8f61-e915a97b3ecb",
+              "name": "<b>OK</b>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "tile",
+                    ":layer",
+                    ":style",
+                    ":zoom",
+                    ":X",
+                    "{{Y}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tileSize",
+                      "value": "256"
+                    },
+                    {
+                      "key": "view",
+                      "value": "Unified"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layer",
+                      "description": "(Required) Layer of tile to be rendered. <em>Hybrid</em> and <em>labels</em> are intended for layering with other data and are only available in <em>png</em> format."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "style",
+                      "description": "(Required) Style of tile to be rendered"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) Zoom level of tile to be rendered"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "X",
+                      "description": "(Required) x coordinate of tile on zoom grid"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5e8841e2-b401-4cd1-8cd6-191019015b1d",
+              "name": "<b>Found</b>: URL redirection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "tile",
+                    ":layer",
+                    ":style",
+                    ":zoom",
+                    ":X",
+                    "{{Y}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tileSize",
+                      "value": "256"
+                    },
+                    {
+                      "key": "view",
+                      "value": "Unified"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layer",
+                      "description": "(Required) Layer of tile to be rendered. <em>Hybrid</em> and <em>labels</em> are intended for layering with other data and are only available in <em>png</em> format."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "style",
+                      "description": "(Required) Style of tile to be rendered"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) Zoom level of tile to be rendered"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "X",
+                      "description": "(Required) x coordinate of tile on zoom grid"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ee48dacb-15ba-4817-8b52-63369cc3effe",
+              "name": "<b>Bad request</b>: Usually the result of malformed syntax:\n  - the given combination of layer, style, and query parameters is not supported\n  - zoom n is out of range 0 <= zoom < 19: the requested zoom level is out of the possible range\n  - x n is out of range [0,m]: the requested x coordinate is out of the possible range (the value of m will vary depending on zoom level)\n  - y n is out of range [0,m]: the requested y coordinate is out of the possible range (the value of m will vary depending on zoom level)\n  - the requested view is not supported",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "tile",
+                    ":layer",
+                    ":style",
+                    ":zoom",
+                    ":X",
+                    "{{Y}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tileSize",
+                      "value": "256"
+                    },
+                    {
+                      "key": "view",
+                      "value": "Unified"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layer",
+                      "description": "(Required) Layer of tile to be rendered. <em>Hybrid</em> and <em>labels</em> are intended for layering with other data and are only available in <em>png</em> format."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "style",
+                      "description": "(Required) Style of tile to be rendered"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) Zoom level of tile to be rendered"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "X",
+                      "description": "(Required) x coordinate of tile on zoom grid"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c9815fa3-5df2-4a2a-b8f1-d810a74961a8",
+              "name": "<b>Forbidden</b>:\n  - the supplied API key is not valid for this request\n  - the requested view is not available in the country where the request was sent from",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "tile",
+                    ":layer",
+                    ":style",
+                    ":zoom",
+                    ":X",
+                    "{{Y}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tileSize",
+                      "value": "256"
+                    },
+                    {
+                      "key": "view",
+                      "value": "Unified"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layer",
+                      "description": "(Required) Layer of tile to be rendered. <em>Hybrid</em> and <em>labels</em> are intended for layering with other data and are only available in <em>png</em> format."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "style",
+                      "description": "(Required) Style of tile to be rendered"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) Zoom level of tile to be rendered"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "X",
+                      "description": "(Required) x coordinate of tile on zoom grid"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "262dbcd9-3ac2-4425-a25d-5281b3ecf127",
+              "name": "<b>Gone</b>: Request for unsupported format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "tile",
+                    ":layer",
+                    ":style",
+                    ":zoom",
+                    ":X",
+                    "{{Y}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tileSize",
+                      "value": "256"
+                    },
+                    {
+                      "key": "view",
+                      "value": "Unified"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layer",
+                      "description": "(Required) Layer of tile to be rendered. <em>Hybrid</em> and <em>labels</em> are intended for layering with other data and are only available in <em>png</em> format."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "style",
+                      "description": "(Required) Style of tile to be rendered"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) Zoom level of tile to be rendered"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "X",
+                      "description": "(Required) x coordinate of tile on zoom grid"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7b493980-3be1-41c7-b7dd-d5daa7600a9e",
+              "name": "<b>Internal Server Error</b>: There is a problem with the TomTom\nMaps API Raster Tile service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "tile",
+                    ":layer",
+                    ":style",
+                    ":zoom",
+                    ":X",
+                    "{{Y}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tileSize",
+                      "value": "256"
+                    },
+                    {
+                      "key": "view",
+                      "value": "Unified"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layer",
+                      "description": "(Required) Layer of tile to be rendered. <em>Hybrid</em> and <em>labels</em> are intended for layering with other data and are only available in <em>png</em> format."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "style",
+                      "description": "(Required) Style of tile to be rendered"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) Zoom level of tile to be rendered"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "X",
+                      "description": "(Required) x coordinate of tile on zoom grid"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.tomtom.com",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) y coordinate of tile on zoom grid",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<integer>",
+      "key": "Y"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Format of the response.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "format"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "10cfbbc8-1f26-4247-80f5-d018f12a2633",
+    "name": "Maps Additional Data Raster API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.",
+      "type": "text/plain"
+    }
+  }
+}

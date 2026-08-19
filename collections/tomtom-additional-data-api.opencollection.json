@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maps Additional Data API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Additional Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Additional Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.tomtom.com/search/:versionNumber/additionalData.:ext",
+            "params": [
+              {
+                "name": "versionNumber",
+                "value": "",
+                "type": "path",
+                "description": "Service version number. The current value is 2."
+              },
+              {
+                "name": "ext",
+                "value": "",
+                "type": "path",
+                "description": "Expected response format."
+              },
+              {
+                "name": "geometries",
+                "value": "00004631-3400-3c00-0000-0000673c4d2e,00004631-3400-3c00-0000-0000673c42fe",
+                "type": "query",
+                "description": "Comma separated list of geometry UUIDs, previously retrieved from an Search API request."
+              },
+              {
+                "name": "geometriesZoom",
+                "value": "",
+                "type": "query",
+                "description": "Defines the precision of the geometries."
+              }
+            ]
+          },
+          "docs": "Additional Data"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

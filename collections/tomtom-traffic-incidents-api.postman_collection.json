@@ -1,0 +1,405 @@
+{
+  "item": [
+    {
+      "id": "3810157f-543d-4963-904a-c94069a5424f",
+      "name": "Traffic Incidents",
+      "description": {
+        "content": "Real-time traffic incident data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "604416b7-47c7-479b-8774-4744e562a7a2",
+          "name": "Get Incident Details",
+          "request": {
+            "name": "Get Incident Details",
+            "description": {
+              "content": "Returns detailed information about traffic incidents within a bounding box or around specific coordinates. Includes incident type, delay, description, and affected road segments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "traffic",
+                "services",
+                ":versionNumber",
+                "incidentDetails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) TomTom API key"
+                },
+                {
+                  "disabled": false,
+                  "key": "bbox",
+                  "value": "<string>",
+                  "description": "Bounding box (minLon,minLat,maxLon,maxLat)"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Fields to include in response (JSON path filter)"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Language for incident descriptions (IETF BCP 47)"
+                },
+                {
+                  "disabled": false,
+                  "key": "categoryFilter",
+                  "value": "<integer>",
+                  "description": "Bitmask for incident categories: 0=Unknown, 1=Accident, 2=Fog, 4=Dangerous conditions, 8=Rain, 16=Ice, 32=Jam, 64=Lane closed, 128=Road closed, 256=Road works, 512=Wind, 1024=Flooding, 2048=Broken down vehicle"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeValidityFilter",
+                  "value": "<string>",
+                  "description": "Filter by incident time validity"
+                },
+                {
+                  "disabled": false,
+                  "key": "t",
+                  "value": "<string>",
+                  "description": "Traffic model ID from traffic model endpoint"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee5a1752-6f72-49cd-b894-5cdc7def4bd2",
+              "name": "Traffic incident details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "traffic",
+                    "services",
+                    ":versionNumber",
+                    "incidentDetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bbox",
+                      "value": "-8.671875,36.173357,3.076171,57.040730"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "en-GB"
+                    },
+                    {
+                      "key": "categoryFilter",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "timeValidityFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "t",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"incidents\": [\n    {\n      \"type\": \"string\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"id\": \"string\",\n        \"iconCategory\": 5843,\n        \"magnitudeOfDelay\": 6422,\n        \"startTime\": \"1986-06-21T19:16:40.242Z\",\n        \"endTime\": \"1974-01-08T10:08:04.949Z\",\n        \"from\": \"string\",\n        \"to\": \"string\",\n        \"length\": 5009.618685846676,\n        \"delay\": 1642,\n        \"roadNumbers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"timeValidity\": \"present\",\n        \"probabilityOfOccurrence\": \"string\",\n        \"numberOfReports\": 7965,\n        \"lastReportTime\": \"1957-10-12T11:13:32.369Z\",\n        \"events\": [\n          {\n            \"description\": \"string\",\n            \"code\": 8712,\n            \"iconCategory\": 2755\n          },\n          {\n            \"description\": \"string\",\n            \"code\": 8996,\n            \"iconCategory\": 9189\n          }\n        ]\n      }\n    },\n    {\n      \"type\": \"string\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"id\": \"string\",\n        \"iconCategory\": 8411,\n        \"magnitudeOfDelay\": 7035,\n        \"startTime\": \"2018-11-09T13:14:55.207Z\",\n        \"endTime\": \"1999-11-13T04:47:07.598Z\",\n        \"from\": \"string\",\n        \"to\": \"string\",\n        \"length\": 786.7905583569623,\n        \"delay\": 97,\n        \"roadNumbers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"timeValidity\": \"future\",\n        \"probabilityOfOccurrence\": \"string\",\n        \"numberOfReports\": 1225,\n        \"lastReportTime\": \"1958-06-16T13:40:36.792Z\",\n        \"events\": [\n          {\n            \"description\": \"string\",\n            \"code\": 5268,\n            \"iconCategory\": 6170\n          },\n          {\n            \"description\": \"string\",\n            \"code\": 4101,\n            \"iconCategory\": 5543\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d9117b3-fb74-4d4f-9070-f8760f3ef2a3",
+          "name": "Get Incident Viewport",
+          "request": {
+            "name": "Get Incident Viewport",
+            "description": {
+              "content": "Returns a viewport of traffic incidents for a given map area.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "traffic",
+                "services",
+                ":versionNumber",
+                "incidentViewport",
+                ":boundingBox",
+                ":overview",
+                ":copyright",
+                ":zoom",
+                ":format"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "boundingBox",
+                  "description": "(Required) Bounding box coordinates"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "overview",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "copyright",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "zoom",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "format",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "157d662f-67a5-4d46-a7e5-bcb295fe0c7b",
+              "name": "Incident viewport data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "traffic",
+                    "services",
+                    ":versionNumber",
+                    "incidentViewport",
+                    ":boundingBox",
+                    ":overview",
+                    ":copyright",
+                    ":zoom",
+                    ":format"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "boundingBox",
+                      "description": "(Required) Bounding box coordinates"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "overview",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "copyright",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "format",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.tomtom.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "429d0da5-969e-4e76-9868-924f10b2913a",
+    "name": "Maps Additional Data Traffic Incidents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1854 @@
+{
+  "item": [
+    {
+      "id": "0cafcafa-2e2c-4f21-8d86-01a65eb77b5a",
+      "name": "Copyrights",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7e43761e-8c28-49c3-ab8d-269f46894b65",
+          "name": "Copyrights Whole World",
+          "request": {
+            "name": "Copyrights Whole World",
+            "description": {
+              "content": "The Copyrights API returns copyright information for\nthe Maps API Raster Tile Service in JSON, JSONP, or XML format.\nThis call returns copyright information for the whole world.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "map",
+                ":versionNumber",
+                "copyrights.{{format}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "callback",
+                  "value": "<string>",
+                  "description": "Specifies the jsonp callback method. Only used when format is jsonp"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) Version of the service to call. The current version is 1"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9befde3-2d7a-4654-b1b1-ec5ab6567218",
+              "name": "<b>OK</b>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bad49379-b03b-43d8-9398-1a4637e70743",
+              "name": "<b>Not Modified</b>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e381f417-8274-4bd4-82b9-e89409659c41",
+              "name": "<b>Malformed request</b>: malformed syntax. Possible causes include:\n  - requested syntax is not available",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "73145e88-39c1-4a31-9ba8-6e042b51114d",
+              "name": "<b>Forbidden</b>: Supplied API key is not valid for this request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c4ed21b-1b88-4629-893e-153c9e0dbf84",
+              "name": "<b>Gone</b>: Request for unsupported format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "475b52ac-7e5a-479f-a8ee-9a1097889c61",
+              "name": "<b>Internal Server Error</b>: There is a problem with the TomTom Copyrights\nAPI service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2cf49fc5-c538-4599-8649-9ad2bda01a4c",
+          "name": "Captions",
+          "request": {
+            "name": "Captions",
+            "description": {
+              "content": "This API returns copyright captions for the map service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "map",
+                ":versionNumber",
+                "copyrights",
+                "caption.{{format}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "callback",
+                  "value": "<string>",
+                  "description": "Specifies the jsonp callback method. Only used when format is jsonp"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) Version of the service to call. The current version is 1."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e5726bd-f0cd-42eb-994a-c3eabd114eda",
+              "name": "<b>OK</b>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    "caption.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c8e70159-86a9-4c3f-bb98-f5a663e6a222",
+              "name": "<b>Not Modified</b>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    "caption.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "98b5396b-fa9f-4b39-85e0-7c19f0034e85",
+              "name": "<b>Malformed request</b>: malformed syntax. Possible causes include:\n  - requested syntax is not available",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    "caption.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "44cb0c72-2179-4c30-8e54-bfbbb9e48697",
+              "name": "<b>Forbidden</b>: Supplied API key is not valid for this request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    "caption.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6d3d5804-2047-411d-880e-520276877c4c",
+              "name": "<b>Gone</b>: Request for unsupported format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    "caption.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "069ddf20-47fb-444e-8eea-fcce72b31482",
+              "name": "<b>Internal Server Error</b>: There is a problem with the TomTom Copyrights\nAPI service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    "caption.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3471b77f-147f-4388-abe1-da129cccea2b",
+          "name": "Copyrights Bounding Box",
+          "request": {
+            "name": "Copyrights Bounding Box",
+            "description": {
+              "content": "The Copyrights API returns copyright information for\nthe Maps API Raster Tile Service in JSON, JSONP, or XML format.\nThis call returns copyright information for a specific bounding box.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "map",
+                ":versionNumber",
+                "copyrights",
+                ":minLon",
+                ":minLat",
+                ":maxLon",
+                "{{maxLat}}.{{format}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "callback",
+                  "value": "<string>",
+                  "description": "Specifies the jsonp callback method. Only used when format is jsonp."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) Version of the service to call. The current version is 1"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "minLon",
+                  "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "minLat",
+                  "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "maxLon",
+                  "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ada528aa-adf5-451f-9ff8-1f26ede8a210",
+              "name": "<b>OK</b>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    ":minLon",
+                    ":minLat",
+                    ":maxLon",
+                    "{{maxLat}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "minLon",
+                      "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "minLat",
+                      "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "maxLon",
+                      "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ecb6c68f-7b12-4fd5-9758-dce97c15802a",
+              "name": "<b>Not Modified</b>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    ":minLon",
+                    ":minLat",
+                    ":maxLon",
+                    "{{maxLat}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "minLon",
+                      "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "minLat",
+                      "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "maxLon",
+                      "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1425f6bc-df67-4beb-bf78-24dbd2bf8bfc",
+              "name": "<b>Malformed request</b>: malformed syntax. Possible causes include:\n  - requested syntax is not available",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    ":minLon",
+                    ":minLat",
+                    ":maxLon",
+                    "{{maxLat}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "minLon",
+                      "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "minLat",
+                      "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "maxLon",
+                      "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2b70ff86-ff34-419b-bdc7-28668d2dfa3c",
+              "name": "<b>Bad request</b>: Parameters out of range. Possible causes include:\n  - minLon n is out of range [-180,180]: the requested minimum longitude coordinate is out of possible range\n  - minLat n is out of range [-90,90]: the requested minimum latitude coordinate is out of possible range\n  - maxLon n is out of range [-180,180]: the requested maximum longitude coordinate is out of possible range\n  - maxLat n is out of range [-90,90]: the requested minimum latitude coordinate is out of possible range",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    ":minLon",
+                    ":minLat",
+                    ":maxLon",
+                    "{{maxLat}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "minLon",
+                      "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "minLat",
+                      "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "maxLon",
+                      "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "41760db6-f674-47a9-8da2-bb8cb7b10b6d",
+              "name": "<b>Forbidden</b>: Supplied API key is not valid for this request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    ":minLon",
+                    ":minLat",
+                    ":maxLon",
+                    "{{maxLat}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "minLon",
+                      "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "minLat",
+                      "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "maxLon",
+                      "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f88d393f-6b02-43ef-b67a-0b0a3aaca113",
+              "name": "<b>Gone</b>: Request for unsupported format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    ":minLon",
+                    ":minLat",
+                    ":maxLon",
+                    "{{maxLat}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "minLon",
+                      "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "minLat",
+                      "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "maxLon",
+                      "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "054d617c-e161-4dae-a812-04c483d7fd5f",
+              "name": "<b>Internal Server Error</b>: There is a problem with the TomTom Copyrights\nAPI service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    ":minLon",
+                    ":minLat",
+                    ":maxLon",
+                    "{{maxLat}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "minLon",
+                      "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "minLat",
+                      "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "maxLon",
+                      "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc5ea1fd-5496-4abf-a573-07b3afc5d3e4",
+          "name": "Copyrights Tile",
+          "request": {
+            "name": "Copyrights Tile",
+            "description": {
+              "content": "The Copyrights API returns copyright information for\nthe Maps API Raster Tile Service in JSON, JSONP, or XML format.\nThis call returns copyright information for the a specific map tile.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "map",
+                ":versionNumber",
+                "copyrights",
+                ":zoom",
+                ":X",
+                "{{Y}}.{{format}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "callback",
+                  "value": "<string>",
+                  "description": "Specifies the jsonp callback method. Only used when format is jsonp."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionNumber",
+                  "description": "(Required) Version of the service to call. The current version is 1"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "zoom",
+                  "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "X",
+                  "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e1fa380-46e4-487a-82ef-f379b37f03a4",
+              "name": "<b>OK</b>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    ":zoom",
+                    ":X",
+                    "{{Y}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "X",
+                      "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c3467f3e-8a73-4a84-ac41-1f15fd7aa631",
+              "name": "<b>Not Modified</b>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    ":zoom",
+                    ":X",
+                    "{{Y}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "X",
+                      "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "315d5545-0aeb-426d-ab82-9a27926a5c5a",
+              "name": "<b>Malformed request</b>: malformed syntax. Possible causes include:\n  - requested syntax is not available",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    ":zoom",
+                    ":X",
+                    "{{Y}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "X",
+                      "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "93d20f68-861a-4041-b626-1884b2211158",
+              "name": "<b>Bad request</b>: Parameters out of range. Possible causes include:\n  - zoom n is out of range 0 <= zoom < 19: the requested zoom level is out of the possible range\n  - x n is out of range [0,m]: the requested x coordinate is out of the possible range (the value of m will vary depending on zoom level)\n  - y n is out of range [0,m]: the requested y coordinate is out of the possible range (the value of m will vary depending on zoom level)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    ":zoom",
+                    ":X",
+                    "{{Y}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "X",
+                      "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2fe36a92-0bf8-42f7-b7c4-b632653b6b7a",
+              "name": "<b>Forbidden</b>: Supplied API key is not valid for this request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    ":zoom",
+                    ":X",
+                    "{{Y}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "X",
+                      "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "61622714-0bb2-47d7-bf60-4381b1ba5f1d",
+              "name": "<b>Gone</b>: Request for unsupported format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    ":zoom",
+                    ":X",
+                    "{{Y}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "X",
+                      "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c50e8816-3ac2-46af-98aa-a7d1398b9844",
+              "name": "<b>Internal Server Error</b>: There is a problem with the TomTom Copyrights\nAPI service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map",
+                    ":versionNumber",
+                    "copyrights",
+                    ":zoom",
+                    ":X",
+                    "{{Y}}.{{format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionNumber",
+                      "description": "(Required) Version of the service to call. The current version is 1"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zoom",
+                      "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "X",
+                      "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.tomtom.com",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Format of the response",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "xml",
+      "key": "format"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Maximum latitude coordinate of bounding box defined in terms of latitude/longitude.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<number>",
+      "key": "maxLat"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Y coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<integer>",
+      "key": "Y"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7246cbfc-e221-49d4-9c6e-0f24162cbc13",
+    "name": "Maps Additional Data Copyrights API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.",
+      "type": "text/plain"
+    }
+  }
+}
