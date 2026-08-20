@@ -101,6 +101,11 @@ apis:
   - Location
   - Tracking
   - Notifications
+  tags_raw:
+  - Geofencing
+  - Location
+  - Tracking
+  - Notifications
   properties:
   - type: Documentation
     url: >-
@@ -558,6 +563,8 @@ apis:
   baseURL: https://api.tomtom.com
   tags:
   - Vector
+  tags_raw:
+  - Vector
   properties:
   - type: OpenAPI
     url: openapi/tomtom-vector-api-openapi.yml
@@ -590,7 +597,11 @@ apis:
     https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
   baseURL: https://api.tomtom.com
   tags:
-  - WMS / WMTS
+  - OGC
+  - WMS
+  - WMTS
+  - Geospatial
+  - Mapping
   properties:
   - type: OpenAPI
     url: openapi/tomtom-wms-wmts-api-openapi.yml
