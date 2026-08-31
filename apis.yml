@@ -112,7 +112,7 @@ apis:
   - Geofencing
   - Location
   - Tracking
-  - Notifications
+  - Notification
   tags_raw:
   - Geofencing
   - Location
@@ -574,7 +574,7 @@ apis:
     https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
   baseURL: https://api.tomtom.com
   tags:
-  - Vector
+  - Vectors
   tags_raw:
   - Vector
   properties:
