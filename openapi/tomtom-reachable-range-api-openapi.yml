@@ -1,23 +1,14 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
+  title: TomTom Routing Reachable Range API
+  description: The TomTom Routing API calculates routes between an origin and destination, supporting up to 150 waypoints, real-time and historical traffic, multiple route types, electric and combustion vehicle optimization, reachable range calculation, and batch routing for multiple route requests.
+  version: 1.0.0
   contact:
-    x-twitter: TomTom
-  description: "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema."
-  title: Maps Additional Data Reachable Range API
-  version: '3.0'
-  x-apisguru-categories:
-  - location
-  x-logo:
-    url: https://twitter.com/TomTom/profile_image?size=original
-  x-origin:
-  - converter:
-      url: https://github.com/lucybot/api-spec-converter
-    format: openapi
-    url: https://developer.tomtom.com/system/files/swagger_models/maps_api_0.yaml
-  x-providerName: tomtom.com
-  x-serviceName: maps
+    name: TomTom Developer Support
+    url: https://developer.tomtom.com/
 servers:
 - url: https://api.tomtom.com
+  description: TomTom API Production
 security:
 - api_key: []
 tags:
@@ -139,6 +130,6 @@ components:
                 $ref: '#/components/schemas/LatLon'
   securitySchemes:
     api_key:
+      type: apiKey
       in: query
       name: key
-      type: apiKey

@@ -1,21 +1,12 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact:
+    name: Contact Us
+    url: https://developer.tomtom.com/contact-us
     x-twitter: TomTom
-  description: "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema."
-  title: Maps Additional Data Reverse Geocoding API
-  version: '3.0'
-  x-apisguru-categories:
-  - location
-  x-logo:
-    url: https://twitter.com/TomTom/profile_image?size=original
-  x-origin:
-  - converter:
-      url: https://github.com/lucybot/api-spec-converter
-    format: openapi
-    url: https://developer.tomtom.com/system/files/swagger_models/maps_api_0.yaml
-  x-providerName: tomtom.com
-  x-serviceName: maps
+  description: Search API is a RESTful API that allows developers to run a single line fuzzy search for addresses and POIs. Search API returns the latitude/longitude of a specific address, cross street, geographic feature, or point of interest (POI).
+  title: Search Reverse Geocoding API
+  version: 1.0.0
 servers:
 - url: https://api.tomtom.com
 security:
@@ -73,6 +64,8 @@ paths:
       summary: Cross Street Lookup
       tags:
       - Reverse Geocoding
+      operationId: getSearchByVersionNumberReverseGeocodeCrossStreetByPosition}{ext
+      x-operation-id-source: derived
   /search/{versionNumber}/reverseGeocode/{position}.{ext}:
     get:
       parameters:
@@ -142,20 +135,22 @@ paths:
       summary: Reverse Geocode
       tags:
       - Reverse Geocoding
+      operationId: getSearchByVersionNumberReverseGeocodeByPosition}{ext
+      x-operation-id-source: derived
 components:
   responses:
-    '403':
-      description: "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
-    '405':
-      description: 'Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.'
     5xx:
       description: An error occurred while processing the request. Please try again later.
+    '403':
+      description: "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
     '200':
       description: 'OK: the search successfully returned zero or more results.'
     '400':
       description: 'Bad Request: one or more parameters were incorrectly specified.'
     '404596':
       description: 'Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.'
+    '405':
+      description: 'Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.'
   parameters:
     language:
       description: Language in which search results should be returned. Should be one of <a href="/search-api/search-api-documentation/supported-languages">supported IETF language tags</a>, case insensitive.
@@ -172,6 +167,14 @@ components:
         enum:
         - 2
         type: integer
+    position:
+      description: This is specified as a comma separated string composed of lat., lon.
+      example: 37.8328,-122.27669
+      in: path
+      name: position
+      required: true
+      schema:
+        type: string
     ext:
       description: Expected response format.
       example: xml
@@ -184,14 +187,6 @@ components:
         - jsonp
         - js
         - xml
-        type: string
-    position:
-      description: This is specified as a comma separated string composed of lat., lon.
-      example: 37.8328,-122.27669
-      in: path
-      name: position
-      required: true
-      schema:
         type: string
   securitySchemes:
     api_key:
