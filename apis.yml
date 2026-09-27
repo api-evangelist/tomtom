@@ -45,30 +45,12 @@ tags:
   - Geospatial
   - Routing
   - Geocoding
+  - Mobility
 created: '2025-01-07'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
-- aid: tomtom:tomtom-geocoding-api
-  name: TomTom Geocoding API
-  description: >-
-    The TomTom Geocoding API converts structured addresses into geographic coordinates and supports reverse
-    geocoding to translate coordinates into human-readable addresses. The Premium Geocoding API adds parking
-    and building entrance location data.
-  humanURL: >-
-    https://developer.tomtom.com/geocoding-api/documentation/product-information/introduction
-  baseURL: https://api.tomtom.com
-  tags:
-  - Geocoding
-  - Location
-  - Address
-  properties:
-  - type: Documentation
-    url: >-
-      https://developer.tomtom.com/geocoding-api/documentation/product-information/introduction
-  - type: API Explorer
-    url: https://developer.tomtom.com/geocoding-api/api-explorer
 - aid: tomtom:tomtom-fuel-prices-api
   name: TomTom Fuel Prices API
   description: >-
@@ -273,12 +255,15 @@ apis:
       https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
 - aid: tomtom:tomtom-geocoding-api
   name: TomTom Geocoding API
-  description: The Geocoding API from TomTom — 2 operation(s) for geocoding.
-  humanURL: >-
-    https://developer.tomtom.com/map-display-api/documentation/product-information/introduction
+  description: The TomTom Geocoding API converts structured addresses into geographic coordinates and supports
+    reverse geocoding to translate coordinates into human-readable addresses. The Premium Geocoding API
+    adds parking and building entrance location data.
+  humanURL: https://developer.tomtom.com/geocoding-api/documentation/product-information/introduction
   baseURL: https://api.tomtom.com
   tags:
   - Geocoding
+  - Location
+  - Address
   properties:
   - type: OpenAPI
     url: openapi/tomtom-geocoding-api-openapi.yml
@@ -304,6 +289,10 @@ apis:
   - type: Vocabulary
     url: >-
       https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml
+  - type: Documentation
+    url: https://developer.tomtom.com/geocoding-api/documentation/product-information/introduction
+  - type: API Explorer
+    url: https://developer.tomtom.com/geocoding-api/api-explorer
 - aid: tomtom:tomtom-raster-api
   name: TomTom Raster API
   description: The Raster API from TomTom — 2 operation(s) for raster.

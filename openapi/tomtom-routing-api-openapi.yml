@@ -246,6 +246,29 @@ components:
         longitude:
           type: number
           format: double
+    RouteSummary:
+      type: object
+      properties:
+        lengthInMeters:
+          type: integer
+        travelTimeInSeconds:
+          type: integer
+        trafficDelayInSeconds:
+          type: integer
+        trafficLengthInMeters:
+          type: integer
+        departureTime:
+          type: string
+          format: date-time
+        arrivalTime:
+          type: string
+          format: date-time
+        noTrafficTravelTimeInSeconds:
+          type: integer
+        historicTrafficTravelTimeInSeconds:
+          type: integer
+        liveTrafficIncidentsTravelTimeInSeconds:
+          type: integer
     RouteResponse:
       type: object
       properties:
@@ -279,29 +302,6 @@ components:
             type: object
         guidance:
           type: object
-    RouteSummary:
-      type: object
-      properties:
-        lengthInMeters:
-          type: integer
-        travelTimeInSeconds:
-          type: integer
-        trafficDelayInSeconds:
-          type: integer
-        trafficLengthInMeters:
-          type: integer
-        departureTime:
-          type: string
-          format: date-time
-        arrivalTime:
-          type: string
-          format: date-time
-        noTrafficTravelTimeInSeconds:
-          type: integer
-        historicTrafficTravelTimeInSeconds:
-          type: integer
-        liveTrafficIncidentsTravelTimeInSeconds:
-          type: integer
   securitySchemes:
     api_key:
       type: apiKey

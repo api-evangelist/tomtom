@@ -137,6 +137,13 @@ paths:
                 type: object
 components:
   schemas:
+    IncidentDetailsResponse:
+      type: object
+      properties:
+        incidents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Incident'
     IncidentProperties:
       type: object
       properties:
@@ -203,13 +210,6 @@ components:
               type: array
         properties:
           $ref: '#/components/schemas/IncidentProperties'
-    IncidentDetailsResponse:
-      type: object
-      properties:
-        incidents:
-          type: array
-          items:
-            $ref: '#/components/schemas/Incident'
   securitySchemes:
     api_key:
       type: apiKey
