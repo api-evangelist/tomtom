@@ -139,6 +139,14 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
+    position:
+      description: This is specified as a comma separated string composed of lat., lon.
+      example: 37.8328,-122.27669
+      in: path
+      name: position
+      required: true
+      schema:
+        type: string
     ext:
       description: Expected response format.
       example: xml
@@ -152,6 +160,12 @@ components:
         - js
         - xml
         type: string
+    language:
+      description: Language in which search results should be returned. Should be one of <a href="/search-api/search-api-documentation/supported-languages">supported IETF language tags</a>, case insensitive.
+      in: query
+      name: language
+      schema:
+        type: string
     versionNumber:
       description: Service version number. The current value is 2.
       in: path
@@ -161,29 +175,15 @@ components:
         enum:
         - 2
         type: integer
-    language:
-      description: Language in which search results should be returned. Should be one of <a href="/search-api/search-api-documentation/supported-languages">supported IETF language tags</a>, case insensitive.
-      in: query
-      name: language
-      schema:
-        type: string
-    position:
-      description: This is specified as a comma separated string composed of lat., lon.
-      example: 37.8328,-122.27669
-      in: path
-      name: position
-      required: true
-      schema:
-        type: string
   responses:
-    '404596':
-      description: 'Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.'
     '400':
       description: 'Bad Request: one or more parameters were incorrectly specified.'
     '403':
       description: "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
     5xx:
       description: An error occurred while processing the request. Please try again later.
+    '404596':
+      description: 'Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.'
     '200':
       description: 'OK: the search successfully returned zero or more results.'
     '405':

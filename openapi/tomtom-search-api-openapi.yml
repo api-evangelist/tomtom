@@ -534,20 +534,20 @@ paths:
       operationId: postSearchByVersionNumberSearchAlongRouteByQuery}{ext
       x-operation-id-source: derived
 components:
+  responses:
+    '400':
+      description: 'Bad Request: one or more parameters were incorrectly specified.'
+    '200':
+      description: 'OK: the search successfully returned zero or more results.'
+    5xx:
+      description: An error occurred while processing the request. Please try again later.
+    '405':
+      description: 'Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.'
+    '403':
+      description: "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+    '404596':
+      description: 'Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.'
   parameters:
-    ext:
-      description: Expected response format.
-      example: xml
-      in: path
-      name: ext
-      required: true
-      schema:
-        enum:
-        - json
-        - jsonp
-        - js
-        - xml
-        type: string
     lat:
       description: "Latitude where results should be biased.  \nNOTE: supplying a lat/lon without a radius will return search results biased to that point."
       example: 37.337
@@ -556,15 +556,19 @@ components:
       schema:
         format: float
         type: number
-    versionNumber:
-      description: Service version number. The current value is 2.
-      in: path
-      name: versionNumber
-      required: true
+    routingTimeout:
+      description: Only return results that arrive from routing engine within this time limit.
+      in: query
+      name: routingTimeout
       schema:
-        enum:
-        - 2
+        default: 4000
         type: integer
+    extendedPostalCodesFor:
+      description: "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)"
+      in: query
+      name: extendedPostalCodesFor
+      schema:
+        type: string
     maxFuzzyLevel:
       description: Maximum fuzziness level to be used.
       in: query
@@ -574,28 +578,20 @@ components:
         maximum: 4
         minimum: 1
         type: integer
-    position:
-      description: This is specified as a comma separated string composed of lat., lon.
-      example: 37.8328,-122.27669
-      in: path
-      name: position
-      required: true
-      schema:
-        type: string
-    btmRight:
-      description: Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon.
-      example: 37.4,-122.55
+    radius:
+      description: If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters.
       in: query
-      name: btmRight
+      name: radius
       schema:
-        type: string
-    ofs:
-      description: Starting offset of the returned results within the full result set.
+        type: integer
+    minFuzzyLevel:
+      description: Minimum fuzziness level to be used.
       in: query
-      name: ofs
+      name: minFuzzyLevel
       schema:
-        default: 0
-        maximum: 1900
+        default: 1
+        maximum: 4
+        minimum: 1
         type: integer
     topLeft:
       description: Top left position of the bounding box. This is specified as a comma separated string composed of lat., lon.
@@ -604,27 +600,6 @@ components:
       name: topLeft
       schema:
         type: string
-    extendedPostalCodesFor:
-      description: "Indexes for which extended postal codes should be included in the results. Available indexes are:\n  - <b>Addr</b> = Address ranges\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of Interest\n  - <b>Str</b> = Streets\n  - <b>XStr</b> = Cross Streets (intersections)"
-      in: query
-      name: extendedPostalCodesFor
-      schema:
-        type: string
-    idxSet:
-      description: "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)"
-      example: POI
-      in: query
-      name: idxSet
-      schema:
-        type: string
-    limit:
-      description: Maximum number of search results that will be returned.
-      in: query
-      name: limit
-      schema:
-        default: 10
-        maximum: 100
-        type: integer
     view:
       description: Geopolitical View.
       in: query
@@ -639,19 +614,24 @@ components:
         - IL
         - MA
         type: string
-    minFuzzyLevel:
-      description: Minimum fuzziness level to be used.
-      in: query
-      name: minFuzzyLevel
-      schema:
-        default: 1
-        maximum: 4
-        minimum: 1
-        type: integer
     language:
       description: Language in which search results should be returned. Should be one of <a href="/search-api/search-api-documentation/supported-languages">supported IETF language tags</a>, case insensitive.
       in: query
       name: language
+      schema:
+        type: string
+    btmRight:
+      description: Bottom right position of the bounding box. This is specified as a comma separated string composed of lat., lon.
+      example: 37.4,-122.55
+      in: query
+      name: btmRight
+      schema:
+        type: string
+    countrySet:
+      description: Comma separated string of country codes. This will limit the search to the specified countries.
+      example: FR
+      in: query
+      name: countrySet
       schema:
         type: string
     typeahead:
@@ -661,6 +641,38 @@ components:
       schema:
         default: false
         type: boolean
+    versionNumber:
+      description: Service version number. The current value is 2.
+      in: path
+      name: versionNumber
+      required: true
+      schema:
+        enum:
+        - 2
+        type: integer
+    limit:
+      description: Maximum number of search results that will be returned.
+      in: query
+      name: limit
+      schema:
+        default: 10
+        maximum: 100
+        type: integer
+    position:
+      description: This is specified as a comma separated string composed of lat., lon.
+      example: 37.8328,-122.27669
+      in: path
+      name: position
+      required: true
+      schema:
+        type: string
+    idxSet:
+      description: "A comma separated list of indexes which should be utilized for the search. Item order does not matter. Available indexes are:\n  - <b>Addr</b> = Address range interpolation (when there is no PAD)\n  - <b>Geo</b> = Geographies\n  - <b>PAD</b> = Point Addresses\n  - <b>POI</b> = Points of interest\n  - <b>Str</b> = Streets\n  - <b>Xstr</b> = Cross Streets (intersections)"
+      example: POI
+      in: query
+      name: idxSet
+      schema:
+        type: string
     lon:
       description: 'Longitude where results should be biased
 
@@ -671,39 +683,27 @@ components:
       schema:
         format: float
         type: number
-    radius:
-      description: If radius <b>and</b> position are set, the results will be constrained to the defined area. The radius parameter is specified in meters.
+    ofs:
+      description: Starting offset of the returned results within the full result set.
       in: query
-      name: radius
+      name: ofs
       schema:
+        default: 0
+        maximum: 1900
         type: integer
-    routingTimeout:
-      description: Only return results that arrive from routing engine within this time limit.
-      in: query
-      name: routingTimeout
+    ext:
+      description: Expected response format.
+      example: xml
+      in: path
+      name: ext
+      required: true
       schema:
-        default: 4000
-        type: integer
-    countrySet:
-      description: Comma separated string of country codes. This will limit the search to the specified countries.
-      example: FR
-      in: query
-      name: countrySet
-      schema:
+        enum:
+        - json
+        - jsonp
+        - js
+        - xml
         type: string
-  responses:
-    '403':
-      description: "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
-    '200':
-      description: 'OK: the search successfully returned zero or more results.'
-    '400':
-      description: 'Bad Request: one or more parameters were incorrectly specified.'
-    '405':
-      description: 'Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.'
-    '404596':
-      description: 'Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.'
-    5xx:
-      description: An error occurred while processing the request. Please try again later.
   securitySchemes:
     api_key:
       in: query

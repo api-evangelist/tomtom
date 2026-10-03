@@ -237,15 +237,15 @@ paths:
                 $ref: '#/components/schemas/RouteResponse'
 components:
   schemas:
-    LatLon:
+    RouteResponse:
       type: object
       properties:
-        latitude:
-          type: number
-          format: double
-        longitude:
-          type: number
-          format: double
+        formatVersion:
+          type: string
+        routes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Route'
     RouteSummary:
       type: object
       properties:
@@ -269,15 +269,6 @@ components:
           type: integer
         liveTrafficIncidentsTravelTimeInSeconds:
           type: integer
-    RouteResponse:
-      type: object
-      properties:
-        formatVersion:
-          type: string
-        routes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Route'
     RouteLeg:
       type: object
       properties:
@@ -302,6 +293,15 @@ components:
             type: object
         guidance:
           type: object
+    LatLon:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
   securitySchemes:
     api_key:
       type: apiKey
