@@ -137,20 +137,6 @@ paths:
                 type: object
 components:
   schemas:
-    Incident:
-      type: object
-      properties:
-        type:
-          type: string
-        geometry:
-          type: object
-          properties:
-            type:
-              type: string
-            coordinates:
-              type: array
-        properties:
-          $ref: '#/components/schemas/IncidentProperties'
     IncidentProperties:
       type: object
       properties:
@@ -210,6 +196,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Incident'
+    Incident:
+      type: object
+      properties:
+        type:
+          type: string
+        geometry:
+          type: object
+          properties:
+            type:
+              type: string
+            coordinates:
+              type: array
+        properties:
+          $ref: '#/components/schemas/IncidentProperties'
   securitySchemes:
     api_key:
       type: apiKey

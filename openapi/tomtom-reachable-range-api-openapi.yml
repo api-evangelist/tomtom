@@ -105,15 +105,6 @@ paths:
                 $ref: '#/components/schemas/ReachableRangeResponse'
 components:
   schemas:
-    LatLon:
-      type: object
-      properties:
-        latitude:
-          type: number
-          format: double
-        longitude:
-          type: number
-          format: double
     ReachableRangeResponse:
       type: object
       properties:
@@ -128,6 +119,15 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/LatLon'
+    LatLon:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
   securitySchemes:
     api_key:
       type: apiKey

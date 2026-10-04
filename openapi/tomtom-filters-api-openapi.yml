@@ -258,6 +258,19 @@ paths:
       operationId: postSearchByVersionNumberRoutedFilterByPositionByHeading}{ext
       x-operation-id-source: derived
 components:
+  responses:
+    '404596':
+      description: 'Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.'
+    5xx:
+      description: An error occurred while processing the request. Please try again later.
+    '400':
+      description: 'Bad Request: one or more parameters were incorrectly specified.'
+    '405':
+      description: 'Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.'
+    '200':
+      description: 'OK: the search successfully returned zero or more results.'
+    '403':
+      description: "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
   parameters:
     position:
       description: This is specified as a comma separated string composed of lat., lon.
@@ -267,12 +280,14 @@ components:
       required: true
       schema:
         type: string
-    routingTimeout:
-      description: Only return results that arrive from routing engine within this time limit.
-      in: query
-      name: routingTimeout
+    versionNumber:
+      description: Service version number. The current value is 2.
+      in: path
+      name: versionNumber
+      required: true
       schema:
-        default: 4000
+        enum:
+        - 2
         type: integer
     ext:
       description: Expected response format.
@@ -287,28 +302,13 @@ components:
         - js
         - xml
         type: string
-    versionNumber:
-      description: Service version number. The current value is 2.
-      in: path
-      name: versionNumber
-      required: true
+    routingTimeout:
+      description: Only return results that arrive from routing engine within this time limit.
+      in: query
+      name: routingTimeout
       schema:
-        enum:
-        - 2
+        default: 4000
         type: integer
-  responses:
-    '400':
-      description: 'Bad Request: one or more parameters were incorrectly specified.'
-    '403':
-      description: "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
-    5xx:
-      description: An error occurred while processing the request. Please try again later.
-    '404596':
-      description: 'Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.'
-    '200':
-      description: 'OK: the search successfully returned zero or more results.'
-    '405':
-      description: 'Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.'
   securitySchemes:
     api_key:
       in: query
