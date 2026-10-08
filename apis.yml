@@ -662,6 +662,12 @@ integrations:
   - iOS SDK
   - ADAS SDK
 common:
+  - type: Plans
+    url: plans/tomtom-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/tomtom-rate-limits.yml
+  - type: FinOps
+    url: finops/tomtom-finops.yml
   - type: AgenticAccess
     url: agentic-access/tomtom-agentic-access.yml
   - type: VulnerabilityDisclosure
