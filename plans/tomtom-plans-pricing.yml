@@ -95,3 +95,38 @@ plans:
       - name: Dedicated support
       - name: SLA enhancements
       - name: Custom data products (Genesis Maps, automotive)
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - metered
+  - subscription
+  units:
+  - period
+  - request
+  plans:
+  - name: Freemium
+    access: freemium
+    model: free
+    model_how: derived
+    units:
+    - request
+    periods:
+    - day
+  - name: Pay As You Go
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - request
+    periods:
+    - day
+  - name: Enterprise
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - year
