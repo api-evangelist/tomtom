@@ -139,27 +139,19 @@ paths:
       x-operation-id-source: derived
 components:
   responses:
+    '400':
+      description: 'Bad Request: one or more parameters were incorrectly specified.'
+    '403':
+      description: "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
+    '200':
+      description: 'OK: the search successfully returned zero or more results.'
+    '405':
+      description: 'Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.'
     '404596':
       description: 'Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.'
     5xx:
       description: An error occurred while processing the request. Please try again later.
-    '400':
-      description: 'Bad Request: one or more parameters were incorrectly specified.'
-    '405':
-      description: 'Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.'
-    '200':
-      description: 'OK: the search successfully returned zero or more results.'
-    '403':
-      description: "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer"
   parameters:
-    position:
-      description: This is specified as a comma separated string composed of lat., lon.
-      example: 37.8328,-122.27669
-      in: path
-      name: position
-      required: true
-      schema:
-        type: string
     versionNumber:
       description: Service version number. The current value is 2.
       in: path
@@ -169,6 +161,14 @@ components:
         enum:
         - 2
         type: integer
+    position:
+      description: This is specified as a comma separated string composed of lat., lon.
+      example: 37.8328,-122.27669
+      in: path
+      name: position
+      required: true
+      schema:
+        type: string
     ext:
       description: Expected response format.
       example: xml

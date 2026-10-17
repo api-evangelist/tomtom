@@ -137,6 +137,27 @@ paths:
                 type: object
 components:
   schemas:
+    Incident:
+      type: object
+      properties:
+        type:
+          type: string
+        geometry:
+          type: object
+          properties:
+            type:
+              type: string
+            coordinates:
+              type: array
+        properties:
+          $ref: '#/components/schemas/IncidentProperties'
+    IncidentDetailsResponse:
+      type: object
+      properties:
+        incidents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Incident'
     IncidentProperties:
       type: object
       properties:
@@ -189,27 +210,6 @@ components:
                 type: integer
               iconCategory:
                 type: integer
-    IncidentDetailsResponse:
-      type: object
-      properties:
-        incidents:
-          type: array
-          items:
-            $ref: '#/components/schemas/Incident'
-    Incident:
-      type: object
-      properties:
-        type:
-          type: string
-        geometry:
-          type: object
-          properties:
-            type:
-              type: string
-            coordinates:
-              type: array
-        properties:
-          $ref: '#/components/schemas/IncidentProperties'
   securitySchemes:
     api_key:
       type: apiKey
