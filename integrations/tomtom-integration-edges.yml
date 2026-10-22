@@ -7,6 +7,8 @@ checked:
 - https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/
 - https://www.bentley.com/en/ecosystem-catalog/catalog/
 - https://marketplace.databricks.com/
+- https://api.apis.guru/v2/list.json
+- https://api.apis.guru/v2/providers.json
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -94,5 +96,60 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-data-marketplaces.py
   detected: '2026-10-20'
+- partner_name: APIs.guru OpenAPI Directory
+  partner: apis-guru
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: third-party
+  evidence: https://apis.guru/
+  category: API definition directory listing (OpenAPI)
+  contract_reference:
+    register: APIs.guru OpenAPI Directory
+    spec_file: null
+    standard: APIs.guru OpenAPI Directory
+    role: listed-in-directory
+    directory_provider: tomtom.com
+    matched_domain: tomtom.com
+    matched_by: domain
+    apis_listed: 3
+    version_count: 3
+    first_added: '2018-11-20'
+    last_updated: '2020-03-22'
+    origin_publisher_hosted: true
+    origin_hosts:
+    - developer.tomtom.com
+    categories:
+    - location
+    own_openapi_files: 15
+    listings:
+    - key: tomtom.com:maps
+      title: Maps
+      preferred: 1.0.0
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/tomtom.com/maps/1.0.0/openapi.json
+      origin_url: https://developer.tomtom.com/system/files/swagger_models/maps_api_0.yaml
+      openapi_version: 3.0.0
+    - key: tomtom.com:routing
+      title: Routing
+      preferred: 1.0.0
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/tomtom.com/routing/1.0.0/openapi.json
+      origin_url: https://developer.tomtom.com/system/files/swagger_models/routing_api.yaml
+      openapi_version: 3.0.0
+    - key: tomtom.com:search
+      title: Search
+      preferred: 1.0.0
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/tomtom.com/search/1.0.0/openapi.json
+      origin_url: https://developer.tomtom.com/system/files/swagger_models/search_api.yaml
+      openapi_version: 3.0.0
+    signal_note: 'participation only: a community directory listing (APIs.guru collects definitions; the provider
+      did not file them). Signals: version_count, apis_listed, origin_publisher_hosted.'
+    detected_by: sweep-openapi-directory-apis-guru.py
+    detected: '2026-10-22'
+  detected_by: sweep-openapi-directory-apis-guru.py
+  first_seen: '2026-10-22'
 source:
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
