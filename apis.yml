@@ -662,6 +662,8 @@ integrations:
   - iOS SDK
   - ADAS SDK
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/tomtom/overview
   - type: Plans
     url: plans/tomtom-plans-pricing.yml
   - type: RateLimits
