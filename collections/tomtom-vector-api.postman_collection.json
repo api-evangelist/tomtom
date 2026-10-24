@@ -1,543 +1,503 @@
 {
+  "info": {
+    "_postman_id": "ccb0229f-9cfb-4e27-9873-7cf67f2e0125",
+    "name": "Maps Vector API",
+    "description": "The Maps API web services suite offers the following APIs:\n- Raster\nThe Maps Raster API renders map data that is divided into gridded sections called tiles.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:05:50.000Z",
+    "updatedAt": "2026-10-22T02:05:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ccb0229f-9cfb-4e27-9873-7cf67f2e0125"
+  },
   "item": [
     {
-      "id": "19043d80-e4f3-4f62-be6c-1463a8332f36",
-      "name": "Vector",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "map",
       "item": [
         {
-          "id": "3bb7aa1f-0e70-4e21-acb7-d0f26df7d636",
-          "name": "Tile",
-          "request": {
-            "name": "Tile",
-            "description": {
-              "content": "The Maps API Vector Service delivers vector tiles, which are representations of square sections of map data.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "map",
-                ":versionNumber",
-                "tile",
-                ":layer",
-                ":style",
-                ":zoom",
-                ":X",
-                "{{Y}}.pbf"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "view",
-                  "value": "<string>",
-                  "description": "Geopolitical view. Determines rendering of disputed areas. See the <a href=\"/maps-api/maps-api-documentation-vector/tile\">documentation</a> for an explanation of how this works in live services."
-                },
-                {
-                  "disabled": false,
-                  "key": "language",
-                  "value": "NGT",
-                  "description": "Language to be used for labels in the response. The default is NGT: Neutral Ground Truth, which uses each place's local official language and script (where available). See the <a href=\"/maps-api/maps-api-documentation-vector/tile\">documentation</a> for a full list of options."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) Version of the service to call. The current version is 1"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "layer",
-                  "description": "(Required) Layer of tile to be rendered"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "style",
-                  "description": "(Required) Style of tile to be rendered"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "zoom",
-                  "description": "(Required) Zoom level of tile to be rendered"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "X",
-                  "description": "(Required) x coordinate of tile on zoom grid"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{versionNumber}",
+          "item": [
             {
-              "id": "193952c5-910d-4d3b-b743-374b80c8d44c",
-              "name": "<b>OK</b>",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "tile",
-                    ":layer",
-                    ":style",
-                    ":zoom",
-                    ":X",
-                    "{{Y}}.pbf"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "view",
-                      "value": "Unified"
-                    },
-                    {
-                      "key": "language",
-                      "value": "NGT"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "layer",
-                      "description": "(Required) Layer of tile to be rendered"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "style",
-                      "description": "(Required) Style of tile to be rendered"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) Zoom level of tile to be rendered"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "X",
-                      "description": "(Required) x coordinate of tile on zoom grid"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "tile",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "{layer}",
+                  "item": [
+                    {
+                      "name": "{style}",
+                      "item": [
+                        {
+                          "name": "{zoom}",
+                          "item": [
+                            {
+                              "name": "{X}",
+                              "item": [
+                                {
+                                  "name": "{Y}.pbf",
+                                  "item": [
+                                    {
+                                      "name": "Tile",
+                                      "id": "b9643038-d4de-4ad3-9fbe-9ab5d135ec19",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/map/:versionNumber/tile/:layer/:style/:zoom/:X/{{Y}}.pbf?view=IL&language=NGT",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "map",
+                                            ":versionNumber",
+                                            "tile",
+                                            ":layer",
+                                            ":style",
+                                            ":zoom",
+                                            ":X",
+                                            "{{Y}}.pbf"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Geopolitical view. Determines rendering of disputed areas. See the <a href=\"/maps-api/maps-api-documentation-vector/tile\">documentation</a> for an explanation of how this works in live services.",
+                                              "key": "view",
+                                              "value": "IL"
+                                            },
+                                            {
+                                              "description": "Language to be used for labels in the response. The default is NGT: Neutral Ground Truth, which uses each place's local official language and script (where available). See the <a href=\"/maps-api/maps-api-documentation-vector/tile\">documentation</a> for a full list of options.",
+                                              "key": "language",
+                                              "value": "NGT"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "92642098-7a5f-4ae0-bc0c-832ab4076c73",
+                                              "key": "versionNumber",
+                                              "value": "1",
+                                              "description": "(Required) Version of the service to call. The current version is 1"
+                                            },
+                                            {
+                                              "id": "80641b49-f9ab-47bb-98a2-d538c3cfc700",
+                                              "key": "layer",
+                                              "value": "basic",
+                                              "description": "(Required) Layer of tile to be rendered"
+                                            },
+                                            {
+                                              "id": "454e7996-aae1-4666-a481-8b99bae1e693",
+                                              "key": "style",
+                                              "value": "main",
+                                              "description": "(Required) Style of tile to be rendered"
+                                            },
+                                            {
+                                              "id": "6edd2812-46d2-4036-859b-02011efc7d77",
+                                              "key": "zoom",
+                                              "value": "4",
+                                              "description": "(Required) Zoom level of tile to be rendered"
+                                            },
+                                            {
+                                              "id": "f3deb389-819f-4c14-aeaf-731688f32543",
+                                              "key": "X",
+                                              "value": "<integer>",
+                                              "description": "(Required) x coordinate of tile on zoom grid"
+                                            }
+                                          ]
+                                        },
+                                        "description": "The Maps API Vector Service delivers vector tiles, which are representations of square sections of map data."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "4d93d7c4-f381-4509-bc7f-b73372c72b43",
+                                          "name": "<b>OK</b>",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/map/:versionNumber/tile/:layer/:style/:zoom/:X/{{Y}}.pbf?view=IL&language=NGT&key=<API Key>",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "map",
+                                                ":versionNumber",
+                                                "tile",
+                                                ":layer",
+                                                ":style",
+                                                ":zoom",
+                                                ":X",
+                                                "{{Y}}.pbf"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "Geopolitical view. Determines rendering of disputed areas. See the <a href=\"/maps-api/maps-api-documentation-vector/tile\">documentation</a> for an explanation of how this works in live services.",
+                                                  "key": "view",
+                                                  "value": "IL"
+                                                },
+                                                {
+                                                  "description": "Language to be used for labels in the response. The default is NGT: Neutral Ground Truth, which uses each place's local official language and script (where available). See the <a href=\"/maps-api/maps-api-documentation-vector/tile\">documentation</a> for a full list of options.",
+                                                  "key": "language",
+                                                  "value": "NGT"
+                                                },
+                                                {
+                                                  "description": "Added as a part of security scheme: apikey",
+                                                  "key": "key",
+                                                  "value": "<API Key>"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "versionNumber"
+                                                },
+                                                {
+                                                  "key": "layer"
+                                                },
+                                                {
+                                                  "key": "style"
+                                                },
+                                                {
+                                                  "key": "zoom"
+                                                },
+                                                {
+                                                  "key": "X"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-10-22T02:05:51.000Z",
+                                          "updatedAt": "2026-10-22T02:05:51.000Z",
+                                          "uid": "35240-4d93d7c4-f381-4509-bc7f-b73372c72b43"
+                                        },
+                                        {
+                                          "id": "637e114f-796c-4c01-a987-e44c580f41bf",
+                                          "name": "<b>Bad request</b>: Usually the result of malformed syntax:\n  - the given combination of layer, style, and query parameters is not supported\n  - zoom n is out of range 0 <= zoom <= 22: the requested zoom level is out of the possible range\n  - x n is out o",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/map/:versionNumber/tile/:layer/:style/:zoom/:X/{{Y}}.pbf?view=IL&language=NGT&key=<API Key>",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "map",
+                                                ":versionNumber",
+                                                "tile",
+                                                ":layer",
+                                                ":style",
+                                                ":zoom",
+                                                ":X",
+                                                "{{Y}}.pbf"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "Geopolitical view. Determines rendering of disputed areas. See the <a href=\"/maps-api/maps-api-documentation-vector/tile\">documentation</a> for an explanation of how this works in live services.",
+                                                  "key": "view",
+                                                  "value": "IL"
+                                                },
+                                                {
+                                                  "description": "Language to be used for labels in the response. The default is NGT: Neutral Ground Truth, which uses each place's local official language and script (where available). See the <a href=\"/maps-api/maps-api-documentation-vector/tile\">documentation</a> for a full list of options.",
+                                                  "key": "language",
+                                                  "value": "NGT"
+                                                },
+                                                {
+                                                  "description": "Added as a part of security scheme: apikey",
+                                                  "key": "key",
+                                                  "value": "<API Key>"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "versionNumber"
+                                                },
+                                                {
+                                                  "key": "layer"
+                                                },
+                                                {
+                                                  "key": "style"
+                                                },
+                                                {
+                                                  "key": "zoom"
+                                                },
+                                                {
+                                                  "key": "X"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Bad Request",
+                                          "code": 400,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-10-22T02:05:51.000Z",
+                                          "updatedAt": "2026-10-22T02:05:51.000Z",
+                                          "uid": "35240-637e114f-796c-4c01-a987-e44c580f41bf"
+                                        },
+                                        {
+                                          "id": "9fd66f03-2d20-4068-953c-80274763caca",
+                                          "name": "<b>Forbidden</b>: \n  - the supplied API key is not valid for this request\n  - the requested view is not available in your country",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/map/:versionNumber/tile/:layer/:style/:zoom/:X/{{Y}}.pbf?view=IL&language=NGT&key=<API Key>",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "map",
+                                                ":versionNumber",
+                                                "tile",
+                                                ":layer",
+                                                ":style",
+                                                ":zoom",
+                                                ":X",
+                                                "{{Y}}.pbf"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "Geopolitical view. Determines rendering of disputed areas. See the <a href=\"/maps-api/maps-api-documentation-vector/tile\">documentation</a> for an explanation of how this works in live services.",
+                                                  "key": "view",
+                                                  "value": "IL"
+                                                },
+                                                {
+                                                  "description": "Language to be used for labels in the response. The default is NGT: Neutral Ground Truth, which uses each place's local official language and script (where available). See the <a href=\"/maps-api/maps-api-documentation-vector/tile\">documentation</a> for a full list of options.",
+                                                  "key": "language",
+                                                  "value": "NGT"
+                                                },
+                                                {
+                                                  "description": "Added as a part of security scheme: apikey",
+                                                  "key": "key",
+                                                  "value": "<API Key>"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "versionNumber"
+                                                },
+                                                {
+                                                  "key": "layer"
+                                                },
+                                                {
+                                                  "key": "style"
+                                                },
+                                                {
+                                                  "key": "zoom"
+                                                },
+                                                {
+                                                  "key": "X"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Forbidden",
+                                          "code": 403,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-10-22T02:05:51.000Z",
+                                          "updatedAt": "2026-10-22T02:05:51.000Z",
+                                          "uid": "35240-9fd66f03-2d20-4068-953c-80274763caca"
+                                        },
+                                        {
+                                          "id": "8830fe79-a4d9-49e0-8b65-a0951f7ab2d3",
+                                          "name": "<b>Internal Server Error</b>: There is a problem with the TomTom\nMaps API Vector Tile service",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/map/:versionNumber/tile/:layer/:style/:zoom/:X/{{Y}}.pbf?view=IL&language=NGT&key=<API Key>",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "map",
+                                                ":versionNumber",
+                                                "tile",
+                                                ":layer",
+                                                ":style",
+                                                ":zoom",
+                                                ":X",
+                                                "{{Y}}.pbf"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "Geopolitical view. Determines rendering of disputed areas. See the <a href=\"/maps-api/maps-api-documentation-vector/tile\">documentation</a> for an explanation of how this works in live services.",
+                                                  "key": "view",
+                                                  "value": "IL"
+                                                },
+                                                {
+                                                  "description": "Language to be used for labels in the response. The default is NGT: Neutral Ground Truth, which uses each place's local official language and script (where available). See the <a href=\"/maps-api/maps-api-documentation-vector/tile\">documentation</a> for a full list of options.",
+                                                  "key": "language",
+                                                  "value": "NGT"
+                                                },
+                                                {
+                                                  "description": "Added as a part of security scheme: apikey",
+                                                  "key": "key",
+                                                  "value": "<API Key>"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "versionNumber"
+                                                },
+                                                {
+                                                  "key": "layer"
+                                                },
+                                                {
+                                                  "key": "style"
+                                                },
+                                                {
+                                                  "key": "zoom"
+                                                },
+                                                {
+                                                  "key": "X"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-10-22T02:05:51.000Z",
+                                          "updatedAt": "2026-10-22T02:05:51.000Z",
+                                          "uid": "35240-8830fe79-a4d9-49e0-8b65-a0951f7ab2d3"
+                                        },
+                                        {
+                                          "id": "58ab5fc4-de10-40b2-b37a-e097d2b11f36",
+                                          "name": "<b>Service currently unavailable</b>.",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/map/:versionNumber/tile/:layer/:style/:zoom/:X/{{Y}}.pbf?view=IL&language=NGT&key=<API Key>",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "map",
+                                                ":versionNumber",
+                                                "tile",
+                                                ":layer",
+                                                ":style",
+                                                ":zoom",
+                                                ":X",
+                                                "{{Y}}.pbf"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "Geopolitical view. Determines rendering of disputed areas. See the <a href=\"/maps-api/maps-api-documentation-vector/tile\">documentation</a> for an explanation of how this works in live services.",
+                                                  "key": "view",
+                                                  "value": "IL"
+                                                },
+                                                {
+                                                  "description": "Language to be used for labels in the response. The default is NGT: Neutral Ground Truth, which uses each place's local official language and script (where available). See the <a href=\"/maps-api/maps-api-documentation-vector/tile\">documentation</a> for a full list of options.",
+                                                  "key": "language",
+                                                  "value": "NGT"
+                                                },
+                                                {
+                                                  "description": "Added as a part of security scheme: apikey",
+                                                  "key": "key",
+                                                  "value": "<API Key>"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "versionNumber"
+                                                },
+                                                {
+                                                  "key": "layer"
+                                                },
+                                                {
+                                                  "key": "style"
+                                                },
+                                                {
+                                                  "key": "zoom"
+                                                },
+                                                {
+                                                  "key": "X"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Service Unavailable",
+                                          "code": 503,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-10-22T02:05:51.000Z",
+                                          "updatedAt": "2026-10-22T02:05:51.000Z",
+                                          "uid": "35240-58ab5fc4-de10-40b2-b37a-e097d2b11f36"
+                                        }
+                                      ],
+                                      "createdAt": "2026-10-22T02:05:51.000Z",
+                                      "updatedAt": "2026-10-22T02:05:51.000Z",
+                                      "uid": "35240-b9643038-d4de-4ad3-9fbe-9ab5d135ec19"
+                                    }
+                                  ],
+                                  "id": "e530d234-b86f-45bc-8b55-3020ed9c3c0a",
+                                  "createdAt": "2026-10-22T02:05:51.000Z",
+                                  "updatedAt": "2026-10-22T02:05:51.000Z",
+                                  "uid": "35240-e530d234-b86f-45bc-8b55-3020ed9c3c0a"
+                                }
+                              ],
+                              "id": "7a2bac8b-f4bb-462b-8f00-c4cf3cb2579b",
+                              "createdAt": "2026-10-22T02:05:51.000Z",
+                              "updatedAt": "2026-10-22T02:05:51.000Z",
+                              "uid": "35240-7a2bac8b-f4bb-462b-8f00-c4cf3cb2579b"
+                            }
+                          ],
+                          "id": "3c7e19c6-aad1-427e-bf96-5398dd72d9d7",
+                          "createdAt": "2026-10-22T02:05:51.000Z",
+                          "updatedAt": "2026-10-22T02:05:51.000Z",
+                          "uid": "35240-3c7e19c6-aad1-427e-bf96-5398dd72d9d7"
+                        }
+                      ],
+                      "id": "261e0540-0c25-47f4-8cc6-cacb5405f0a6",
+                      "createdAt": "2026-10-22T02:05:51.000Z",
+                      "updatedAt": "2026-10-22T02:05:51.000Z",
+                      "uid": "35240-261e0540-0c25-47f4-8cc6-cacb5405f0a6"
+                    }
+                  ],
+                  "id": "8ed60a2a-fe67-4592-91cf-407d26279f63",
+                  "createdAt": "2026-10-22T02:05:51.000Z",
+                  "updatedAt": "2026-10-22T02:05:51.000Z",
+                  "uid": "35240-8ed60a2a-fe67-4592-91cf-407d26279f63"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "1b3cb74f-cb47-4a89-b7aa-8d80c4d488c4",
-              "name": "<b>Bad request</b>: Usually the result of malformed syntax:\n  - the given combination of layer, style, and query parameters is not supported\n  - zoom n is out of range 0 <= zoom <= 22: the requested zoom level is out of the possible range\n  - x n is out of range [0,m]: the requested x coordinate is out of the possible range (the value of m will vary depending on zoom level)\n  - y n is out of range [0,m]: the requested y coordinate is out of the possible range (the value of m will vary depending on zoom level)\n  - the requested view is not supported",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "tile",
-                    ":layer",
-                    ":style",
-                    ":zoom",
-                    ":X",
-                    "{{Y}}.pbf"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "view",
-                      "value": "Unified"
-                    },
-                    {
-                      "key": "language",
-                      "value": "NGT"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "layer",
-                      "description": "(Required) Layer of tile to be rendered"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "style",
-                      "description": "(Required) Style of tile to be rendered"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) Zoom level of tile to be rendered"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "X",
-                      "description": "(Required) x coordinate of tile on zoom grid"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "8a7d7c85-87b2-4382-94b4-b1c3a8780e3f",
-              "name": "<b>Forbidden</b>: \n  - the supplied API key is not valid for this request\n  - the requested view is not available in your country",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "tile",
-                    ":layer",
-                    ":style",
-                    ":zoom",
-                    ":X",
-                    "{{Y}}.pbf"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "view",
-                      "value": "Unified"
-                    },
-                    {
-                      "key": "language",
-                      "value": "NGT"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "layer",
-                      "description": "(Required) Layer of tile to be rendered"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "style",
-                      "description": "(Required) Style of tile to be rendered"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) Zoom level of tile to be rendered"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "X",
-                      "description": "(Required) x coordinate of tile on zoom grid"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "f748fd2b-069a-491d-a567-3310dcb2a24a",
-              "name": "<b>Internal Server Error</b>: There is a problem with the TomTom\nMaps API Vector Tile service",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "tile",
-                    ":layer",
-                    ":style",
-                    ":zoom",
-                    ":X",
-                    "{{Y}}.pbf"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "view",
-                      "value": "Unified"
-                    },
-                    {
-                      "key": "language",
-                      "value": "NGT"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "layer",
-                      "description": "(Required) Layer of tile to be rendered"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "style",
-                      "description": "(Required) Style of tile to be rendered"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) Zoom level of tile to be rendered"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "X",
-                      "description": "(Required) x coordinate of tile on zoom grid"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "ecd2e90c-61c5-4fa3-bcca-1df5cdc3c25f",
-              "name": "<b>Service currently unavailable</b>.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "tile",
-                    ":layer",
-                    ":style",
-                    ":zoom",
-                    ":X",
-                    "{{Y}}.pbf"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "view",
-                      "value": "Unified"
-                    },
-                    {
-                      "key": "language",
-                      "value": "NGT"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "layer",
-                      "description": "(Required) Layer of tile to be rendered"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "style",
-                      "description": "(Required) Style of tile to be rendered"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) Zoom level of tile to be rendered"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "X",
-                      "description": "(Required) x coordinate of tile on zoom grid"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Service Unavailable",
-              "code": 503,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "85f932b5-76b9-4404-8b15-7c3c278be0a7",
+              "createdAt": "2026-10-22T02:05:51.000Z",
+              "updatedAt": "2026-10-22T02:05:51.000Z",
+              "uid": "35240-85f932b5-76b9-4404-8b15-7c3c278be0a7"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "7949d879-214d-465a-855e-223a0a20be6c",
+          "createdAt": "2026-10-22T02:05:51.000Z",
+          "updatedAt": "2026-10-22T02:05:51.000Z",
+          "uid": "35240-7949d879-214d-465a-855e-223a0a20be6c"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.tomtom.com",
-      "key": "baseUrl"
-    },
-    {
-      "disabled": false,
-      "description": {
-        "content": "(Required) y coordinate of tile on zoom grid",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "<integer>",
-      "key": "Y"
+      "id": "fe581dbd-acac-41b7-bde3-a34fa1483a7e",
+      "createdAt": "2026-10-22T02:05:51.000Z",
+      "updatedAt": "2026-10-22T02:05:51.000Z",
+      "uid": "35240-fe581dbd-acac-41b7-bde3-a34fa1483a7e"
     }
   ],
   "auth": {
@@ -545,25 +505,29 @@
     "apikey": [
       {
         "key": "key",
-        "value": "key"
+        "value": "key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "query"
+        "value": "query",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "b2e3b4cb-30fc-4bda-94be-b9380f85fbdf",
-    "name": "Maps Additional Data Vector API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tomtom.com"
+    },
+    {
+      "key": "Y",
+      "value": "<integer>"
     }
-  }
+  ]
 }

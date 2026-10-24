@@ -1,1056 +1,1106 @@
 {
+  "info": {
+    "_postman_id": "d37e370c-b19a-4192-91eb-c1fd5f43b910",
+    "name": "Search Reverse Geocoding API",
+    "description": "Search API is a RESTful API that allows developers to run a single line fuzzy search for addresses and POIs. Search API returns the latitude/longitude of a specific address, cross street, geographic feature, or point of interest (POI).\n\nContact Support:\n Name: Contact Us",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:05:12.000Z",
+    "updatedAt": "2026-10-22T02:05:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d37e370c-b19a-4192-91eb-c1fd5f43b910"
+  },
   "item": [
     {
-      "id": "2c6a9d58-9e13-46d2-b33a-477d06799cce",
-      "name": "Reverse Geocoding",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "search",
       "item": [
         {
-          "id": "71a9a651-f4d2-4190-91e8-92defc03956c",
-          "name": "Cross Street Lookup",
-          "request": {
-            "name": "Cross Street Lookup",
-            "description": {},
-            "url": {
-              "path": [
-                "search",
-                ":versionNumber",
-                "reverseGeocode",
-                "crossStreet",
-                "{{position}}.{{ext}}"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "1",
-                  "description": "Maximum number of cross-streets to return."
-                },
-                {
-                  "disabled": false,
-                  "key": "spatialKeys",
-                  "value": "false",
-                  "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location."
-                },
-                {
-                  "disabled": false,
-                  "key": "heading",
-                  "value": "<float>",
-                  "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)"
-                },
-                {
-                  "disabled": false,
-                  "key": "radius",
-                  "value": "10000",
-                  "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider."
-                },
-                {
-                  "disabled": false,
-                  "key": "language",
-                  "value": "<string>",
-                  "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) Service version number. The current value is 2."
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{versionNumber}",
+          "item": [
             {
-              "id": "f14ef5cd-5af2-44f1-9619-1ab2e5b01cf0",
-              "name": "OK: the search successfully returned zero or more results.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "reverseGeocode",
-                    "crossStreet",
-                    "{{position}}.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "limit",
-                      "value": "1"
-                    },
-                    {
-                      "key": "spatialKeys",
-                      "value": "false"
-                    },
-                    {
-                      "key": "heading",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "radius",
-                      "value": "10000"
-                    },
-                    {
-                      "key": "language",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "reverseGeocode",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "crossStreet",
+                  "item": [
+                    {
+                      "name": "{position}.{ext}",
+                      "item": [
+                        {
+                          "name": "Cross Street Lookup",
+                          "id": "9e7ed90d-71f2-4a55-994b-388f3604f83d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/search/:versionNumber/reverseGeocode/crossStreet/{{position}}.{{ext}}?limit=1&spatialKeys=false&heading=<float>&radius=10000&language=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "search",
+                                ":versionNumber",
+                                "reverseGeocode",
+                                "crossStreet",
+                                "{{position}}.{{ext}}"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of cross-streets to return.",
+                                  "key": "limit",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+                                  "key": "spatialKeys",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+                                  "key": "heading",
+                                  "value": "<float>"
+                                },
+                                {
+                                  "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+                                  "key": "radius",
+                                  "value": "10000"
+                                },
+                                {
+                                  "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+                                  "key": "language",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "35be388d-ae0d-435b-9a4a-b8db9123ad4f",
+                                  "key": "versionNumber",
+                                  "value": "2",
+                                  "description": "(Required) Service version number. The current value is 2."
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "bc95361c-85ed-4c6d-8e04-f0d7f305a340",
+                              "name": "OK: the search successfully returned zero or more results.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/search/:versionNumber/reverseGeocode/crossStreet/{{position}}.{{ext}}?limit=1&spatialKeys=false&heading=<float>&radius=10000&language=<string>&key=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "search",
+                                    ":versionNumber",
+                                    "reverseGeocode",
+                                    "crossStreet",
+                                    "{{position}}.{{ext}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Maximum number of cross-streets to return.",
+                                      "key": "limit",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+                                      "key": "spatialKeys",
+                                      "value": "false"
+                                    },
+                                    {
+                                      "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+                                      "key": "heading",
+                                      "value": "<float>"
+                                    },
+                                    {
+                                      "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+                                      "key": "radius",
+                                      "value": "10000"
+                                    },
+                                    {
+                                      "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+                                      "key": "language",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Added as a part of security scheme: apikey",
+                                      "key": "key",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "versionNumber"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:05:12.000Z",
+                              "updatedAt": "2026-10-22T02:05:12.000Z",
+                              "uid": "35240-bc95361c-85ed-4c6d-8e04-f0d7f305a340"
+                            },
+                            {
+                              "id": "9ac41691-675f-4425-b756-2cd3d664312f",
+                              "name": "Bad Request: one or more parameters were incorrectly specified.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/search/:versionNumber/reverseGeocode/crossStreet/{{position}}.{{ext}}?limit=1&spatialKeys=false&heading=<float>&radius=10000&language=<string>&key=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "search",
+                                    ":versionNumber",
+                                    "reverseGeocode",
+                                    "crossStreet",
+                                    "{{position}}.{{ext}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Maximum number of cross-streets to return.",
+                                      "key": "limit",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+                                      "key": "spatialKeys",
+                                      "value": "false"
+                                    },
+                                    {
+                                      "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+                                      "key": "heading",
+                                      "value": "<float>"
+                                    },
+                                    {
+                                      "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+                                      "key": "radius",
+                                      "value": "10000"
+                                    },
+                                    {
+                                      "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+                                      "key": "language",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Added as a part of security scheme: apikey",
+                                      "key": "key",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "versionNumber"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:05:12.000Z",
+                              "updatedAt": "2026-10-22T02:05:12.000Z",
+                              "uid": "35240-9ac41691-675f-4425-b756-2cd3d664312f"
+                            },
+                            {
+                              "id": "521a776e-b2ee-4a06-81ed-61d0328f6d9c",
+                              "name": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/search/:versionNumber/reverseGeocode/crossStreet/{{position}}.{{ext}}?limit=1&spatialKeys=false&heading=<float>&radius=10000&language=<string>&key=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "search",
+                                    ":versionNumber",
+                                    "reverseGeocode",
+                                    "crossStreet",
+                                    "{{position}}.{{ext}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Maximum number of cross-streets to return.",
+                                      "key": "limit",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+                                      "key": "spatialKeys",
+                                      "value": "false"
+                                    },
+                                    {
+                                      "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+                                      "key": "heading",
+                                      "value": "<float>"
+                                    },
+                                    {
+                                      "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+                                      "key": "radius",
+                                      "value": "10000"
+                                    },
+                                    {
+                                      "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+                                      "key": "language",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Added as a part of security scheme: apikey",
+                                      "key": "key",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "versionNumber"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:05:12.000Z",
+                              "updatedAt": "2026-10-22T02:05:12.000Z",
+                              "uid": "35240-521a776e-b2ee-4a06-81ed-61d0328f6d9c"
+                            },
+                            {
+                              "id": "2e1fd076-01c0-44d1-93d7-3093db6544d3",
+                              "name": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/search/:versionNumber/reverseGeocode/crossStreet/{{position}}.{{ext}}?limit=1&spatialKeys=false&heading=<float>&radius=10000&language=<string>&key=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "search",
+                                    ":versionNumber",
+                                    "reverseGeocode",
+                                    "crossStreet",
+                                    "{{position}}.{{ext}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Maximum number of cross-streets to return.",
+                                      "key": "limit",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+                                      "key": "spatialKeys",
+                                      "value": "false"
+                                    },
+                                    {
+                                      "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+                                      "key": "heading",
+                                      "value": "<float>"
+                                    },
+                                    {
+                                      "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+                                      "key": "radius",
+                                      "value": "10000"
+                                    },
+                                    {
+                                      "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+                                      "key": "language",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Added as a part of security scheme: apikey",
+                                      "key": "key",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "versionNumber"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Method Not Allowed",
+                              "code": 405,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:05:12.000Z",
+                              "updatedAt": "2026-10-22T02:05:12.000Z",
+                              "uid": "35240-2e1fd076-01c0-44d1-93d7-3093db6544d3"
+                            },
+                            {
+                              "id": "d02fe590-805b-4a5a-b7c9-716205ac2e32",
+                              "name": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/search/:versionNumber/reverseGeocode/crossStreet/{{position}}.{{ext}}?limit=1&spatialKeys=false&heading=<float>&radius=10000&language=<string>&key=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "search",
+                                    ":versionNumber",
+                                    "reverseGeocode",
+                                    "crossStreet",
+                                    "{{position}}.{{ext}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Maximum number of cross-streets to return.",
+                                      "key": "limit",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+                                      "key": "spatialKeys",
+                                      "value": "false"
+                                    },
+                                    {
+                                      "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+                                      "key": "heading",
+                                      "value": "<float>"
+                                    },
+                                    {
+                                      "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+                                      "key": "radius",
+                                      "value": "10000"
+                                    },
+                                    {
+                                      "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+                                      "key": "language",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Added as a part of security scheme: apikey",
+                                      "key": "key",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "versionNumber"
+                                    }
+                                  ]
+                                }
+                              },
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:05:12.000Z",
+                              "updatedAt": "2026-10-22T02:05:12.000Z",
+                              "uid": "35240-d02fe590-805b-4a5a-b7c9-716205ac2e32"
+                            },
+                            {
+                              "id": "b915a528-501b-4da0-a76d-8d4bec118bbb",
+                              "name": "An error occurred while processing the request. Please try again later.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/search/:versionNumber/reverseGeocode/crossStreet/{{position}}.{{ext}}?limit=1&spatialKeys=false&heading=<float>&radius=10000&language=<string>&key=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "search",
+                                    ":versionNumber",
+                                    "reverseGeocode",
+                                    "crossStreet",
+                                    "{{position}}.{{ext}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Maximum number of cross-streets to return.",
+                                      "key": "limit",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+                                      "key": "spatialKeys",
+                                      "value": "false"
+                                    },
+                                    {
+                                      "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+                                      "key": "heading",
+                                      "value": "<float>"
+                                    },
+                                    {
+                                      "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+                                      "key": "radius",
+                                      "value": "10000"
+                                    },
+                                    {
+                                      "description": "Language in which search results should be returned. Should be one of <a href=\"/search-api/search-api-documentation/supported-languages\">supported IETF language tags</a>, case insensitive.",
+                                      "key": "language",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Added as a part of security scheme: apikey",
+                                      "key": "key",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "versionNumber"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:05:12.000Z",
+                              "updatedAt": "2026-10-22T02:05:12.000Z",
+                              "uid": "35240-b915a528-501b-4da0-a76d-8d4bec118bbb"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T02:05:12.000Z",
+                          "updatedAt": "2026-10-22T02:05:12.000Z",
+                          "uid": "35240-9e7ed90d-71f2-4a55-994b-388f3604f83d"
+                        }
+                      ],
+                      "id": "2f61fec0-0a45-422d-9df4-25f89d581749",
+                      "createdAt": "2026-10-22T02:05:12.000Z",
+                      "updatedAt": "2026-10-22T02:05:12.000Z",
+                      "uid": "35240-2f61fec0-0a45-422d-9df4-25f89d581749"
+                    }
+                  ],
+                  "id": "97b9673a-5c42-4880-8425-53ad6244761a",
+                  "createdAt": "2026-10-22T02:05:12.000Z",
+                  "updatedAt": "2026-10-22T02:05:12.000Z",
+                  "uid": "35240-97b9673a-5c42-4880-8425-53ad6244761a"
+                },
+                {
+                  "name": "{position}.{ext}",
+                  "item": [
+                    {
+                      "name": "Reverse Geocode",
+                      "id": "42750cfe-2065-456a-bf1b-7e643bb14a7c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/search/:versionNumber/reverseGeocode/{{position}}.{{ext}}?spatialKeys=false&returnSpeedLimit=false&heading=<float>&radius=10000&number=<string>&returnRoadUse=false&roadUse=<string>&callback=cb",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "search",
+                            ":versionNumber",
+                            "reverseGeocode",
+                            "{{position}}.{{ext}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+                              "key": "spatialKeys",
+                              "value": "false"
+                            },
+                            {
+                              "description": "To enable return of the posted speed limit (where available).",
+                              "key": "returnSpeedLimit",
+                              "value": "false"
+                            },
+                            {
+                              "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+                              "key": "heading",
+                              "value": "<float>"
+                            },
+                            {
+                              "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+                              "key": "radius",
+                              "value": "10000"
+                            },
+                            {
+                              "description": "If a number is sent in along with the request, the response may include the side of the street (Left/Right) and an offset position for that number.",
+                              "key": "number",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Enables return of the road use array for reverse geocodes at street level.",
+                              "key": "returnRoadUse",
+                              "value": "false"
+                            },
+                            {
+                              "description": "Restricts reverse geocodes to a certain type of road use. The road use array for reverse geocodes can be one or more of: [\"LimitedAccess\", \"Arterial\", \"Terminal\", \"Ramp\", \"Rotary\", \"LocalStreet\"].",
+                              "key": "roadUse",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Specifies the jsonp callback method.",
+                              "key": "callback",
+                              "value": "cb"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "97ed1b9a-2e47-4b3f-8b99-2e461e3d23b3",
+                              "key": "versionNumber",
+                              "value": "2",
+                              "description": "(Required) Service version number. The current value is 2."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "fc867eb1-2185-4bb2-8f05-3d5116b16b57",
+                          "name": "OK: the search successfully returned zero or more results.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/search/:versionNumber/reverseGeocode/{{position}}.{{ext}}?spatialKeys=false&returnSpeedLimit=false&heading=<float>&radius=10000&number=<string>&returnRoadUse=false&roadUse=<string>&callback=cb&key=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "search",
+                                ":versionNumber",
+                                "reverseGeocode",
+                                "{{position}}.{{ext}}"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+                                  "key": "spatialKeys",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "To enable return of the posted speed limit (where available).",
+                                  "key": "returnSpeedLimit",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+                                  "key": "heading",
+                                  "value": "<float>"
+                                },
+                                {
+                                  "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+                                  "key": "radius",
+                                  "value": "10000"
+                                },
+                                {
+                                  "description": "If a number is sent in along with the request, the response may include the side of the street (Left/Right) and an offset position for that number.",
+                                  "key": "number",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Enables return of the road use array for reverse geocodes at street level.",
+                                  "key": "returnRoadUse",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "Restricts reverse geocodes to a certain type of road use. The road use array for reverse geocodes can be one or more of: [\"LimitedAccess\", \"Arterial\", \"Terminal\", \"Ramp\", \"Rotary\", \"LocalStreet\"].",
+                                  "key": "roadUse",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Specifies the jsonp callback method.",
+                                  "key": "callback",
+                                  "value": "cb"
+                                },
+                                {
+                                  "description": "Added as a part of security scheme: apikey",
+                                  "key": "key",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "versionNumber"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:05:12.000Z",
+                          "updatedAt": "2026-10-22T02:05:12.000Z",
+                          "uid": "35240-fc867eb1-2185-4bb2-8f05-3d5116b16b57"
+                        },
+                        {
+                          "id": "9bd79fba-20b8-4003-92ab-b7c400e46f53",
+                          "name": "Bad Request: one or more parameters were incorrectly specified.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/search/:versionNumber/reverseGeocode/{{position}}.{{ext}}?spatialKeys=false&returnSpeedLimit=false&heading=<float>&radius=10000&number=<string>&returnRoadUse=false&roadUse=<string>&callback=cb&key=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "search",
+                                ":versionNumber",
+                                "reverseGeocode",
+                                "{{position}}.{{ext}}"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+                                  "key": "spatialKeys",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "To enable return of the posted speed limit (where available).",
+                                  "key": "returnSpeedLimit",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+                                  "key": "heading",
+                                  "value": "<float>"
+                                },
+                                {
+                                  "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+                                  "key": "radius",
+                                  "value": "10000"
+                                },
+                                {
+                                  "description": "If a number is sent in along with the request, the response may include the side of the street (Left/Right) and an offset position for that number.",
+                                  "key": "number",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Enables return of the road use array for reverse geocodes at street level.",
+                                  "key": "returnRoadUse",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "Restricts reverse geocodes to a certain type of road use. The road use array for reverse geocodes can be one or more of: [\"LimitedAccess\", \"Arterial\", \"Terminal\", \"Ramp\", \"Rotary\", \"LocalStreet\"].",
+                                  "key": "roadUse",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Specifies the jsonp callback method.",
+                                  "key": "callback",
+                                  "value": "cb"
+                                },
+                                {
+                                  "description": "Added as a part of security scheme: apikey",
+                                  "key": "key",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "versionNumber"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:05:12.000Z",
+                          "updatedAt": "2026-10-22T02:05:12.000Z",
+                          "uid": "35240-9bd79fba-20b8-4003-92ab-b7c400e46f53"
+                        },
+                        {
+                          "id": "13895fa6-96aa-4f09-914b-7a7990e8c289",
+                          "name": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/search/:versionNumber/reverseGeocode/{{position}}.{{ext}}?spatialKeys=false&returnSpeedLimit=false&heading=<float>&radius=10000&number=<string>&returnRoadUse=false&roadUse=<string>&callback=cb&key=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "search",
+                                ":versionNumber",
+                                "reverseGeocode",
+                                "{{position}}.{{ext}}"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+                                  "key": "spatialKeys",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "To enable return of the posted speed limit (where available).",
+                                  "key": "returnSpeedLimit",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+                                  "key": "heading",
+                                  "value": "<float>"
+                                },
+                                {
+                                  "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+                                  "key": "radius",
+                                  "value": "10000"
+                                },
+                                {
+                                  "description": "If a number is sent in along with the request, the response may include the side of the street (Left/Right) and an offset position for that number.",
+                                  "key": "number",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Enables return of the road use array for reverse geocodes at street level.",
+                                  "key": "returnRoadUse",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "Restricts reverse geocodes to a certain type of road use. The road use array for reverse geocodes can be one or more of: [\"LimitedAccess\", \"Arterial\", \"Terminal\", \"Ramp\", \"Rotary\", \"LocalStreet\"].",
+                                  "key": "roadUse",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Specifies the jsonp callback method.",
+                                  "key": "callback",
+                                  "value": "cb"
+                                },
+                                {
+                                  "description": "Added as a part of security scheme: apikey",
+                                  "key": "key",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "versionNumber"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:05:12.000Z",
+                          "updatedAt": "2026-10-22T02:05:12.000Z",
+                          "uid": "35240-13895fa6-96aa-4f09-914b-7a7990e8c289"
+                        },
+                        {
+                          "id": "382c21fc-3cc6-450d-a257-ae0cfcdfbf6f",
+                          "name": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/search/:versionNumber/reverseGeocode/{{position}}.{{ext}}?spatialKeys=false&returnSpeedLimit=false&heading=<float>&radius=10000&number=<string>&returnRoadUse=false&roadUse=<string>&callback=cb&key=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "search",
+                                ":versionNumber",
+                                "reverseGeocode",
+                                "{{position}}.{{ext}}"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+                                  "key": "spatialKeys",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "To enable return of the posted speed limit (where available).",
+                                  "key": "returnSpeedLimit",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+                                  "key": "heading",
+                                  "value": "<float>"
+                                },
+                                {
+                                  "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+                                  "key": "radius",
+                                  "value": "10000"
+                                },
+                                {
+                                  "description": "If a number is sent in along with the request, the response may include the side of the street (Left/Right) and an offset position for that number.",
+                                  "key": "number",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Enables return of the road use array for reverse geocodes at street level.",
+                                  "key": "returnRoadUse",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "Restricts reverse geocodes to a certain type of road use. The road use array for reverse geocodes can be one or more of: [\"LimitedAccess\", \"Arterial\", \"Terminal\", \"Ramp\", \"Rotary\", \"LocalStreet\"].",
+                                  "key": "roadUse",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Specifies the jsonp callback method.",
+                                  "key": "callback",
+                                  "value": "cb"
+                                },
+                                {
+                                  "description": "Added as a part of security scheme: apikey",
+                                  "key": "key",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "versionNumber"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Method Not Allowed",
+                          "code": 405,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:05:12.000Z",
+                          "updatedAt": "2026-10-22T02:05:12.000Z",
+                          "uid": "35240-382c21fc-3cc6-450d-a257-ae0cfcdfbf6f"
+                        },
+                        {
+                          "id": "bac9596d-1634-41a5-9127-4288b1e72185",
+                          "name": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/search/:versionNumber/reverseGeocode/{{position}}.{{ext}}?spatialKeys=false&returnSpeedLimit=false&heading=<float>&radius=10000&number=<string>&returnRoadUse=false&roadUse=<string>&callback=cb&key=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "search",
+                                ":versionNumber",
+                                "reverseGeocode",
+                                "{{position}}.{{ext}}"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+                                  "key": "spatialKeys",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "To enable return of the posted speed limit (where available).",
+                                  "key": "returnSpeedLimit",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+                                  "key": "heading",
+                                  "value": "<float>"
+                                },
+                                {
+                                  "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+                                  "key": "radius",
+                                  "value": "10000"
+                                },
+                                {
+                                  "description": "If a number is sent in along with the request, the response may include the side of the street (Left/Right) and an offset position for that number.",
+                                  "key": "number",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Enables return of the road use array for reverse geocodes at street level.",
+                                  "key": "returnRoadUse",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "Restricts reverse geocodes to a certain type of road use. The road use array for reverse geocodes can be one or more of: [\"LimitedAccess\", \"Arterial\", \"Terminal\", \"Ramp\", \"Rotary\", \"LocalStreet\"].",
+                                  "key": "roadUse",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Specifies the jsonp callback method.",
+                                  "key": "callback",
+                                  "value": "cb"
+                                },
+                                {
+                                  "description": "Added as a part of security scheme: apikey",
+                                  "key": "key",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "versionNumber"
+                                }
+                              ]
+                            }
+                          },
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:05:12.000Z",
+                          "updatedAt": "2026-10-22T02:05:12.000Z",
+                          "uid": "35240-bac9596d-1634-41a5-9127-4288b1e72185"
+                        },
+                        {
+                          "id": "a1ab9e1b-067e-4e6f-858a-9e0ad36e5404",
+                          "name": "An error occurred while processing the request. Please try again later.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/search/:versionNumber/reverseGeocode/{{position}}.{{ext}}?spatialKeys=false&returnSpeedLimit=false&heading=<float>&radius=10000&number=<string>&returnRoadUse=false&roadUse=<string>&callback=cb&key=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "search",
+                                ":versionNumber",
+                                "reverseGeocode",
+                                "{{position}}.{{ext}}"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location.",
+                                  "key": "spatialKeys",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "To enable return of the posted speed limit (where available).",
+                                  "key": "returnSpeedLimit",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)",
+                                  "key": "heading",
+                                  "value": "<float>"
+                                },
+                                {
+                                  "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider.",
+                                  "key": "radius",
+                                  "value": "10000"
+                                },
+                                {
+                                  "description": "If a number is sent in along with the request, the response may include the side of the street (Left/Right) and an offset position for that number.",
+                                  "key": "number",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Enables return of the road use array for reverse geocodes at street level.",
+                                  "key": "returnRoadUse",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "Restricts reverse geocodes to a certain type of road use. The road use array for reverse geocodes can be one or more of: [\"LimitedAccess\", \"Arterial\", \"Terminal\", \"Ramp\", \"Rotary\", \"LocalStreet\"].",
+                                  "key": "roadUse",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Specifies the jsonp callback method.",
+                                  "key": "callback",
+                                  "value": "cb"
+                                },
+                                {
+                                  "description": "Added as a part of security scheme: apikey",
+                                  "key": "key",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "versionNumber"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:05:12.000Z",
+                          "updatedAt": "2026-10-22T02:05:12.000Z",
+                          "uid": "35240-a1ab9e1b-067e-4e6f-858a-9e0ad36e5404"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:05:12.000Z",
+                      "updatedAt": "2026-10-22T02:05:12.000Z",
+                      "uid": "35240-42750cfe-2065-456a-bf1b-7e643bb14a7c"
+                    }
+                  ],
+                  "id": "b76e4489-eb93-4a09-ace2-a14fe442a39f",
+                  "createdAt": "2026-10-22T02:05:12.000Z",
+                  "updatedAt": "2026-10-22T02:05:12.000Z",
+                  "uid": "35240-b76e4489-eb93-4a09-ace2-a14fe442a39f"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "5d45c96f-7753-427a-adc7-bcbf9463fe2a",
-              "name": "Bad Request: one or more parameters were incorrectly specified.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "reverseGeocode",
-                    "crossStreet",
-                    "{{position}}.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "limit",
-                      "value": "1"
-                    },
-                    {
-                      "key": "spatialKeys",
-                      "value": "false"
-                    },
-                    {
-                      "key": "heading",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "radius",
-                      "value": "10000"
-                    },
-                    {
-                      "key": "language",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "41d99cd8-2cb2-438c-8f35-aaa83ff60bc0",
-              "name": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "reverseGeocode",
-                    "crossStreet",
-                    "{{position}}.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "limit",
-                      "value": "1"
-                    },
-                    {
-                      "key": "spatialKeys",
-                      "value": "false"
-                    },
-                    {
-                      "key": "heading",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "radius",
-                      "value": "10000"
-                    },
-                    {
-                      "key": "language",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "39a08e61-18cc-4452-becb-1ad9eeec1484",
-              "name": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "reverseGeocode",
-                    "crossStreet",
-                    "{{position}}.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "limit",
-                      "value": "1"
-                    },
-                    {
-                      "key": "spatialKeys",
-                      "value": "false"
-                    },
-                    {
-                      "key": "heading",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "radius",
-                      "value": "10000"
-                    },
-                    {
-                      "key": "language",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Method Not Allowed",
-              "code": 405,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "d2f53134-edbe-424f-b5fe-96ae2bc523e0",
-              "name": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "reverseGeocode",
-                    "crossStreet",
-                    "{{position}}.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "limit",
-                      "value": "1"
-                    },
-                    {
-                      "key": "spatialKeys",
-                      "value": "false"
-                    },
-                    {
-                      "key": "heading",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "radius",
-                      "value": "10000"
-                    },
-                    {
-                      "key": "language",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "4af23f67-a98f-4dbd-ab91-74d499a0c76f",
-              "name": "An error occurred while processing the request. Please try again later.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "reverseGeocode",
-                    "crossStreet",
-                    "{{position}}.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "limit",
-                      "value": "1"
-                    },
-                    {
-                      "key": "spatialKeys",
-                      "value": "false"
-                    },
-                    {
-                      "key": "heading",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "radius",
-                      "value": "10000"
-                    },
-                    {
-                      "key": "language",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "e8acd002-1411-4715-9910-a734c65a592b",
+              "createdAt": "2026-10-22T02:05:12.000Z",
+              "updatedAt": "2026-10-22T02:05:12.000Z",
+              "uid": "35240-e8acd002-1411-4715-9910-a734c65a592b"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "98e0d67f-27fd-4c8a-aa39-3b415060691b",
-          "name": "Reverse Geocode",
-          "request": {
-            "name": "Reverse Geocode",
-            "description": {},
-            "url": {
-              "path": [
-                "search",
-                ":versionNumber",
-                "reverseGeocode",
-                "{{position}}.{{ext}}"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "spatialKeys",
-                  "value": "false",
-                  "description": "If the \"spatialKeys\" flag is set, the response will also contain a proprietary geospatial keys for a specified location."
-                },
-                {
-                  "disabled": false,
-                  "key": "returnSpeedLimit",
-                  "value": "false",
-                  "description": "To enable return of the posted speed limit (where available)."
-                },
-                {
-                  "disabled": false,
-                  "key": "heading",
-                  "value": "<float>",
-                  "description": "The directional heading in degrees, usually similar to the course along a road segment. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.)"
-                },
-                {
-                  "disabled": false,
-                  "key": "radius",
-                  "value": "10000",
-                  "description": "The maximum distance in meters from the specified position for the reverse geocoder to consider."
-                },
-                {
-                  "disabled": false,
-                  "key": "number",
-                  "value": "<string>",
-                  "description": "If a number is sent in along with the request, the response may include the side of the street (Left/Right) and an offset position for that number."
-                },
-                {
-                  "disabled": false,
-                  "key": "returnRoadUse",
-                  "value": "false",
-                  "description": "Enables return of the road use array for reverse geocodes at street level."
-                },
-                {
-                  "disabled": false,
-                  "key": "roadUse",
-                  "value": "<string>",
-                  "description": "Restricts reverse geocodes to a certain type of road use. The road use array for reverse geocodes can be one or more of: [\"LimitedAccess\", \"Arterial\", \"Terminal\", \"Ramp\", \"Rotary\", \"LocalStreet\"]."
-                },
-                {
-                  "disabled": false,
-                  "key": "callback",
-                  "value": "cb",
-                  "description": "Specifies the jsonp callback method."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) Service version number. The current value is 2."
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "ffd45064-e824-43f9-8c58-a42e88693273",
-              "name": "OK: the search successfully returned zero or more results.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "reverseGeocode",
-                    "{{position}}.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "spatialKeys",
-                      "value": "false"
-                    },
-                    {
-                      "key": "returnSpeedLimit",
-                      "value": "false"
-                    },
-                    {
-                      "key": "heading",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "radius",
-                      "value": "10000"
-                    },
-                    {
-                      "key": "number",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "returnRoadUse",
-                      "value": "false"
-                    },
-                    {
-                      "key": "roadUse",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "callback",
-                      "value": "cb"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "3781587b-1be2-4d88-83a6-1667ff0c615c",
-              "name": "Bad Request: one or more parameters were incorrectly specified.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "reverseGeocode",
-                    "{{position}}.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "spatialKeys",
-                      "value": "false"
-                    },
-                    {
-                      "key": "returnSpeedLimit",
-                      "value": "false"
-                    },
-                    {
-                      "key": "heading",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "radius",
-                      "value": "10000"
-                    },
-                    {
-                      "key": "number",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "returnRoadUse",
-                      "value": "false"
-                    },
-                    {
-                      "key": "roadUse",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "callback",
-                      "value": "cb"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "d9262b42-5fa0-4c24-bde8-85184c1567b7",
-              "name": "Forbidden: possible causes include:\n  - Service requires SSL\n  - Not authorized\n  - Rate or volume limit exceeded\n  - Unknown referer",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "reverseGeocode",
-                    "{{position}}.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "spatialKeys",
-                      "value": "false"
-                    },
-                    {
-                      "key": "returnSpeedLimit",
-                      "value": "false"
-                    },
-                    {
-                      "key": "heading",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "radius",
-                      "value": "10000"
-                    },
-                    {
-                      "key": "number",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "returnRoadUse",
-                      "value": "false"
-                    },
-                    {
-                      "key": "roadUse",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "callback",
-                      "value": "cb"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "6dc48759-2ab0-4de2-8ba8-d100c6ecb9f0",
-              "name": "Method Not Allowed: the HTTP method (GET, POST, etc) is not supported for this request.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "reverseGeocode",
-                    "{{position}}.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "spatialKeys",
-                      "value": "false"
-                    },
-                    {
-                      "key": "returnSpeedLimit",
-                      "value": "false"
-                    },
-                    {
-                      "key": "heading",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "radius",
-                      "value": "10000"
-                    },
-                    {
-                      "key": "number",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "returnRoadUse",
-                      "value": "false"
-                    },
-                    {
-                      "key": "roadUse",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "callback",
-                      "value": "cb"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Method Not Allowed",
-              "code": 405,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "9aa61055-b1c3-4618-ad50-1ac2f8edde01",
-              "name": "Not Found: the HTTP request method (GET, POST, etc) or path is incorrect.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "reverseGeocode",
-                    "{{position}}.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "spatialKeys",
-                      "value": "false"
-                    },
-                    {
-                      "key": "returnSpeedLimit",
-                      "value": "false"
-                    },
-                    {
-                      "key": "heading",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "radius",
-                      "value": "10000"
-                    },
-                    {
-                      "key": "number",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "returnRoadUse",
-                      "value": "false"
-                    },
-                    {
-                      "key": "roadUse",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "callback",
-                      "value": "cb"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "319d86d8-ce7c-4539-81a9-e4ca3041aed6",
-              "name": "An error occurred while processing the request. Please try again later.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "reverseGeocode",
-                    "{{position}}.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "spatialKeys",
-                      "value": "false"
-                    },
-                    {
-                      "key": "returnSpeedLimit",
-                      "value": "false"
-                    },
-                    {
-                      "key": "heading",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "radius",
-                      "value": "10000"
-                    },
-                    {
-                      "key": "number",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "returnRoadUse",
-                      "value": "false"
-                    },
-                    {
-                      "key": "roadUse",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "callback",
-                      "value": "cb"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "987da78d-83fc-489e-b8fa-20e9aada399d",
+          "createdAt": "2026-10-22T02:05:12.000Z",
+          "updatedAt": "2026-10-22T02:05:12.000Z",
+          "uid": "35240-987da78d-83fc-489e-b8fa-20e9aada399d"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.tomtom.com",
-      "key": "baseUrl"
-    },
-    {
-      "disabled": false,
-      "description": {
-        "content": "(Required) This is specified as a comma separated string composed of lat., lon.",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "<string>",
-      "key": "position"
-    },
-    {
-      "disabled": false,
-      "description": {
-        "content": "(Required) Expected response format.",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "<string>",
-      "key": "ext"
+      "id": "0066e8d4-cebc-4783-a36e-af1800454a07",
+      "createdAt": "2026-10-22T02:05:12.000Z",
+      "updatedAt": "2026-10-22T02:05:12.000Z",
+      "uid": "35240-0066e8d4-cebc-4783-a36e-af1800454a07"
     }
   ],
   "auth": {
@@ -1058,25 +1108,33 @@
     "apikey": [
       {
         "key": "key",
-        "value": "key"
+        "value": "key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "query"
+        "value": "query",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "9db6eb67-1e60-454d-aca3-45a31a1ad830",
-    "name": "Maps Additional Data Reverse Geocoding API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tomtom.com"
+    },
+    {
+      "key": "position",
+      "value": "<string>"
+    },
+    {
+      "key": "ext",
+      "value": "jsonp"
     }
-  }
+  ]
 }

@@ -1,1828 +1,1688 @@
 {
+  "info": {
+    "_postman_id": "b1a4c201-e548-4719-b397-620f10e7b013",
+    "name": "Maps Copyrights API",
+    "description": "The Maps API web services suite offers the following APIs:\n- Raster\nThe Maps Raster API renders map data that is divided into gridded sections called tiles.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:04:40.000Z",
+    "updatedAt": "2026-10-22T02:04:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b1a4c201-e548-4719-b397-620f10e7b013"
+  },
   "item": [
     {
-      "id": "0cafcafa-2e2c-4f21-8d86-01a65eb77b5a",
-      "name": "Copyrights",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "map",
       "item": [
         {
-          "id": "7e43761e-8c28-49c3-ab8d-269f46894b65",
-          "name": "Copyrights Whole World",
-          "request": {
-            "name": "Copyrights Whole World",
-            "description": {
-              "content": "The Copyrights API returns copyright information for\nthe Maps API Raster Tile Service in JSON, JSONP, or XML format.\nThis call returns copyright information for the whole world.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "map",
-                ":versionNumber",
-                "copyrights.{{format}}"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "callback",
-                  "value": "<string>",
-                  "description": "Specifies the jsonp callback method. Only used when format is jsonp"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) Version of the service to call. The current version is 1"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{versionNumber}",
+          "item": [
             {
-              "id": "a9befde3-2d7a-4654-b1b1-ec5ab6567218",
-              "name": "<b>OK</b>",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "copyrights.{format}",
+              "item": [
+                {
+                  "name": "Copyrights Whole World",
+                  "id": "2601cd7f-bb46-4377-ba45-a0048630a2dd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/map/:versionNumber/copyrights.{{format}}?callback=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "map",
+                        ":versionNumber",
+                        "copyrights.{{format}}"
+                      ],
+                      "query": [
+                        {
+                          "description": "Specifies the jsonp callback method. Only used when format is jsonp",
+                          "key": "callback",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "895e24f4-3fbd-4ef1-b14c-eb7506e1d969",
+                          "key": "versionNumber",
+                          "value": "1",
+                          "description": "(Required) Version of the service to call. The current version is 1"
+                        }
+                      ]
+                    },
+                    "description": "The Copyrights API returns copyright information for\nthe Maps API Raster Tile Service in JSON, JSONP, or XML format.\nThis call returns copyright information for the whole world."
+                  },
+                  "response": [
                     {
-                      "key": "callback",
-                      "value": "<string>"
+                      "id": "40dbd77e-01f4-4557-8ecb-e0b5975585d5",
+                      "name": "<b>OK</b>",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/map/:versionNumber/copyrights.{{format}}?callback=<string>&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "map",
+                            ":versionNumber",
+                            "copyrights.{{format}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "Specifies the jsonp callback method. Only used when format is jsonp",
+                              "key": "callback",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:41.000Z",
+                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                      "uid": "35240-40dbd77e-01f4-4557-8ecb-e0b5975585d5"
                     },
                     {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "bad49379-b03b-43d8-9398-1a4637e70743",
-              "name": "<b>Not Modified</b>",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
+                      "id": "4ecf26bc-9d71-4bec-bc32-807d22e9daf4",
+                      "name": "<b>Not Modified</b>",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/map/:versionNumber/copyrights.{{format}}?callback=<string>&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "map",
+                            ":versionNumber",
+                            "copyrights.{{format}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "Specifies the jsonp callback method. Only used when format is jsonp",
+                              "key": "callback",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Modified",
+                      "code": 304,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:41.000Z",
+                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                      "uid": "35240-4ecf26bc-9d71-4bec-bc32-807d22e9daf4"
                     },
                     {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Modified",
-              "code": 304,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "e381f417-8274-4bd4-82b9-e89409659c41",
-              "name": "<b>Malformed request</b>: malformed syntax. Possible causes include:\n  - requested syntax is not available",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
+                      "id": "4fdb0b15-5008-4b43-ae13-6536ee723fbb",
+                      "name": "<b>Malformed request</b>: malformed syntax. Possible causes include:\n  - requested syntax is not available",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/map/:versionNumber/copyrights.{{format}}?callback=<string>&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "map",
+                            ":versionNumber",
+                            "copyrights.{{format}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "Specifies the jsonp callback method. Only used when format is jsonp",
+                              "key": "callback",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:41.000Z",
+                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                      "uid": "35240-4fdb0b15-5008-4b43-ae13-6536ee723fbb"
                     },
                     {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "73145e88-39c1-4a31-9ba8-6e042b51114d",
-              "name": "<b>Forbidden</b>: Supplied API key is not valid for this request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
+                      "id": "7c9a1bc3-b4e7-40aa-a0f7-7a48f3423a82",
+                      "name": "<b>Forbidden</b>: Supplied API key is not valid for this request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/map/:versionNumber/copyrights.{{format}}?callback=<string>&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "map",
+                            ":versionNumber",
+                            "copyrights.{{format}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "Specifies the jsonp callback method. Only used when format is jsonp",
+                              "key": "callback",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:41.000Z",
+                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                      "uid": "35240-7c9a1bc3-b4e7-40aa-a0f7-7a48f3423a82"
                     },
                     {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "2c4ed21b-1b88-4629-893e-153c9e0dbf84",
-              "name": "<b>Gone</b>: Request for unsupported format",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
+                      "id": "4e341ec0-e17b-4413-910a-5e246251f495",
+                      "name": "<b>Gone</b>: Request for unsupported format",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/map/:versionNumber/copyrights.{{format}}?callback=<string>&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "map",
+                            ":versionNumber",
+                            "copyrights.{{format}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "Specifies the jsonp callback method. Only used when format is jsonp",
+                              "key": "callback",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Gone",
+                      "code": 410,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:41.000Z",
+                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                      "uid": "35240-4e341ec0-e17b-4413-910a-5e246251f495"
                     },
                     {
-                      "key": "key",
-                      "value": "<API Key>"
+                      "id": "0f78e418-e5e6-44f5-b695-ee3daf9e4b54",
+                      "name": "<b>Internal Server Error</b>: There is a problem with the TomTom Copyrights\nAPI service",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/map/:versionNumber/copyrights.{{format}}?callback=<string>&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "map",
+                            ":versionNumber",
+                            "copyrights.{{format}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "Specifies the jsonp callback method. Only used when format is jsonp",
+                              "key": "callback",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:41.000Z",
+                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                      "uid": "35240-0f78e418-e5e6-44f5-b695-ee3daf9e4b54"
                     }
                   ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Gone",
-              "code": 410,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "createdAt": "2026-10-22T02:04:41.000Z",
+                  "updatedAt": "2026-10-22T02:04:41.000Z",
+                  "uid": "35240-2601cd7f-bb46-4377-ba45-a0048630a2dd"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "b0417fad-0a2b-4146-bd91-04bdbee5cabc",
+              "createdAt": "2026-10-22T02:04:41.000Z",
+              "updatedAt": "2026-10-22T02:04:41.000Z",
+              "uid": "35240-b0417fad-0a2b-4146-bd91-04bdbee5cabc"
             },
             {
-              "id": "475b52ac-7e5a-479f-a8ee-9a1097889c61",
-              "name": "<b>Internal Server Error</b>: There is a problem with the TomTom Copyrights\nAPI service",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
+              "name": "copyrights",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "caption.{format}",
+                  "item": [
+                    {
+                      "name": "Captions",
+                      "id": "8b040ed1-c226-4be8-bf62-809a046de24f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/map/:versionNumber/copyrights/caption.{{format}}?callback=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "map",
+                            ":versionNumber",
+                            "copyrights",
+                            "caption.{{format}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "Specifies the jsonp callback method. Only used when format is jsonp",
+                              "key": "callback",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "92e86edd-b94a-4b92-b8b3-60d6848fa34d",
+                              "key": "versionNumber",
+                              "value": "1",
+                              "description": "(Required) Version of the service to call. The current version is 1."
+                            }
+                          ]
+                        },
+                        "description": "This API returns copyright captions for the map service."
+                      },
+                      "response": [
+                        {
+                          "id": "0fc40210-e63c-42d0-9bbf-3a375d266d5e",
+                          "name": "<b>OK</b>",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/map/:versionNumber/copyrights/caption.{{format}}?callback=<string>&key=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "map",
+                                ":versionNumber",
+                                "copyrights",
+                                "caption.{{format}}"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specifies the jsonp callback method. Only used when format is jsonp",
+                                  "key": "callback",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Added as a part of security scheme: apikey",
+                                  "key": "key",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "versionNumber"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:04:41.000Z",
+                          "updatedAt": "2026-10-22T02:04:41.000Z",
+                          "uid": "35240-0fc40210-e63c-42d0-9bbf-3a375d266d5e"
+                        },
+                        {
+                          "id": "f0d83fa8-2810-476b-bcf4-0c4680d5a100",
+                          "name": "<b>Not Modified</b>",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/map/:versionNumber/copyrights/caption.{{format}}?callback=<string>&key=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "map",
+                                ":versionNumber",
+                                "copyrights",
+                                "caption.{{format}}"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specifies the jsonp callback method. Only used when format is jsonp",
+                                  "key": "callback",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Added as a part of security scheme: apikey",
+                                  "key": "key",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "versionNumber"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Modified",
+                          "code": 304,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:04:41.000Z",
+                          "updatedAt": "2026-10-22T02:04:41.000Z",
+                          "uid": "35240-f0d83fa8-2810-476b-bcf4-0c4680d5a100"
+                        },
+                        {
+                          "id": "e3c05f2f-0aad-4014-898b-cbd55aaff00c",
+                          "name": "<b>Malformed request</b>: malformed syntax. Possible causes include:\n  - requested syntax is not available",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/map/:versionNumber/copyrights/caption.{{format}}?callback=<string>&key=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "map",
+                                ":versionNumber",
+                                "copyrights",
+                                "caption.{{format}}"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specifies the jsonp callback method. Only used when format is jsonp",
+                                  "key": "callback",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Added as a part of security scheme: apikey",
+                                  "key": "key",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "versionNumber"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:04:41.000Z",
+                          "updatedAt": "2026-10-22T02:04:41.000Z",
+                          "uid": "35240-e3c05f2f-0aad-4014-898b-cbd55aaff00c"
+                        },
+                        {
+                          "id": "9fadcf0a-5b18-4264-8b0a-b0edcd7bacd4",
+                          "name": "<b>Forbidden</b>: Supplied API key is not valid for this request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/map/:versionNumber/copyrights/caption.{{format}}?callback=<string>&key=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "map",
+                                ":versionNumber",
+                                "copyrights",
+                                "caption.{{format}}"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specifies the jsonp callback method. Only used when format is jsonp",
+                                  "key": "callback",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Added as a part of security scheme: apikey",
+                                  "key": "key",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "versionNumber"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:04:41.000Z",
+                          "updatedAt": "2026-10-22T02:04:41.000Z",
+                          "uid": "35240-9fadcf0a-5b18-4264-8b0a-b0edcd7bacd4"
+                        },
+                        {
+                          "id": "06e35995-01bb-473d-bd34-108feea40982",
+                          "name": "<b>Gone</b>: Request for unsupported format",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/map/:versionNumber/copyrights/caption.{{format}}?callback=<string>&key=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "map",
+                                ":versionNumber",
+                                "copyrights",
+                                "caption.{{format}}"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specifies the jsonp callback method. Only used when format is jsonp",
+                                  "key": "callback",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Added as a part of security scheme: apikey",
+                                  "key": "key",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "versionNumber"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Gone",
+                          "code": 410,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:04:41.000Z",
+                          "updatedAt": "2026-10-22T02:04:41.000Z",
+                          "uid": "35240-06e35995-01bb-473d-bd34-108feea40982"
+                        },
+                        {
+                          "id": "abf6f3b1-682f-447c-9e11-449d79ac46db",
+                          "name": "<b>Internal Server Error</b>: There is a problem with the TomTom Copyrights\nAPI service",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/map/:versionNumber/copyrights/caption.{{format}}?callback=<string>&key=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "map",
+                                ":versionNumber",
+                                "copyrights",
+                                "caption.{{format}}"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specifies the jsonp callback method. Only used when format is jsonp",
+                                  "key": "callback",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Added as a part of security scheme: apikey",
+                                  "key": "key",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "versionNumber"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:04:41.000Z",
+                          "updatedAt": "2026-10-22T02:04:41.000Z",
+                          "uid": "35240-abf6f3b1-682f-447c-9e11-449d79ac46db"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:04:41.000Z",
+                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                      "uid": "35240-8b040ed1-c226-4be8-bf62-809a046de24f"
+                    }
+                  ],
+                  "id": "c590c833-1e79-4f4c-ad15-ec04d7262926",
+                  "createdAt": "2026-10-22T02:04:41.000Z",
+                  "updatedAt": "2026-10-22T02:04:41.000Z",
+                  "uid": "35240-c590c833-1e79-4f4c-ad15-ec04d7262926"
+                },
+                {
+                  "name": "{minLon}",
+                  "item": [
+                    {
+                      "name": "{minLat}",
+                      "item": [
+                        {
+                          "name": "{maxLon}",
+                          "item": [
+                            {
+                              "name": "{maxLat}.{format}",
+                              "item": [
+                                {
+                                  "name": "Copyrights Bounding Box",
+                                  "id": "0b79896f-c750-4c17-9aa0-a6e9569b168f",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:minLon/:minLat/:maxLon/{{maxLat}}.{{format}}?callback=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "map",
+                                        ":versionNumber",
+                                        "copyrights",
+                                        ":minLon",
+                                        ":minLat",
+                                        ":maxLon",
+                                        "{{maxLat}}.{{format}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                          "key": "callback",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "83b8c049-15f5-4fdd-b224-3600df10c15f",
+                                          "key": "versionNumber",
+                                          "value": "1",
+                                          "description": "(Required) Version of the service to call. The current version is 1"
+                                        },
+                                        {
+                                          "id": "121c7da9-6e42-4944-8aa2-6da746c8a69c",
+                                          "key": "minLon",
+                                          "value": "<number>",
+                                          "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                                        },
+                                        {
+                                          "id": "2131b2bd-e0a1-4ad4-98ac-7802c93533a5",
+                                          "key": "minLat",
+                                          "value": "<number>",
+                                          "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
+                                        },
+                                        {
+                                          "id": "db545791-4a9e-4359-9d9e-9151a33cab1f",
+                                          "key": "maxLon",
+                                          "value": "<number>",
+                                          "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
+                                        }
+                                      ]
+                                    },
+                                    "description": "The Copyrights API returns copyright information for\nthe Maps API Raster Tile Service in JSON, JSONP, or XML format.\nThis call returns copyright information for a specific bounding box."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "adc3f33e-99f1-4021-9b7c-3afd4ce13cc4",
+                                      "name": "<b>OK</b>",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:minLon/:minLat/:maxLon/{{maxLat}}.{{format}}?callback=<string>&key=<API Key>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "map",
+                                            ":versionNumber",
+                                            "copyrights",
+                                            ":minLon",
+                                            ":minLat",
+                                            ":maxLon",
+                                            "{{maxLat}}.{{format}}"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                              "key": "callback",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Added as a part of security scheme: apikey",
+                                              "key": "key",
+                                              "value": "<API Key>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "versionNumber"
+                                            },
+                                            {
+                                              "key": "minLon"
+                                            },
+                                            {
+                                              "key": "minLat"
+                                            },
+                                            {
+                                              "key": "maxLon"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T02:04:41.000Z",
+                                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                                      "uid": "35240-adc3f33e-99f1-4021-9b7c-3afd4ce13cc4"
+                                    },
+                                    {
+                                      "id": "846f2fc8-ef32-4b3d-b1fb-b5e9f925e4ec",
+                                      "name": "<b>Not Modified</b>",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:minLon/:minLat/:maxLon/{{maxLat}}.{{format}}?callback=<string>&key=<API Key>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "map",
+                                            ":versionNumber",
+                                            "copyrights",
+                                            ":minLon",
+                                            ":minLat",
+                                            ":maxLon",
+                                            "{{maxLat}}.{{format}}"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                              "key": "callback",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Added as a part of security scheme: apikey",
+                                              "key": "key",
+                                              "value": "<API Key>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "versionNumber"
+                                            },
+                                            {
+                                              "key": "minLon"
+                                            },
+                                            {
+                                              "key": "minLat"
+                                            },
+                                            {
+                                              "key": "maxLon"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Modified",
+                                      "code": 304,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T02:04:41.000Z",
+                                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                                      "uid": "35240-846f2fc8-ef32-4b3d-b1fb-b5e9f925e4ec"
+                                    },
+                                    {
+                                      "id": "a7f18ce4-465a-46e4-8795-b1eefc3f157a",
+                                      "name": "<b>Malformed request</b>: malformed syntax. Possible causes include:\n  - requested syntax is not available",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:minLon/:minLat/:maxLon/{{maxLat}}.{{format}}?callback=<string>&key=<API Key>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "map",
+                                            ":versionNumber",
+                                            "copyrights",
+                                            ":minLon",
+                                            ":minLat",
+                                            ":maxLon",
+                                            "{{maxLat}}.{{format}}"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                              "key": "callback",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Added as a part of security scheme: apikey",
+                                              "key": "key",
+                                              "value": "<API Key>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "versionNumber"
+                                            },
+                                            {
+                                              "key": "minLon"
+                                            },
+                                            {
+                                              "key": "minLat"
+                                            },
+                                            {
+                                              "key": "maxLon"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Bad Request",
+                                      "code": 400,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T02:04:41.000Z",
+                                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                                      "uid": "35240-a7f18ce4-465a-46e4-8795-b1eefc3f157a"
+                                    },
+                                    {
+                                      "id": "79f6646f-5c7f-4569-b61d-7dbc53a76df2",
+                                      "name": "<b>Bad request</b>: Parameters out of range. Possible causes include:\n  - minLon n is out of range [-180,180]: the requested minimum longitude coordinate is out of possible range\n  - minLat n is out of range [-90,90]: the requested minimum latitude coordi",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:minLon/:minLat/:maxLon/{{maxLat}}.{{format}}?callback=<string>&key=<API Key>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "map",
+                                            ":versionNumber",
+                                            "copyrights",
+                                            ":minLon",
+                                            ":minLat",
+                                            ":maxLon",
+                                            "{{maxLat}}.{{format}}"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                              "key": "callback",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Added as a part of security scheme: apikey",
+                                              "key": "key",
+                                              "value": "<API Key>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "versionNumber"
+                                            },
+                                            {
+                                              "key": "minLon"
+                                            },
+                                            {
+                                              "key": "minLat"
+                                            },
+                                            {
+                                              "key": "maxLon"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T02:04:41.000Z",
+                                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                                      "uid": "35240-79f6646f-5c7f-4569-b61d-7dbc53a76df2"
+                                    },
+                                    {
+                                      "id": "830edb10-09b2-4d65-819b-fe5a40cc269e",
+                                      "name": "<b>Forbidden</b>: Supplied API key is not valid for this request",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:minLon/:minLat/:maxLon/{{maxLat}}.{{format}}?callback=<string>&key=<API Key>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "map",
+                                            ":versionNumber",
+                                            "copyrights",
+                                            ":minLon",
+                                            ":minLat",
+                                            ":maxLon",
+                                            "{{maxLat}}.{{format}}"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                              "key": "callback",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Added as a part of security scheme: apikey",
+                                              "key": "key",
+                                              "value": "<API Key>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "versionNumber"
+                                            },
+                                            {
+                                              "key": "minLon"
+                                            },
+                                            {
+                                              "key": "minLat"
+                                            },
+                                            {
+                                              "key": "maxLon"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Forbidden",
+                                      "code": 403,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T02:04:41.000Z",
+                                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                                      "uid": "35240-830edb10-09b2-4d65-819b-fe5a40cc269e"
+                                    },
+                                    {
+                                      "id": "de6dac5d-d382-4dda-8d31-371e44eab85b",
+                                      "name": "<b>Gone</b>: Request for unsupported format",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:minLon/:minLat/:maxLon/{{maxLat}}.{{format}}?callback=<string>&key=<API Key>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "map",
+                                            ":versionNumber",
+                                            "copyrights",
+                                            ":minLon",
+                                            ":minLat",
+                                            ":maxLon",
+                                            "{{maxLat}}.{{format}}"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                              "key": "callback",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Added as a part of security scheme: apikey",
+                                              "key": "key",
+                                              "value": "<API Key>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "versionNumber"
+                                            },
+                                            {
+                                              "key": "minLon"
+                                            },
+                                            {
+                                              "key": "minLat"
+                                            },
+                                            {
+                                              "key": "maxLon"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Gone",
+                                      "code": 410,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T02:04:41.000Z",
+                                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                                      "uid": "35240-de6dac5d-d382-4dda-8d31-371e44eab85b"
+                                    },
+                                    {
+                                      "id": "948114e8-8af3-42f2-9bae-5a16e1d905da",
+                                      "name": "<b>Internal Server Error</b>: There is a problem with the TomTom Copyrights\nAPI service",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:minLon/:minLat/:maxLon/{{maxLat}}.{{format}}?callback=<string>&key=<API Key>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "map",
+                                            ":versionNumber",
+                                            "copyrights",
+                                            ":minLon",
+                                            ":minLat",
+                                            ":maxLon",
+                                            "{{maxLat}}.{{format}}"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                              "key": "callback",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Added as a part of security scheme: apikey",
+                                              "key": "key",
+                                              "value": "<API Key>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "versionNumber"
+                                            },
+                                            {
+                                              "key": "minLon"
+                                            },
+                                            {
+                                              "key": "minLat"
+                                            },
+                                            {
+                                              "key": "maxLon"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T02:04:41.000Z",
+                                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                                      "uid": "35240-948114e8-8af3-42f2-9bae-5a16e1d905da"
+                                    }
+                                  ],
+                                  "createdAt": "2026-10-22T02:04:41.000Z",
+                                  "updatedAt": "2026-10-22T02:04:41.000Z",
+                                  "uid": "35240-0b79896f-c750-4c17-9aa0-a6e9569b168f"
+                                }
+                              ],
+                              "id": "86f3bbae-6a9e-4e80-a056-0b7060b4304e",
+                              "createdAt": "2026-10-22T02:04:41.000Z",
+                              "updatedAt": "2026-10-22T02:04:41.000Z",
+                              "uid": "35240-86f3bbae-6a9e-4e80-a056-0b7060b4304e"
+                            }
+                          ],
+                          "id": "7cb6527b-d92e-4ffc-ab06-b49603a5b0f4",
+                          "createdAt": "2026-10-22T02:04:41.000Z",
+                          "updatedAt": "2026-10-22T02:04:41.000Z",
+                          "uid": "35240-7cb6527b-d92e-4ffc-ab06-b49603a5b0f4"
+                        }
+                      ],
+                      "id": "98156ec5-114b-424b-a8de-b1e8be36d486",
+                      "createdAt": "2026-10-22T02:04:41.000Z",
+                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                      "uid": "35240-98156ec5-114b-424b-a8de-b1e8be36d486"
+                    }
+                  ],
+                  "id": "3576b4ed-ea1d-43c5-a9e4-74b655f6fa7e",
+                  "createdAt": "2026-10-22T02:04:41.000Z",
+                  "updatedAt": "2026-10-22T02:04:41.000Z",
+                  "uid": "35240-3576b4ed-ea1d-43c5-a9e4-74b655f6fa7e"
+                },
+                {
+                  "name": "{zoom}",
+                  "item": [
+                    {
+                      "name": "{X}",
+                      "item": [
+                        {
+                          "name": "{Y}.{format}",
+                          "item": [
+                            {
+                              "name": "Copyrights Tile",
+                              "id": "a192e701-7bc8-4427-afed-b969d7f02839",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:zoom/:X/{{Y}}.{{format}}?callback=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "map",
+                                    ":versionNumber",
+                                    "copyrights",
+                                    ":zoom",
+                                    ":X",
+                                    "{{Y}}.{{format}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                      "key": "callback",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "f55dbb8a-90e5-4273-ae91-5455227e2d4c",
+                                      "key": "versionNumber",
+                                      "value": "1",
+                                      "description": "(Required) Version of the service to call. The current version is 1"
+                                    },
+                                    {
+                                      "id": "8148f6e5-621d-4bdc-9d59-a38eddcba78a",
+                                      "key": "zoom",
+                                      "value": "9",
+                                      "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
+                                    },
+                                    {
+                                      "id": "2cc073e4-544b-4a8e-baf2-123b35d0225c",
+                                      "key": "X",
+                                      "value": "<integer>",
+                                      "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
+                                    }
+                                  ]
+                                },
+                                "description": "The Copyrights API returns copyright information for\nthe Maps API Raster Tile Service in JSON, JSONP, or XML format.\nThis call returns copyright information for the a specific map tile."
+                              },
+                              "response": [
+                                {
+                                  "id": "0dbcbed1-0a96-4149-9fe6-3dbae19f7ba4",
+                                  "name": "<b>OK</b>",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:zoom/:X/{{Y}}.{{format}}?callback=<string>&key=<API Key>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "map",
+                                        ":versionNumber",
+                                        "copyrights",
+                                        ":zoom",
+                                        ":X",
+                                        "{{Y}}.{{format}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                          "key": "callback",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Added as a part of security scheme: apikey",
+                                          "key": "key",
+                                          "value": "<API Key>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "versionNumber"
+                                        },
+                                        {
+                                          "key": "zoom"
+                                        },
+                                        {
+                                          "key": "X"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T02:04:41.000Z",
+                                  "updatedAt": "2026-10-22T02:04:41.000Z",
+                                  "uid": "35240-0dbcbed1-0a96-4149-9fe6-3dbae19f7ba4"
+                                },
+                                {
+                                  "id": "88c30c66-2f43-47f7-a04f-bfb048631f34",
+                                  "name": "<b>Not Modified</b>",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:zoom/:X/{{Y}}.{{format}}?callback=<string>&key=<API Key>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "map",
+                                        ":versionNumber",
+                                        "copyrights",
+                                        ":zoom",
+                                        ":X",
+                                        "{{Y}}.{{format}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                          "key": "callback",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Added as a part of security scheme: apikey",
+                                          "key": "key",
+                                          "value": "<API Key>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "versionNumber"
+                                        },
+                                        {
+                                          "key": "zoom"
+                                        },
+                                        {
+                                          "key": "X"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Modified",
+                                  "code": 304,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T02:04:41.000Z",
+                                  "updatedAt": "2026-10-22T02:04:41.000Z",
+                                  "uid": "35240-88c30c66-2f43-47f7-a04f-bfb048631f34"
+                                },
+                                {
+                                  "id": "291dc7ad-2431-4df0-ab9f-dafba4fcaae2",
+                                  "name": "<b>Malformed request</b>: malformed syntax. Possible causes include:\n  - requested syntax is not available",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:zoom/:X/{{Y}}.{{format}}?callback=<string>&key=<API Key>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "map",
+                                        ":versionNumber",
+                                        "copyrights",
+                                        ":zoom",
+                                        ":X",
+                                        "{{Y}}.{{format}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                          "key": "callback",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Added as a part of security scheme: apikey",
+                                          "key": "key",
+                                          "value": "<API Key>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "versionNumber"
+                                        },
+                                        {
+                                          "key": "zoom"
+                                        },
+                                        {
+                                          "key": "X"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T02:04:41.000Z",
+                                  "updatedAt": "2026-10-22T02:04:41.000Z",
+                                  "uid": "35240-291dc7ad-2431-4df0-ab9f-dafba4fcaae2"
+                                },
+                                {
+                                  "id": "df0864d5-22c9-4df4-85cc-1a6e4560cbad",
+                                  "name": "<b>Bad request</b>: Parameters out of range. Possible causes include:\n  - zoom n is out of range 0 <= zoom < 19: the requested zoom level is out of the possible range\n  - x n is out of range [0,m]: the requested x coordinate is out of the possible range (",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:zoom/:X/{{Y}}.{{format}}?callback=<string>&key=<API Key>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "map",
+                                        ":versionNumber",
+                                        "copyrights",
+                                        ":zoom",
+                                        ":X",
+                                        "{{Y}}.{{format}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                          "key": "callback",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Added as a part of security scheme: apikey",
+                                          "key": "key",
+                                          "value": "<API Key>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "versionNumber"
+                                        },
+                                        {
+                                          "key": "zoom"
+                                        },
+                                        {
+                                          "key": "X"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T02:04:41.000Z",
+                                  "updatedAt": "2026-10-22T02:04:41.000Z",
+                                  "uid": "35240-df0864d5-22c9-4df4-85cc-1a6e4560cbad"
+                                },
+                                {
+                                  "id": "a8a0dab7-24ed-4754-a8fb-a6cbef365a0c",
+                                  "name": "<b>Forbidden</b>: Supplied API key is not valid for this request",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:zoom/:X/{{Y}}.{{format}}?callback=<string>&key=<API Key>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "map",
+                                        ":versionNumber",
+                                        "copyrights",
+                                        ":zoom",
+                                        ":X",
+                                        "{{Y}}.{{format}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                          "key": "callback",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Added as a part of security scheme: apikey",
+                                          "key": "key",
+                                          "value": "<API Key>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "versionNumber"
+                                        },
+                                        {
+                                          "key": "zoom"
+                                        },
+                                        {
+                                          "key": "X"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T02:04:41.000Z",
+                                  "updatedAt": "2026-10-22T02:04:41.000Z",
+                                  "uid": "35240-a8a0dab7-24ed-4754-a8fb-a6cbef365a0c"
+                                },
+                                {
+                                  "id": "e2bed392-47d4-4a4f-8185-d0df3eef0798",
+                                  "name": "<b>Gone</b>: Request for unsupported format",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:zoom/:X/{{Y}}.{{format}}?callback=<string>&key=<API Key>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "map",
+                                        ":versionNumber",
+                                        "copyrights",
+                                        ":zoom",
+                                        ":X",
+                                        "{{Y}}.{{format}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                          "key": "callback",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Added as a part of security scheme: apikey",
+                                          "key": "key",
+                                          "value": "<API Key>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "versionNumber"
+                                        },
+                                        {
+                                          "key": "zoom"
+                                        },
+                                        {
+                                          "key": "X"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Gone",
+                                  "code": 410,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T02:04:41.000Z",
+                                  "updatedAt": "2026-10-22T02:04:41.000Z",
+                                  "uid": "35240-e2bed392-47d4-4a4f-8185-d0df3eef0798"
+                                },
+                                {
+                                  "id": "da1edeb2-aa14-4947-8a9b-368b44600a65",
+                                  "name": "<b>Internal Server Error</b>: There is a problem with the TomTom Copyrights\nAPI service",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/map/:versionNumber/copyrights/:zoom/:X/{{Y}}.{{format}}?callback=<string>&key=<API Key>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "map",
+                                        ":versionNumber",
+                                        "copyrights",
+                                        ":zoom",
+                                        ":X",
+                                        "{{Y}}.{{format}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Specifies the jsonp callback method. Only used when format is jsonp.",
+                                          "key": "callback",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Added as a part of security scheme: apikey",
+                                          "key": "key",
+                                          "value": "<API Key>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "versionNumber"
+                                        },
+                                        {
+                                          "key": "zoom"
+                                        },
+                                        {
+                                          "key": "X"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T02:04:41.000Z",
+                                  "updatedAt": "2026-10-22T02:04:41.000Z",
+                                  "uid": "35240-da1edeb2-aa14-4947-8a9b-368b44600a65"
+                                }
+                              ],
+                              "createdAt": "2026-10-22T02:04:41.000Z",
+                              "updatedAt": "2026-10-22T02:04:41.000Z",
+                              "uid": "35240-a192e701-7bc8-4427-afed-b969d7f02839"
+                            }
+                          ],
+                          "id": "fc97ed51-f4e2-49ab-abc1-78a071f043d3",
+                          "createdAt": "2026-10-22T02:04:41.000Z",
+                          "updatedAt": "2026-10-22T02:04:41.000Z",
+                          "uid": "35240-fc97ed51-f4e2-49ab-abc1-78a071f043d3"
+                        }
+                      ],
+                      "id": "7f4c2d78-d8cf-4f85-a8b7-e48095915e47",
+                      "createdAt": "2026-10-22T02:04:41.000Z",
+                      "updatedAt": "2026-10-22T02:04:41.000Z",
+                      "uid": "35240-7f4c2d78-d8cf-4f85-a8b7-e48095915e47"
+                    }
+                  ],
+                  "id": "0a08b27f-110c-4c3a-9ccf-6de32f35e33b",
+                  "createdAt": "2026-10-22T02:04:41.000Z",
+                  "updatedAt": "2026-10-22T02:04:41.000Z",
+                  "uid": "35240-0a08b27f-110c-4c3a-9ccf-6de32f35e33b"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "ab02df3b-64a6-47d4-a1cc-b5c05a583a27",
+              "createdAt": "2026-10-22T02:04:41.000Z",
+              "updatedAt": "2026-10-22T02:04:41.000Z",
+              "uid": "35240-ab02df3b-64a6-47d4-a1cc-b5c05a583a27"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "2cf49fc5-c538-4599-8649-9ad2bda01a4c",
-          "name": "Captions",
-          "request": {
-            "name": "Captions",
-            "description": {
-              "content": "This API returns copyright captions for the map service.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "map",
-                ":versionNumber",
-                "copyrights",
-                "caption.{{format}}"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "callback",
-                  "value": "<string>",
-                  "description": "Specifies the jsonp callback method. Only used when format is jsonp"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) Version of the service to call. The current version is 1."
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7e5726bd-f0cd-42eb-994a-c3eabd114eda",
-              "name": "<b>OK</b>",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    "caption.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "c8e70159-86a9-4c3f-bb98-f5a663e6a222",
-              "name": "<b>Not Modified</b>",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    "caption.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Modified",
-              "code": 304,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "98b5396b-fa9f-4b39-85e0-7c19f0034e85",
-              "name": "<b>Malformed request</b>: malformed syntax. Possible causes include:\n  - requested syntax is not available",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    "caption.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "44cb0c72-2179-4c30-8e54-bfbbb9e48697",
-              "name": "<b>Forbidden</b>: Supplied API key is not valid for this request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    "caption.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "6d3d5804-2047-411d-880e-520276877c4c",
-              "name": "<b>Gone</b>: Request for unsupported format",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    "caption.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Gone",
-              "code": 410,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "069ddf20-47fb-444e-8eea-fcce72b31482",
-              "name": "<b>Internal Server Error</b>: There is a problem with the TomTom Copyrights\nAPI service",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    "caption.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3471b77f-147f-4388-abe1-da129cccea2b",
-          "name": "Copyrights Bounding Box",
-          "request": {
-            "name": "Copyrights Bounding Box",
-            "description": {
-              "content": "The Copyrights API returns copyright information for\nthe Maps API Raster Tile Service in JSON, JSONP, or XML format.\nThis call returns copyright information for a specific bounding box.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "map",
-                ":versionNumber",
-                "copyrights",
-                ":minLon",
-                ":minLat",
-                ":maxLon",
-                "{{maxLat}}.{{format}}"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "callback",
-                  "value": "<string>",
-                  "description": "Specifies the jsonp callback method. Only used when format is jsonp."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) Version of the service to call. The current version is 1"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "minLon",
-                  "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "minLat",
-                  "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "maxLon",
-                  "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "ada528aa-adf5-451f-9ff8-1f26ede8a210",
-              "name": "<b>OK</b>",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    ":minLon",
-                    ":minLat",
-                    ":maxLon",
-                    "{{maxLat}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "minLon",
-                      "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "minLat",
-                      "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "maxLon",
-                      "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "ecb6c68f-7b12-4fd5-9758-dce97c15802a",
-              "name": "<b>Not Modified</b>",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    ":minLon",
-                    ":minLat",
-                    ":maxLon",
-                    "{{maxLat}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "minLon",
-                      "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "minLat",
-                      "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "maxLon",
-                      "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Modified",
-              "code": 304,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "1425f6bc-df67-4beb-bf78-24dbd2bf8bfc",
-              "name": "<b>Malformed request</b>: malformed syntax. Possible causes include:\n  - requested syntax is not available",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    ":minLon",
-                    ":minLat",
-                    ":maxLon",
-                    "{{maxLat}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "minLon",
-                      "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "minLat",
-                      "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "maxLon",
-                      "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "2b70ff86-ff34-419b-bdc7-28668d2dfa3c",
-              "name": "<b>Bad request</b>: Parameters out of range. Possible causes include:\n  - minLon n is out of range [-180,180]: the requested minimum longitude coordinate is out of possible range\n  - minLat n is out of range [-90,90]: the requested minimum latitude coordinate is out of possible range\n  - maxLon n is out of range [-180,180]: the requested maximum longitude coordinate is out of possible range\n  - maxLat n is out of range [-90,90]: the requested minimum latitude coordinate is out of possible range",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    ":minLon",
-                    ":minLat",
-                    ":maxLon",
-                    "{{maxLat}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "minLon",
-                      "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "minLat",
-                      "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "maxLon",
-                      "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "41760db6-f674-47a9-8da2-bb8cb7b10b6d",
-              "name": "<b>Forbidden</b>: Supplied API key is not valid for this request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    ":minLon",
-                    ":minLat",
-                    ":maxLon",
-                    "{{maxLat}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "minLon",
-                      "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "minLat",
-                      "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "maxLon",
-                      "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "f88d393f-6b02-43ef-b67a-0b0a3aaca113",
-              "name": "<b>Gone</b>: Request for unsupported format",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    ":minLon",
-                    ":minLat",
-                    ":maxLon",
-                    "{{maxLat}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "minLon",
-                      "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "minLat",
-                      "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "maxLon",
-                      "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Gone",
-              "code": 410,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "054d617c-e161-4dae-a812-04c483d7fd5f",
-              "name": "<b>Internal Server Error</b>: There is a problem with the TomTom Copyrights\nAPI service",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    ":minLon",
-                    ":minLat",
-                    ":maxLon",
-                    "{{maxLat}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "minLon",
-                      "description": "(Required) Minimum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "minLat",
-                      "description": "(Required) Minimum latitude coordinate of bounding box defined in terms of latitude/longitude."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "maxLon",
-                      "description": "(Required) Maximum longitude coordinate of bounding box defined in terms of latitude/longitude."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fc5ea1fd-5496-4abf-a573-07b3afc5d3e4",
-          "name": "Copyrights Tile",
-          "request": {
-            "name": "Copyrights Tile",
-            "description": {
-              "content": "The Copyrights API returns copyright information for\nthe Maps API Raster Tile Service in JSON, JSONP, or XML format.\nThis call returns copyright information for the a specific map tile.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "map",
-                ":versionNumber",
-                "copyrights",
-                ":zoom",
-                ":X",
-                "{{Y}}.{{format}}"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "callback",
-                  "value": "<string>",
-                  "description": "Specifies the jsonp callback method. Only used when format is jsonp."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) Version of the service to call. The current version is 1"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "zoom",
-                  "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "X",
-                  "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "5e1fa380-46e4-487a-82ef-f379b37f03a4",
-              "name": "<b>OK</b>",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    ":zoom",
-                    ":X",
-                    "{{Y}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "X",
-                      "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "c3467f3e-8a73-4a84-ac41-1f15fd7aa631",
-              "name": "<b>Not Modified</b>",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    ":zoom",
-                    ":X",
-                    "{{Y}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "X",
-                      "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Modified",
-              "code": 304,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "315d5545-0aeb-426d-ab82-9a27926a5c5a",
-              "name": "<b>Malformed request</b>: malformed syntax. Possible causes include:\n  - requested syntax is not available",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    ":zoom",
-                    ":X",
-                    "{{Y}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "X",
-                      "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "93d20f68-861a-4041-b626-1884b2211158",
-              "name": "<b>Bad request</b>: Parameters out of range. Possible causes include:\n  - zoom n is out of range 0 <= zoom < 19: the requested zoom level is out of the possible range\n  - x n is out of range [0,m]: the requested x coordinate is out of the possible range (the value of m will vary depending on zoom level)\n  - y n is out of range [0,m]: the requested y coordinate is out of the possible range (the value of m will vary depending on zoom level)",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    ":zoom",
-                    ":X",
-                    "{{Y}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "X",
-                      "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "2fe36a92-0bf8-42f7-b7c4-b632653b6b7a",
-              "name": "<b>Forbidden</b>: Supplied API key is not valid for this request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    ":zoom",
-                    ":X",
-                    "{{Y}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "X",
-                      "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "61622714-0bb2-47d7-bf60-4381b1ba5f1d",
-              "name": "<b>Gone</b>: Request for unsupported format",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    ":zoom",
-                    ":X",
-                    "{{Y}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "X",
-                      "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Gone",
-              "code": 410,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "c50e8816-3ac2-46af-98aa-a7d1398b9844",
-              "name": "<b>Internal Server Error</b>: There is a problem with the TomTom Copyrights\nAPI service",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "copyrights",
-                    ":zoom",
-                    ":X",
-                    "{{Y}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "callback",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) Zoom level of tile to be rendered. Only used for tile-level\ncopyright calls."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "X",
-                      "description": "(Required) X coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "33ddd035-8b1a-4c71-9bc0-7bcd1983b62c",
+          "createdAt": "2026-10-22T02:04:41.000Z",
+          "updatedAt": "2026-10-22T02:04:41.000Z",
+          "uid": "35240-33ddd035-8b1a-4c71-9bc0-7bcd1983b62c"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.tomtom.com",
-      "key": "baseUrl"
-    },
-    {
-      "disabled": false,
-      "description": {
-        "content": "(Required) Format of the response",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "xml",
-      "key": "format"
-    },
-    {
-      "disabled": false,
-      "description": {
-        "content": "(Required) Maximum latitude coordinate of bounding box defined in terms of latitude/longitude.",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "<number>",
-      "key": "maxLat"
-    },
-    {
-      "disabled": false,
-      "description": {
-        "content": "(Required) Y coordinate of the tile on zoom grid. Only used for tile-level\ncopyright calls.",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "<integer>",
-      "key": "Y"
+      "id": "128e7aa7-f95b-4e8d-b920-dd5dfa367c94",
+      "createdAt": "2026-10-22T02:04:41.000Z",
+      "updatedAt": "2026-10-22T02:04:41.000Z",
+      "uid": "35240-128e7aa7-f95b-4e8d-b920-dd5dfa367c94"
     }
   ],
   "auth": {
@@ -1830,25 +1690,37 @@
     "apikey": [
       {
         "key": "key",
-        "value": "key"
+        "value": "key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "query"
+        "value": "query",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "7246cbfc-e221-49d4-9c6e-0f24162cbc13",
-    "name": "Maps Additional Data Copyrights API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tomtom.com"
+    },
+    {
+      "key": "format",
+      "value": "xml"
+    },
+    {
+      "key": "maxLat",
+      "value": "<number>"
+    },
+    {
+      "key": "Y",
+      "value": "<integer>"
     }
-  }
+  ]
 }

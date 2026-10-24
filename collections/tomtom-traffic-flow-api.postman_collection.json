@@ -1,205 +1,242 @@
 {
+  "info": {
+    "_postman_id": "7341e377-dc8d-4349-922d-5437315f7158",
+    "name": "TomTom Traffic Traffic Flow API",
+    "description": "The TomTom Traffic API provides real-time traffic data for developer applications. The Traffic Incidents service delivers accurate information about traffic jams, accidents, road closures, and hazards. The Traffic Flow service provides observed speeds and travel times for key roads, updated every minute. Supports raster and vector tile formats for map display.\n\nContact Support:\n Name: TomTom Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:05:33.000Z",
+    "updatedAt": "2026-10-22T02:05:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7341e377-dc8d-4349-922d-5437315f7158"
+  },
   "item": [
     {
-      "id": "d024755c-01c8-4523-9043-efea5684e929",
-      "name": "Traffic Flow",
-      "description": {
-        "content": "Real-time traffic speed and flow data",
-        "type": "text/plain"
-      },
+      "name": "traffic",
       "item": [
         {
-          "id": "f4991117-b065-470e-89e4-1ac613f294f1",
-          "name": "Get Flow Segment Data",
-          "request": {
-            "name": "Get Flow Segment Data",
-            "description": {
-              "content": "Returns real-time traffic flow information for the road segment closest to the specified coordinates. Includes current speed, freeflow speed, and travel time confidence.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "traffic",
-                "services",
-                ":versionNumber",
-                "flowSegmentData",
-                ":style",
-                ":zoom",
-                "json"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "point",
-                  "value": "<string>",
-                  "description": "(Required) Coordinates to query (lat,lon)"
-                },
-                {
-                  "disabled": false,
-                  "key": "unit",
-                  "value": "<string>",
-                  "description": "Speed unit"
-                },
-                {
-                  "disabled": false,
-                  "key": "thickness",
-                  "value": "<integer>",
-                  "description": "Segment thickness for display"
-                },
-                {
-                  "disabled": false,
-                  "key": "openLr",
-                  "value": "<boolean>",
-                  "description": "Include OpenLR encoded location reference"
-                },
-                {
-                  "disabled": false,
-                  "key": "key",
-                  "value": "<string>",
-                  "description": "(Required) "
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "style",
-                  "description": "(Required) Traffic flow visualization style"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "zoom",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "services",
+          "item": [
             {
-              "id": "a61c448a-8acd-4ae4-85a6-272e535f6450",
-              "name": "Traffic flow segment data",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "traffic",
-                    "services",
-                    ":versionNumber",
-                    "flowSegmentData",
-                    ":style",
-                    ":zoom",
-                    "json"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "point",
-                      "value": "52.41072,4.84239"
-                    },
-                    {
-                      "key": "unit",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "thickness",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "openLr",
-                      "value": "<boolean>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "style",
-                      "description": "(Required) Traffic flow visualization style"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{versionNumber}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "flowSegmentData",
+                  "item": [
+                    {
+                      "name": "{style}",
+                      "item": [
+                        {
+                          "name": "{zoom}",
+                          "item": [
+                            {
+                              "name": "json",
+                              "item": [
+                                {
+                                  "name": "Get Flow Segment Data",
+                                  "id": "139ad589-26f1-4067-a925-60b33432cdc2",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/traffic/services/:versionNumber/flowSegmentData/:style/:zoom/json?point=<string>&unit=MPH&thickness=<integer>&openLr=<boolean>&key=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "traffic",
+                                        "services",
+                                        ":versionNumber",
+                                        "flowSegmentData",
+                                        ":style",
+                                        ":zoom",
+                                        "json"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) Coordinates to query (lat,lon)",
+                                          "key": "point",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Speed unit",
+                                          "key": "unit",
+                                          "value": "MPH"
+                                        },
+                                        {
+                                          "description": "Segment thickness for display",
+                                          "key": "thickness",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "description": "Include OpenLR encoded location reference",
+                                          "key": "openLr",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "key",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "6cf3c598-efc6-4500-88f4-f6af7f099abc",
+                                          "key": "versionNumber",
+                                          "value": "4",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "20573f0b-0484-4ad4-a75b-330399a91b22",
+                                          "key": "style",
+                                          "value": "absolute",
+                                          "description": "(Required) Traffic flow visualization style"
+                                        },
+                                        {
+                                          "id": "0f841c42-bcc7-4777-bb41-180ee8fabeca",
+                                          "key": "zoom",
+                                          "value": "<integer>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Returns real-time traffic flow information for the road segment closest to the specified coordinates. Includes current speed, freeflow speed, and travel time confidence."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "08fcc725-e941-4e3c-a9a5-765d3a4326ec",
+                                      "name": "Traffic flow segment data",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/traffic/services/:versionNumber/flowSegmentData/:style/:zoom/json?point=<string>&unit=MPH&thickness=<integer>&openLr=<boolean>&key=<API Key>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "traffic",
+                                            "services",
+                                            ":versionNumber",
+                                            "flowSegmentData",
+                                            ":style",
+                                            ":zoom",
+                                            "json"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) Coordinates to query (lat,lon)",
+                                              "key": "point",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Speed unit",
+                                              "key": "unit",
+                                              "value": "MPH"
+                                            },
+                                            {
+                                              "description": "Segment thickness for display",
+                                              "key": "thickness",
+                                              "value": "<integer>"
+                                            },
+                                            {
+                                              "description": "Include OpenLR encoded location reference",
+                                              "key": "openLr",
+                                              "value": "<boolean>"
+                                            },
+                                            {
+                                              "description": "(Required) ",
+                                              "key": "key",
+                                              "value": "<API Key>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "versionNumber"
+                                            },
+                                            {
+                                              "key": "style"
+                                            },
+                                            {
+                                              "key": "zoom"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"flowSegmentData\": {\n    \"frc\": \"<string>\",\n    \"currentSpeed\": \"<integer>\",\n    \"freeFlowSpeed\": \"<integer>\",\n    \"currentTravelTime\": \"<integer>\",\n    \"freeFlowTravelTime\": \"<integer>\",\n    \"confidence\": \"<number>\",\n    \"roadClosure\": \"<boolean>\",\n    \"coordinates\": {\n      \"coordinate\": [\n        {\n          \"latitude\": \"<number>\",\n          \"longitude\": \"<number>\"\n        },\n        {\n          \"latitude\": \"<number>\",\n          \"longitude\": \"<number>\"\n        }\n      ]\n    },\n    \"openLr\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-10-22T02:05:34.000Z",
+                                      "updatedAt": "2026-10-22T02:05:34.000Z",
+                                      "uid": "35240-08fcc725-e941-4e3c-a9a5-765d3a4326ec"
+                                    }
+                                  ],
+                                  "createdAt": "2026-10-22T02:05:33.000Z",
+                                  "updatedAt": "2026-10-22T02:05:33.000Z",
+                                  "uid": "35240-139ad589-26f1-4067-a925-60b33432cdc2"
+                                }
+                              ],
+                              "id": "34402605-834e-4bd8-81cd-08abcb8448b1",
+                              "createdAt": "2026-10-22T02:05:33.000Z",
+                              "updatedAt": "2026-10-22T02:05:33.000Z",
+                              "uid": "35240-34402605-834e-4bd8-81cd-08abcb8448b1"
+                            }
+                          ],
+                          "id": "97cd7b67-975b-44cc-a0aa-220632518b0d",
+                          "createdAt": "2026-10-22T02:05:33.000Z",
+                          "updatedAt": "2026-10-22T02:05:33.000Z",
+                          "uid": "35240-97cd7b67-975b-44cc-a0aa-220632518b0d"
+                        }
+                      ],
+                      "id": "7c771450-4bb0-4f22-900d-b2ebfbea6fb7",
+                      "createdAt": "2026-10-22T02:05:33.000Z",
+                      "updatedAt": "2026-10-22T02:05:33.000Z",
+                      "uid": "35240-7c771450-4bb0-4f22-900d-b2ebfbea6fb7"
+                    }
+                  ],
+                  "id": "95019e7d-c864-4487-bcae-800cee068d08",
+                  "createdAt": "2026-10-22T02:05:33.000Z",
+                  "updatedAt": "2026-10-22T02:05:33.000Z",
+                  "uid": "35240-95019e7d-c864-4487-bcae-800cee068d08"
                 }
               ],
-              "body": "{\n  \"flowSegmentData\": {\n    \"frc\": \"string\",\n    \"currentSpeed\": 8377,\n    \"freeFlowSpeed\": 8771,\n    \"currentTravelTime\": 2759,\n    \"freeFlowTravelTime\": 6985,\n    \"confidence\": 1128.1850654512104,\n    \"roadClosure\": false,\n    \"coordinates\": {\n      \"coordinate\": [\n        {\n          \"latitude\": 1052.05690599245,\n          \"longitude\": 3740.918548784925\n        },\n        {\n          \"latitude\": 1362.788219004014,\n          \"longitude\": 516.0292621366802\n        }\n      ]\n    },\n    \"openLr\": \"string\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "2b7b0e4b-4eb9-45a6-9938-90399d3a5506",
+              "createdAt": "2026-10-22T02:05:33.000Z",
+              "updatedAt": "2026-10-22T02:05:33.000Z",
+              "uid": "35240-2b7b0e4b-4eb9-45a6-9938-90399d3a5506"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "9f1be1e3-243f-4577-8f55-686ac07cab73",
+          "createdAt": "2026-10-22T02:05:33.000Z",
+          "updatedAt": "2026-10-22T02:05:33.000Z",
+          "uid": "35240-9f1be1e3-243f-4577-8f55-686ac07cab73"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.tomtom.com",
-      "key": "baseUrl"
+      "id": "24bb1029-77dd-4dfd-97fa-ab3a2b7e707e",
+      "createdAt": "2026-10-22T02:05:33.000Z",
+      "updatedAt": "2026-10-22T02:05:33.000Z",
+      "uid": "35240-24bb1029-77dd-4dfd-97fa-ab3a2b7e707e"
     }
   ],
   "auth": {
@@ -207,25 +244,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "key"
+        "value": "key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "query"
+        "value": "query",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "264ce7c7-c102-4590-b04a-77b4a15e5105",
-    "name": "Maps Additional Data Traffic Flow API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tomtom.com"
     }
-  }
+  ]
 }

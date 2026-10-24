@@ -1,705 +1,698 @@
 {
+  "info": {
+    "_postman_id": "37d771ea-7dc8-446a-8056-b33c0120a5d9",
+    "name": "Search Additional Data API",
+    "description": "Search API is a RESTful API that allows developers to run a single line fuzzy search for addresses and POIs. Search API returns the latitude/longitude of a specific address, cross street, geographic feature, or point of interest (POI).\n\nContact Support:\n Name: Contact Us",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:04:22.000Z",
+    "updatedAt": "2026-10-22T02:04:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-37d771ea-7dc8-446a-8056-b33c0120a5d9"
+  },
   "item": [
     {
-      "id": "62ddb651-9322-4bc9-90a3-5607c2525f77",
-      "name": "Additional Data",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "search",
       "item": [
         {
-          "id": "e77bd995-486d-42cc-bb74-d5fd3e632a04",
-          "name": "Additional Data",
-          "request": {
-            "name": "Additional Data",
-            "description": {},
-            "url": {
-              "path": [
-                "search",
-                ":versionNumber",
-                "additionalData.{{ext}}"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "geometries",
-                  "value": "<string>",
-                  "description": "(Required) Comma separated list of geometry UUIDs, previously retrieved from an Search API request."
-                },
-                {
-                  "disabled": false,
-                  "key": "geometriesZoom",
-                  "value": "<integer>",
-                  "description": "Defines the precision of the geometries."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) Service version number. The current value is 2."
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{versionNumber}",
+          "item": [
             {
-              "id": "8350b4ce-26d9-48eb-86d5-d4bd73c17588",
-              "name": "OK: additional data were retrieved and the body of the response contains requested data.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "additionalData.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "geometries",
-                      "value": "00004631-3400-3c00-0000-0000673c4d2e,00004631-3400-3c00-0000-0000673c42fe"
-                    },
-                    {
-                      "key": "geometriesZoom",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "additionalData.{ext}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "Additional Data",
+                  "id": "62f723b2-7eb2-4b18-b2d4-fd1e9b8d6357",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/:versionNumber/additionalData.{{ext}}?geometries=<string>&geometriesZoom=7",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        ":versionNumber",
+                        "additionalData.{{ext}}"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Comma separated list of geometry UUIDs, previously retrieved from an Search API request.",
+                          "key": "geometries",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Defines the precision of the geometries.",
+                          "key": "geometriesZoom",
+                          "value": "7"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "67178478-9322-42ae-95b4-fb0c1dd81698",
+                          "key": "versionNumber",
+                          "value": "2",
+                          "description": "(Required) Service version number. The current value is 2."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "8df1a0e6-f5ca-47bd-bb11-e2b05391e8b8",
+                      "name": "OK: additional data were retrieved and the body of the response contains requested data.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/search/:versionNumber/additionalData.{{ext}}?geometries=<string>&geometriesZoom=7&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "search",
+                            ":versionNumber",
+                            "additionalData.{{ext}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Comma separated list of geometry UUIDs, previously retrieved from an Search API request.",
+                              "key": "geometries",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Defines the precision of the geometries.",
+                              "key": "geometriesZoom",
+                              "value": "7"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:22.000Z",
+                      "updatedAt": "2026-10-22T02:04:22.000Z",
+                      "uid": "35240-8df1a0e6-f5ca-47bd-bb11-e2b05391e8b8"
+                    },
+                    {
+                      "id": "886f5fa9-bf7f-47f3-9b3e-f4685a277a56",
+                      "name": "Bad request: one or more parameters(i.e. geometries, ext) were incorrectly specified.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/search/:versionNumber/additionalData.{{ext}}?geometries=<string>&geometriesZoom=7&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "search",
+                            ":versionNumber",
+                            "additionalData.{{ext}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Comma separated list of geometry UUIDs, previously retrieved from an Search API request.",
+                              "key": "geometries",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Defines the precision of the geometries.",
+                              "key": "geometriesZoom",
+                              "value": "7"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:22.000Z",
+                      "updatedAt": "2026-10-22T02:04:22.000Z",
+                      "uid": "35240-886f5fa9-bf7f-47f3-9b3e-f4685a277a56"
+                    },
+                    {
+                      "id": "7345d574-fcd1-4568-ac2e-134f0f9a942d",
+                      "name": "Permission, capacity, or authentication issues:\n  - Forbidden\n  - Not authorized\n  - Account inactive\n  - Account over queries per second limit\n  - Account over rate limit\n  - Rate limit exceeded",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/search/:versionNumber/additionalData.{{ext}}?geometries=<string>&geometriesZoom=7&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "search",
+                            ":versionNumber",
+                            "additionalData.{{ext}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Comma separated list of geometry UUIDs, previously retrieved from an Search API request.",
+                              "key": "geometries",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Defines the precision of the geometries.",
+                              "key": "geometriesZoom",
+                              "value": "7"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:22.000Z",
+                      "updatedAt": "2026-10-22T02:04:22.000Z",
+                      "uid": "35240-7345d574-fcd1-4568-ac2e-134f0f9a942d"
+                    },
+                    {
+                      "id": "dfd8596b-a86c-4164-839f-c5e4076eac36",
+                      "name": "Not Found: the requested resource could not be found, but it may be available again in the future.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/search/:versionNumber/additionalData.{{ext}}?geometries=<string>&geometriesZoom=7&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "search",
+                            ":versionNumber",
+                            "additionalData.{{ext}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Comma separated list of geometry UUIDs, previously retrieved from an Search API request.",
+                              "key": "geometries",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Defines the precision of the geometries.",
+                              "key": "geometriesZoom",
+                              "value": "7"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:22.000Z",
+                      "updatedAt": "2026-10-22T02:04:22.000Z",
+                      "uid": "35240-dfd8596b-a86c-4164-839f-c5e4076eac36"
+                    },
+                    {
+                      "id": "f879fd5a-8259-4596-ad5c-48cbcf768629",
+                      "name": "Method Not Allowed: the client used a HTTP method other than GET.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/search/:versionNumber/additionalData.{{ext}}?geometries=<string>&geometriesZoom=7&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "search",
+                            ":versionNumber",
+                            "additionalData.{{ext}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Comma separated list of geometry UUIDs, previously retrieved from an Search API request.",
+                              "key": "geometries",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Defines the precision of the geometries.",
+                              "key": "geometriesZoom",
+                              "value": "7"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Method Not Allowed",
+                      "code": 405,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:22.000Z",
+                      "updatedAt": "2026-10-22T02:04:22.000Z",
+                      "uid": "35240-f879fd5a-8259-4596-ad5c-48cbcf768629"
+                    },
+                    {
+                      "id": "03e5bb94-b111-44ad-a79e-ff8f361cf50a",
+                      "name": "Request timeout.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/search/:versionNumber/additionalData.{{ext}}?geometries=<string>&geometriesZoom=7&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "search",
+                            ":versionNumber",
+                            "additionalData.{{ext}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Comma separated list of geometry UUIDs, previously retrieved from an Search API request.",
+                              "key": "geometries",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Defines the precision of the geometries.",
+                              "key": "geometriesZoom",
+                              "value": "7"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Request Timeout",
+                      "code": 408,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:22.000Z",
+                      "updatedAt": "2026-10-22T02:04:22.000Z",
+                      "uid": "35240-03e5bb94-b111-44ad-a79e-ff8f361cf50a"
+                    },
+                    {
+                      "id": "3fdf3e3c-01d9-4879-8cd0-815df291031d",
+                      "name": "Requested uri is too long.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/search/:versionNumber/additionalData.{{ext}}?geometries=<string>&geometriesZoom=7&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "search",
+                            ":versionNumber",
+                            "additionalData.{{ext}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Comma separated list of geometry UUIDs, previously retrieved from an Search API request.",
+                              "key": "geometries",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Defines the precision of the geometries.",
+                              "key": "geometriesZoom",
+                              "value": "7"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Request-URI Too Long",
+                      "code": 414,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:22.000Z",
+                      "updatedAt": "2026-10-22T02:04:22.000Z",
+                      "uid": "35240-3fdf3e3c-01d9-4879-8cd0-815df291031d"
+                    },
+                    {
+                      "id": "c454a26d-26c5-4ad5-b70b-7f05a7ee87f1",
+                      "name": "An error occurred while processing the request. Please try again later.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/search/:versionNumber/additionalData.{{ext}}?geometries=<string>&geometriesZoom=7&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "search",
+                            ":versionNumber",
+                            "additionalData.{{ext}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Comma separated list of geometry UUIDs, previously retrieved from an Search API request.",
+                              "key": "geometries",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Defines the precision of the geometries.",
+                              "key": "geometriesZoom",
+                              "value": "7"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:22.000Z",
+                      "updatedAt": "2026-10-22T02:04:22.000Z",
+                      "uid": "35240-c454a26d-26c5-4ad5-b70b-7f05a7ee87f1"
+                    },
+                    {
+                      "id": "9f24612c-bf59-414c-8c0f-0e70e9238b81",
+                      "name": "Internal network connectivity issue.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/search/:versionNumber/additionalData.{{ext}}?geometries=<string>&geometriesZoom=7&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "search",
+                            ":versionNumber",
+                            "additionalData.{{ext}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Comma separated list of geometry UUIDs, previously retrieved from an Search API request.",
+                              "key": "geometries",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Defines the precision of the geometries.",
+                              "key": "geometriesZoom",
+                              "value": "7"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Gateway",
+                      "code": 502,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:22.000Z",
+                      "updatedAt": "2026-10-22T02:04:22.000Z",
+                      "uid": "35240-9f24612c-bf59-414c-8c0f-0e70e9238b81"
+                    },
+                    {
+                      "id": "69a2caa8-8eda-4407-b06f-9fbfb05848b9",
+                      "name": "Service currently unavailable.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/search/:versionNumber/additionalData.{{ext}}?geometries=<string>&geometriesZoom=7&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "search",
+                            ":versionNumber",
+                            "additionalData.{{ext}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Comma separated list of geometry UUIDs, previously retrieved from an Search API request.",
+                              "key": "geometries",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Defines the precision of the geometries.",
+                              "key": "geometriesZoom",
+                              "value": "7"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:22.000Z",
+                      "updatedAt": "2026-10-22T02:04:22.000Z",
+                      "uid": "35240-69a2caa8-8eda-4407-b06f-9fbfb05848b9"
+                    },
+                    {
+                      "id": "46fc5110-0e6b-4835-b16d-fc40e2f07d18",
+                      "name": "Internal network connectivity issue or a request that has taken too long to complete.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/search/:versionNumber/additionalData.{{ext}}?geometries=<string>&geometriesZoom=7&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "search",
+                            ":versionNumber",
+                            "additionalData.{{ext}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Comma separated list of geometry UUIDs, previously retrieved from an Search API request.",
+                              "key": "geometries",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Defines the precision of the geometries.",
+                              "key": "geometriesZoom",
+                              "value": "7"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Gateway Timeout",
+                      "code": 504,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:22.000Z",
+                      "updatedAt": "2026-10-22T02:04:22.000Z",
+                      "uid": "35240-46fc5110-0e6b-4835-b16d-fc40e2f07d18"
+                    },
+                    {
+                      "id": "a76fd70e-4ec3-442c-b68f-2100b91dd566",
+                      "name": "Service not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/search/:versionNumber/additionalData.{{ext}}?geometries=<string>&geometriesZoom=7&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "search",
+                            ":versionNumber",
+                            "additionalData.{{ext}}"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Comma separated list of geometry UUIDs, previously retrieved from an Search API request.",
+                              "key": "geometries",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Defines the precision of the geometries.",
+                              "key": "geometriesZoom",
+                              "value": "7"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:04:22.000Z",
+                      "updatedAt": "2026-10-22T02:04:22.000Z",
+                      "uid": "35240-a76fd70e-4ec3-442c-b68f-2100b91dd566"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:04:22.000Z",
+                  "updatedAt": "2026-10-22T02:04:22.000Z",
+                  "uid": "35240-62f723b2-7eb2-4b18-b2d4-fd1e9b8d6357"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "297a7e2d-c115-423f-89c5-a62751dcdeee",
-              "name": "Bad request: one or more parameters(i.e. geometries, ext) were incorrectly specified.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "additionalData.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "geometries",
-                      "value": "00004631-3400-3c00-0000-0000673c4d2e,00004631-3400-3c00-0000-0000673c42fe"
-                    },
-                    {
-                      "key": "geometriesZoom",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "746804f4-0da3-4ff3-8e50-051eb2050314",
-              "name": "Permission, capacity, or authentication issues:\n  - Forbidden\n  - Not authorized\n  - Account inactive\n  - Account over queries per second limit\n  - Account over rate limit\n  - Rate limit exceeded",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "additionalData.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "geometries",
-                      "value": "00004631-3400-3c00-0000-0000673c4d2e,00004631-3400-3c00-0000-0000673c42fe"
-                    },
-                    {
-                      "key": "geometriesZoom",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "a1241b98-7e20-4493-bddc-335d8517329c",
-              "name": "Not Found: the requested resource could not be found, but it may be available again in the future.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "additionalData.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "geometries",
-                      "value": "00004631-3400-3c00-0000-0000673c4d2e,00004631-3400-3c00-0000-0000673c42fe"
-                    },
-                    {
-                      "key": "geometriesZoom",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "e0d42670-992e-4190-be39-09b7d204e55b",
-              "name": "Method Not Allowed: the client used a HTTP method other than GET.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "additionalData.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "geometries",
-                      "value": "00004631-3400-3c00-0000-0000673c4d2e,00004631-3400-3c00-0000-0000673c42fe"
-                    },
-                    {
-                      "key": "geometriesZoom",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Method Not Allowed",
-              "code": 405,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "ea45c0c2-7265-4f9c-b9d7-e4b07c770ae7",
-              "name": "Request timeout.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "additionalData.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "geometries",
-                      "value": "00004631-3400-3c00-0000-0000673c4d2e,00004631-3400-3c00-0000-0000673c42fe"
-                    },
-                    {
-                      "key": "geometriesZoom",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Request Timeout",
-              "code": 408,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "82566dbc-ec80-4374-8fe2-8a93b314842f",
-              "name": "Requested uri is too long.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "additionalData.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "geometries",
-                      "value": "00004631-3400-3c00-0000-0000673c4d2e,00004631-3400-3c00-0000-0000673c42fe"
-                    },
-                    {
-                      "key": "geometriesZoom",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Request-URI Too Long",
-              "code": 414,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "7f2830c9-2331-4679-a656-21f5f36ab25f",
-              "name": "An error occurred while processing the request. Please try again later.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "additionalData.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "geometries",
-                      "value": "00004631-3400-3c00-0000-0000673c4d2e,00004631-3400-3c00-0000-0000673c42fe"
-                    },
-                    {
-                      "key": "geometriesZoom",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "5c16ba03-aca9-4247-951e-c134d0bcea0a",
-              "name": "Internal network connectivity issue.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "additionalData.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "geometries",
-                      "value": "00004631-3400-3c00-0000-0000673c4d2e,00004631-3400-3c00-0000-0000673c42fe"
-                    },
-                    {
-                      "key": "geometriesZoom",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Gateway",
-              "code": 502,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "4cfef227-2b85-4758-957c-7aa23a236873",
-              "name": "Service currently unavailable.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "additionalData.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "geometries",
-                      "value": "00004631-3400-3c00-0000-0000673c4d2e,00004631-3400-3c00-0000-0000673c42fe"
-                    },
-                    {
-                      "key": "geometriesZoom",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Service Unavailable",
-              "code": 503,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "ef7692ad-8f0c-4a8a-9b3c-9950ff7c6336",
-              "name": "Internal network connectivity issue or a request that has taken too long to complete.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "additionalData.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "geometries",
-                      "value": "00004631-3400-3c00-0000-0000673c4d2e,00004631-3400-3c00-0000-0000673c42fe"
-                    },
-                    {
-                      "key": "geometriesZoom",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Gateway Timeout",
-              "code": 504,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "2e3d9e12-2a45-4edb-9da1-0aa38e6a49c9",
-              "name": "Service not found.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "search",
-                    ":versionNumber",
-                    "additionalData.{{ext}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "geometries",
-                      "value": "00004631-3400-3c00-0000-0000673c4d2e,00004631-3400-3c00-0000-0000673c42fe"
-                    },
-                    {
-                      "key": "geometriesZoom",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Service version number. The current value is 2."
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "code": 596,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "849421bd-214c-4c8b-8840-5fbcd21d06c6",
+              "createdAt": "2026-10-22T02:04:22.000Z",
+              "updatedAt": "2026-10-22T02:04:22.000Z",
+              "uid": "35240-849421bd-214c-4c8b-8840-5fbcd21d06c6"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "b419fb73-bb26-49ee-b39d-b8828eab00ac",
+          "createdAt": "2026-10-22T02:04:22.000Z",
+          "updatedAt": "2026-10-22T02:04:22.000Z",
+          "uid": "35240-b419fb73-bb26-49ee-b39d-b8828eab00ac"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.tomtom.com",
-      "key": "baseUrl"
-    },
-    {
-      "disabled": false,
-      "description": {
-        "content": "(Required) Expected response format.",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "<string>",
-      "key": "ext"
+      "id": "9780ef8c-a061-4365-9015-fab9dfb1393d",
+      "createdAt": "2026-10-22T02:04:22.000Z",
+      "updatedAt": "2026-10-22T02:04:22.000Z",
+      "uid": "35240-9780ef8c-a061-4365-9015-fab9dfb1393d"
     }
   ],
   "auth": {
@@ -707,25 +700,29 @@
     "apikey": [
       {
         "key": "key",
-        "value": "key"
+        "value": "key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "query"
+        "value": "query",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "3eb2ce30-9c22-49d4-bcee-e5d8df463bee",
-    "name": "Maps Additional Data API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tomtom.com"
+    },
+    {
+      "key": "ext",
+      "value": "json"
     }
-  }
+  ]
 }

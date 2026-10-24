@@ -1,1056 +1,615 @@
 {
+  "info": {
+    "_postman_id": "9e0a80dd-7f18-4bd4-81a1-e5ed256640d7",
+    "name": "Maps WMS / WMTS API",
+    "description": "The Maps API web services suite offers the following APIs:\n- Raster\nThe Maps Raster API renders map data that is divided into gridded sections called tiles.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:05:58.000Z",
+    "updatedAt": "2026-10-22T02:05:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9e0a80dd-7f18-4bd4-81a1-e5ed256640d7"
+  },
   "item": [
     {
-      "id": "083c5dda-0fdd-4586-a0d9-7f2036e3c127",
-      "name": "WMS / WMTS",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "map",
       "item": [
         {
-          "id": "f708d51b-a1c4-4232-b89a-bd78df3e997e",
-          "name": "GetMap",
-          "request": {
-            "name": "GetMap",
-            "description": {
-              "content": "The GetMap call implements the Web Map Service 1.1.1 standard\nto access TomTom raster map tiles. This service is described\nin the response to the GetCapabilities API call.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "map",
-                ":versionNumber",
-                "wms",
-                ""
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "request",
-                  "value": "<string>",
-                  "description": "(Required) Request type"
-                },
-                {
-                  "disabled": false,
-                  "key": "srs",
-                  "value": "<string>",
-                  "description": "(Required) Projection used in describing the <b>bbox</b> EPSG:3857 is\nrecommended, particularly at higher zoom levels. (Note that\nEPSG:3857 is functionally equivalent to EPSG:900913/EPSG:3785)"
-                },
-                {
-                  "disabled": false,
-                  "key": "bbox",
-                  "value": "<string>",
-                  "description": "(Required) Bounding box in the projection stated in <b>srs</b>\n(minLon,minLat,maxLon,maxLat)"
-                },
-                {
-                  "disabled": false,
-                  "key": "width",
-                  "value": "<integer>",
-                  "description": "(Required) Width of the resulting image, in pixels Maximum value is 2048"
-                },
-                {
-                  "disabled": false,
-                  "key": "height",
-                  "value": "<integer>",
-                  "description": "(Required) Height of the resulting image, in pixels Maximum value is 2048"
-                },
-                {
-                  "disabled": false,
-                  "key": "format",
-                  "value": "<string>",
-                  "description": "(Required) Image format to be returned"
-                },
-                {
-                  "disabled": false,
-                  "key": "layers",
-                  "value": "<string>",
-                  "description": "(Required) Map layers requested Currently only the basic layer is available"
-                },
-                {
-                  "disabled": false,
-                  "key": "styles",
-                  "value": "<string>",
-                  "description": "Map styles to be returned. Currently, no styles are available. This\nparameter is present for forward compatibility; it must be used and\nleft blank."
-                },
-                {
-                  "disabled": false,
-                  "key": "service",
-                  "value": "<string>",
-                  "description": "Service type"
-                },
-                {
-                  "disabled": false,
-                  "key": "version",
-                  "value": "<string>",
-                  "description": "(Required) WMS service version"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) Version of the service to call. The current version is 1"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{versionNumber}",
+          "item": [
             {
-              "id": "9cf0df24-67fc-4f1d-a30d-0c82eb6f36aa",
-              "name": "<b>OK</b>",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "wms",
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "request",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "srs",
-                      "value": "EPSG:4326"
-                    },
-                    {
-                      "key": "bbox",
-                      "value": "-0.489,51.28,0.236,51.686"
-                    },
-                    {
-                      "key": "width",
-                      "value": "512"
-                    },
-                    {
-                      "key": "height",
-                      "value": "512"
-                    },
-                    {
-                      "key": "format",
-                      "value": "image/png"
-                    },
-                    {
-                      "key": "layers",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "styles",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "service",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "version",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "wms",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "GetCapabilities",
+                  "id": "137658b7-d6c5-446d-a0d5-1158fd66c67d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/map/:versionNumber/wms//?service=WMS&request=GetCapabilities&version=1.1.1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "map",
+                        ":versionNumber",
+                        "wms",
+                        "",
+                        ""
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "service",
+                          "value": "WMS"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "request",
+                          "value": "GetCapabilities"
+                        },
+                        {
+                          "description": "WMS service version",
+                          "key": "version",
+                          "value": "1.1.1"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "e45e4097-e652-42b2-817a-9b07a9ca455c",
+                          "key": "versionNumber",
+                          "value": "1",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "The GetCapabilities call is part of TomTom's implementation of version 1.1.1\nthe Web Map Service (WMS). It provides descriptions of the other calls\nthat are available in the implementation."
+                  },
+                  "response": [
+                    {
+                      "id": "8a347e4e-b079-455b-8536-f31a78d8ca42",
+                      "name": "<b>OK</b>",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/map/:versionNumber/wms//?service=WMS&request=GetCapabilities&version=1.1.1&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "map",
+                            ":versionNumber",
+                            "wms",
+                            "",
+                            ""
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "service",
+                              "value": "WMS"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "request",
+                              "value": "GetCapabilities"
+                            },
+                            {
+                              "description": "WMS service version",
+                              "key": "version",
+                              "value": "1.1.1"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:05:59.000Z",
+                      "updatedAt": "2026-10-22T02:05:59.000Z",
+                      "uid": "35240-8a347e4e-b079-455b-8536-f31a78d8ca42"
+                    },
+                    {
+                      "id": "007d86a2-fa8d-4abf-8fdb-c3dda65333a6",
+                      "name": "<b>Accepted</b>: Received by the interface, but there is a WMS exception in\nprocessing it. Possible causes include:\n  - one or more required parameters is missing\n  - unsupported or unrecognized parameter value\n  - malformed bounding box requested\n  - inv",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/map/:versionNumber/wms//?service=WMS&request=GetCapabilities&version=1.1.1&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "map",
+                            ":versionNumber",
+                            "wms",
+                            "",
+                            ""
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "service",
+                              "value": "WMS"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "request",
+                              "value": "GetCapabilities"
+                            },
+                            {
+                              "description": "WMS service version",
+                              "key": "version",
+                              "value": "1.1.1"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:05:59.000Z",
+                      "updatedAt": "2026-10-22T02:05:59.000Z",
+                      "uid": "35240-007d86a2-fa8d-4abf-8fdb-c3dda65333a6"
+                    },
+                    {
+                      "id": "3927976a-1a3f-4017-8d69-0d13a5b8c5fd",
+                      "name": "<b>Unauthorized</b>: Supplied API key is not valid for the request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/map/:versionNumber/wms//?service=WMS&request=GetCapabilities&version=1.1.1&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "map",
+                            ":versionNumber",
+                            "wms",
+                            "",
+                            ""
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "service",
+                              "value": "WMS"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "request",
+                              "value": "GetCapabilities"
+                            },
+                            {
+                              "description": "WMS service version",
+                              "key": "version",
+                              "value": "1.1.1"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:05:59.000Z",
+                      "updatedAt": "2026-10-22T02:05:59.000Z",
+                      "uid": "35240-3927976a-1a3f-4017-8d69-0d13a5b8c5fd"
+                    },
+                    {
+                      "id": "42f0c567-b544-4da0-a1ca-739d6138b122",
+                      "name": "<b>Internal Server Error</b>: There is a problem with the TomTom WMS\nservice",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/map/:versionNumber/wms//?service=WMS&request=GetCapabilities&version=1.1.1&key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "map",
+                            ":versionNumber",
+                            "wms",
+                            "",
+                            ""
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "service",
+                              "value": "WMS"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "request",
+                              "value": "GetCapabilities"
+                            },
+                            {
+                              "description": "WMS service version",
+                              "key": "version",
+                              "value": "1.1.1"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "versionNumber"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:05:59.000Z",
+                      "updatedAt": "2026-10-22T02:05:59.000Z",
+                      "uid": "35240-42f0c567-b544-4da0-a1ca-739d6138b122"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:05:59.000Z",
+                  "updatedAt": "2026-10-22T02:05:59.000Z",
+                  "uid": "35240-137658b7-d6c5-446d-a0d5-1158fd66c67d"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "7207370c-ed0e-4326-bba0-0dbf9cad974d",
-              "name": "<b>Accepted</b>: Received by the interface, but there is a WMS exception in\nprocessing it. Possible causes include:\n  - one or more required parameters is missing\n  - unsupported or unrecognized parameter value\n  - malformed bounding box requested\n  - invalid map dimensions requested\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \nThis code is returned if the parameters of the request were malformed.\nThe response includes a detailed explanation in the Service Exception Report.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "wms",
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "request",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "srs",
-                      "value": "EPSG:4326"
-                    },
-                    {
-                      "key": "bbox",
-                      "value": "-0.489,51.28,0.236,51.686"
-                    },
-                    {
-                      "key": "width",
-                      "value": "512"
-                    },
-                    {
-                      "key": "height",
-                      "value": "512"
-                    },
-                    {
-                      "key": "format",
-                      "value": "image/png"
-                    },
-                    {
-                      "key": "layers",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "styles",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "service",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "version",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Accepted",
-              "code": 202,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "3ff62d5c-0dbb-4ea3-8ff2-27113070e3ee",
-              "name": "<b>Unauthorized</b>: Supplied API key is not valid for the request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "wms",
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "request",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "srs",
-                      "value": "EPSG:4326"
-                    },
-                    {
-                      "key": "bbox",
-                      "value": "-0.489,51.28,0.236,51.686"
-                    },
-                    {
-                      "key": "width",
-                      "value": "512"
-                    },
-                    {
-                      "key": "height",
-                      "value": "512"
-                    },
-                    {
-                      "key": "format",
-                      "value": "image/png"
-                    },
-                    {
-                      "key": "layers",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "styles",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "service",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "version",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "54f929f4-38bf-4836-a42a-1fc27c12103a",
+              "createdAt": "2026-10-22T02:05:59.000Z",
+              "updatedAt": "2026-10-22T02:05:59.000Z",
+              "uid": "35240-54f929f4-38bf-4836-a42a-1fc27c12103a"
             },
             {
-              "id": "bdb69f05-b46c-4297-aae6-4a452603bb88",
-              "name": "<b>Internal Server Error</b>: There is a problem with the TomTom WMS\nservice",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "wms",
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "request",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "srs",
-                      "value": "EPSG:4326"
-                    },
-                    {
-                      "key": "bbox",
-                      "value": "-0.489,51.28,0.236,51.686"
-                    },
-                    {
-                      "key": "width",
-                      "value": "512"
-                    },
-                    {
-                      "key": "height",
-                      "value": "512"
-                    },
-                    {
-                      "key": "format",
-                      "value": "image/png"
-                    },
-                    {
-                      "key": "layers",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "styles",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "service",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "version",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
+              "name": "wmts",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "{key}",
+                  "item": [
+                    {
+                      "name": "{wmtsVersion}",
+                      "item": [
+                        {
+                          "name": "WMTSCapabilities.xml",
+                          "item": [
+                            {
+                              "name": "WMTS",
+                              "id": "d1027b68-fa25-4875-9cfd-41080c7ed582",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/map/:versionNumber/wmts/:key/:wmtsVersion/WMTSCapabilities.xml",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "map",
+                                    ":versionNumber",
+                                    "wmts",
+                                    ":key",
+                                    ":wmtsVersion",
+                                    "WMTSCapabilities.xml"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "b2836dbf-effb-4a76-b225-1e304176494c",
+                                      "key": "versionNumber",
+                                      "value": "1",
+                                      "description": "(Required) Version of the service to call. The current version is 1"
+                                    },
+                                    {
+                                      "id": "d3223a1f-a184-4ec2-9a52-469deff6c58d",
+                                      "key": "key",
+                                      "value": "<string>",
+                                      "description": "(Required) Your API key for calling this service."
+                                    },
+                                    {
+                                      "id": "7b5fbede-840d-4662-8092-88548c1dea98",
+                                      "key": "wmtsVersion",
+                                      "value": "1.0.0",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "The WMTS GetCapabilities call implements version 1.0.0 of\nthe Web Map Tile Service\n(WMTS) standard. It returns metadata that allows compatible calling systems to construct\ncalls to TomTom's raster map tile service. See the\ndocumentation\nfor more information on WMTS."
+                              },
+                              "response": [
+                                {
+                                  "id": "390de8e1-e1dd-4be2-895b-d907e1102a47",
+                                  "name": "<b>OK</b>",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/map/:versionNumber/wmts/:key/:wmtsVersion/WMTSCapabilities.xml?key=<API Key>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "map",
+                                        ":versionNumber",
+                                        "wmts",
+                                        ":key",
+                                        ":wmtsVersion",
+                                        "WMTSCapabilities.xml"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Added as a part of security scheme: apikey",
+                                          "key": "key",
+                                          "value": "<API Key>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "versionNumber"
+                                        },
+                                        {
+                                          "key": "key"
+                                        },
+                                        {
+                                          "key": "wmtsVersion"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T02:05:59.000Z",
+                                  "updatedAt": "2026-10-22T02:05:59.000Z",
+                                  "uid": "35240-390de8e1-e1dd-4be2-895b-d907e1102a47"
+                                },
+                                {
+                                  "id": "141f0a86-a807-4a11-9f35-edb48c3d6652",
+                                  "name": "<b>Bad request</b>: Probably malformed syntax",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/map/:versionNumber/wmts/:key/:wmtsVersion/WMTSCapabilities.xml?key=<API Key>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "map",
+                                        ":versionNumber",
+                                        "wmts",
+                                        ":key",
+                                        ":wmtsVersion",
+                                        "WMTSCapabilities.xml"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Added as a part of security scheme: apikey",
+                                          "key": "key",
+                                          "value": "<API Key>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "versionNumber"
+                                        },
+                                        {
+                                          "key": "key"
+                                        },
+                                        {
+                                          "key": "wmtsVersion"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T02:05:59.000Z",
+                                  "updatedAt": "2026-10-22T02:05:59.000Z",
+                                  "uid": "35240-141f0a86-a807-4a11-9f35-edb48c3d6652"
+                                },
+                                {
+                                  "id": "26752471-b516-48f1-a325-9529708a5423",
+                                  "name": "<b>Unauthorized</b>: Supplied API key is not valid for this request",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/map/:versionNumber/wmts/:key/:wmtsVersion/WMTSCapabilities.xml?key=<API Key>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "map",
+                                        ":versionNumber",
+                                        "wmts",
+                                        ":key",
+                                        ":wmtsVersion",
+                                        "WMTSCapabilities.xml"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Added as a part of security scheme: apikey",
+                                          "key": "key",
+                                          "value": "<API Key>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "versionNumber"
+                                        },
+                                        {
+                                          "key": "key"
+                                        },
+                                        {
+                                          "key": "wmtsVersion"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T02:05:59.000Z",
+                                  "updatedAt": "2026-10-22T02:05:59.000Z",
+                                  "uid": "35240-26752471-b516-48f1-a325-9529708a5423"
+                                },
+                                {
+                                  "id": "50922be0-8bc2-4875-8a3b-388c3075176e",
+                                  "name": "<b>Internal Server Error</b>: There is a problem with the TomTom WMTS service",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/map/:versionNumber/wmts/:key/:wmtsVersion/WMTSCapabilities.xml?key=<API Key>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "map",
+                                        ":versionNumber",
+                                        "wmts",
+                                        ":key",
+                                        ":wmtsVersion",
+                                        "WMTSCapabilities.xml"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Added as a part of security scheme: apikey",
+                                          "key": "key",
+                                          "value": "<API Key>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "versionNumber"
+                                        },
+                                        {
+                                          "key": "key"
+                                        },
+                                        {
+                                          "key": "wmtsVersion"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T02:05:59.000Z",
+                                  "updatedAt": "2026-10-22T02:05:59.000Z",
+                                  "uid": "35240-50922be0-8bc2-4875-8a3b-388c3075176e"
+                                }
+                              ],
+                              "createdAt": "2026-10-22T02:05:59.000Z",
+                              "updatedAt": "2026-10-22T02:05:59.000Z",
+                              "uid": "35240-d1027b68-fa25-4875-9cfd-41080c7ed582"
+                            }
+                          ],
+                          "id": "27dd3a98-781c-42a9-8790-9e47e4688b1d",
+                          "createdAt": "2026-10-22T02:05:59.000Z",
+                          "updatedAt": "2026-10-22T02:05:59.000Z",
+                          "uid": "35240-27dd3a98-781c-42a9-8790-9e47e4688b1d"
+                        }
+                      ],
+                      "id": "0a19098a-e061-4b3b-b6df-472d6addece9",
+                      "createdAt": "2026-10-22T02:05:59.000Z",
+                      "updatedAt": "2026-10-22T02:05:59.000Z",
+                      "uid": "35240-0a19098a-e061-4b3b-b6df-472d6addece9"
+                    }
+                  ],
+                  "id": "4d86cb29-8378-41c0-9561-590aded07e2d",
+                  "createdAt": "2026-10-22T02:05:59.000Z",
+                  "updatedAt": "2026-10-22T02:05:59.000Z",
+                  "uid": "35240-4d86cb29-8378-41c0-9561-590aded07e2d"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "11a291f3-7c36-40bb-ba46-e45a221eb5d3",
+              "createdAt": "2026-10-22T02:05:59.000Z",
+              "updatedAt": "2026-10-22T02:05:59.000Z",
+              "uid": "35240-11a291f3-7c36-40bb-ba46-e45a221eb5d3"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fdee5d2c-f0e0-4084-bcee-c2931ca96ce4",
-          "name": "GetCapabilities",
-          "request": {
-            "name": "GetCapabilities",
-            "description": {
-              "content": "The GetCapabilities call is part of TomTom's implementation of version 1.1.1\nthe Web Map Service (WMS). It provides descriptions of the other calls\nthat are available in the implementation.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "map",
-                ":versionNumber",
-                "wms",
-                "",
-                ""
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "service",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "request",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "version",
-                  "value": "<string>",
-                  "description": "WMS service version"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "20dfc08a-907b-4056-af72-5151e91cd25a",
-              "name": "<b>OK</b>",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "wms",
-                    "",
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "service",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "request",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "version",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "c8a54bca-7a27-4045-a92a-bd16e28ca739",
-              "name": "<b>Accepted</b>: Received by the interface, but there is a WMS exception in\nprocessing it. Possible causes include:\n  - one or more required parameters is missing\n  - unsupported or unrecognized parameter value\n  - malformed bounding box requested\n  - invalid map dimensions requested\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \nThis code is returned if the parameters of the request were malformed.\nThe response includes a detailed explanation in the Service Exception Report.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "wms",
-                    "",
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "service",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "request",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "version",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Accepted",
-              "code": 202,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "bec91321-0a74-4748-8077-6232f5a60960",
-              "name": "<b>Unauthorized</b>: Supplied API key is not valid for the request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "wms",
-                    "",
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "service",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "request",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "version",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "217270b2-49a4-4aaa-9b61-779986367135",
-              "name": "<b>Internal Server Error</b>: There is a problem with the TomTom WMS\nservice",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "wms",
-                    "",
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "service",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "request",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "version",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e224124f-9dbf-41c1-bf44-5417264e9638",
-          "name": "WMTS",
-          "request": {
-            "name": "WMTS",
-            "description": {
-              "content": "The WMTS GetCapabilities call implements version 1.0.0 of\nthe <a href=\"http://www.opengeospatial.org/standards/wmts\">Web Map Tile Service</a>\n(WMTS) standard. It returns metadata that allows compatible calling systems to construct\ncalls to TomTom's raster map tile service. See the\n<a href=\"/maps-api/maps-api-documentation-raster/wmts\">documentation</a>\nfor more information on WMTS.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "map",
-                ":versionNumber",
-                "wmts",
-                ":key",
-                ":wmtsVersion",
-                "WMTSCapabilities.xml"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) Version of the service to call. The current version is 1"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "key",
-                  "description": "(Required) Your API key for calling this service."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "wmtsVersion",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1189a680-7a3e-4954-a713-c72cea472397",
-              "name": "<b>OK</b>",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "wmts",
-                    ":key",
-                    ":wmtsVersion",
-                    "WMTSCapabilities.xml"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Your API key for calling this service."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "wmtsVersion",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "23e73d6b-603f-43db-b2f7-e4f1ab89a936",
-              "name": "<b>Bad request</b>: Probably malformed syntax",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "wmts",
-                    ":key",
-                    ":wmtsVersion",
-                    "WMTSCapabilities.xml"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Your API key for calling this service."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "wmtsVersion",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "971a0858-df46-45c2-acf5-6671657d934c",
-              "name": "<b>Unauthorized</b>: Supplied API key is not valid for this request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "wmts",
-                    ":key",
-                    ":wmtsVersion",
-                    "WMTSCapabilities.xml"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Your API key for calling this service."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "wmtsVersion",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "c32c6b8c-ed9d-4be6-b00c-d1c18fab2e3a",
-              "name": "<b>Internal Server Error</b>: There is a problem with the TomTom WMTS service",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "map",
-                    ":versionNumber",
-                    "wmts",
-                    ":key",
-                    ":wmtsVersion",
-                    "WMTSCapabilities.xml"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) Version of the service to call. The current version is 1"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) Your API key for calling this service."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "wmtsVersion",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "33a9fc1f-ac55-428f-9984-ebc93b98b29c",
+          "createdAt": "2026-10-22T02:05:59.000Z",
+          "updatedAt": "2026-10-22T02:05:59.000Z",
+          "uid": "35240-33a9fc1f-ac55-428f-9984-ebc93b98b29c"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.tomtom.com",
-      "key": "baseUrl"
+      "id": "098cb811-5334-404f-b419-5b9c0f3851ac",
+      "createdAt": "2026-10-22T02:05:59.000Z",
+      "updatedAt": "2026-10-22T02:05:59.000Z",
+      "uid": "35240-098cb811-5334-404f-b419-5b9c0f3851ac"
     }
   ],
   "auth": {
@@ -1058,25 +617,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "key"
+        "value": "key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "query"
+        "value": "query",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "28b953b5-a9e9-456e-9a34-c6441b9e3c4c",
-    "name": "Maps Additional Data WMS / WMTS API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tomtom.com"
     }
-  }
+  ]
 }

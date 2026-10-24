@@ -1,221 +1,251 @@
 {
+  "info": {
+    "_postman_id": "05f06efd-66e0-4e3e-a9c7-3dbe6235a8ef",
+    "name": "TomTom Routing Batch Routing API",
+    "description": "The TomTom Routing API calculates routes between an origin and destination, supporting up to 150 waypoints, real-time and historical traffic, multiple route types, electric and combustion vehicle optimization, reachable range calculation, and batch routing for multiple route requests.\n\nContact Support:\n Name: TomTom Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:04:34.000Z",
+    "updatedAt": "2026-10-22T02:04:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-05f06efd-66e0-4e3e-a9c7-3dbe6235a8ef"
+  },
   "item": [
     {
-      "id": "afd6cf02-e6ff-4393-b7ea-d50270244a8c",
-      "name": "Batch Routing",
-      "description": {
-        "content": "Multiple route requests in a single call",
-        "type": "text/plain"
-      },
+      "name": "routing",
       "item": [
         {
-          "id": "1d07fd69-babb-40b9-a7a2-b5c5c4514502",
-          "name": "Submit Batch Routing",
-          "request": {
-            "name": "Submit Batch Routing",
-            "description": {
-              "content": "Submits multiple route calculation requests as a single batch job.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "routing",
-                ":versionNumber",
-                "batch",
-                ":contentType"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "contentType",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"batchItems\": [\n    {\n      \"query\": \"<string>\"\n    },\n    {\n      \"query\": \"<string>\"\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "{versionNumber}",
+          "item": [
             {
-              "id": "16b0d2cf-35ce-4052-aa37-f8b3fbeb6649",
-              "name": "Synchronous batch result (for small batches)",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "routing",
-                    ":versionNumber",
-                    "batch",
-                    ":contentType"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "contentType",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"batchItems\": [\n    {\n      \"query\": \"<string>\"\n    },\n    {\n      \"query\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "batch",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{contentType}",
+                  "item": [
+                    {
+                      "name": "Submit Batch Routing",
+                      "id": "141771eb-a1ac-4953-99ed-703856a3ad29",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"batchItems\": [\n    {\n      \"query\": \"<string>\"\n    },\n    {\n      \"query\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/routing/:versionNumber/batch/:contentType",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "routing",
+                            ":versionNumber",
+                            "batch",
+                            ":contentType"
+                          ],
+                          "variable": [
+                            {
+                              "id": "fda2900f-03e0-4bb2-ab94-74c425057893",
+                              "key": "versionNumber",
+                              "value": "1",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "403cc358-d333-423e-bcde-1388e5080c4a",
+                              "key": "contentType",
+                              "value": "json",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Submits multiple route calculation requests as a single batch job."
+                      },
+                      "response": [
+                        {
+                          "id": "fae3f41d-4734-48b2-9eb2-6f05f732ffaf",
+                          "name": "Synchronous batch result (for small batches)",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"batchItems\": [\n    {\n      \"query\": \"<string>\"\n    },\n    {\n      \"query\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/routing/:versionNumber/batch/:contentType?key=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "routing",
+                                ":versionNumber",
+                                "batch",
+                                ":contentType"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Added as a part of security scheme: apikey",
+                                  "key": "key",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "versionNumber"
+                                },
+                                {
+                                  "key": "contentType"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"formatVersion\": \"<string>\",\n  \"batchSummary\": {\n    \"successfulRequests\": \"<integer>\",\n    \"totalRequests\": \"<integer>\"\n  }\n}",
+                          "createdAt": "2026-10-22T02:04:35.000Z",
+                          "updatedAt": "2026-10-22T02:04:35.000Z",
+                          "uid": "35240-fae3f41d-4734-48b2-9eb2-6f05f732ffaf"
+                        },
+                        {
+                          "id": "48f68f96-d5c5-43d2-ab4d-7dc8a93ce8ba",
+                          "name": "Batch job accepted for asynchronous processing",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"batchItems\": [\n    {\n      \"query\": \"<string>\"\n    },\n    {\n      \"query\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/routing/:versionNumber/batch/:contentType?key=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "routing",
+                                ":versionNumber",
+                                "batch",
+                                ":contentType"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Added as a part of security scheme: apikey",
+                                  "key": "key",
+                                  "value": "<API Key>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "versionNumber"
+                                },
+                                {
+                                  "key": "contentType"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Accepted",
+                          "code": 202,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "URL to poll for batch results",
+                                "type": "text/plain"
+                              },
+                              "key": "Location",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:04:35.000Z",
+                          "updatedAt": "2026-10-22T02:04:35.000Z",
+                          "uid": "35240-48f68f96-d5c5-43d2-ab4d-7dc8a93ce8ba"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:04:35.000Z",
+                      "updatedAt": "2026-10-22T02:04:35.000Z",
+                      "uid": "35240-141771eb-a1ac-4953-99ed-703856a3ad29"
+                    }
+                  ],
+                  "id": "4b04baa4-626e-44a4-a730-8993a7b4011d",
+                  "createdAt": "2026-10-22T02:04:34.000Z",
+                  "updatedAt": "2026-10-22T02:04:34.000Z",
+                  "uid": "35240-4b04baa4-626e-44a4-a730-8993a7b4011d"
                 }
               ],
-              "body": "{\n  \"formatVersion\": \"string\",\n  \"batchSummary\": {\n    \"successfulRequests\": 8430,\n    \"totalRequests\": 7892\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "edd85ffa-ff0a-4ba6-bbef-f029c4b700fb",
-              "name": "Batch job accepted for asynchronous processing",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "routing",
-                    ":versionNumber",
-                    "batch",
-                    ":contentType"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "contentType",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"batchItems\": [\n    {\n      \"query\": \"<string>\"\n    },\n    {\n      \"query\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Accepted",
-              "code": 202,
-              "header": [
-                {
-                  "disabled": false,
-                  "description": "URL to poll for batch results",
-                  "key": "Location",
-                  "value": "string"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "0b821fde-acaa-4fce-95a7-b71f7b998b27",
+              "createdAt": "2026-10-22T02:04:34.000Z",
+              "updatedAt": "2026-10-22T02:04:34.000Z",
+              "uid": "35240-0b821fde-acaa-4fce-95a7-b71f7b998b27"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "ce8aca2c-cfbe-4bdf-b6a5-899ed2c75f7f",
+          "createdAt": "2026-10-22T02:04:34.000Z",
+          "updatedAt": "2026-10-22T02:04:34.000Z",
+          "uid": "35240-ce8aca2c-cfbe-4bdf-b6a5-899ed2c75f7f"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.tomtom.com",
-      "key": "baseUrl"
+      "id": "f104d679-1c35-4dcb-b0f1-b4c59c0c77e1",
+      "createdAt": "2026-10-22T02:04:34.000Z",
+      "updatedAt": "2026-10-22T02:04:34.000Z",
+      "uid": "35240-f104d679-1c35-4dcb-b0f1-b4c59c0c77e1"
     }
   ],
   "auth": {
@@ -223,25 +253,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "key"
+        "value": "key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "query"
+        "value": "query",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "7be01359-8c98-42a9-af6f-f8299a19694e",
-    "name": "Maps Additional Data Batch Routing API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tomtom.com"
     }
-  }
+  ]
 }

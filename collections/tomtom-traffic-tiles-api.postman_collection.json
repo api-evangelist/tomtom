@@ -1,525 +1,606 @@
 {
+  "info": {
+    "_postman_id": "1e5b5fa7-4516-431b-9992-752ef587864a",
+    "name": "TomTom Traffic Traffic Tiles API",
+    "description": "The TomTom Traffic API provides real-time traffic data for developer applications. The Traffic Incidents service delivers accurate information about traffic jams, accidents, road closures, and hazards. The Traffic Flow service provides observed speeds and travel times for key roads, updated every minute. Supports raster and vector tile formats for map display.\n\nContact Support:\n Name: TomTom Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:05:43.000Z",
+    "updatedAt": "2026-10-22T02:05:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1e5b5fa7-4516-431b-9992-752ef587864a"
+  },
   "item": [
     {
-      "id": "90f8ec27-969a-4b19-88eb-561dfb4b8412",
-      "name": "Traffic Tiles",
-      "description": {
-        "content": "Raster and vector tiles for map display",
-        "type": "text/plain"
-      },
+      "name": "traffic",
       "item": [
         {
-          "id": "6e558572-9a11-4178-aa4b-5ae844e07503",
-          "name": "Get Raster Incident Tile",
-          "request": {
-            "name": "Get Raster Incident Tile",
-            "description": {
-              "content": "Returns a raster map tile showing traffic incidents.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "traffic",
-                "services",
-                ":versionNumber",
-                "incidentTile",
-                ":style",
-                ":zoom",
-                ":x",
-                "{{y}}.{{format}}"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "key",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "t",
-                  "value": "<string>",
-                  "description": "Traffic model ID"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "style",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "zoom",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "x",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "image/png"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "services",
+          "item": [
             {
-              "id": "937b8960-05cc-49c7-bbc4-012246906d91",
-              "name": "PNG raster tile image",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "traffic",
-                    "services",
-                    ":versionNumber",
-                    "incidentTile",
-                    ":style",
-                    ":zoom",
-                    ":x",
-                    "{{y}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "key",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "t",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "style",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "x",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "image/png"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{versionNumber}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "image/png"
+                  "name": "incidentTile",
+                  "item": [
+                    {
+                      "name": "{style}",
+                      "item": [
+                        {
+                          "name": "{zoom}",
+                          "item": [
+                            {
+                              "name": "{x}",
+                              "item": [
+                                {
+                                  "name": "{y}.{format}",
+                                  "item": [
+                                    {
+                                      "name": "Get Raster Incident Tile",
+                                      "id": "7937611b-17ff-4f06-a7c9-028943c6c3fc",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "image/png"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/traffic/services/:versionNumber/incidentTile/:style/:zoom/:x/{{y}}.{{format}}?key=<string>&t=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "traffic",
+                                            "services",
+                                            ":versionNumber",
+                                            "incidentTile",
+                                            ":style",
+                                            ":zoom",
+                                            ":x",
+                                            "{{y}}.{{format}}"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) ",
+                                              "key": "key",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Traffic model ID",
+                                              "key": "t",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "f1bc42f0-ad37-4535-a860-6439eedd7059",
+                                              "key": "versionNumber",
+                                              "value": "4",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "63cbd597-d8d4-4966-8943-abe56020ebcd",
+                                              "key": "style",
+                                              "value": "s1",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "5401be0b-8bb8-4e5e-99c7-198bd1724cfe",
+                                              "key": "zoom",
+                                              "value": "<integer>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "fb73a659-2339-4e91-89a6-20e859f694be",
+                                              "key": "x",
+                                              "value": "<integer>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "Returns a raster map tile showing traffic incidents."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "4695e6c6-793a-4637-a058-0537aa10c346",
+                                          "name": "PNG raster tile image",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "image/png"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/traffic/services/:versionNumber/incidentTile/:style/:zoom/:x/{{y}}.{{format}}?key=<API Key>&t=<string>",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "traffic",
+                                                "services",
+                                                ":versionNumber",
+                                                "incidentTile",
+                                                ":style",
+                                                ":zoom",
+                                                ":x",
+                                                "{{y}}.{{format}}"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) ",
+                                                  "key": "key",
+                                                  "value": "<API Key>"
+                                                },
+                                                {
+                                                  "description": "Traffic model ID",
+                                                  "key": "t",
+                                                  "value": "<string>"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "versionNumber"
+                                                },
+                                                {
+                                                  "key": "style"
+                                                },
+                                                {
+                                                  "key": "zoom"
+                                                },
+                                                {
+                                                  "key": "x"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "image/png"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "<binary>",
+                                          "createdAt": "2026-10-22T02:05:44.000Z",
+                                          "updatedAt": "2026-10-22T02:05:44.000Z",
+                                          "uid": "35240-4695e6c6-793a-4637-a058-0537aa10c346"
+                                        }
+                                      ],
+                                      "createdAt": "2026-10-22T02:05:44.000Z",
+                                      "updatedAt": "2026-10-22T02:05:44.000Z",
+                                      "uid": "35240-7937611b-17ff-4f06-a7c9-028943c6c3fc"
+                                    }
+                                  ],
+                                  "id": "814638da-709e-496f-94be-7418ef55faf9",
+                                  "createdAt": "2026-10-22T02:05:44.000Z",
+                                  "updatedAt": "2026-10-22T02:05:44.000Z",
+                                  "uid": "35240-814638da-709e-496f-94be-7418ef55faf9"
+                                }
+                              ],
+                              "id": "77832f01-4b56-417c-a462-3e2ac05c017e",
+                              "createdAt": "2026-10-22T02:05:44.000Z",
+                              "updatedAt": "2026-10-22T02:05:44.000Z",
+                              "uid": "35240-77832f01-4b56-417c-a462-3e2ac05c017e"
+                            }
+                          ],
+                          "id": "62882e25-7c96-48fe-a927-dc6a76b2d892",
+                          "createdAt": "2026-10-22T02:05:44.000Z",
+                          "updatedAt": "2026-10-22T02:05:44.000Z",
+                          "uid": "35240-62882e25-7c96-48fe-a927-dc6a76b2d892"
+                        }
+                      ],
+                      "id": "afcfa307-a7de-4e98-b335-1a65e5ce68c7",
+                      "createdAt": "2026-10-22T02:05:44.000Z",
+                      "updatedAt": "2026-10-22T02:05:44.000Z",
+                      "uid": "35240-afcfa307-a7de-4e98-b335-1a65e5ce68c7"
+                    }
+                  ],
+                  "id": "4fc2ddfd-04ff-4779-a2bd-20c670bacd84",
+                  "createdAt": "2026-10-22T02:05:44.000Z",
+                  "updatedAt": "2026-10-22T02:05:44.000Z",
+                  "uid": "35240-4fc2ddfd-04ff-4779-a2bd-20c670bacd84"
                 }
               ],
-              "body": "string",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "921060f0-9ece-435f-a920-959a8a0a9d66",
+              "createdAt": "2026-10-22T02:05:44.000Z",
+              "updatedAt": "2026-10-22T02:05:44.000Z",
+              "uid": "35240-921060f0-9ece-435f-a920-959a8a0a9d66"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "dc67d2ad-48c0-4d04-aa1e-aa6d2786932d",
+          "createdAt": "2026-10-22T02:05:44.000Z",
+          "updatedAt": "2026-10-22T02:05:44.000Z",
+          "uid": "35240-dc67d2ad-48c0-4d04-aa1e-aa6d2786932d"
         },
         {
-          "id": "5178ea6f-8ac0-4e7e-aaed-6ced69661320",
-          "name": "Get Raster Flow Tile",
-          "request": {
-            "name": "Get Raster Flow Tile",
-            "description": {
-              "content": "Returns a raster map tile visualizing traffic flow conditions.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "traffic",
-                "map",
-                ":versionNumber",
-                "tile",
-                "flow",
-                ":style",
-                ":zoom",
-                ":x",
-                "{{y}}.{{format}}"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "key",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "t",
-                  "value": "<string>",
-                  "description": "Traffic model ID"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "style",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "zoom",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "x",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "image/png"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "map",
+          "item": [
             {
-              "id": "bc950155-4fc9-4222-81eb-075056def146",
-              "name": "PNG raster tile",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "traffic",
-                    "map",
-                    ":versionNumber",
-                    "tile",
-                    "flow",
-                    ":style",
-                    ":zoom",
-                    ":x",
-                    "{{y}}.{{format}}"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "key",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "t",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "style",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "x",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "image/png"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{versionNumber}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "image/png"
+                  "name": "tile",
+                  "item": [
+                    {
+                      "name": "flow",
+                      "item": [
+                        {
+                          "name": "{style}",
+                          "item": [
+                            {
+                              "name": "{zoom}",
+                              "item": [
+                                {
+                                  "name": "{x}",
+                                  "item": [
+                                    {
+                                      "name": "{y}.{format}",
+                                      "item": [
+                                        {
+                                          "name": "Get Raster Flow Tile",
+                                          "id": "8ef9b90e-dda4-4118-85a9-12b7be4b7e17",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "image/png"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/traffic/map/:versionNumber/tile/flow/:style/:zoom/:x/{{y}}.{{format}}?key=<string>&t=<string>",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "traffic",
+                                                "map",
+                                                ":versionNumber",
+                                                "tile",
+                                                "flow",
+                                                ":style",
+                                                ":zoom",
+                                                ":x",
+                                                "{{y}}.{{format}}"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) ",
+                                                  "key": "key",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "Traffic model ID",
+                                                  "key": "t",
+                                                  "value": "<string>"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "ab23bea0-a273-41b6-8d8b-26e54ed3e457",
+                                                  "key": "versionNumber",
+                                                  "value": "4",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "5c26edc7-7a41-4969-88e4-97706f772f6f",
+                                                  "key": "style",
+                                                  "value": "relative",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "ae2b0515-de5b-40e9-8621-bd82959503de",
+                                                  "key": "zoom",
+                                                  "value": "<integer>",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "d9461643-16c4-46c6-a865-1c90ec002855",
+                                                  "key": "x",
+                                                  "value": "<integer>",
+                                                  "description": "(Required) "
+                                                }
+                                              ]
+                                            },
+                                            "description": "Returns a raster map tile visualizing traffic flow conditions."
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "96842b38-b4ff-4819-81ac-fdf565d6e3af",
+                                              "name": "PNG raster tile",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "image/png"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/traffic/map/:versionNumber/tile/flow/:style/:zoom/:x/{{y}}.{{format}}?key=<API Key>&t=<string>",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "traffic",
+                                                    "map",
+                                                    ":versionNumber",
+                                                    "tile",
+                                                    "flow",
+                                                    ":style",
+                                                    ":zoom",
+                                                    ":x",
+                                                    "{{y}}.{{format}}"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "(Required) ",
+                                                      "key": "key",
+                                                      "value": "<API Key>"
+                                                    },
+                                                    {
+                                                      "description": "Traffic model ID",
+                                                      "key": "t",
+                                                      "value": "<string>"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "versionNumber"
+                                                    },
+                                                    {
+                                                      "key": "style"
+                                                    },
+                                                    {
+                                                      "key": "zoom"
+                                                    },
+                                                    {
+                                                      "key": "x"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "text",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "image/png"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "<binary>",
+                                              "createdAt": "2026-10-22T02:05:44.000Z",
+                                              "updatedAt": "2026-10-22T02:05:44.000Z",
+                                              "uid": "35240-96842b38-b4ff-4819-81ac-fdf565d6e3af"
+                                            }
+                                          ],
+                                          "createdAt": "2026-10-22T02:05:44.000Z",
+                                          "updatedAt": "2026-10-22T02:05:44.000Z",
+                                          "uid": "35240-8ef9b90e-dda4-4118-85a9-12b7be4b7e17"
+                                        }
+                                      ],
+                                      "id": "72c66090-3eb1-493f-a654-a30d8716e0ec",
+                                      "createdAt": "2026-10-22T02:05:44.000Z",
+                                      "updatedAt": "2026-10-22T02:05:44.000Z",
+                                      "uid": "35240-72c66090-3eb1-493f-a654-a30d8716e0ec"
+                                    }
+                                  ],
+                                  "id": "bde332e8-a02e-4d9e-9088-b1b0d8e78f75",
+                                  "createdAt": "2026-10-22T02:05:44.000Z",
+                                  "updatedAt": "2026-10-22T02:05:44.000Z",
+                                  "uid": "35240-bde332e8-a02e-4d9e-9088-b1b0d8e78f75"
+                                }
+                              ],
+                              "id": "e27cc6f5-83f8-4b5f-b86c-9d5e1b126c85",
+                              "createdAt": "2026-10-22T02:05:44.000Z",
+                              "updatedAt": "2026-10-22T02:05:44.000Z",
+                              "uid": "35240-e27cc6f5-83f8-4b5f-b86c-9d5e1b126c85"
+                            }
+                          ],
+                          "id": "83ae7927-35bd-494a-958f-f17423031e28",
+                          "createdAt": "2026-10-22T02:05:44.000Z",
+                          "updatedAt": "2026-10-22T02:05:44.000Z",
+                          "uid": "35240-83ae7927-35bd-494a-958f-f17423031e28"
+                        },
+                        {
+                          "name": "{zoom}",
+                          "item": [
+                            {
+                              "name": "{x}",
+                              "item": [
+                                {
+                                  "name": "{y}.pbf",
+                                  "item": [
+                                    {
+                                      "name": "Get Vector Flow Tile",
+                                      "id": "42ab1bfd-57ee-4eb4-8338-4ce1d08c20e5",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/vnd.mapbox-vector-tile"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/traffic/map/:versionNumber/tile/flow/:zoom/:x/{{y}}.pbf?key=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "traffic",
+                                            "map",
+                                            ":versionNumber",
+                                            "tile",
+                                            "flow",
+                                            ":zoom",
+                                            ":x",
+                                            "{{y}}.pbf"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) ",
+                                              "key": "key",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "2e708160-50cc-4519-8993-e3c825b8b81f",
+                                              "key": "versionNumber",
+                                              "value": "4",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "d374c3a5-97ff-473d-ace4-b1b636a2bc64",
+                                              "key": "zoom",
+                                              "value": "<integer>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "1d688f9e-056a-49c5-978d-689f654cd121",
+                                              "key": "x",
+                                              "value": "<integer>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "Returns a vector Protocol Buffer tile with traffic flow data."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "96b11dbe-8506-4a48-9361-ec3570ef7ff9",
+                                          "name": "Protocol Buffer vector tile",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/vnd.mapbox-vector-tile"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/traffic/map/:versionNumber/tile/flow/:zoom/:x/{{y}}.pbf?key=<API Key>",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "traffic",
+                                                "map",
+                                                ":versionNumber",
+                                                "tile",
+                                                "flow",
+                                                ":zoom",
+                                                ":x",
+                                                "{{y}}.pbf"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) ",
+                                                  "key": "key",
+                                                  "value": "<API Key>"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "versionNumber"
+                                                },
+                                                {
+                                                  "key": "zoom"
+                                                },
+                                                {
+                                                  "key": "x"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/vnd.mapbox-vector-tile"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "<binary>",
+                                          "createdAt": "2026-10-22T02:05:44.000Z",
+                                          "updatedAt": "2026-10-22T02:05:44.000Z",
+                                          "uid": "35240-96b11dbe-8506-4a48-9361-ec3570ef7ff9"
+                                        }
+                                      ],
+                                      "createdAt": "2026-10-22T02:05:44.000Z",
+                                      "updatedAt": "2026-10-22T02:05:44.000Z",
+                                      "uid": "35240-42ab1bfd-57ee-4eb4-8338-4ce1d08c20e5"
+                                    }
+                                  ],
+                                  "id": "e9692e89-f716-46fc-a61d-d2116469b467",
+                                  "createdAt": "2026-10-22T02:05:44.000Z",
+                                  "updatedAt": "2026-10-22T02:05:44.000Z",
+                                  "uid": "35240-e9692e89-f716-46fc-a61d-d2116469b467"
+                                }
+                              ],
+                              "id": "4fb59ca8-eb96-4cdf-adb2-3536ef2202b1",
+                              "createdAt": "2026-10-22T02:05:44.000Z",
+                              "updatedAt": "2026-10-22T02:05:44.000Z",
+                              "uid": "35240-4fb59ca8-eb96-4cdf-adb2-3536ef2202b1"
+                            }
+                          ],
+                          "id": "96e0c7b6-7389-4b62-90ef-abe6e050a06f",
+                          "createdAt": "2026-10-22T02:05:44.000Z",
+                          "updatedAt": "2026-10-22T02:05:44.000Z",
+                          "uid": "35240-96e0c7b6-7389-4b62-90ef-abe6e050a06f"
+                        }
+                      ],
+                      "id": "ee74431d-b80c-415c-a078-c29ebb3ae114",
+                      "createdAt": "2026-10-22T02:05:44.000Z",
+                      "updatedAt": "2026-10-22T02:05:44.000Z",
+                      "uid": "35240-ee74431d-b80c-415c-a078-c29ebb3ae114"
+                    }
+                  ],
+                  "id": "59599eb0-ab9f-485e-a765-853ebb3cf113",
+                  "createdAt": "2026-10-22T02:05:44.000Z",
+                  "updatedAt": "2026-10-22T02:05:44.000Z",
+                  "uid": "35240-59599eb0-ab9f-485e-a765-853ebb3cf113"
                 }
               ],
-              "body": "string",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "d32fcd33-a592-4c15-8579-f85548107702",
+              "createdAt": "2026-10-22T02:05:44.000Z",
+              "updatedAt": "2026-10-22T02:05:44.000Z",
+              "uid": "35240-d32fcd33-a592-4c15-8579-f85548107702"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f1dcf5b4-0bc2-48b1-92ed-9d4951e8e50d",
-          "name": "Get Vector Flow Tile",
-          "request": {
-            "name": "Get Vector Flow Tile",
-            "description": {
-              "content": "Returns a vector Protocol Buffer tile with traffic flow data.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "traffic",
-                "map",
-                ":versionNumber",
-                "tile",
-                "flow",
-                ":zoom",
-                ":x",
-                "{{y}}.pbf"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "key",
-                  "value": "<string>",
-                  "description": "(Required) "
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "zoom",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "x",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/vnd.mapbox-vector-tile"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "44410731-772a-4dce-8961-2e89ff1d5288",
-              "name": "Protocol Buffer vector tile",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "traffic",
-                    "map",
-                    ":versionNumber",
-                    "tile",
-                    "flow",
-                    ":zoom",
-                    ":x",
-                    "{{y}}.pbf"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "key",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "zoom",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "x",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.mapbox-vector-tile"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/vnd.mapbox-vector-tile"
-                }
-              ],
-              "body": "string",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "9bfae426-7a2b-423a-b1af-d196fb36ca6a",
+          "createdAt": "2026-10-22T02:05:44.000Z",
+          "updatedAt": "2026-10-22T02:05:44.000Z",
+          "uid": "35240-9bfae426-7a2b-423a-b1af-d196fb36ca6a"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.tomtom.com",
-      "key": "baseUrl"
-    },
-    {
-      "disabled": false,
-      "description": {
-        "content": "(Required) ",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "<integer>",
-      "key": "y"
-    },
-    {
-      "disabled": false,
-      "description": {
-        "content": "(Required) ",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "<string>",
-      "key": "format"
+      "id": "45ad69ff-5707-490f-bef6-ed16521f9373",
+      "createdAt": "2026-10-22T02:05:44.000Z",
+      "updatedAt": "2026-10-22T02:05:44.000Z",
+      "uid": "35240-45ad69ff-5707-490f-bef6-ed16521f9373"
     }
   ],
   "auth": {
@@ -527,25 +608,33 @@
     "apikey": [
       {
         "key": "key",
-        "value": "key"
+        "value": "key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "query"
+        "value": "query",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "2a515545-0bdc-4c6e-9ac2-ebbec9b0c7af",
-    "name": "Maps Additional Data Traffic Tiles API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tomtom.com"
+    },
+    {
+      "key": "y",
+      "value": "<integer>"
+    },
+    {
+      "key": "format",
+      "value": "png"
     }
-  }
+  ]
 }

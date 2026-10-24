@@ -1,227 +1,247 @@
 {
+  "info": {
+    "_postman_id": "9656d111-cd46-4a9e-90cf-0c150012e236",
+    "name": "TomTom Routing Reachable Range API",
+    "description": "The TomTom Routing API calculates routes between an origin and destination, supporting up to 150 waypoints, real-time and historical traffic, multiple route types, electric and combustion vehicle optimization, reachable range calculation, and batch routing for multiple route requests.\n\nContact Support:\n Name: TomTom Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:05:07.000Z",
+    "updatedAt": "2026-10-22T02:05:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9656d111-cd46-4a9e-90cf-0c150012e236"
+  },
   "item": [
     {
-      "id": "729fd778-461b-48f7-ae5e-85cb5f772186",
-      "name": "Reachable Range",
-      "description": {
-        "content": "Calculate areas reachable within given constraints",
-        "type": "text/plain"
-      },
+      "name": "routing",
       "item": [
         {
-          "id": "f0af9768-4b14-40f5-90b2-9488b6f3035d",
-          "name": "Calculate Reachable Range",
-          "request": {
-            "name": "Calculate Reachable Range",
-            "description": {
-              "content": "Calculates the area reachable from a given origin point within specified time, distance, or fuel/energy constraints.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "routing",
-                ":versionNumber",
-                "calculateReachableRange",
-                ":origin",
-                ":contentType"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "timeBudgetInSec",
-                  "value": "<number>",
-                  "description": "Maximum travel time in seconds"
-                },
-                {
-                  "disabled": false,
-                  "key": "distanceBudgetInMeters",
-                  "value": "<number>",
-                  "description": "Maximum travel distance in meters"
-                },
-                {
-                  "disabled": false,
-                  "key": "fuelBudgetInLiters",
-                  "value": "<number>",
-                  "description": "Available fuel in liters"
-                },
-                {
-                  "disabled": false,
-                  "key": "energyBudgetInkWh",
-                  "value": "<number>",
-                  "description": "Available energy in kWh for EV routing"
-                },
-                {
-                  "disabled": false,
-                  "key": "routeType",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "traffic",
-                  "value": "<boolean>"
-                },
-                {
-                  "disabled": false,
-                  "key": "travelMode",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "departAt",
-                  "value": "<dateTime>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "versionNumber",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "origin",
-                  "description": "(Required) Origin coordinates (lat,lon)"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "contentType",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{versionNumber}",
+          "item": [
             {
-              "id": "99b9f695-0706-476a-acec-da8548ad6696",
-              "name": "Reachable range polygon",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "routing",
-                    ":versionNumber",
-                    "calculateReachableRange",
-                    ":origin",
-                    ":contentType"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "timeBudgetInSec",
-                      "value": "<number>"
-                    },
-                    {
-                      "key": "distanceBudgetInMeters",
-                      "value": "<number>"
-                    },
-                    {
-                      "key": "fuelBudgetInLiters",
-                      "value": "<number>"
-                    },
-                    {
-                      "key": "energyBudgetInkWh",
-                      "value": "<number>"
-                    },
-                    {
-                      "key": "routeType",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "traffic",
-                      "value": "<boolean>"
-                    },
-                    {
-                      "key": "travelMode",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "departAt",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "key",
-                      "value": "<API Key>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "versionNumber",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "origin",
-                      "description": "(Required) Origin coordinates (lat,lon)"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "contentType",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "calculateReachableRange",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{origin}",
+                  "item": [
+                    {
+                      "name": "{contentType}",
+                      "item": [
+                        {
+                          "name": "Calculate Reachable Range",
+                          "id": "1b02bfeb-9e29-478a-8e77-ecea4976ad8a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/routing/:versionNumber/calculateReachableRange/:origin/:contentType?timeBudgetInSec=<number>&distanceBudgetInMeters=<number>&fuelBudgetInLiters=<number>&energyBudgetInkWh=<number>&routeType=shortest&traffic=<boolean>&travelMode=bicycle&departAt=<dateTime>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "routing",
+                                ":versionNumber",
+                                "calculateReachableRange",
+                                ":origin",
+                                ":contentType"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum travel time in seconds",
+                                  "key": "timeBudgetInSec",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "description": "Maximum travel distance in meters",
+                                  "key": "distanceBudgetInMeters",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "description": "Available fuel in liters",
+                                  "key": "fuelBudgetInLiters",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "description": "Available energy in kWh for EV routing",
+                                  "key": "energyBudgetInkWh",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "key": "routeType",
+                                  "value": "shortest"
+                                },
+                                {
+                                  "key": "traffic",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "travelMode",
+                                  "value": "bicycle"
+                                },
+                                {
+                                  "key": "departAt",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "db43891f-d847-45c9-a872-f6a0b06a3368",
+                                  "key": "versionNumber",
+                                  "value": "1",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "a86d8948-ed47-4ec6-b28a-812be4909f4c",
+                                  "key": "origin",
+                                  "value": "<string>",
+                                  "description": "(Required) Origin coordinates (lat,lon)"
+                                },
+                                {
+                                  "id": "257ec998-f085-49d8-a6ac-4d3c510f2932",
+                                  "key": "contentType",
+                                  "value": "xml",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Calculates the area reachable from a given origin point within specified time, distance, or fuel/energy constraints."
+                          },
+                          "response": [
+                            {
+                              "id": "7b4defc1-0256-407b-a753-e9c25b8ab0ef",
+                              "name": "Reachable range polygon",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/routing/:versionNumber/calculateReachableRange/:origin/:contentType?timeBudgetInSec=<number>&distanceBudgetInMeters=<number>&fuelBudgetInLiters=<number>&energyBudgetInkWh=<number>&routeType=shortest&traffic=<boolean>&travelMode=bicycle&departAt=<dateTime>&key=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "routing",
+                                    ":versionNumber",
+                                    "calculateReachableRange",
+                                    ":origin",
+                                    ":contentType"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Maximum travel time in seconds",
+                                      "key": "timeBudgetInSec",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "description": "Maximum travel distance in meters",
+                                      "key": "distanceBudgetInMeters",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "description": "Available fuel in liters",
+                                      "key": "fuelBudgetInLiters",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "description": "Available energy in kWh for EV routing",
+                                      "key": "energyBudgetInkWh",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "key": "routeType",
+                                      "value": "shortest"
+                                    },
+                                    {
+                                      "key": "traffic",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "key": "travelMode",
+                                      "value": "bicycle"
+                                    },
+                                    {
+                                      "key": "departAt",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Added as a part of security scheme: apikey",
+                                      "key": "key",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "versionNumber"
+                                    },
+                                    {
+                                      "key": "origin"
+                                    },
+                                    {
+                                      "key": "contentType"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"formatVersion\": \"<string>\",\n  \"reachableRange\": {\n    \"center\": {\n      \"latitude\": \"<double>\",\n      \"longitude\": \"<double>\"\n    },\n    \"boundary\": [\n      {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      },\n      {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      }\n    ]\n  }\n}",
+                              "createdAt": "2026-10-22T02:05:07.000Z",
+                              "updatedAt": "2026-10-22T02:05:07.000Z",
+                              "uid": "35240-7b4defc1-0256-407b-a753-e9c25b8ab0ef"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T02:05:07.000Z",
+                          "updatedAt": "2026-10-22T02:05:07.000Z",
+                          "uid": "35240-1b02bfeb-9e29-478a-8e77-ecea4976ad8a"
+                        }
+                      ],
+                      "id": "ab597097-6b5e-405d-a6a8-d65a8c1788bc",
+                      "createdAt": "2026-10-22T02:05:07.000Z",
+                      "updatedAt": "2026-10-22T02:05:07.000Z",
+                      "uid": "35240-ab597097-6b5e-405d-a6a8-d65a8c1788bc"
+                    }
+                  ],
+                  "id": "e392426e-4cd3-46fd-b0fb-4dd7b1dfb1cf",
+                  "createdAt": "2026-10-22T02:05:07.000Z",
+                  "updatedAt": "2026-10-22T02:05:07.000Z",
+                  "uid": "35240-e392426e-4cd3-46fd-b0fb-4dd7b1dfb1cf"
                 }
               ],
-              "body": "{\n  \"formatVersion\": \"string\",\n  \"reachableRange\": {\n    \"center\": {\n      \"latitude\": 7949.236911948237,\n      \"longitude\": 201.88385581720092\n    },\n    \"boundary\": [\n      {\n        \"latitude\": 6324.5724312783295,\n        \"longitude\": 7044.823428443034\n      },\n      {\n        \"latitude\": 5481.606569562098,\n        \"longitude\": 7348.78972055398\n      }\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "f4fa9ae3-a468-4e74-a77e-822f3f6e4a41",
+              "createdAt": "2026-10-22T02:05:07.000Z",
+              "updatedAt": "2026-10-22T02:05:07.000Z",
+              "uid": "35240-f4fa9ae3-a468-4e74-a77e-822f3f6e4a41"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "b4067d46-2b94-4818-a98b-f47b25020ab5",
+          "createdAt": "2026-10-22T02:05:07.000Z",
+          "updatedAt": "2026-10-22T02:05:07.000Z",
+          "uid": "35240-b4067d46-2b94-4818-a98b-f47b25020ab5"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.tomtom.com",
-      "key": "baseUrl"
+      "id": "706630fc-4b05-4261-95a3-eead38b22035",
+      "createdAt": "2026-10-22T02:05:07.000Z",
+      "updatedAt": "2026-10-22T02:05:07.000Z",
+      "uid": "35240-706630fc-4b05-4261-95a3-eead38b22035"
     }
   ],
   "auth": {
@@ -229,25 +249,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "key"
+        "value": "key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "query"
+        "value": "query",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "f35c7753-3c67-4768-b2f0-8c5f370fcdc5",
-    "name": "Maps Additional Data Reachable Range API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Maps API web services suite offers the following APIs:\n  - Raster\n  The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.\n  - Vector\n  Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.\n  The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.tomtom.com"
     }
-  }
+  ]
 }
