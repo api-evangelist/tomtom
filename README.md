@@ -1,4 +1,4 @@
-# TomTom (tomtom)
+# TomTom
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,288 +66,211 @@
 
 TomTom provides a comprehensive suite of location technology APIs and SDKs including maps, search, routing, traffic, navigation, and automotive data services. The TomTom developer platform is trusted by major automotive manufacturers, logistics companies, and application developers. APIs cover real-time traffic incidents and flow, route calculation, geocoding, points of interest search, geofencing, parking availability, fuel prices, and electric vehicle routing. TomTom also provides an MCP Server for AI integration with location intelligence.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/apis.yml)
+**Areas:** Maps · Traffic · Transportation · Navigation · Location · Geospatial · Routing · Geocoding · Mobility
 
-## Scope
+## TomTom on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for TomTom is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/tomtom/](https://apis.io/providers/tomtom/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (19)
 
-- Maps
-- Traffic
-- Transportation
-- Navigation
-- Location
-- Geospatial
-- Routing
-- Geocoding
+- [TomTom Fuel Prices API](https://apis.io/apis/tomtom/tomtom-fuel-prices-api/) — The TomTom Fuel Prices API provides current fuel price information at specific fueling stations, including price by fuel type.
+- [TomTom Parking Availability API](https://apis.io/apis/tomtom/tomtom-parking-availability-api/) — The TomTom Parking Availability API provides real-time availability status of parking sites and on-street parking, including pricing information.
+- [TomTom Geofencing API](https://apis.io/apis/tomtom/tomtom-geofencing-api/) — The TomTom Geofencing API enables creation and management of geofence boundaries, location history tracking, and notification delivery when assets enter or…
+- [TomTom AutoStream API](https://apis.io/apis/tomtom/tomtom-autostream-api/) — TomTom AutoStream is a map data delivery platform optimized for on-demand and over-the-air cloud-to-device and cloud-to-cloud data streaming for automotive…
+- [TomTom Additional Data API](https://apis.io/apis/tomtom/tomtom-additional-data-api/) — The Additional Data API from TomTom — 1 operation(s) for additional data.
+- [TomTom Batch Routing API](https://apis.io/apis/tomtom/tomtom-batch-routing-api/) — Multiple route requests in a single call
+- [TomTom Copyrights API](https://apis.io/apis/tomtom/tomtom-copyrights-api/) — The Copyrights API from TomTom — 4 operation(s) for copyrights.
+- [TomTom Filters API](https://apis.io/apis/tomtom/tomtom-filters-api/) — The Filters API from TomTom — 2 operation(s) for filters.
+- [TomTom Geocoding API](https://apis.io/apis/tomtom/tomtom-geocoding-api/) — The TomTom Geocoding API converts structured addresses into geographic coordinates and supports reverse geocoding to translate coordinates into…
+- [TomTom Raster API](https://apis.io/apis/tomtom/tomtom-raster-api/) — The Raster API from TomTom — 2 operation(s) for raster.
+- [TomTom Reachable Range API](https://apis.io/apis/tomtom/tomtom-reachable-range-api/) — Calculate areas reachable within given constraints
+- [TomTom Reverse Geocoding API](https://apis.io/apis/tomtom/tomtom-reverse-geocoding-api/) — The Reverse Geocoding API from TomTom — 2 operation(s) for reverse geocoding.
+- [TomTom Routing API](https://apis.io/apis/tomtom/tomtom-routing-api/) — Route calculation between locations
+- [TomTom Search API](https://apis.io/apis/tomtom/tomtom-search-api/) — The Search API from TomTom — 9 operation(s) for search.
+- [TomTom Traffic Flow API](https://apis.io/apis/tomtom/tomtom-traffic-flow-api/) — Real-time traffic speed and flow data
+- [TomTom Traffic Incidents API](https://apis.io/apis/tomtom/tomtom-traffic-incidents-api/) — Real-time traffic incident data
+- [TomTom Traffic Tiles API](https://apis.io/apis/tomtom/tomtom-traffic-tiles-api/) — Raster and vector tiles for map display
+- [TomTom Vector API](https://apis.io/apis/tomtom/tomtom-vector-api/) — The Vector API from TomTom — 1 operation(s) for vector.
+- [TomTom WMS / WMTS API](https://apis.io/apis/tomtom/tomtom-wms-wmts-api/) — The WMS / WMTS API from TomTom — 3 operation(s) for wms / wmts.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-01-07
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### TomTom Maps API
+Model Context Protocol servers that expose the API to agents.
 
-The TomTom Maps API provides raster and vector map tiles for display in web and mobile applications. Includes copyright information endpoints and supports 19+ zoom levels. Returns PNG/JPG tiles for raster and Protocol Buffer format for vector tiles.
+- [tomtom](https://apis.io/servers/tomtom/tomtom/)
 
-- **Human URL:** [https://developer.tomtom.com/map-display-api/documentation/product-information/introduction](https://developer.tomtom.com/map-display-api/documentation/product-information/introduction)
-- **Base URL:** `https://api.tomtom.com`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Maps
-- Tiles
-- Raster
-- Vector
+- [Tomtom Agentic Access](https://apis.io/agentic-access/tomtom/tomtom-agentic-access/)
 
-#### Properties
+#### JSON Schema (11)
 
-- [Documentation](https://developer.tomtom.com/map-display-api/documentation/product-information/introduction)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/openapi/tomtom-maps-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/tomtom-maps.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-maps.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-routing.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-routing.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-search.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-search.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-traffic.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-traffic.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The data models the API reads and writes.
 
-### TomTom Search API
+- [BatchResponse](https://apis.io/schemas/tomtom/tomtom-batchresponse/)
+- [FlowSegmentResponse](https://apis.io/schemas/tomtom/tomtom-flowsegmentresponse/)
+- [Incident](https://apis.io/schemas/tomtom/tomtom-incident/)
+- [IncidentDetailsResponse](https://apis.io/schemas/tomtom/tomtom-incidentdetailsresponse/)
+- [IncidentProperties](https://apis.io/schemas/tomtom/tomtom-incidentproperties/)
+- [LatLon](https://apis.io/schemas/tomtom/tomtom-latlon/)
+- [ReachableRangeResponse](https://apis.io/schemas/tomtom/tomtom-reachablerangeresponse/)
+- [TomTom Route](https://apis.io/schemas/tomtom/tomtom-route/)
+- [RouteLeg](https://apis.io/schemas/tomtom/tomtom-routeleg/)
+- [RouteResponse](https://apis.io/schemas/tomtom/tomtom-routeresponse/)
+- [RouteSummary](https://apis.io/schemas/tomtom/tomtom-routesummary/)
 
-The TomTom Search API provides fuzzy search for addresses, points of interest, and geographic features. Returns latitude/longitude coordinates, place details, and geometry data. Includes additional data retrieval, structured geocoding, and batch search capabilities.
+#### JSON Structure (2)
 
-- **Human URL:** [https://developer.tomtom.com/search-api/documentation/product-information/introduction](https://developer.tomtom.com/search-api/documentation/product-information/introduction)
-- **Base URL:** `https://api.tomtom.com`
+Data models expressed in JSON Structure.
 
-#### Tags
+- [Tomtom Route Structure](https://apis.io/json-structure/tomtom/tomtom-route-structure/)
+- [Tomtom Structure](https://apis.io/json-structure/tomtom/tomtom-structure/)
 
-- Search
-- Geocoding
-- Points of Interest
-- Location
+#### JSON-LD (1)
 
-#### Properties
+Linked-data contexts for the provider's vocabulary.
 
-- [Documentation](https://developer.tomtom.com/search-api/documentation/product-information/introduction)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/openapi/tomtom-search-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [A P I  Explorer](https://developer.tomtom.com/search-api/api-explorer)
-- [Postman Collection](collections/tomtom-maps.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-maps.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-routing.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-routing.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-search.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-search.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-traffic.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-traffic.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Tomtom Context](https://apis.io/jsonld/tomtom/tomtom-context/)
 
-### TomTom Routing API
+#### Vocabulary (1)
 
-The TomTom Routing API calculates routes between origins and destinations with support for up to 150 waypoints, real-time and historical traffic, vehicle type optimization, EV consumption models, reachable range calculation, and batch routing for multiple route requests.
+The provider's domain terms, defined.
 
-- **Human URL:** [https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction](https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction)
-- **Base URL:** `https://api.tomtom.com`
+- [TomTom Vocabulary](https://apis.io/vocabularies/tomtom/tomtom-vocabulary/)
 
-#### Tags
+#### Examples (2)
 
-- Routing
-- Navigation
-- Transportation
-- Electric Vehicle
+Example requests and responses.
 
-#### Properties
+- [Tomtom Calculate Route Example](https://apis.io/examples/tomtom/tomtom-calculate-route-example/)
+- [Tomtom Traffic Incidents Example](https://apis.io/examples/tomtom/tomtom-traffic-incidents-example/)
 
-- [Documentation](https://developer.tomtom.com/routing-api/documentation/tomtom-maps/product-information/introduction)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/openapi/tomtom-routing-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [A P I  Explorer](https://developer.tomtom.com/routing-api/api-explorer)
-- [Postman Collection](collections/tomtom-maps.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-maps.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-routing.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-routing.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-search.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-search.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-traffic.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-traffic.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Collections (19)
 
-### TomTom Traffic API
+Postman and Open Collection request collections.
 
-The TomTom Traffic API provides real-time traffic incidents and flow data. The Traffic Incidents service delivers accurate information about jams, accidents, and delays. The Traffic Flow service provides observed speeds and travel times updated every minute for key roads. Includes raster and vector tile formats.
+- [Maps Additional Data API](https://apis.io/collections/tomtom/open-tomtom-additional-data-api/)
+- [Maps Additional Data Batch Routing API](https://apis.io/collections/tomtom/open-tomtom-batch-routing-api/)
+- [Maps Additional Data Copyrights API](https://apis.io/collections/tomtom/open-tomtom-copyrights-api/)
+- [Maps Additional Data Filters API](https://apis.io/collections/tomtom/open-tomtom-filters-api/)
+- [Maps Additional Data Geocoding API](https://apis.io/collections/tomtom/open-tomtom-geocoding-api/)
+- [Maps](https://apis.io/collections/tomtom/open-tomtom-maps/)
+- [Maps Additional Data Raster API](https://apis.io/collections/tomtom/open-tomtom-raster-api/)
+- [Maps Additional Data Reachable Range API](https://apis.io/collections/tomtom/open-tomtom-reachable-range-api/)
+- [Maps Additional Data Reverse Geocoding API](https://apis.io/collections/tomtom/open-tomtom-reverse-geocoding-api/)
+- [TomTom Routing API](https://apis.io/collections/tomtom/open-tomtom-routing/)
+- [Maps Additional Data Routing API](https://apis.io/collections/tomtom/open-tomtom-routing-api/)
+- [Search](https://apis.io/collections/tomtom/open-tomtom-search/)
+- [Maps Additional Data Search API](https://apis.io/collections/tomtom/open-tomtom-search-api/)
+- [TomTom Traffic API](https://apis.io/collections/tomtom/open-tomtom-traffic/)
+- [Maps Additional Data Traffic Flow API](https://apis.io/collections/tomtom/open-tomtom-traffic-flow-api/)
+- [Maps Additional Data Traffic Incidents API](https://apis.io/collections/tomtom/open-tomtom-traffic-incidents-api/)
+- [Maps Additional Data Traffic Tiles API](https://apis.io/collections/tomtom/open-tomtom-traffic-tiles-api/)
+- [Maps Additional Data Vector API](https://apis.io/collections/tomtom/open-tomtom-vector-api/)
+- [Maps Additional Data WMS / WMTS API](https://apis.io/collections/tomtom/open-tomtom-wms-wmts-api/)
 
-- **Human URL:** [https://developer.tomtom.com/traffic-api/documentation/product-information/introduction](https://developer.tomtom.com/traffic-api/documentation/product-information/introduction)
-- **Base URL:** `https://api.tomtom.com`
+#### Governance rules (2)
 
-#### Tags
+Spectral rulesets for the provider's contracts.
 
-- Traffic
-- Incidents
-- Real-Time
-- Transportation
+- [TomTom — jsonschema rules](https://apis.io/rules/tomtom/tomtom-jsonschema-spectral-rules/)
+- [TomTom API Rules](https://apis.io/rules/tomtom/tomtom-rules/)
 
-#### Properties
+#### Security (3)
 
-- [Documentation](https://developer.tomtom.com/traffic-api/documentation/product-information/introduction)
-- [A P I  Explorer](https://developer.tomtom.com/traffic-api/api-explorer)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/openapi/tomtom-traffic-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Spectral Rules](https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/rules/tomtom-rules.yml)
-- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/tomtom/refs/heads/main/vocabulary/tomtom-vocabulary.yml)
-- [Postman Collection](collections/tomtom-maps.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-maps.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-routing.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-routing.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-search.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-search.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-traffic.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-traffic.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### TomTom Geocoding API
+- [Tomtom Authentication](https://apis.io/security/tomtom/tomtom-authentication/)
+- [Tomtom Domain Security](https://apis.io/security/tomtom/tomtom-domain-security/)
+- [Tomtom Vulnerability Disclosure](https://apis.io/security/tomtom/tomtom-vulnerability-disclosure/)
 
-The TomTom Geocoding API converts structured addresses into geographic coordinates and supports reverse geocoding to translate coordinates into human-readable addresses. The Premium Geocoding API adds parking and building entrance location data.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://developer.tomtom.com/geocoding-api/documentation/product-information/introduction](https://developer.tomtom.com/geocoding-api/documentation/product-information/introduction)
-- **Base URL:** `https://api.tomtom.com`
+Published plans, tiers and prices.
 
-#### Tags
+- [Tomtom Plans Pricing](https://apis.io/plans/tomtom/tomtom-plans-pricing/)
 
-- Geocoding
-- Location
-- Address
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://developer.tomtom.com/geocoding-api/documentation/product-information/introduction)
-- [A P I  Explorer](https://developer.tomtom.com/geocoding-api/api-explorer)
-- [Postman Collection](collections/tomtom-maps.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-maps.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-routing.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-routing.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-search.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-search.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-traffic.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-traffic.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Tomtom Rate Limits](https://apis.io/rate-limits/tomtom/tomtom-rate-limits/)
 
-### TomTom Fuel Prices API
+#### FinOps (1)
 
-The TomTom Fuel Prices API provides current fuel price information at specific fueling stations, including price by fuel type.
+What the API costs to run, by operation.
 
-- **Human URL:** [https://developer.tomtom.com/fuel-prices-api/documentation/tomtom-maps/product-information/introduction](https://developer.tomtom.com/fuel-prices-api/documentation/tomtom-maps/product-information/introduction)
-- **Base URL:** `https://api.tomtom.com`
+- [Tomtom Finops](https://apis.io/finops/tomtom/tomtom-finops/)
 
-#### Tags
+## Where to find this API
 
-- Fuel
-- Prices
-- Automotive
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Properties
-
-- [Documentation](https://developer.tomtom.com/fuel-prices-api/documentation/tomtom-maps/product-information/introduction)
-- [Postman Collection](collections/tomtom-maps.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-maps.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-routing.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-routing.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-search.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-search.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-traffic.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-traffic.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### TomTom Parking Availability API
-
-The TomTom Parking Availability API provides real-time availability status of parking sites and on-street parking, including pricing information.
-
-- **Human URL:** [https://developer.tomtom.com/parking-availability-api/documentation/tomtom-maps/product-information/introduction](https://developer.tomtom.com/parking-availability-api/documentation/tomtom-maps/product-information/introduction)
-- **Base URL:** `https://api.tomtom.com`
-
-#### Tags
-
-- Parking
-- Transportation
-- Real-Time
-
-#### Properties
-
-- [Documentation](https://developer.tomtom.com/parking-availability-api/documentation/tomtom-maps/product-information/introduction)
-- [Postman Collection](collections/tomtom-maps.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-maps.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-routing.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-routing.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-search.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-search.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-traffic.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-traffic.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### TomTom Geofencing API
-
-The TomTom Geofencing API enables creation and management of geofence boundaries, location history tracking, and notification delivery when assets enter or exit defined perimeters.
-
-- **Human URL:** [https://developer.tomtom.com/geofencing-api/documentation/product-information/introduction](https://developer.tomtom.com/geofencing-api/documentation/product-information/introduction)
-- **Base URL:** `https://api.tomtom.com`
-
-#### Tags
-
-- Geofencing
-- Location
-- Tracking
-- Notifications
-
-#### Properties
-
-- [Documentation](https://developer.tomtom.com/geofencing-api/documentation/product-information/introduction)
-- [Postman Collection](collections/tomtom-maps.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-maps.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-routing.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-routing.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-search.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-search.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-traffic.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-traffic.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### TomTom AutoStream API
-
-TomTom AutoStream is a map data delivery platform optimized for on-demand and over-the-air cloud-to-device and cloud-to-cloud data streaming for automotive applications.
-
-- **Human URL:** [https://developer.tomtom.com/autostream-sdk/documentation/product-information/introduction](https://developer.tomtom.com/autostream-sdk/documentation/product-information/introduction)
-- **Base URL:** `https://api.tomtom.com`
-
-#### Tags
-
-- Maps
-- Streaming
-- Automotive
-
-#### Properties
-
-- [Documentation](https://developer.tomtom.com/autostream-sdk/documentation/product-information/introduction)
-- [Postman Collection](collections/tomtom-maps.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-maps.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-routing.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-routing.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-search.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-search.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/tomtom-traffic.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tomtom-traffic.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/tomtom)
 - [Website](https://www.tomtom.com/)
-- [Developer  Portal](https://developer.tomtom.com/)
 - [Documentation](https://developer.tomtom.com/)
-- [Sign Up](https://developer.tomtom.com/)
-- [A P I  Explorer](https://developer.tomtom.com/api-explorer-index/documentation/product-information/introduction)
-- [M C P  Server](https://developer.tomtom.com/tomtom-mcp-server)
-- [Blog](https://developer.tomtom.com/blog)
-- [GitHub Organization](https://github.com/tomtom-international)
 - [Pricing](https://developer.tomtom.com/pricing)
-- [Terms of Service](https://developer.tomtom.com/terms-and-conditions)
-- [Features](undefined)
+- [Blog](https://developer.tomtom.com/blog)
+- [Terms of service](https://developer.tomtom.com/terms-and-conditions)
+- [GitHub](https://github.com/tomtom-international)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 42.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.3 |
+| Contract quality | 53.3 |
+| Contract governance | 27.3 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 32.1 |
+| Access clarity | 42.1 |
+
+**Agent readiness 36.1** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | — |
+
+**Regulatory alignment 26.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/tomtom/](https://apis.io/providers/tomtom/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for TomTom: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/tomtom/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
